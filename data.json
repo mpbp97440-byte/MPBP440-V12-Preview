@@ -2,54 +2,175 @@
   "artist": "Sparetdee Simon",
   "label": "M.P.B.P 440 Corp.2026",
   "email": "mpbp97440@gmail.com",
-  "youtubeEmbed": "https://www.youtube.com/embed?listType=search&list=Sparetdee%20Simon",
+  "socials": {
+    "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+    "YouTube": "https://www.youtube.com/@sparetdee440",
+    "TikTok": "https://www.tiktok.com/@simonsparet",
+    "Instagram": "https://www.instagram.com/sparetdee/",
+    "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+    "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+  },
   "featured": {
-    "title": "L'asticot Getga",
-    "year": "2026",
-    "description": "Banger joyeux et dansant, énergie solaire, hip-hop old school modernisé.",
+    "title": "Dernier Chapitre",
+    "status": "Prochaine sortie officielle",
+    "date": "À confirmer",
+    "description": "Un titre conscient et solaire, pensé comme une passerelle entre le vécu, l’espoir et le mouvement.",
+    "cover": "assets/covers/dans-lombre-des-puissant.jpg",
     "links": {
-      "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-      "Deezer": "https://www.deezer.com/fr/artist/385051171",
-      "Spotify": "",
-      "YouTube": ""
+      "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+      "YouTube": "https://www.youtube.com/@sparetdee440",
+      "TikTok": "https://www.tiktok.com/@simonsparet",
+      "Instagram": "https://www.instagram.com/sparetdee/",
+      "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+      "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
     }
   },
+  "upcoming": [
+    {
+      "title": "Dernier Chapitre",
+      "date": "À confirmer",
+      "description": "Prochaine sortie officielle annoncée."
+    },
+    {
+      "title": "Monde Alternatif",
+      "date": "À confirmer",
+      "description": "Sortie suivante dans l’univers M.P.B.P 440."
+    },
+    {
+      "title": "Autres créations",
+      "date": "À venir",
+      "description": "Dévoilées progressivement."
+    }
+  ],
   "tracks": [
     {
-      "title": "L'asticot Getga",
+      "title": "Dans l'ombre des puissant",
       "year": "2026",
-      "description": "Banger joyeux, dansant, hip-hop avec énergie solaire.",
+      "description": "Rap conscient, sombre et cinématique.",
+      "cover": "assets/covers/dans-lombre-des-puissant.jpg",
       "links": {
-        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-        "Deezer": "https://www.deezer.com/fr/artist/385051171"
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
     },
     {
       "title": "3 Minutes 35",
       "year": "2026",
-      "description": "Morceau calibré, tension narrative et DA futuriste.",
+      "description": "Tension narrative, horloge fissurée et DA noire/or.",
+      "cover": "assets/covers/3-minutes-35.jpg",
       "links": {
-        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-        "Deezer": "https://www.deezer.com/fr/artist/385051171"
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
     },
     {
       "title": "Prince Des Étoiles",
       "year": "2026",
-      "description": "Univers cosmique, steampunk futuriste, rap conscient.",
+      "description": "Univers cosmique, steampunk futuriste et signature Sparetdee Simon.",
+      "cover": "assets/covers/prince-des-etoiles.jpg",
       "links": {
-        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-        "Deezer": "https://www.deezer.com/fr/artist/385051171"
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
     },
     {
-      "title": "Dernier Chapitre",
+      "title": "Comme un pansement",
       "year": "2026",
-      "description": "Titre conscient, solaire et plus dansant.",
+      "description": "Réparation intérieure et vibe positive M.P.B.P 440.",
+      "cover": "assets/covers/comme-un-pansement.jpg",
       "links": {
-        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-        "Deezer": "https://www.deezer.com/fr/artist/385051171"
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
+    },
+    {
+      "title": "Fiainana Tsotra",
+      "year": "2026",
+      "description": "Pont visuel entre île, ville et mémoire.",
+      "cover": "assets/covers/fiainana-tsotra.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "Loin de mon île",
+      "year": "2026",
+      "description": "Réunion, exil, ville et nostalgie solaire.",
+      "cover": "assets/covers/loin-de-mon-ile.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "11 hivers et 11 étés",
+      "year": "2026",
+      "description": "Une histoire de saisons et d’attachement.",
+      "cover": "assets/covers/11-hivers-11-etes.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "Bouffe Ma Vie",
+      "year": "2026",
+      "description": "Vision sociale dure et humaine, entre survie et dignité.",
+      "cover": "assets/covers/bouffe-ma-vie.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "title": "Le Réseau Fantôme",
+      "youtubeId": "HKzweo2V-iw",
+      "url": "https://youtu.be/HKzweo2V-iw?si=OIKPZkUUF7Xar8Gf"
+    },
+    {
+      "title": "Climat sous contrôle Remix",
+      "youtubeId": "GiGwGXqL1DY",
+      "url": "https://youtu.be/GiGwGXqL1DY?si=CJ1MV4Z35Q3rqJTZ"
+    },
+    {
+      "title": "Prince Des étoiles",
+      "youtubeId": "EzsriXQY-04",
+      "url": "https://youtu.be/EzsriXQY-04?si=6Fxs_oRwtjjY5gI4"
     }
   ]
 }

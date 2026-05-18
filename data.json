@@ -6,21 +6,21 @@
     "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
     "YouTube": "https://www.youtube.com/@sparetdee440",
     "TikTok": "https://www.tiktok.com/@simonsparet",
-    "Instagram": "https://www.instagram.com/sparetdee/",
+    "Facebook": "https://www.facebook.com/Sparetdee.simon/",
     "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
     "title": "Dernier Chapitre",
-    "status": "Prochaine sortie officielle",
-    "date": "À venir",
-    "description": "Chaque mot laisse une trace, chaque son écrit l’histoire. Une sortie officielle M.P.B.P 440 Corp.2026.",
+    "status": "Prochaine sortie musicale",
+    "date": "Sortie officielle : 21/05/2026",
+    "description": "Une page se tourne, une autre commence. Le morceau le plus personnel, le plus vrai, le plus intense.",
     "cover": "assets/covers/dernier-chapitre.jpg",
     "links": {
       "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
       "YouTube": "https://www.youtube.com/@sparetdee440",
       "TikTok": "https://www.tiktok.com/@simonsparet",
-      "Instagram": "https://www.instagram.com/sparetdee/",
+      "Facebook": "https://www.facebook.com/Sparetdee.simon/",
       "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
       "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
     }
@@ -28,8 +28,8 @@
   "upcoming": [
     {
       "title": "Dernier Chapitre",
-      "date": "Prochaine sortie officielle",
-      "description": "Chaque mot laisse une trace.",
+      "date": "21/05/2026",
+      "description": "Une page se tourne. Une autre commence.",
       "cover": "assets/covers/dernier-chapitre.jpg"
     },
     {
@@ -48,14 +48,14 @@
   "tracks": [
     {
       "title": "Dernier Chapitre",
-      "year": "À venir",
-      "description": "Chaque mot laisse une trace, chaque son écrit l’histoire.",
+      "year": "21/05/2026",
+      "description": "Une page se tourne, une autre commence. Le morceau le plus personnel.",
       "cover": "assets/covers/dernier-chapitre.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -69,7 +69,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -83,7 +83,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -97,7 +97,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -111,7 +111,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -125,7 +125,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -139,7 +139,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -153,7 +153,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -167,7 +167,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }
@@ -181,7 +181,7 @@
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
         "TikTok": "https://www.tiktok.com/@simonsparet",
-        "Instagram": "https://www.instagram.com/sparetdee/",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
         "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
         "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
       }

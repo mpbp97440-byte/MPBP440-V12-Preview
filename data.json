@@ -48,7 +48,7 @@
   "tracks": [
     {
       "title": "Le Temps Où Cousin",
-      "year": "29/05/2026",
+      "year": "À venir",
       "description": "Réel jusqu’au bout, lumière jusqu’au bout. Nouveau single officiel.",
       "cover": "assets/covers/le-temps-ou-cousin.jpg",
       "links": {
@@ -62,7 +62,7 @@
     },
     {
       "title": "La Mista Gringa",
-      "year": "30/05/2026",
+      "year": "À venir",
       "description": "Même le ciel noir s’incline sous un halo combat. Nouveau single officiel.",
       "cover": "assets/covers/la-mista-gringa.jpg",
       "links": {
@@ -76,7 +76,7 @@
     },
     {
       "title": "Dernier Chapitre",
-      "year": "21/05/2026",
+      "year": "",
       "description": "Chaque mot laisse une trace, chaque son écrit l’histoire.",
       "cover": "assets/covers/dernier-chapitre.jpg",
       "links": {
@@ -90,7 +90,7 @@
     },
     {
       "title": "Monde Alternatif",
-      "year": "À venir",
+      "year": "",
       "description": "Une rencontre, un amour, deux mondes. Ambiance futuriste, intime et cinématique.",
       "cover": "assets/covers/monde-alternatif.jpg",
       "links": {
@@ -230,6 +230,11 @@
       "title": "Prince Des étoiles",
       "youtubeId": "EzsriXQY-04",
       "url": "https://youtu.be/EzsriXQY-04?si=6Fxs_oRwtjjY5gI4"
+    },
+    {
+      "title": "Fiainana Tsotra",
+      "youtubeId": "RV87WDHFjKE",
+      "url": "https://www.youtube.com/shorts/RV87WDHFjKE"
     }
   ]
 }

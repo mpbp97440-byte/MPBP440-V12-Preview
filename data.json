@@ -11,11 +11,11 @@
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
-    "title": "Le Temps Où Cousin",
+    "title": "La France Se Soulève",
     "status": "Prochaine sortie officielle",
-    "date": "Sortie officielle : 29/05/2026",
-    "description": "Nouveau single officiel signé Sparetdee Simon. Réel jusqu’au bout, lumière jusqu’au bout, disponible sur toutes les plateformes.",
-    "cover": "assets/covers/le-temps-ou-cousin.jpg",
+    "date": "Sortie officielle : 02/06/2026",
+    "description": "Nouveau single officiel signé Sparetdee Simon. Un seul peuple, une seule force, une seule France.",
+    "cover": "assets/covers/la-france-se-souleve.jpg",
     "links": {
       "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
       "YouTube": "https://www.youtube.com/@sparetdee440",
@@ -27,16 +27,16 @@
   },
   "upcoming": [
     {
-      "title": "Le Temps Où Cousin",
-      "date": "29/05/2026",
-      "description": "Prochaine sortie officielle sur toutes les plateformes.",
-      "cover": "assets/covers/le-temps-ou-cousin.jpg"
+      "title": "La France Se Soulève",
+      "date": "02/06/2026",
+      "description": "Sortie officielle sur toutes les plateformes.",
+      "cover": "assets/covers/la-france-se-souleve.jpg"
     },
     {
-      "title": "La Mista Gringa",
-      "date": "30/05/2026",
-      "description": "Prochaine sortie numéro 2, disponible sur toutes les plateformes.",
-      "cover": "assets/covers/la-mista-gringa.jpg"
+      "title": "Bizouzouzou Ours",
+      "date": "03/06/2026",
+      "description": "Sortie officielle sur toutes les plateformes. Good vibes only.",
+      "cover": "assets/covers/bizouzouzou-ours.jpg"
     },
     {
       "title": "Autres créations",
@@ -46,6 +46,48 @@
     }
   ],
   "tracks": [
+    {
+      "title": "L'Asticot Getga",
+      "year": "Disponible",
+      "description": "Nouveau morceau disponible sur toutes les plateformes.",
+      "cover": "assets/covers/lasticot-getga.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "La France Se Soulève",
+      "year": "À venir",
+      "description": "Sortie officielle le 02/06/2026 sur toutes les plateformes.",
+      "cover": "assets/covers/la-france-se-souleve.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "Bizouzouzou Ours",
+      "year": "À venir",
+      "description": "Sortie officielle le 03/06/2026 sur toutes les plateformes.",
+      "cover": "assets/covers/bizouzouzou-ours.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
     {
       "title": "Rien De Plus, Rien De Moins",
       "year": "Disponible",
@@ -160,8 +202,8 @@
     },
     {
       "title": "Le Temps Où Cousin",
-      "year": "À venir",
-      "description": "Réel jusqu’au bout, lumière jusqu’au bout. Nouveau single officiel.",
+      "year": "Disponible",
+      "description": "Réel jusqu’au bout, lumière jusqu’au bout.",
       "cover": "assets/covers/le-temps-ou-cousin.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
@@ -174,8 +216,8 @@
     },
     {
       "title": "La Mista Gringa",
-      "year": "À venir",
-      "description": "Même le ciel noir s’incline sous un halo combat. Nouveau single officiel.",
+      "year": "Disponible",
+      "description": "Même le ciel noir s’incline sous un halo combat.",
       "cover": "assets/covers/la-mista-gringa.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",

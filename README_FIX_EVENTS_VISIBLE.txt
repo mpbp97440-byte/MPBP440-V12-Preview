@@ -1,0 +1,1 @@
+Correction : la section Évènements est maintenant écrite directement dans index.html avant Morceaux & pochettes. Upload tout à la racine GitHub, Commit changes, puis CTRL+F5.

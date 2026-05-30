@@ -1,182 +1,172 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sparetdee Simon — Site officiel</title>
-  <meta name="description" content="Site officiel de Sparetdee Simon — M.P.B.P 440 Corp.2026. Sorties, clips, évènements, morceaux, liens streaming et livre d’or." />
-  <meta property="og:title" content="Sparetdee Simon — M.P.B.P 440 Corp.2026" />
-  <meta property="og:image" content="assets/logo/mpbp440-logo.jpg" />
-  <meta name="theme-color" content="#090606" />
-  <link rel="icon" href="assets/logo/mpbp440-logo.jpg" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparetdee Simon — Version 3.0 Artiste Premium</title>
+<meta name="description" content="Site officiel de Sparetdee Simon — M.P.B.P 440 Corp.2026. Musique, clips, événements, sorties et livre d’or.">
+<meta property="og:title" content="Sparetdee Simon — M.P.B.P 440 Corp.2026">
+<meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
+<meta name="theme-color" content="#050405">
+<link rel="icon" href="assets/logo/mpbp440-logo.jpg">
+<link rel="stylesheet" href="style.css?v=3.0-premium">
 </head>
 
 <body>
-  <div class="site-noise"></div>
-  <button id="topBtn" aria-label="Retour en haut">↑</button>
+<div class="noise"></div>
+<button id="topBtn" aria-label="Retour en haut">↑</button>
 
-  <header class="topbar">
-    <a class="brand" href="#home">
-      <img src="assets/logo/mpbp440-logo.jpg" alt="Logo M.P.B.P 440">
-      <span>M.P.B.P 440 Corp.2026</span>
-    </a>
-    <button class="menuBtn" id="menuBtn" aria-label="Menu">☰</button>
-    <nav class="navlinks" id="navlinks">
-      <a href="#featured">Sortie</a>
-      <a href="#upcoming">À venir</a>
-      <a href="#events">Évènements</a>
-      <a href="#music">Morceaux</a>
-      <a href="#videos">Clips</a>
-      <a href="#links">Liens</a>
-      <a href="#guestbook">Livre d’or</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header class="topbar">
+  <a class="brand" href="#home">
+    <img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440">
+    <span>M.P.B.P 440</span>
+  </a>
 
-  <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
+  <button class="menuBtn" id="menuBtn">☰</button>
 
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">974 • Côte d’Azur • Hip-hop old school futuriste</p>
-        <h1>Sparetdee<br><span>Simon</span></h1>
-        <p class="tagline">Rap conscient, groove solaire, plume de quartier et vision cosmique.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#featured">Sortie du moment</a>
-          <a class="btn" href="#events">Évènement live</a>
-          <a class="btn ghost" href="#videos">Voir les clips</a>
-        </div>
+  <nav id="navlinks">
+    <a href="#home">Accueil</a>
+    <a href="#featured">Sortie</a>
+    <a href="#upcoming">À venir</a>
+    <a href="#events">Évènements</a>
+    <a href="#music">Morceaux</a>
+    <a href="#videos">Clips</a>
+    <a href="#links">Liens</a>
+    <a href="#guestbook">Livre d’or</a>
+  </nav>
+</header>
+
+<section id="home" class="hero" style="--hero:url('assets/covers/la-france-se-souleve.jpg')">
+  <div class="heroDim"></div>
+  <div class="heroGrid">
+    <div class="heroCopy">
+      <p class="sup">Version 3.0 • Artiste Premium • 974 / Côte d’Azur</p>
+      <h1>Sparetdee<br><span>Simon</span></h1>
+      <p class="tagline">Rap conscient, groove solaire, plume de quartier et vision cosmique.</p>
+
+      <div class="heroButtons">
+        <a class="btn primary" href="#featured">Sortie officielle</a>
+        <a class="btn live" href="#events">Évènement live</a>
+        <a class="btn" href="#videos">Voir les clips</a>
       </div>
 
-      <aside class="hero-card">
-        <img src="assets/artist/sparetdee-avatar.jpg" alt="Sparetdee Simon">
-        <div class="hero-card-badge">
-          <img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440">
-        </div>
-      </aside>
+      <div class="statsStrip">
+        <div><strong>974</strong><span>Racines</span></div>
+        <div><strong>M.P.B.P</strong><span>Label</span></div>
+        <div><strong>2026</strong><span>Saison officielle</span></div>
+      </div>
     </div>
-  </section>
 
-  <main>
-    <section class="intro-grid">
-      <article class="glass bio-card">
-        <img src="assets/artist/sparetdee-photo-reelle.jpg" alt="Photo Sparetdee Simon">
-        <div>
-          <p class="eyebrow">Identité artistique</p>
-          <h2>Bio officielle</h2>
-          <p><strong>Sparetdee Simon</strong>, artiste hip-hop indépendant lié à La Réunion et au sud de la France, construit un univers entre rap old school, poésie urbaine, groove solaire et esthétique sombre/or futuriste.</p>
-          <p><strong>M.P.B.P 440 Corp.2026</strong> porte sa direction : racines 974, conscience, humour, clips, pochettes, métaphores et énergie de terrain.</p>
-        </div>
-      </article>
-    </section>
+    <aside class="premiumCard">
+      <img src="assets/artist/sparetdee-avatar.jpg" alt="Sparetdee Simon">
+      <div class="premiumBadge">
+        <img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440">
+      </div>
+    </aside>
+  </div>
+</section>
 
-    <section id="featured" class="section-block">
-      <div class="section-title">
-        <p>Focus officiel</p>
-        <h2>Sortie du moment</h2>
-      </div>
-      <div id="featuredCard" class="featured-card glass"></div>
-    </section>
+<main>
+<section id="bio" class="bioPanel panel">
+  <img src="assets/artist/sparetdee-photo-reelle.jpg" alt="Sparetdee Simon">
+  <div>
+    <p class="sup">Identité artistique</p>
+    <h2>Bio officielle</h2>
+    <p><strong>Sparetdee Simon</strong> développe un univers musical entre rap conscient, poésie urbaine, esthétique noir/or, énergie réunionnaise, humour, futurisme et messages humains.</p>
+    <p><strong>M.P.B.P 440 Corp.2026</strong> réunit musique, passion, but, progress, clips, pochettes, évènements et communauté.</p>
+  </div>
+</section>
 
-    <section id="upcoming" class="section-block">
-      <div class="section-title">
-        <p>Calendrier</p>
-        <h2>Sorties à venir</h2>
-      </div>
-      <div id="upcomingGrid" class="timeline"></div>
-    </section>
+<section class="countdownPanel panel">
+  <div>
+    <p class="sup" id="countdownLabel">Compte à rebours</p>
+    <h2 id="countdownTitle">Prochaine sortie</h2>
+  </div>
+  <div class="countdown" id="countdown">
+    <div><strong id="days">--</strong><span>jours</span></div>
+    <div><strong id="hours">--</strong><span>heures</span></div>
+    <div><strong id="minutes">--</strong><span>minutes</span></div>
+    <div><strong id="seconds">--</strong><span>secondes</span></div>
+  </div>
+</section>
 
-    <section id="events" class="section-block">
-      <div class="section-title">
-        <p>Agenda officiel</p>
-        <h2>Évènements</h2>
-      </div>
-      <div id="eventsGrid" class="events-grid"></div>
-    </section>
+<section id="featured" class="section">
+  <div class="title"><p>Focus officiel</p><h2>Sortie du moment</h2></div>
+  <div id="featuredCard" class="feature panel"></div>
+</section>
 
-    <section id="music" class="section-block">
-      <div class="section-title">
-        <p>Catalogue</p>
-        <h2>Morceaux & pochettes</h2>
-      </div>
-      <div id="tracks" class="cards"></div>
-    </section>
+<section id="upcoming" class="section">
+  <div class="title"><p>Calendrier</p><h2>Sorties à venir</h2></div>
+  <div id="upcomingGrid" class="grid"></div>
+</section>
 
-    <section id="videos" class="section-block glass media-center">
-      <div class="media-copy">
-        <p class="eyebrow">Clips intégrés</p>
-        <h2>Vidéos YouTube</h2>
-        <p>Visionez ici les meilleures vidéos qui sont également disponibles sur ma chaîne officielle YouTube.</p>
-        <a class="btn primary" href="https://www.youtube.com/@sparetdee440" target="_blank">Voir la chaîne officielle</a>
-      </div>
-      <div id="videoList" class="video-list"></div>
-    </section>
+<section id="events" class="section">
+  <div class="title"><p>Agenda officiel</p><h2>Évènements</h2></div>
+  <div id="eventsGrid" class="events"></div>
+</section>
 
-    <section id="links" class="section-block">
-      <div class="section-title">
-        <p>Streaming & réseaux</p>
-        <h2>Liens officiels</h2>
-      </div>
-      <div id="officialLinks" class="link-grid"></div>
-    </section>
+<section id="music" class="section">
+  <div class="title"><p>Catalogue officiel</p><h2>Morceaux & pochettes</h2></div>
+  <div class="filters">
+    <input id="searchInput" type="search" placeholder="Rechercher un titre...">
+  </div>
+  <div id="tracks" class="cards"></div>
+</section>
 
-    <section id="qr" class="section-block">
-      <div class="section-title">
-        <p>Scan direct</p>
-        <h2>QR codes</h2>
-      </div>
-      <div class="qr-grid">
-        <article class="qr-card glass"><img src="assets/qr/qr-spotify.png" alt="QR Spotify"><h3>Spotify</h3></article>
-        <article class="qr-card glass"><img src="assets/qr/qr-youtube.png" alt="QR YouTube"><h3>YouTube</h3></article>
-        <article class="qr-card glass"><img src="assets/qr/qr-facebook.png" alt="QR Facebook"><h3>Facebook</h3></article>
-        <article class="qr-card glass"><img src="assets/qr/qr-deezer.png" alt="QR Deezer"><h3>Deezer</h3></article>
-        <article class="qr-card glass"><img src="assets/qr/qr-apple-music.png" alt="QR Apple Music"><h3>Apple Music</h3></article>
-      </div>
-    </section>
+<section id="videos" class="section panel videoPanel">
+  <div>
+    <p class="sup">Clips intégrés</p>
+    <h2>Vidéos YouTube</h2>
+    <p>Visionez ici les meilleures vidéos également disponibles sur la chaîne officielle YouTube.</p>
+    <a class="btn primary" href="https://www.youtube.com/@sparetdee440" target="_blank">Chaîne officielle</a>
+  </div>
+  <div id="videoList" class="videoList"></div>
+</section>
 
-    <section id="guestbook" class="section-block glass guestbook">
-      <div class="section-title">
-        <p>Interaction</p>
-        <h2>Livre d’or M.P.B.P 440</h2>
-      </div>
-      <p>Laisse une force, un avis sur un morceau, une dédicace ou un message pour soutenir l’univers Sparetdee Simon.</p>
-      <div class="guestbook-box">
-        <script src="https://giscus.app/client.js"
-          data-repo="mpbp97440-byte/Sparetdee-Simon-site"
-          data-repo-id="R_kgDOSgNvpw"
-          data-category="General"
-          data-category-id="DIC_kwDOSgNvp84C9VW-"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="fr"
-          crossorigin="anonymous"
-          async>
-        </script>
-      </div>
-    </section>
+<section id="links" class="section">
+  <div class="title"><p>Streaming & réseaux</p><h2>Liens officiels</h2></div>
+  <div id="officialLinks" class="links"></div>
+</section>
 
-    <section id="contact" class="section-block contact">
-      <div class="section-title">
-        <p>Booking / Promo</p>
-        <h2>Contact</h2>
-      </div>
-      <div class="glass contact-box">
-        <p>Collaboration, clip, remix, booking, presse ou projet M.P.B.P 440 :</p>
-        <a class="btn primary" href="mailto:mpbp97440@gmail.com">mpbp97440@gmail.com</a>
-      </div>
-    </section>
-  </main>
+<section id="guestbook" class="section panel guestbook">
+  <div class="title">
+    <p>Interaction</p>
+    <h2>Livre d’or M.P.B.P 440</h2>
+  </div>
+  <p>Laisse une force, un avis sur un morceau, une dédicace ou un message pour soutenir l’univers Sparetdee Simon.</p>
+  <div class="guestbook-box">
+    <script src="https://giscus.app/client.js"
+      data-repo="mpbp97440-byte/Sparetdee-Simon-site"
+      data-repo-id="R_kgDOSgNvpw"
+      data-category="General"
+      data-category-id="DIC_kwDOSgNvp84C9VW-"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="fr"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</section>
 
-  <footer>
-    <p>© <span id="year"></span> Sparetdee Simon — M.P.B.P 440 Corp.2026</p>
-  </footer>
+<section id="contact" class="section panel contact">
+  <div>
+    <p class="sup">Booking / Promo</p>
+    <h2>Contact</h2>
+    <p>Collaboration, clip, remix, booking, presse ou projet M.P.B.P 440.</p>
+  </div>
+  <a class="btn primary" href="mailto:mpbp97440@gmail.com">mpbp97440@gmail.com</a>
+</section>
+</main>
 
-  <script src="script.js"></script>
+<footer>
+  <p>© 2026 Sparetdee Simon — M.P.B.P 440 Corp.2026</p>
+</footer>
+
+<script src="script.js?v=3.0-premium"></script>
 </body>
 </html>

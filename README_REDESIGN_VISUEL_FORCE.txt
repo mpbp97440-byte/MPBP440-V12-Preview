@@ -1,0 +1,1 @@
+Version redesign visuel forcée. Upload tout le contenu du ZIP décompressé à la racine GitHub, Commit changes, puis CTRL+F5.

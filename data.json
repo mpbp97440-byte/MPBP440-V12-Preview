@@ -372,5 +372,17 @@
       "youtubeId": "zHx-OHSAKcs",
       "url": "https://www.youtube.com/watch?v=zHx-OHSAKcs"
     }
+  ],
+  "events": [
+    {
+      "title": "Live TikTok — Double Sortie Officielle",
+      "date": "02/06/2026",
+      "time": "23h30",
+      "place": "TikTok — compte officiel Sparetdee Simon",
+      "description": "Soirée live TikTok pour la double sortie officielle des titres « La France Se Soulève » et « Bizouzouzou Ours ».",
+      "cover": "assets/events/live-tiktok-double-sortie-02062026.jpg",
+      "buttonText": "Ouvrir TikTok",
+      "url": "https://www.tiktok.com/@simonsparet"
+    }
   ]
 }

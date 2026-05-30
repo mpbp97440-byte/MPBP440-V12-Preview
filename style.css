@@ -121,3 +121,103 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
   .bioPanel{margin-top:-22px}
   .statsStrip,.countdown{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* V3.1 PREMIUM GALERIE */
+.hero{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.90),rgba(0,0,0,.42),rgba(0,0,0,.84)),
+    var(--hero) center/cover no-repeat;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 35%,rgba(39,255,137,.14),transparent 25%),
+    radial-gradient(circle at 72% 45%,rgba(212,175,55,.22),transparent 34%),
+    linear-gradient(180deg,transparent 58%,#050405 100%);
+  z-index:0;
+}
+
+.heroGrid{z-index:2;}
+
+.signatureStrip{
+  display:grid;
+  grid-template-columns:1fr minmax(220px,340px);
+  gap:28px;
+  align-items:center;
+  margin:64px 0 0;
+}
+
+.signatureStrip img{
+  width:100%;
+  border-radius:24px;
+  border:1px solid var(--border);
+  box-shadow:0 0 35px rgba(0,0,0,.45);
+}
+
+.galleryGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.galleryCard{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid var(--border);
+  background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  box-shadow:0 0 34px rgba(0,0,0,.25);
+}
+
+.galleryCard img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  transition:.35s ease;
+}
+
+.galleryCard:hover img{transform:scale(1.045);}
+
+.galleryInfo{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:22px;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.92));
+}
+
+.galleryInfo h3{
+  font-family:Bebas Neue,Impact,sans-serif;
+  color:#fff1bd;
+  font-size:36px;
+  line-height:1;
+  margin:0 0 8px;
+  letter-spacing:1px;
+}
+
+.galleryInfo p{
+  margin:0;
+  color:#eadfca;
+  font-size:13px;
+}
+
+.bioPanel{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035)),
+    radial-gradient(circle at 80% 10%,rgba(212,175,55,.16),transparent 35%);
+}
+
+.bioPanel img{
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+
+@media(max-width:900px){
+  .signatureStrip{grid-template-columns:1fr;}
+}

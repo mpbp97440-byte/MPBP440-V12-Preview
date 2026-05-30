@@ -38,6 +38,21 @@ async function loadData(){
   document.getElementById("videoList").innerHTML=(data.videos||[]).map(v=>`
     <div><div class="video-frame"><iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allowfullscreen></iframe></div><div class="platforms"><a href="${v.url}" target="_blank" rel="noopener">${v.title}</a></div></div>`).join("");
 
+  
+  const galleryGrid = document.getElementById("galleryGrid");
+  if (galleryGrid && data.gallery) {
+    galleryGrid.innerHTML = data.gallery.map(item => `
+      <article class="galleryCard">
+        <img src="${item.image}" alt="${item.title}">
+        <div class="galleryInfo">
+          <h3>${item.title}</h3>
+          <p>${item.description || ""}</p>
+        </div>
+      </article>
+    `).join("");
+  }
+
+
   document.getElementById("officialLinks").innerHTML=Object.entries(data.socials||{}).map(([n,u])=>`<a class="link-card" href="${u}" target="_blank" rel="noopener">${n}</a>`).join("");
 
   document.getElementById("searchInput")?.addEventListener("input", e => {

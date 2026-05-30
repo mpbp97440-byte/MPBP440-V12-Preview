@@ -386,15 +386,33 @@
     }
   ],
   "site": {
-    "version": "3.0 Artiste Premium",
+    "version": "3.1 Artiste Premium Galerie",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",
-    "email": "mpbp97440@gmail.com"
+    "email": "mpbp97440@gmail.com",
+    "heroGallery": "assets/gallery/neuvieme-merveille.jpg"
   },
   "countdown": {
     "title": "La France Se Soulève",
     "date": "2026-06-02T00:00:00+02:00",
     "label": "Compte à rebours prochaine sortie"
-  }
+  },
+  "gallery": [
+    {
+      "title": "Sparetdee Simon — réflexion",
+      "image": "assets/gallery/sparetdee-reflexion.jpg",
+      "description": "Visuel officiel de l’univers Sparetdee Simon / M.P.B.P 440."
+    },
+    {
+      "title": "Tarot Sparetdee — l’artisan du verbe",
+      "image": "assets/gallery/tarot-sparetdee.jpg",
+      "description": "Visuel officiel de l’univers Sparetdee Simon / M.P.B.P 440."
+    },
+    {
+      "title": "Neuvième merveille du monde",
+      "image": "assets/gallery/neuvieme-merveille.jpg",
+      "description": "Visuel officiel de l’univers Sparetdee Simon / M.P.B.P 440."
+    }
+  ]
 }

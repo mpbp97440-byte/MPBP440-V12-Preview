@@ -9,7 +9,7 @@
 <meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
 <meta name="theme-color" content="#050405">
 <link rel="icon" href="assets/logo/mpbp440-logo.jpg">
-<link rel="stylesheet" href="style.css?v=3.2-premium-label">
+<link rel="stylesheet" href="style.css?v=3.2.1-label-distinct">
 </head>
 
 <body>
@@ -64,20 +64,52 @@
 
 <main>
 
+
 <section id="label" class="section labelSection">
   <div class="title">
     <p>Label officiel</p>
     <h2>M.P.B.P 440 Corp.2026</h2>
   </div>
+
   <div class="labelIntro panel">
     <div>
       <p class="sup">Music • Passion • But • Progress</p>
-      <h3>Une maison créative indépendante</h3>
-      <p>MPBP 440 porte un univers où chaque artiste garde sa vérité, son image et son message. Le label rassemble des voix humaines, des visuels forts, des sorties officielles et une communauté autour de la musique.</p>
+      <h3>Deux univers, une même maison créative</h3>
+      <p>MPBP 440 rassemble des artistes sincères, humains et visuellement forts. Chaque projet garde son identité : Sparetdee Simon comme artiste principal et fondateur, Juste Une Plume comme nouvelle artiste du label.</p>
     </div>
     <img src="assets/logo/mpbp440-logo.jpg" alt="Logo MPBP 440">
   </div>
-  <div id="labelArtists" class="artistGrid"></div>
+
+  <div class="artistSplitGrid">
+    <article id="artiste-sparetdee-simon" class="artistProfileCard sparetdeeProfile">
+      <img src="assets/artist/sparetdee-avatar.jpg" alt="Sparetdee Simon">
+      <div class="artistProfileBody">
+        <span class="artistStatus">Artiste principal • Fondateur</span>
+        <h3>Sparetdee Simon</h3>
+        <p class="sup">Rap conscient • 974 • Côte d’Azur • MPBP 440</p>
+        <p>Rap conscient, groove solaire, plume de quartier, vision cosmique et esthétique noir-or futuriste. Sparetdee Simon porte la direction artistique du label M.P.B.P 440 Corp.2026.</p>
+        <a class="btn primary" href="#music">Voir ses morceaux</a>
+      </div>
+    </article>
+
+    <article id="artiste-juste-une-plume" class="artistProfileCard plumeProfile">
+      <img src="assets/artist/juste-une-plume-profile.jpg" alt="Juste Une Plume">
+      <div class="artistProfileBody">
+        <span class="artistStatus">Nouvelle artiste MPBP 440</span>
+        <h3>Juste Une Plume</h3>
+        <p class="sup">Espoir • Sensibilité • Humanité</p>
+        <p>Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et la bienveillance. À travers ses textes, elle pose un regard sincère sur notre société actuelle, entre mélancolie, résilience et gouttes de lumière. Sa musique s’appuie sur son vécu personnel et sa vision de la vie pour transmettre un message d’amour, de solidarité et d’humanité. Chaque morceau devient une invitation à croire en un avenir meilleur, à préserver ce qui nous rassemble et à laisser parler la plume quand les mots peuvent encore réparer.</p>
+        <div class="miniRelease">
+          <img src="assets/covers/je-sais-juste-une-plume.jpg" alt="Je Sais">
+          <div>
+            <strong>Je Sais</strong>
+            <span>Sortie officielle le 16/06/2026 sur toutes les plateformes.</span>
+          </div>
+        </div>
+        <a class="btn primary" href="#events">Voir la sortie</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section class="countdownPanel panel">
@@ -105,6 +137,18 @@
 
 <section id="events" class="section">
   <div class="title"><p>Agenda officiel</p><h2>Évènements</h2></div>
+  
+  <article class="event-card panel staticEvent">
+    <img src="assets/events/je-sais-sortie-officielle.jpg" alt="Juste Une Plume - Je Sais">
+    <div>
+      <p class="sup">16/06/2026 • Sortie officielle</p>
+      <h3>Juste Une Plume — Je Sais</h3>
+      <p><strong>Toutes les plateformes</strong></p>
+      <p>Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.</p>
+      <a class="btn primary" href="#artiste-juste-une-plume">Voir la fiche artiste</a>
+    </div>
+  </article>
+
   <div id="eventsGrid" class="events"></div>
 </section>
 
@@ -169,6 +213,6 @@
 
 <footer><p>© 2026 MPBP 440 Corp.2026 — Sparetdee Simon / Juste Une Plume</p></footer>
 
-<script src="script.js?v=3.2-premium-label"></script>
+<script src="script.js?v=3.2.1-label-distinct"></script>
 </body>
 </html>

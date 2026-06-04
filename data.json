@@ -1,6 +1,10 @@
 {
   "artist": "Sparetdee Simon",
-  "label": "M.P.B.P 440 Corp.2026",
+  "label": {
+    "name": "M.P.B.P 440 Corp.2026",
+    "claim": "Music • Passion • But • Progress",
+    "description": "Un label indépendant construit autour de la musique, du message, de l’image et de la transmission. MPBP 440 réunit des univers sincères, humains et créatifs."
+  },
   "email": "mpbp97440@gmail.com",
   "socials": {
     "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
@@ -27,6 +31,13 @@
   },
   "upcoming": [
     {
+      "title": "Je Sais",
+      "artist": "Juste Une Plume",
+      "date": "16/06/2026",
+      "description": "Premier titre officiel de Juste Une Plume — sortie sur toutes les plateformes.",
+      "cover": "assets/covers/je-sais-juste-une-plume.jpg"
+    },
+    {
       "title": "La France Se Soulève",
       "date": "02/06/2026",
       "description": "Sortie officielle sur toutes les plateformes.",
@@ -47,6 +58,14 @@
   ],
   "tracks": [
     {
+      "title": "Je Sais",
+      "artist": "Juste Une Plume",
+      "year": "À venir • 16/06/2026",
+      "description": "Premier single officiel de Juste Une Plume, entre sensibilité, espoir et regard humain.",
+      "cover": "assets/covers/je-sais-juste-une-plume.jpg",
+      "links": {}
+    },
+    {
       "title": "L'Asticot Getga",
       "year": "Disponible",
       "description": "Nouveau morceau disponible sur toutes les plateformes.",
@@ -62,7 +81,7 @@
     },
     {
       "title": "La France Se Soulève",
-      "year": "À venir",
+      "year": "Disponible",
       "description": "Sortie officielle le 02/06/2026 sur toutes les plateformes.",
       "cover": "assets/covers/la-france-se-souleve.jpg",
       "links": {
@@ -76,7 +95,7 @@
     },
     {
       "title": "Bizouzouzou Ours",
-      "year": "À venir",
+      "year": "Disponible",
       "description": "Sortie officielle le 03/06/2026 sur toutes les plateformes.",
       "cover": "assets/covers/bizouzouzou-ours.jpg",
       "links": {
@@ -375,6 +394,16 @@
   ],
   "events": [
     {
+      "title": "Juste Une Plume — Je Sais",
+      "date": "16/06/2026",
+      "time": "Sortie officielle",
+      "place": "Toutes les plateformes",
+      "description": "Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.",
+      "cover": "assets/events/je-sais-sortie-officielle.jpg",
+      "buttonText": "Voir la fiche artiste",
+      "url": "#artiste-juste-une-plume"
+    },
+    {
       "title": "Live TikTok — Double Sortie Officielle",
       "date": "02/06/2026",
       "time": "23h30",
@@ -386,7 +415,7 @@
     }
   ],
   "site": {
-    "version": "3.1 Artiste Premium Galerie",
+    "version": "3.2 Premium Label",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",
@@ -394,9 +423,9 @@
     "heroGallery": "assets/gallery/neuvieme-merveille.jpg"
   },
   "countdown": {
-    "title": "La France Se Soulève",
-    "date": "2026-06-02T00:00:00+02:00",
-    "label": "Compte à rebours prochaine sortie"
+    "title": "Je Sais — Juste Une Plume",
+    "date": "2026-06-16T00:00:00+02:00",
+    "label": "Compte à rebours prochaine sortie MPBP 440"
   },
   "gallery": [
     {
@@ -413,6 +442,30 @@
       "title": "Neuvième merveille du monde",
       "image": "assets/gallery/neuvieme-merveille.jpg",
       "description": "Visuel officiel de l’univers Sparetdee Simon / M.P.B.P 440."
+    }
+  ],
+  "label_artists": [
+    {
+      "name": "Sparetdee Simon",
+      "role": "Artiste principal • Fondateur MPBP 440",
+      "bio": "Rap conscient, groove solaire, plume de quartier, vision cosmique et esthétique noir-or futuriste. Sparetdee Simon porte la direction artistique du label M.P.B.P 440 Corp.2026.",
+      "photo": "assets/artist/sparetdee-avatar.jpg",
+      "status": "Artiste principal"
+    },
+    {
+      "name": "Juste Une Plume",
+      "role": "Nouvelle artiste MPBP 440",
+      "bio": "Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et la bienveillance. À travers ses textes, elle pose un regard sincère sur notre société actuelle, entre mélancolie, résilience et gouttes de lumière. Sa musique s’appuie sur son vécu personnel et sa vision de la vie pour transmettre un message d’amour, de solidarité et d’humanité. Chaque morceau devient une invitation à croire en un avenir meilleur, à préserver ce qui nous rassemble et à laisser parler la plume quand les mots peuvent encore réparer.",
+      "photo": "assets/artist/juste-une-plume-profile.jpg",
+      "status": "Premier single : Je Sais — 16/06/2026",
+      "upcoming": [
+        {
+          "title": "Je Sais",
+          "date": "16/06/2026",
+          "description": "Premier titre officiel de Juste Une Plume, disponible sur toutes les plateformes.",
+          "cover": "assets/covers/je-sais-juste-une-plume.jpg"
+        }
+      ]
     }
   ]
 }

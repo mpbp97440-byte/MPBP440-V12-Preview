@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sparetdee Simon — Version 3.0 Artiste Premium</title>
-<meta name="description" content="Site officiel de Sparetdee Simon — M.P.B.P 440 Corp.2026. Musique, clips, événements, sorties et livre d’or.">
-<meta property="og:title" content="Sparetdee Simon — M.P.B.P 440 Corp.2026">
+<title>MPBP 440 — Sparetdee Simon & Juste Une Plume</title>
+<meta name="description" content="Site officiel MPBP 440 Corp.2026 — Sparetdee Simon, Juste Une Plume, sorties, clips, évènements, morceaux et livre d’or.">
+<meta property="og:title" content="MPBP 440 Corp.2026 — Site officiel">
 <meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
 <meta name="theme-color" content="#050405">
 <link rel="icon" href="assets/logo/mpbp440-logo.jpg">
-<link rel="stylesheet" href="style.css?v=3.0-premium">
+<link rel="stylesheet" href="style.css?v=3.2-premium-label">
 </head>
 
 <body>
@@ -21,11 +21,10 @@
     <img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440">
     <span>M.P.B.P 440</span>
   </a>
-
   <button class="menuBtn" id="menuBtn">☰</button>
-
   <nav id="navlinks">
     <a href="#home">Accueil</a>
+    <a href="#label">Label</a>
     <a href="#featured">Sortie</a>
     <a href="#upcoming">À venir</a>
     <a href="#events">Évènements</a>
@@ -41,41 +40,44 @@
   <div class="heroDim"></div>
   <div class="heroGrid">
     <div class="heroCopy">
-      <p class="sup">Version 3.0 • Artiste Premium • 974 / Côte d’Azur</p>
-      <h1>Sparetdee<br><span>Simon</span></h1>
-      <p class="tagline">Rap conscient, groove solaire, plume de quartier et vision cosmique.</p>
-
+      <p class="sup">Version 3.2 • Premium Label • Multi-artistes</p>
+      <h1>MPBP 440<br><span>Corp.2026</span></h1>
+      <p class="tagline">Sparetdee Simon présente l’univers officiel du label : musique, passion, but, progrès, image et transmission.</p>
       <div class="heroButtons">
-        <a class="btn primary" href="#featured">Sortie officielle</a>
-        <a class="btn live" href="#events">Évènement live</a>
-        <a class="btn" href="#videos">Voir les clips</a>
+        <a class="btn primary" href="#label">Voir les artistes</a>
+        <a class="btn live" href="#events">Évènements</a>
+        <a class="btn" href="#music">Catalogue</a>
       </div>
-
       <div class="statsStrip">
+        <div><strong>2</strong><span>Artistes label</span></div>
         <div><strong>974</strong><span>Racines</span></div>
-        <div><strong>M.P.B.P</strong><span>Label</span></div>
         <div><strong>2026</strong><span>Saison officielle</span></div>
       </div>
     </div>
 
     <aside class="premiumCard">
-      <img src="assets/artist/sparetdee-avatar.jpg" alt="Sparetdee Simon">
-      <div class="premiumBadge">
-        <img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440">
-      </div>
+      <img src="assets/artist/juste-une-plume-profile.jpg" alt="Juste Une Plume">
+      <div class="premiumBadge"><img src="assets/logo/mpbp440-logo.jpg" alt="M.P.B.P 440"></div>
     </aside>
   </div>
 </section>
 
 <main>
-<section id="bio" class="bioPanel panel">
-  <img src="assets/artist/sparetdee-bio-premium.jpg" alt="Sparetdee Simon">
-  <div>
-    <p class="sup">Identité artistique</p>
-    <h2>Bio officielle</h2>
-    <p><strong>Sparetdee Simon</strong> développe un univers musical entre rap conscient, poésie urbaine, esthétique noir/or, énergie réunionnaise, humour, futurisme et messages humains.</p>
-    <p><strong>M.P.B.P 440 Corp.2026</strong> réunit musique, passion, but, progress, clips, pochettes, évènements et communauté.</p>
+
+<section id="label" class="section labelSection">
+  <div class="title">
+    <p>Label officiel</p>
+    <h2>M.P.B.P 440 Corp.2026</h2>
   </div>
+  <div class="labelIntro panel">
+    <div>
+      <p class="sup">Music • Passion • But • Progress</p>
+      <h3>Une maison créative indépendante</h3>
+      <p>MPBP 440 porte un univers où chaque artiste garde sa vérité, son image et son message. Le label rassemble des voix humaines, des visuels forts, des sorties officielles et une communauté autour de la musique.</p>
+    </div>
+    <img src="assets/logo/mpbp440-logo.jpg" alt="Logo MPBP 440">
+  </div>
+  <div id="labelArtists" class="artistGrid"></div>
 </section>
 
 <section class="countdownPanel panel">
@@ -89,16 +91,6 @@
     <div><strong id="minutes">--</strong><span>minutes</span></div>
     <div><strong id="seconds">--</strong><span>secondes</span></div>
   </div>
-</section>
-
-
-<section class="signatureStrip panel">
-  <div>
-    <p class="sup">Signature visuelle</p>
-    <h2>De rien, tout est possible.</h2>
-    <p>Une direction artistique entre croquis vivant, tarot urbain, monument personnel et futur noir-or M.P.B.P 440.</p>
-  </div>
-  <img src="assets/gallery/tarot-sparetdee.jpg" alt="Tarot Sparetdee">
 </section>
 
 <section id="featured" class="section">
@@ -118,9 +110,7 @@
 
 <section id="music" class="section">
   <div class="title"><p>Catalogue officiel</p><h2>Morceaux & pochettes</h2></div>
-  <div class="filters">
-    <input id="searchInput" type="search" placeholder="Rechercher un titre...">
-  </div>
+  <div class="filters"><input id="searchInput" type="search" placeholder="Rechercher un titre ou un artiste..."></div>
   <div id="tracks" class="cards"></div>
 </section>
 
@@ -134,23 +124,19 @@
   <div id="videoList" class="videoList"></div>
 </section>
 
-<section id="links" class="section">
-  <div class="title"><p>Streaming & réseaux</p><h2>Liens officiels</h2></div>
-  <div id="officialLinks" class="links"></div>
-</section>
-
-
 <section id="gallery" class="section">
   <div class="title"><p>Univers visuel</p><h2>Galerie officielle</h2></div>
   <div id="galleryGrid" class="galleryGrid"></div>
 </section>
 
+<section id="links" class="section">
+  <div class="title"><p>Streaming & réseaux</p><h2>Liens officiels</h2></div>
+  <div id="officialLinks" class="links"></div>
+</section>
+
 <section id="guestbook" class="section panel guestbook">
-  <div class="title">
-    <p>Interaction</p>
-    <h2>Livre d’or M.P.B.P 440</h2>
-  </div>
-  <p>Laisse une force, un avis sur un morceau, une dédicace ou un message pour soutenir l’univers Sparetdee Simon.</p>
+  <div class="title"><p>Interaction</p><h2>Livre d’or M.P.B.P 440</h2></div>
+  <p>Laisse une force, un avis sur un morceau, une dédicace ou un message pour soutenir l’univers MPBP 440.</p>
   <div class="guestbook-box">
     <script src="https://giscus.app/client.js"
       data-repo="mpbp97440-byte/Sparetdee-Simon-site"
@@ -172,18 +158,17 @@
 
 <section id="contact" class="section panel contact">
   <div>
-    <p class="sup">Booking / Promo</p>
+    <p class="sup">Booking / Promo / Label</p>
     <h2>Contact</h2>
     <p>Collaboration, clip, remix, booking, presse ou projet M.P.B.P 440.</p>
   </div>
   <a class="btn primary" href="mailto:mpbp97440@gmail.com">mpbp97440@gmail.com</a>
 </section>
+
 </main>
 
-<footer>
-  <p>© 2026 Sparetdee Simon — M.P.B.P 440 Corp.2026</p>
-</footer>
+<footer><p>© 2026 MPBP 440 Corp.2026 — Sparetdee Simon / Juste Une Plume</p></footer>
 
-<script src="script.js?v=3.0-premium"></script>
+<script src="script.js?v=3.2-premium-label"></script>
 </body>
 </html>

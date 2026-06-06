@@ -209,3 +209,8 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
     aspect-ratio:16/10;
   }
 }
+
+
+/* V3.2.2 — L'ARGENT UPDATE */
+.staticEvent{border-color:rgba(212,175,55,.46);}
+.plumeEvent{border-color:rgba(39,255,137,.35);}

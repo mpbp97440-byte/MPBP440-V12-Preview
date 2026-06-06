@@ -1,7 +1,7 @@
 let allTracks = [];
 
 async function loadData(){
-  const data = await fetch("data.json?v=3.2.1-label-distinct").then(r=>r.json());
+  const data = await fetch("data.json?v=3.2.2-largent").then(r=>r.json());
   const linksHtml = (links={}) => Object.entries(links).map(([n,u])=>u?`<a href="${u}" target="_blank" rel="noopener">${n}</a>`:"").join("");
 
   const c = data.countdown || {};

@@ -31,6 +31,14 @@
   },
   "upcoming": [
     {
+      "title": "L’Argent",
+      "artist": "Sparetdee Simon",
+      "date": "20/06/2026",
+      "description": "Prochaine sortie officielle de Sparetdee Simon — nouveau single disponible sur toutes les plateformes.",
+      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg",
+      "status": "Pré-sortie officielle"
+    },
+    {
       "title": "Je Sais",
       "artist": "Juste Une Plume",
       "date": "16/06/2026",
@@ -57,6 +65,21 @@
     }
   ],
   "tracks": [
+    {
+      "title": "L’Argent",
+      "artist": "Sparetdee Simon",
+      "year": "À venir • 20/06/2026",
+      "description": "Nouveau single officiel de Sparetdee Simon — pré-sortie disponible avant publication.",
+      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
     {
       "title": "Je Sais",
       "artist": "Juste Une Plume",
@@ -394,6 +417,16 @@
   ],
   "events": [
     {
+      "title": "Sparetdee Simon — L’Argent",
+      "date": "20/06/2026",
+      "time": "Sortie officielle",
+      "place": "Toutes les plateformes",
+      "description": "Nouvelle sortie officielle de Sparetdee Simon : « L’Argent », disponible le 20/06/2026.",
+      "cover": "assets/events/largent-sparetdee-simon-20062026.jpg",
+      "buttonText": "Voir les sorties à venir",
+      "url": "#upcoming"
+    },
+    {
       "title": "Juste Une Plume — Je Sais",
       "date": "16/06/2026",
       "time": "Sortie officielle",
@@ -402,20 +435,10 @@
       "cover": "assets/events/je-sais-sortie-officielle.jpg",
       "buttonText": "Voir la fiche artiste",
       "url": "#artiste-juste-une-plume"
-    },
-    {
-      "title": "Live TikTok — Double Sortie Officielle",
-      "date": "02/06/2026",
-      "time": "23h30",
-      "place": "TikTok — compte officiel Sparetdee Simon",
-      "description": "Soirée live TikTok pour la double sortie officielle des titres « La France Se Soulève » et « Bizouzouzou Ours ».",
-      "cover": "assets/events/live-tiktok-double-sortie-02062026.jpg",
-      "buttonText": "Ouvrir TikTok",
-      "url": "https://www.tiktok.com/@simonsparet"
     }
   ],
   "site": {
-    "version": "3.2 Premium Label",
+    "version": "3.2.2 L’Argent Update",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",
@@ -423,9 +446,9 @@
     "heroGallery": "assets/gallery/neuvieme-merveille.jpg"
   },
   "countdown": {
-    "title": "Je Sais — Juste Une Plume",
-    "date": "2026-06-16T00:00:00+02:00",
-    "label": "Compte à rebours prochaine sortie MPBP 440"
+    "title": "L’Argent — Sparetdee Simon",
+    "date": "2026-06-20T00:00:00+02:00",
+    "label": "Compte à rebours prochaine sortie officielle"
   },
   "gallery": [
     {
@@ -450,7 +473,15 @@
       "role": "Artiste principal • Fondateur MPBP 440",
       "bio": "Rap conscient, groove solaire, plume de quartier, vision cosmique et esthétique noir-or futuriste. Sparetdee Simon porte la direction artistique du label M.P.B.P 440 Corp.2026.",
       "photo": "assets/artist/sparetdee-avatar.jpg",
-      "status": "Artiste principal"
+      "status": "Prochaine sortie : L’Argent — 20/06/2026",
+      "upcoming": [
+        {
+          "title": "L’Argent",
+          "date": "20/06/2026",
+          "description": "Prochaine sortie officielle de Sparetdee Simon.",
+          "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg"
+        }
+      ]
     },
     {
       "name": "Juste Une Plume",

@@ -214,3 +214,46 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 /* V3.2.2 — L'ARGENT UPDATE */
 .staticEvent{border-color:rgba(212,175,55,.46);}
 .plumeEvent{border-color:rgba(39,255,137,.35);}
+
+
+/* V3.2.3 — DOUBLE COMPTE À REBOURS */
+.doubleCountdownGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:22px;
+}
+
+.countdownArtist{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:22px;
+  align-items:center;
+}
+
+.countdownArtist img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:22px;
+  border:1px solid var(--border);
+  box-shadow:0 0 28px rgba(0,0,0,.35);
+}
+
+.countdownArtist h3{
+  font-family:Bebas Neue,Impact,sans-serif;
+  font-size:clamp(44px,6vw,72px);
+  line-height:.92;
+  margin:8px 0;
+  color:#fff1bd;
+}
+
+.miniCountdown{
+  margin-top:14px;
+  grid-template-columns:repeat(4,1fr);
+}
+
+@media(max-width:720px){
+  .countdownArtist{
+    grid-template-columns:1fr;
+  }
+}

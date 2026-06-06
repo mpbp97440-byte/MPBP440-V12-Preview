@@ -438,7 +438,7 @@
     }
   ],
   "site": {
-    "version": "3.2.2 L’Argent Update",
+    "version": "3.2.3 Double Countdown",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",
@@ -497,6 +497,20 @@
           "cover": "assets/covers/je-sais-juste-une-plume.jpg"
         }
       ]
+    }
+  ],
+  "countdowns": [
+    {
+      "title": "Je Sais — Juste Une Plume",
+      "date": "2026-06-16T00:00:00+02:00",
+      "label": "Prochaine sortie Juste Une Plume",
+      "cover": "assets/covers/je-sais-juste-une-plume.jpg"
+    },
+    {
+      "title": "L’Argent — Sparetdee Simon",
+      "date": "2026-06-20T00:00:00+02:00",
+      "label": "Prochaine sortie Sparetdee Simon",
+      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg"
     }
   ]
 }

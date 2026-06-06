@@ -1,7 +1,7 @@
 let allTracks = [];
 
 async function loadData(){
-  const data = await fetch("data.json?v=3.2.2-largent").then(r=>r.json());
+  const data = await fetch("data.json?v=3.2.3-double-countdown").then(r=>r.json());
   const linksHtml = (links={}) => Object.entries(links).map(([n,u])=>u?`<a href="${u}" target="_blank" rel="noopener">${n}</a>`:"").join("");
 
   const c = data.countdown || {};
@@ -86,3 +86,24 @@ document.getElementById("menuBtn")?.addEventListener("click",()=>document.getEle
 window.addEventListener("scroll",()=>{const b=document.getElementById("topBtn"); if(b)b.style.display=scrollY>500?"block":"none"});
 document.getElementById("topBtn")?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
 loadData();
+
+
+function setupAllMiniCountdowns(){
+  document.querySelectorAll(".miniCountdown[data-date]").forEach(box => {
+    const target = new Date(box.dataset.date).getTime();
+    const values = box.querySelectorAll("strong");
+    function tick(){
+      if(!target || isNaN(target)) return;
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000); diff %= 86400000;
+      const h = Math.floor(diff / 3600000); diff %= 3600000;
+      const m = Math.floor(diff / 60000); diff %= 60000;
+      const s = Math.floor(diff / 1000);
+      [d,h,m,s].forEach((v,i)=>{ if(values[i]) values[i].textContent = String(v).padStart(2,"0"); });
+    }
+    tick();
+    setInterval(tick, 1000);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", setupAllMiniCountdowns);

@@ -374,3 +374,34 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 /* V3.2.6 — DOUBLE SORTIE + LIVE TIKTOK */
 .staticEvent:first-of-type{border-color:rgba(212,175,55,.55);background:radial-gradient(circle at 20% 20%,rgba(226,27,27,.12),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));}
 .countdownArtist h3{word-break:normal;overflow-wrap:anywhere;}
+
+
+/* V3.2.7 — ÉVÈNEMENT AFFICHÉ ENTIER + POCHETTES OFFICIELLES */
+.event-card.staticEvent:first-of-type{
+  grid-template-columns:minmax(300px,420px) 1fr !important;
+  align-items:center !important;
+}
+
+.event-card.staticEvent:first-of-type > img{
+  aspect-ratio:auto !important;
+  height:auto !important;
+  max-height:780px !important;
+  width:100% !important;
+  object-fit:contain !important;
+  background:#050405 !important;
+  padding:10px !important;
+}
+
+#eventsGrid .event-card img{
+  object-fit:contain !important;
+  background:#050405 !important;
+}
+
+@media(max-width:900px){
+  .event-card.staticEvent:first-of-type{
+    grid-template-columns:1fr !important;
+  }
+  .event-card.staticEvent:first-of-type > img{
+    max-height:none !important;
+  }
+}

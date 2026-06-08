@@ -69,8 +69,8 @@
       "title": "L’Argent",
       "artist": "Sparetdee Simon",
       "year": "À venir • 20/06/2026",
-      "description": "Nouveau titre de Sparetdee Simon inclus dans la double sortie officielle du 20/06/2026.",
-      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
+      "description": "Nouveau titre officiel de Sparetdee Simon inclus dans la double sortie du 20/06/2026.",
+      "cover": "assets/covers/largent-officiel.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
@@ -84,8 +84,8 @@
       "title": "Je Vous Pousse Tous",
       "artist": "Sparetdee Simon",
       "year": "À venir • 20/06/2026",
-      "description": "Nouveau titre de Sparetdee Simon inclus dans la double sortie officielle du 20/06/2026.",
-      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
+      "description": "Nouveau titre officiel de Sparetdee Simon inclus dans la double sortie du 20/06/2026.",
+      "cover": "assets/covers/je-vous-pousse-tous-officiel.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
@@ -436,8 +436,8 @@
       "date": "21/06/2026",
       "time": "21h00",
       "place": "TikTok officiel de Sparetdee Simon",
-      "description": "Live spécial Fête de la musique : présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » de Sparetdee Simon et du premier titre de Juste Une Plume.",
-      "cover": "assets/events/live-tiktok-fete-musique-21062026.jpg",
+      "description": "Live spécial Fête de la musique : présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » et du premier titre de Juste Une Plume.",
+      "cover": "assets/events/live-tiktok-fete-musique-21062026-full.jpg",
       "buttonText": "Rejoindre TikTok",
       "url": "https://www.tiktok.com/@simonsparet"
     },
@@ -453,7 +453,7 @@
     }
   ],
   "site": {
-    "version": "3.2.6 Double Sortie + Event",
+    "version": "3.2.7 Event Fit + Official Covers",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",

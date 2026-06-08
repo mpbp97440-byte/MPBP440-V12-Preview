@@ -370,3 +370,7 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
   background:#080808;
 }
 
+
+/* V3.2.6 — DOUBLE SORTIE + LIVE TIKTOK */
+.staticEvent:first-of-type{border-color:rgba(212,175,55,.55);background:radial-gradient(circle at 20% 20%,rgba(226,27,27,.12),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));}
+.countdownArtist h3{word-break:normal;overflow-wrap:anywhere;}

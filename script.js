@@ -10,7 +10,7 @@ function linksHtml(links={}){
 
 async function loadData(){
   try{
-    const data = await fetch("data.json?v=3.2.5-fix-catalogue-videos", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("data.json?v=3.2.6-double-sortie-event", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");

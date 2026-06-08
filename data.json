@@ -31,12 +31,12 @@
   },
   "upcoming": [
     {
-      "title": "L’Argent",
+      "title": "Double sortie : L’Argent / Je Vous Pousse Tous",
       "artist": "Sparetdee Simon",
       "date": "20/06/2026",
-      "description": "Prochaine sortie officielle de Sparetdee Simon — nouveau single disponible sur toutes les plateformes.",
-      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg",
-      "status": "Pré-sortie officielle"
+      "description": "Pré-sortie officielle des deux nouveaux titres de Sparetdee Simon, disponibles simultanément sur toutes les plateformes.",
+      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
+      "status": "Double sortie officielle"
     },
     {
       "title": "Je Sais",
@@ -69,8 +69,23 @@
       "title": "L’Argent",
       "artist": "Sparetdee Simon",
       "year": "À venir • 20/06/2026",
-      "description": "Nouveau single officiel de Sparetdee Simon — pré-sortie disponible avant publication.",
-      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg",
+      "description": "Nouveau titre de Sparetdee Simon inclus dans la double sortie officielle du 20/06/2026.",
+      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
+      "links": {
+        "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
+        "YouTube": "https://www.youtube.com/@sparetdee440",
+        "TikTok": "https://www.tiktok.com/@simonsparet",
+        "Facebook": "https://www.facebook.com/Sparetdee.simon/",
+        "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
+        "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      }
+    },
+    {
+      "title": "Je Vous Pousse Tous",
+      "artist": "Sparetdee Simon",
+      "year": "À venir • 20/06/2026",
+      "description": "Nouveau titre de Sparetdee Simon inclus dans la double sortie officielle du 20/06/2026.",
+      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
       "links": {
         "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
         "YouTube": "https://www.youtube.com/@sparetdee440",
@@ -417,14 +432,14 @@
   ],
   "events": [
     {
-      "title": "Sparetdee Simon — L’Argent",
-      "date": "20/06/2026",
-      "time": "Sortie officielle",
-      "place": "Toutes les plateformes",
-      "description": "Nouvelle sortie officielle de Sparetdee Simon : « L’Argent », disponible le 20/06/2026.",
-      "cover": "assets/events/largent-sparetdee-simon-20062026.jpg",
-      "buttonText": "Voir les sorties à venir",
-      "url": "#upcoming"
+      "title": "Live TikTok — Fête de la musique",
+      "date": "21/06/2026",
+      "time": "21h00",
+      "place": "TikTok officiel de Sparetdee Simon",
+      "description": "Live spécial Fête de la musique : présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » de Sparetdee Simon et du premier titre de Juste Une Plume.",
+      "cover": "assets/events/live-tiktok-fete-musique-21062026.jpg",
+      "buttonText": "Rejoindre TikTok",
+      "url": "https://www.tiktok.com/@simonsparet"
     },
     {
       "title": "Juste Une Plume — Je Sais",
@@ -438,7 +453,7 @@
     }
   ],
   "site": {
-    "version": "3.2.3 Double Countdown",
+    "version": "3.2.6 Double Sortie + Event",
     "artist": "Sparetdee Simon",
     "label": "M.P.B.P 440 Corp.2026",
     "claim": "Music • Passion • But • Progress",
@@ -446,9 +461,9 @@
     "heroGallery": "assets/gallery/neuvieme-merveille.jpg"
   },
   "countdown": {
-    "title": "L’Argent — Sparetdee Simon",
+    "title": "Double sortie — Sparetdee Simon",
     "date": "2026-06-20T00:00:00+02:00",
-    "label": "Compte à rebours prochaine sortie officielle"
+    "label": "Compte à rebours double sortie officielle"
   },
   "gallery": [
     {
@@ -473,13 +488,13 @@
       "role": "Artiste principal • Fondateur MPBP 440",
       "bio": "Rap conscient, groove solaire, plume de quartier, vision cosmique et esthétique noir-or futuriste. Sparetdee Simon porte la direction artistique du label M.P.B.P 440 Corp.2026.",
       "photo": "assets/artist/sparetdee-avatar.jpg",
-      "status": "Prochaine sortie : L’Argent — 20/06/2026",
+      "status": "Double sortie : L’Argent / Je Vous Pousse Tous — 20/06/2026",
       "upcoming": [
         {
-          "title": "L’Argent",
+          "title": "L’Argent / Je Vous Pousse Tous",
           "date": "20/06/2026",
-          "description": "Prochaine sortie officielle de Sparetdee Simon.",
-          "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg"
+          "description": "Double sortie officielle de Sparetdee Simon.",
+          "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg"
         }
       ]
     },
@@ -507,10 +522,10 @@
       "cover": "assets/covers/je-sais-juste-une-plume.jpg"
     },
     {
-      "title": "L’Argent — Sparetdee Simon",
+      "title": "Double sortie — L’Argent / Je Vous Pousse Tous",
       "date": "2026-06-20T00:00:00+02:00",
       "label": "Prochaine sortie Sparetdee Simon",
-      "cover": "assets/covers/largent-sparetdee-simon-presortie.jpg"
+      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg"
     }
   ]
 }

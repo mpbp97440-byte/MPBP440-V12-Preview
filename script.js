@@ -10,7 +10,7 @@ function linksHtml(links={}){
 
 async function loadData(){
   try{
-    const data = await fetch("data.json?v=3.2.8-mpbp-tv", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("data.json?v=3.2.9-media-center", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
@@ -140,4 +140,51 @@ document.getElementById("topBtn")?.addEventListener("click",()=>scrollTo({top:0,
 document.addEventListener("DOMContentLoaded", () => {
   setupAllMiniCountdowns();
   loadData();
+});
+
+
+// V3.2.9 — MPBP440 Media Center controls
+function initMPBPTVControls(){
+  const player = document.getElementById("mpbpTvPlayer");
+  document.querySelectorAll("#mpbpTvList button[data-yt]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.getAttribute("data-yt");
+      if(player && id){ player.src = "https://www.youtube.com/embed/" + id; }
+    });
+  });
+}
+
+async function loadLiveStatus(){
+  try{
+    const res = await fetch("live_status.json?v=" + Date.now(), {cache:"no-store"});
+    if(!res.ok) return;
+    const live = await res.json();
+    const card = document.getElementById("livePortalCard");
+    const badge = document.getElementById("liveBadge");
+    const title = document.getElementById("liveTitle");
+    const text = document.getElementById("liveText");
+    const button = document.getElementById("liveButton");
+    if(!card || !badge || !title || !text || !button) return;
+    if(live.is_live){
+      card.classList.add("is-live");
+      badge.textContent = "🔴 EN DIRECT MAINTENANT";
+      title.textContent = live.title || "Live TikTok MPBP440";
+      text.textContent = live.message_live || "Le live officiel est en cours.";
+      button.textContent = "Rejoindre le live TikTok";
+      button.href = live.url || live.fallback_url || "https://www.tiktok.com/@simonsparet";
+    }else{
+      card.classList.remove("is-live");
+      badge.textContent = "🔴 LIVE / ÉVÈNEMENT";
+      title.textContent = live.title || "Live TikTok — Fête de la musique";
+      text.innerHTML = "<strong>21/06/2026 • 21h00</strong><br>Présentation des nouveautés Sparetdee Simon et Juste Une Plume.";
+      button.textContent = "Voir le TikTok officiel";
+      button.href = live.fallback_url || live.url || "https://www.tiktok.com/@simonsparet";
+    }
+  }catch(e){ console.warn("Statut live indisponible", e); }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  initMPBPTVControls();
+  loadLiveStatus();
+  setInterval(loadLiveStatus, 30000);
 });

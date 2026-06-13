@@ -165,39 +165,7 @@
 
 <section id="events" class="section">
   <div class="title"><p>Agenda officiel</p><h2>Évènements</h2></div>
-
-  <article class="event-card panel staticEvent plumeEvent">
-    <img src="assets/events/je-sais-sortie-officielle.jpg" alt="Juste Une Plume - Je Sais">
-    <div>
-      <p class="sup">16/06/2026 • Sortie officielle</p>
-      <h3>Juste Une Plume — Je Sais</h3>
-      <p><strong>Toutes les plateformes</strong></p>
-      <p>Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.</p>
-      <a class="btn primary" href="#artiste-juste-une-plume">Voir la fiche artiste</a>
-    </div>
-  </article>
-
-  
-  <article class="event-card panel staticEvent">
-    <img src="assets/events/live-tiktok-fete-musique-21062026-full.jpg" alt="Live TikTok Fête de la musique">
-    <div>
-      <p class="sup">21/06/2026 • 21h00</p>
-      <h3>Live TikTok — Fête de la musique</h3>
-      <p><strong>TikTok officiel de Sparetdee Simon</strong></p>
-      <p>Présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » et du premier titre de Juste Une Plume.</p>
-      <a class="btn primary" href="https://www.tiktok.com/@simonsparet" target="_blank">Rejoindre le live</a>
-    </div>
-  </article>
-  <article class="event-card panel staticEvent plumeEvent">
-    <img src="assets/events/je-sais-sortie-officielle.jpg" alt="Juste Une Plume - Je Sais">
-    <div>
-      <p class="sup">16/06/2026 • Sortie officielle</p>
-      <h3>Juste Une Plume — Je Sais</h3>
-      <p><strong>Toutes les plateformes</strong></p>
-      <p>Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.</p>
-      <a class="btn primary" href="#artiste-juste-une-plume">Voir la fiche artiste</a>
-    </div>
-  </article>
+  <p class="sectionLead">Les évènements sont chargés automatiquement depuis le fichier officiel du site pour éviter les doublons.</p>
 
   <div id="eventsGrid" class="events"></div>
 </section>
@@ -394,20 +362,20 @@
 </section>
 
 
-<section id="mpbp-tv" class="section mpbpTvSection">
+<section id="mpbp-tv" class="section mpbpTvSection mediaCenterSection">
   <div class="title">
-    <p>Chaîne officielle</p>
-    <h2>MPBP440 TV</h2>
+    <p>Portail média officiel</p>
+    <h2>MPBP440 Media Center</h2>
   </div>
 
-  <div class="mpbpTvHero panel">
+  <div class="mediaCenterHero panel">
     <div class="tvScreen">
-      <iframe src="https://www.youtube.com/embed/0YEqshdl7jI" title="MPBP440 TV - Monde Alternatif" allowfullscreen></iframe>
+      <iframe id="mpbpTvPlayer" src="https://www.youtube.com/embed/0YEqshdl7jI" title="MPBP440 TV" allowfullscreen></iframe>
     </div>
-    <div class="tvInfo">
-      <span class="tvBadge">● PORTAIL LIVE & CLIPS</span>
-      <h3>Clips, sorties et directs MPBP440</h3>
-      <p>Regarde les clips officiels directement sur le site. Pour les lives TikTok, MPBP440 TV affiche le direct annoncé avec un accès rapide au compte officiel.</p>
+    <div class="tvIntro">
+      <span class="status-pill">TV • Radio • Live</span>
+      <h3>MPBP440 TV</h3>
+      <p>Le centre média officiel du label : clips, annonces, lives TikTok et programmation des artistes MPBP440.</p>
       <div class="heroButtons">
         <a class="btn primary" href="https://www.youtube.com/@sparetdee440" target="_blank" rel="noopener">Chaîne YouTube</a>
         <a class="btn live" href="https://www.tiktok.com/@simonsparet" target="_blank" rel="noopener">TikTok officiel</a>
@@ -415,26 +383,39 @@
     </div>
   </div>
 
-  <div class="mpbpTvGrid">
-    <article class="livePortal panel">
+  <div class="mediaCenterGrid">
+    <article class="livePortal panel" id="livePortalCard">
       <img src="assets/events/live-tiktok-fete-musique-21062026-full.jpg" alt="Live TikTok Fête de la musique">
       <div>
-        <span class="liveDot">🔴 LIVE / ÉVÈNEMENT</span>
-        <h3>Live TikTok — Fête de la musique</h3>
-        <p><strong>21/06/2026 • 21h00</strong><br>Présentation des nouveautés Sparetdee Simon et Juste Une Plume.</p>
-        <a class="btn primary" href="https://www.tiktok.com/@simonsparet" target="_blank" rel="noopener">Rejoindre le live TikTok</a>
+        <span class="liveDot" id="liveBadge">🔴 LIVE / ÉVÈNEMENT</span>
+        <h3 id="liveTitle">Live TikTok — Fête de la musique</h3>
+        <p id="liveText"><strong>21/06/2026 • 21h00</strong><br>Présentation des nouveautés Sparetdee Simon et Juste Une Plume.</p>
+        <a class="btn primary" id="liveButton" href="https://www.tiktok.com/@simonsparet" target="_blank" rel="noopener">Rejoindre TikTok</a>
       </div>
+    </article>
+
+    <article class="radioPanel panel">
+      <span class="status-pill">Radio label</span>
+      <h3>Radio MPBP440</h3>
+      <p>Base radio prête pour accueillir les fichiers audio officiels du label. En attendant, les visiteurs peuvent écouter les titres via les plateformes et clips intégrés.</p>
+      <div class="radioControls" aria-label="Radio MPBP440 bientôt disponible">
+        <button class="radioBtn" type="button" disabled>▶</button>
+        <button class="radioBtn" type="button" disabled>⏸</button>
+        <button class="radioBtn" type="button" disabled>⏭</button>
+      </div>
+      <p class="tvNote">Quand tu me donneras les MP3 autorisés ou liens audio directs, j’activerai le vrai lecteur radio web.</p>
     </article>
 
     <article class="tvPlaylist panel">
       <h3>Programmation MPBP440</h3>
-      <div class="miniTvList">
-        <a href="https://www.youtube.com/watch?v=0YEqshdl7jI" target="_blank" rel="noopener">Monde Alternatif</a>
-        <a href="https://www.youtube.com/watch?v=zHx-OHSAKcs" target="_blank" rel="noopener">BrainRot Society</a>
-        <a href="https://youtu.be/HKzweo2V-iw" target="_blank" rel="noopener">Le Réseau Fantôme</a>
-        <a href="https://youtu.be/EzsriXQY-04" target="_blank" rel="noopener">Prince Des étoiles</a>
+      <div class="miniTvList" id="mpbpTvList">
+        <button type="button" data-yt="0YEqshdl7jI">Monde Alternatif</button>
+        <button type="button" data-yt="zHx-OHSAKcs">BrainRot Society</button>
+        <button type="button" data-yt="RV87WDHFjKE">Fiainana Tsotra</button>
+        <button type="button" data-yt="HKzweo2V-iw">Le Réseau Fantôme</button>
+        <button type="button" data-yt="EzsriXQY-04">Prince Des étoiles</button>
       </div>
-      <p class="tvNote">Cette zone prépare la future MPBP440 TV : Brenda pourra plus tard activer automatiquement le bandeau live et ajouter les nouvelles vidéos.</p>
+      <p class="tvNote">Clique sur un titre pour changer le programme dans le lecteur MPBP440 TV.</p>
     </article>
   </div>
 </section>

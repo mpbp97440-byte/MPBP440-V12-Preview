@@ -509,31 +509,33 @@
 </section>
 
 
+
 <section id="radio" class="section panel radio-mpbp">
   <div class="section-head">
     <p class="sup">Radio officielle</p>
     <h2>RADIO MPBP440</h2>
-    <p>Playlist officielle Sparetdee Simon — écoute via YouTube Music.</p>
+    <p>Playlist officielle du label M.P.B.P 440. Écoutez les titres de Sparetdee Simon directement depuis Spotify.</p>
   </div>
 
-  <div class="radio-player-box">
+  <div class="radio-player-box spotify-mode">
     <div class="radio-now">
-      <span class="radio-badge">ON AIR</span>
-      <h3 id="radioNowTitle">Sélectionne un titre</h3>
-      <p id="radioNowArtist">MPBP440 Music</p>
+      <span class="radio-badge">SPOTIFY RADIO</span>
+      <h3>Radio MPBP440</h3>
+      <p>La sélection officielle du label : Sparetdee Simon, nouveautés, classiques et futures productions M.P.B.P 440.</p>
       <div class="radio-actions">
-        <a id="radioOpenBtn" class="btn primary" href="https://music.youtube.com/" target="_blank" rel="noopener">Ouvrir le titre</a>
-        <button class="btn ghost" type="button" onclick="radioPrevious()">Précédent</button>
-        <button class="btn ghost" type="button" onclick="radioNext()">Suivant</button>
+        <a class="btn primary" href="https://open.spotify.com/playlist/5e9OUZTwsGnWjBREAAVKUv" target="_blank" rel="noopener">Ouvrir sur Spotify</a>
       </div>
-      <p class="radio-note">YouTube Music ne fournit pas de flux MP3 direct intégrable. Le bouton ouvre donc le titre officiel dans YouTube Music.</p>
+      <p class="radio-note">Les écoutes passent par Spotify afin de soutenir officiellement les artistes du label.</p>
     </div>
 
-    <div class="radio-list" id="radioPlaylist">
-      <p>Chargement de la playlist...</p>
-    </div>
+    
+<div class="spotify-radio-embed">
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5e9OUZTwsGnWjBREAAVKUv?utm_source=generator&si=ae208029ab394525" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
   </div>
 </section>
+
 
 </main>
 
@@ -541,53 +543,7 @@
 
 <script src="script.js?v=3.2.8-mpbp-tv"></script>
 
-<script>
-const RADIO_MPBPRADIO_VERSION = "3.2.10";
-let mpbpRadioTracks = [];
-let mpbpRadioIndex = 0;
 
-function renderRadioTrack(index){
-  if(!mpbpRadioTracks.length) return;
-  mpbpRadioIndex = (index + mpbpRadioTracks.length) % mpbpRadioTracks.length;
-  const track = mpbpRadioTracks[mpbpRadioIndex];
-  const title = document.getElementById("radioNowTitle");
-  const artist = document.getElementById("radioNowArtist");
-  const btn = document.getElementById("radioOpenBtn");
-  if(title) title.textContent = track.title || "Titre MPBP440";
-  if(artist) artist.textContent = track.artist || "MPBP440";
-  if(btn) btn.href = track.url || "#";
-
-  document.querySelectorAll(".radio-track").forEach((el, i) => {
-    el.classList.toggle("active", i === mpbpRadioIndex);
-  });
-}
-
-function radioNext(){ renderRadioTrack(mpbpRadioIndex + 1); }
-function radioPrevious(){ renderRadioTrack(mpbpRadioIndex - 1); }
-
-async function loadMPBPRadio(){
-  const list = document.getElementById("radioPlaylist");
-  if(!list) return;
-  try{
-    const r = await fetch("radio_playlist.json?v=" + Date.now(), {cache:"no-store"});
-    mpbpRadioTracks = await r.json();
-    list.innerHTML = mpbpRadioTracks.map((track, i) => `
-      <button type="button" class="radio-track" onclick="renderRadioTrack(${i})">
-        <span class="radio-track-number">${String(i+1).padStart(2,"0")}</span>
-        <span>
-          <strong>${track.title}</strong>
-          <small>${track.artist || "MPBP440"}</small>
-        </span>
-      </button>
-    `).join("");
-    renderRadioTrack(0);
-  }catch(e){
-    list.innerHTML = "<p>Playlist radio indisponible.</p>";
-    console.warn("Erreur playlist radio", e);
-  }
-}
-document.addEventListener("DOMContentLoaded", loadMPBPRadio);
-</script>
 
 </body>
 </html>

@@ -594,3 +594,24 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 @media(max-width:780px){
   .radio-player-box{grid-template-columns:1fr;}
 }
+
+
+/* RADIO SPOTIFY MPBP440 — v3.2.12 */
+.radio-player-box.spotify-mode{
+  grid-template-columns:minmax(260px,.75fr) minmax(320px,1.25fr);
+}
+.spotify-radio-embed{
+  border:1px solid rgba(244,211,94,.35);
+  border-radius:24px;
+  padding:14px;
+  background:rgba(0,0,0,.30);
+  box-shadow:0 0 28px rgba(244,211,94,.08);
+}
+.spotify-radio-embed iframe{
+  display:block;
+  border:0;
+  min-height:352px;
+}
+@media(max-width:780px){
+  .radio-player-box.spotify-mode{grid-template-columns:1fr;}
+}

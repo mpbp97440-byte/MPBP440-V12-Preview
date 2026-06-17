@@ -615,3 +615,15 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 @media(max-width:780px){
   .radio-player-box.spotify-mode{grid-template-columns:1fr;}
 }
+
+
+/* V3.2.13 — platform links */
+.platform-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.platform-links .btn{
+  min-width:auto;
+}

@@ -15,11 +15,11 @@
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
-    "title": "La France Se Soulève",
+    "title": "Le Système",
     "status": "Prochaine sortie officielle",
-    "date": "Sortie officielle : 02/06/2026",
-    "description": "Nouveau single officiel signé Sparetdee Simon. Un seul peuple, une seule force, une seule France.",
-    "cover": "assets/covers/la-france-se-souleve.jpg",
+    "date": "27/06/2026",
+    "description": "Pré-sortie officielle — disponible le 27/06/2026 sur toutes les plateformes.",
+    "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
     "links": {
       "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
       "YouTube": "https://www.youtube.com/@sparetdee440",
@@ -27,9 +27,18 @@
       "Facebook": "https://www.facebook.com/Sparetdee.simon/",
       "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
       "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
-    }
+    },
+    "artist": "Sparetdee Simon"
   },
   "upcoming": [
+    {
+      "title": "Le Système",
+      "artist": "Sparetdee Simon",
+      "date": "27/06/2026",
+      "description": "Pré-sortie officielle du nouveau titre de Sparetdee Simon. Disponible le 27/06/2026 sur toutes les plateformes.",
+      "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
+      "status": "À venir"
+    },
     {
       "title": "Aujourd’hui",
       "artist": "Sparetdee Simon",
@@ -112,12 +121,19 @@
       }
     },
     {
-      "title": "Je Sais",
+      "title": "Je sais que tu sais",
       "artist": "Juste Une Plume",
       "year": "À venir • 16/06/2026",
       "description": "Premier single officiel de Juste Une Plume, entre sensibilité, espoir et regard humain.",
       "cover": "assets/covers/je-sais-juste-une-plume.jpg",
-      "links": {}
+      "links": {
+        "spotify": "https://open.spotify.com/artist/4LAJA1pkE8Z3OyAGFSWdT3?si=fypn9MRDSMO0dN3mAoSv4A",
+        "deezer": "https://link.deezer.com/s/33Abgbsu5jmfSOCNVpsFb",
+        "amazon": "https://amazon.fr/music/player/albums/B0H3W4P77J?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_tEGDVOPWSlUxHIFULYR8IF7xT",
+        "apple": "https://music.apple.com/fr/artist/juste-une-plume/6776260357",
+        "youtube": "https://youtu.be/jkKGmZDQMtE?si=wWLZSqLFOA5320VT"
+      },
+      "status": "Disponible"
     },
     {
       "title": "L'Asticot Getga",
@@ -531,6 +547,12 @@
     }
   ],
   "countdowns": [
+    {
+      "title": "Le Système — Sparetdee Simon",
+      "date": "2026-06-27T00:00:00+02:00",
+      "label": "Prochaine sortie Sparetdee Simon",
+      "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png"
+    },
     {
       "title": "Je Sais — Juste Une Plume",
       "date": "2026-06-16T00:00:00+02:00",

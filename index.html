@@ -545,5 +545,33 @@
 
 
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const cards = Array.from(document.querySelectorAll("article, .card, .track-card, .release-card, .panel"));
+  const target = cards.find(c => /juste une plume/i.test(c.textContent||"") && /je sais/i.test(c.textContent||""));
+  if(target && !target.querySelector(".juste-plume-links")){
+    target.insertAdjacentHTML("beforeend", `<div class="platform-links juste-plume-links">  <a class="btn ghost" href="https://open.spotify.com/artist/4LAJA1pkE8Z3OyAGFSWdT3?si=fypn9MRDSMO0dN3mAoSv4A" target="_blank" rel="noopener">Spotify</a>  <a class="btn ghost" href="https://music.apple.com/fr/artist/juste-une-plume/6776260357" target="_blank" rel="noopener">Apple Music</a>  <a class="btn ghost" href="https://link.deezer.com/s/33Abgbsu5jmfSOCNVpsFb" target="_blank" rel="noopener">Deezer</a>  <a class="btn ghost" href="https://amazon.fr/music/player/albums/B0H3W4P77J?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_tEGDVOPWSlUxHIFULYR8IF7xT" target="_blank" rel="noopener">Amazon Music</a>  <a class="btn ghost" href="https://youtu.be/jkKGmZDQMtE?si=wWLZSqLFOA5320VT" target="_blank" rel="noopener">YouTube Music</a></div>`);
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const focusCandidates = Array.from(document.querySelectorAll("section, article, .panel, .card"));
+  const focus = focusCandidates.find(el => /focus officiel/i.test(el.textContent || ""));
+  if(focus){
+    focus.querySelectorAll("h2,h3").forEach(h => {
+      if(/france|soulève|souleve/i.test(h.textContent || "")) h.textContent = "Le Système";
+    });
+    const img = focus.querySelector("img");
+    if(img){
+      img.src = "assets/covers/le-systeme-pre-sortie-27-06-2026.png";
+      img.alt = "Le Système — Sparetdee Simon";
+    }
+  }
+});
+</script>
+
 </body>
 </html>

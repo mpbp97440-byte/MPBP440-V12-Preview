@@ -10,7 +10,7 @@ function linksHtml(links={}){
 
 async function loadData(){
   try{
-    const data = await fetch("data.json?v=3.2.9-media-center", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("data.json?v=3.2.17-verif-complete", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
@@ -116,7 +116,7 @@ function renderTracks(tracks){
 }
 
 function setupAllMiniCountdowns(){
-  document.querySelectorAll(".miniCountdown[data-date]").forEach(box => {
+  document.querySelectorAll(".miniCountdown[data-date], .countdown[data-date]").forEach(box => {
     const target = new Date(box.dataset.date).getTime();
     const values = box.querySelectorAll("strong");
     function tick(){

@@ -566,5 +566,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const cards = Array.from(document.querySelectorAll("section, article, .panel, .card"));
+  const plume = cards.find(el => /juste une plume/i.test(el.textContent || ""));
+  if(plume){
+    const img = plume.querySelector("img");
+    if(img){
+      img.src = "assets/covers/je-sais-juste-une-plume.jpg";
+      img.alt = "Je sais que tu sais - Juste Une Plume";
+    }
+    const title = Array.from(plume.querySelectorAll("h2,h3,h4"))
+      .find(h => /le système/i.test(h.textContent || ""));
+    if(title) title.textContent = "Je sais que tu sais";
+    plume.innerHTML = plume.innerHTML.replace(
+      /Sortie officielle le 16\/06\/2026 sur toutes les plateformes\./g,
+      "Disponible sur toutes les plateformes."
+    );
+  }
+});
+</script>
+
 </body>
 </html>

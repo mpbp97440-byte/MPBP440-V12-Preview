@@ -56,7 +56,7 @@
       "status": "Double sortie officielle"
     },
     {
-      "title": "Je Sais",
+      "title": "Je sais que tu sais",
       "artist": "Juste Une Plume",
       "date": "16/06/2026",
       "description": "Premier titre officiel de Juste Une Plume — sortie sur toutes les plateformes.",
@@ -466,7 +466,7 @@
       "url": "https://www.tiktok.com/@simonsparet"
     },
     {
-      "title": "Juste Une Plume — Je Sais",
+      "title": "Juste Une Plume — Je sais que tu sais",
       "date": "16/06/2026",
       "time": "Sortie officielle",
       "place": "Toutes les plateformes",
@@ -527,10 +527,10 @@
       "role": "Nouvelle artiste MPBP 440",
       "bio": "Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et la bienveillance. À travers ses textes, elle pose un regard sincère sur notre société actuelle, entre mélancolie, résilience et gouttes de lumière. Sa musique s’appuie sur son vécu personnel et sa vision de la vie pour transmettre un message d’amour, de solidarité et d’humanité. Chaque morceau devient une invitation à croire en un avenir meilleur, à préserver ce qui nous rassemble et à laisser parler la plume quand les mots peuvent encore réparer.",
       "photo": "assets/artist/juste-une-plume-profile.jpg",
-      "status": "Premier single : Je Sais — 16/06/2026",
+      "status": "Premier single : Je sais que tu sais — 16/06/2026",
       "upcoming": [
         {
-          "title": "Je Sais",
+          "title": "Je sais que tu sais",
           "date": "16/06/2026",
           "description": "Premier titre officiel de Juste Une Plume, disponible sur toutes les plateformes.",
           "cover": "assets/covers/je-sais-juste-une-plume.jpg"

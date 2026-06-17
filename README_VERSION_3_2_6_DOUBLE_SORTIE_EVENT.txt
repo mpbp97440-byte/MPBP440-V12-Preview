@@ -3,7 +3,7 @@ VERSION 3.2.6 — Double sortie + Live TikTok
 - Prochaine sortie Sparetdee remplacée par la double sortie : L’Argent / Je Vous Pousse Tous.
 - Date commune : 20/06/2026.
 - Compte à rebours Sparetdee conservé et mis à jour sur la double sortie.
-- Compte à rebours Juste Une Plume — Je Sais conservé.
+- Compte à rebours Juste Une Plume — Je sais que tu sais conservé.
 - Évènement remplacé par le live TikTok Fête de la Musique du 21/06/2026 à 21h00.
 - Évènement Juste Une Plume conservé.
 - Titres, pochettes et vidéos conservés.

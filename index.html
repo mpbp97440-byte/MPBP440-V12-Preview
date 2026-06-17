@@ -106,9 +106,9 @@
         <p class="sup">Espoir • Sensibilité • Humanité</p>
         <p>Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et la bienveillance. À travers ses textes, elle pose un regard sincère sur notre société actuelle, entre mélancolie, résilience et gouttes de lumière. Sa musique s’appuie sur son vécu personnel et sa vision de la vie pour transmettre un message d’amour, de solidarité et d’humanité. Chaque morceau devient une invitation à croire en un avenir meilleur, à préserver ce qui nous rassemble et à laisser parler la plume quand les mots peuvent encore réparer.</p>
         <div class="miniRelease">
-          <img src="assets/covers/je-sais-juste-une-plume.jpg" alt="Je Sais">
+          <img src="assets/covers/je-sais-juste-une-plume.jpg" alt="Je sais que tu sais">
           <div>
-            <strong>Le Système</strong>
+            <strong>Je sais que tu sais</strong>
             <span>Sortie officielle le 16/06/2026 sur toutes les plateformes.</span>
           </div>
         </div>
@@ -131,7 +131,7 @@
       <img src="assets/covers/le-systeme-pre-sortie-27-06-2026.png" alt="Le Système - Sparetdee Simon">
       <div>
         <p class="sup">Prochaine sortie Sparetdee Simon</p>
-        <h3>Le Système</h3>
+        <h3>Je sais que tu sais</h3>
         <p>Sortie officielle le <strong>27/06/2026</strong> sur toutes les plateformes.</p>
         <div class="countdown miniCountdown" data-date="2026-06-27T00:00:00+02:00">
           <div><strong>--</strong><span>jours</span></div>
@@ -190,7 +190,7 @@
       </div>
     </article>
     <article class="card staticDataCard">
-      <img src="assets/covers/je-sais-juste-une-plume.jpg" alt="Je Sais">
+      <img src="assets/covers/je-sais-juste-une-plume.jpg" alt="Je sais que tu sais">
       <div class="card-body">
         <p class="sup">Juste Une Plume • Disponible</p>
         <h3>Je sais que tu sais</h3>
@@ -617,6 +617,22 @@ document.addEventListener("DOMContentLoaded", function(){
       .replace(/Juste Une Plume\s*•\s*(À venir|A venir)\s*•\s*16\/06\/2026/g, "Juste Une Plume • Disponible")
       .replace(/Sortie officielle le\s*<strong>16\/06\/2026<\/strong>\s*sur toutes les plateformes\./g, "Disponible sur toutes les plateformes.")
       .replace(/Sortie officielle le 16\/06\/2026 sur toutes les plateformes\./g, "Disponible sur toutes les plateformes.");
+  });
+});
+</script>
+
+
+<script>
+/* V3.2.20 - Titre Juste Une Plume */
+document.addEventListener("DOMContentLoaded", function(){
+  const cards = Array.from(document.querySelectorAll("section, article, .panel, .card"))
+    .filter(el => /juste une plume/i.test(el.textContent || ""));
+  cards.forEach(card => {
+    card.querySelectorAll("h2,h3,h4").forEach(h => {
+      if(/le système|le systeme|je sais/i.test(h.textContent || "")){
+        h.textContent = "Je sais que tu sais";
+      }
+    });
   });
 });
 </script>

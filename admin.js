@@ -1,17 +1,9 @@
 
-let drafts = {
-  news: [],
-  featured: {},
-  live: {}
-};
+let drafts = { news: [], featured: {}, live: {} };
 
 async function loadJson(path, fallback){
-  try{
-    const r = await fetch(path,{cache:'no-store'});
-    return await r.json();
-  }catch(e){
-    return fallback;
-  }
+  try{ const r = await fetch(path,{cache:'no-store'}); return await r.json(); }
+  catch(e){ return fallback; }
 }
 
 async function init(){
@@ -22,18 +14,14 @@ async function init(){
   const events = await loadJson('data/events.json',[]);
   const artists = await loadJson('data/artists.json',[]);
 
-  document.getElementById('newsCount').textContent = drafts.news.length;
   document.getElementById('eventsCount').textContent = events.length;
   document.getElementById('artistsCount').textContent = artists.length;
-  document.getElementById('liveStatus').textContent = drafts.live.is_live ? 'EN DIRECT' : 'HORS LIGNE';
-
   document.getElementById('featuredTitle').value = drafts.featured.title || '';
   document.getElementById('featuredArtist').value = drafts.featured.artist || '';
   document.getElementById('featuredDate').value = drafts.featured.date || '';
   document.getElementById('featuredCover').value = drafts.featured.cover || '';
   document.getElementById('featuredDescription').value = drafts.featured.description || '';
   document.getElementById('liveUrl').value = drafts.live.url || 'https://www.tiktok.com/@simonsparet/live';
-
   render();
 }
 
@@ -49,6 +37,14 @@ function render(){
   document.getElementById('livePreview').textContent = JSON.stringify(drafts.live, null, 2);
   document.getElementById('newsCount').textContent = drafts.news.length;
   document.getElementById('liveStatus').textContent = drafts.live.is_live ? 'EN DIRECT' : 'HORS LIGNE';
+
+  const latestNews = drafts.news[0] || {};
+  document.getElementById('previewFeaturedTitle').textContent = drafts.featured.title || '--';
+  document.getElementById('previewFeaturedText').textContent = `${drafts.featured.artist || ''} ${drafts.featured.date || ''} — ${drafts.featured.description || ''}`;
+  document.getElementById('previewLiveTitle').textContent = drafts.live.is_live ? 'EN DIRECT' : 'HORS LIGNE';
+  document.getElementById('previewLiveText').textContent = drafts.live.is_live ? (drafts.live.url || '') : 'Le site affichera le prochain live.';
+  document.getElementById('previewNewsTitle').textContent = latestNews.title || '--';
+  document.getElementById('previewNewsText').textContent = latestNews.text || '--';
 }
 
 function addNews(){
@@ -86,6 +82,23 @@ function setLive(value){
     updated_at: new Date().toISOString()
   };
   persist();
+}
+
+function asJson(type){
+  if(type === 'news') return JSON.stringify(drafts.news, null, 2);
+  if(type === 'featured') return JSON.stringify(drafts.featured, null, 2);
+  if(type === 'live') return JSON.stringify(drafts.live, null, 2);
+  return JSON.stringify(drafts, null, 2);
+}
+
+async function copyJson(type){
+  await navigator.clipboard.writeText(asJson(type));
+  alert(type + '.json copié dans le presse-papiers.');
+}
+
+async function copyAll(){
+  await navigator.clipboard.writeText(JSON.stringify(drafts, null, 2));
+  alert('Tous les brouillons ont été copiés.');
 }
 
 function downloadFile(filename, data){

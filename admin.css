@@ -3,7 +3,9 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at 20% 0,#263814,#090b10 45%,#030303);color:#fff}
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px;max-width:1180px;margin:auto}
+.top-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
 .sup{color:var(--gold);text-transform:uppercase;font-weight:900;letter-spacing:.12em;font-size:.78rem;margin:0 0 8px}
+.subtitle,.muted{color:rgba(255,255,255,.72)}
 h1{font-size:clamp(2.2rem,7vw,5rem);line-height:.9;margin:0;color:#fff1bd}
 h2{color:#fff1bd;margin-top:0}
 .admin-wrap{max-width:1180px;margin:auto;padding:0 28px 50px}
@@ -11,6 +13,9 @@ h2{color:#fff1bd;margin-top:0}
 .card,.panel{border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.07);padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
 .card h2{font-size:2.4rem;margin:0 0 6px}
 .panel{margin-top:22px}
+.guide ol{line-height:1.8}
+.notice,.path{background:rgba(244,211,94,.1);border:1px solid rgba(244,211,94,.22);padding:12px;border-radius:14px;color:#fff1bd}
+code{color:#fff;background:#05070b;padding:3px 6px;border-radius:8px}
 .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
 .wide{grid-column:1/-1}
 label{display:grid;gap:8px;color:#ddd;font-weight:700}
@@ -19,6 +24,7 @@ textarea{min-height:110px;resize:vertical}
 .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:var(--gold);color:#111;padding:13px 18px;font-weight:900;text-decoration:none;cursor:pointer;margin:6px 6px 6px 0}
 .btn.ghost{background:#222;color:#fff;border:1px solid rgba(255,255,255,.18)}
 .btn.live{background:#ff3333;color:#fff}
-.muted{color:rgba(255,255,255,.72)}
 .live-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 pre{white-space:pre-wrap;word-break:break-word;background:#05070b;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px;color:#d9f7d9;max-height:420px;overflow:auto}
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.preview-grid article{border:1px solid rgba(244,211,94,.22);border-radius:18px;padding:18px;background:rgba(0,0,0,.25)}

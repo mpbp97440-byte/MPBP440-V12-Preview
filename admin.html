@@ -3,19 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MPBP440 Admin</title>
-<link rel="stylesheet" href="admin.css?v=3.4.0">
+<title>MPBP440 Admin Manuel</title>
+<link rel="stylesheet" href="admin.css?v=3.4.1">
 </head>
 <body>
 <header class="topbar">
   <div>
     <p class="sup">Administration interne</p>
     <h1>MPBP440 Admin</h1>
+    <p class="subtitle">Mode manuel compatible GitHub Pages — aucune dépendance externe.</p>
   </div>
-  <a class="btn ghost" href="index.html">Voir le site</a>
+  <div class="top-actions">
+    <a class="btn ghost" href="index.html">Voir le site</a>
+    <a class="btn ghost" href="https://github.com/mpbp97440-byte/Sparetdee-Simon-site" target="_blank" rel="noopener">Ouvrir GitHub</a>
+  </div>
 </header>
 
 <main class="admin-wrap">
+  <section class="panel guide">
+    <h2>Mode manuel : comment publier une modification</h2>
+    <ol>
+      <li>Prépare les contenus dans cette page.</li>
+      <li>Télécharge le ou les fichiers JSON générés.</li>
+      <li>Va sur GitHub dans le dossier <strong>data</strong>.</li>
+      <li>Remplace le fichier correspondant : <code>news.json</code>, <code>featured.json</code> ou <code>live_status.json</code>.</li>
+      <li>Valide avec <strong>Commit changes</strong>.</li>
+      <li>Attends 1 à 2 minutes puis fais <strong>CTRL + F5</strong> sur le site.</li>
+    </ol>
+    <p class="notice">Adresse actuelle du site : <strong>https://mpbp97440-byte.github.io/Sparetdee-Simon-site/</strong></p>
+  </section>
+
   <section class="grid cards">
     <article class="card"><h2 id="newsCount">--</h2><p>Actualités</p></article>
     <article class="card"><h2 id="eventsCount">--</h2><p>Événements</p></article>
@@ -25,15 +42,17 @@
 
   <section class="panel">
     <h2>Créer une actualité</h2>
-    <p class="muted">Prépare une nouvelle annonce officielle du label.</p>
+    <p class="muted">Prépare une annonce publique pour le label.</p>
     <div class="form-grid">
       <label>Date <input id="newsDate" type="date"></label>
       <label>Type <input id="newsType" value="sortie"></label>
       <label class="wide">Titre <input id="newsTitle" placeholder="Nouvelle sortie officielle"></label>
       <label class="wide">Texte <textarea id="newsText" placeholder="Texte public de l'actualité"></textarea></label>
     </div>
-    <button class="btn" onclick="addNews()">Ajouter dans le brouillon</button>
+    <button class="btn" onclick="addNews()">Ajouter au brouillon</button>
+    <button class="btn ghost" onclick="copyJson('news')">Copier news.json</button>
     <button class="btn ghost" onclick="downloadNews()">Télécharger news.json</button>
+    <p class="path">Fichier GitHub à remplacer : <code>data/news.json</code></p>
   </section>
 
   <section class="panel">
@@ -47,36 +66,62 @@
       <label class="wide">Description <textarea id="featuredDescription" placeholder="Description publique"></textarea></label>
     </div>
     <button class="btn" onclick="saveFeaturedDraft()">Préparer le focus</button>
+    <button class="btn ghost" onclick="copyJson('featured')">Copier featured.json</button>
     <button class="btn ghost" onclick="downloadFeatured()">Télécharger featured.json</button>
+    <p class="path">Fichier GitHub à remplacer : <code>data/featured.json</code></p>
   </section>
 
   <section class="panel">
     <h2>Live TikTok</h2>
-    <p class="muted">Prépare le statut live affiché sur le site.</p>
+    <p class="muted">Prépare le statut live affiché publiquement sur le site.</p>
+    <label class="wide">Lien live <input id="liveUrl" placeholder="https://www.tiktok.com/@simonsparet/live"></label>
     <div class="live-actions">
-      <button class="btn live" onclick="setLive(true)">Activer le statut EN DIRECT</button>
+      <button class="btn live" onclick="setLive(true)">Activer EN DIRECT</button>
       <button class="btn ghost" onclick="setLive(false)">Repasser hors live</button>
+      <button class="btn ghost" onclick="copyJson('live')">Copier live_status.json</button>
       <button class="btn ghost" onclick="downloadLive()">Télécharger live_status.json</button>
     </div>
-    <label class="wide">Lien live <input id="liveUrl" placeholder="https://www.tiktok.com/@simonsparet/live"></label>
+    <p class="path">Fichier GitHub à remplacer : <code>data/live_status.json</code></p>
     <pre id="livePreview"></pre>
   </section>
 
   <section class="panel">
     <h2>Export rapide</h2>
-    <p class="muted">Télécharge les fichiers modifiés puis remplace-les dans le dossier <strong>data</strong> de ton dépôt GitHub.</p>
+    <p class="muted">Télécharge ou copie les fichiers préparés, puis remplace-les dans GitHub.</p>
     <div class="live-actions">
-      <button class="btn" onclick="downloadAll()">Télécharger tous les JSON préparés</button>
+      <button class="btn" onclick="downloadAll()">Télécharger tous les JSON</button>
+      <button class="btn ghost" onclick="copyAll()">Copier tous les JSON</button>
       <button class="btn ghost" onclick="resetDrafts()">Réinitialiser les brouillons</button>
     </div>
   </section>
 
+  <section class="panel preview-panel">
+    <h2>Aperçu avant publication</h2>
+    <div class="preview-grid">
+      <article>
+        <p class="sup">Focus</p>
+        <h3 id="previewFeaturedTitle">--</h3>
+        <p id="previewFeaturedText">--</p>
+      </article>
+      <article>
+        <p class="sup">Live</p>
+        <h3 id="previewLiveTitle">--</h3>
+        <p id="previewLiveText">--</p>
+      </article>
+      <article>
+        <p class="sup">Dernière actu</p>
+        <h3 id="previewNewsTitle">--</h3>
+        <p id="previewNewsText">--</p>
+      </article>
+    </div>
+  </section>
+
   <section class="panel">
-    <h2>Prévisualisation des brouillons</h2>
+    <h2>Données préparées</h2>
     <pre id="draftPreview"></pre>
   </section>
 </main>
 
-<script src="admin.js?v=3.4.0"></script>
+<script src="admin.js?v=3.4.1"></script>
 </body>
 </html>

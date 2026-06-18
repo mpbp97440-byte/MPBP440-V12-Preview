@@ -1,2 +1,2 @@
-site_mpbp440_VERSION_3_4_0_ADMIN_INTERACTIVE
-Admin interactif local : brouillons news, focus officiel, statut live, export JSON.
+site_mpbp440_VERSION_3_4_1_ADMIN_MANUEL
+Mode manuel renforcé : guide GitHub, aperçu, copier JSON, téléchargement JSON.

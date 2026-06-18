@@ -4,22 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPBP440 Admin</title>
-<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin.css?v=3.4.0">
 </head>
 <body>
-<div class="admin-wrap">
-<h1>MPBP440 Admin</h1>
-<p>Centre de gestion interne du portail MPBP440.</p>
+<header class="topbar">
+  <div>
+    <p class="sup">Administration interne</p>
+    <h1>MPBP440 Admin</h1>
+  </div>
+  <a class="btn ghost" href="index.html">Voir le site</a>
+</header>
 
-<div class="cards">
-<div class="card"><h2 id="newsCount">--</h2><p>Actualités</p></div>
-<div class="card"><h2 id="eventsCount">--</h2><p>Événements</p></div>
-<div class="card"><h2 id="artistsCount">--</h2><p>Artistes</p></div>
-<div class="card"><h2 id="liveStatus">--</h2><p>Statut Live</p></div>
-</div>
+<main class="admin-wrap">
+  <section class="grid cards">
+    <article class="card"><h2 id="newsCount">--</h2><p>Actualités</p></article>
+    <article class="card"><h2 id="eventsCount">--</h2><p>Événements</p></article>
+    <article class="card"><h2 id="artistsCount">--</h2><p>Artistes</p></article>
+    <article class="card"><h2 id="liveStatus">--</h2><p>Statut Live</p></article>
+  </section>
 
-<p class="foot">Tableau de bord interne MPBP440.</p>
-</div>
-<script src="admin.js"></script>
+  <section class="panel">
+    <h2>Créer une actualité</h2>
+    <p class="muted">Prépare une nouvelle annonce officielle du label.</p>
+    <div class="form-grid">
+      <label>Date <input id="newsDate" type="date"></label>
+      <label>Type <input id="newsType" value="sortie"></label>
+      <label class="wide">Titre <input id="newsTitle" placeholder="Nouvelle sortie officielle"></label>
+      <label class="wide">Texte <textarea id="newsText" placeholder="Texte public de l'actualité"></textarea></label>
+    </div>
+    <button class="btn" onclick="addNews()">Ajouter dans le brouillon</button>
+    <button class="btn ghost" onclick="downloadNews()">Télécharger news.json</button>
+  </section>
+
+  <section class="panel">
+    <h2>Focus officiel</h2>
+    <p class="muted">Prépare la sortie ou l’annonce mise en avant sur le site.</p>
+    <div class="form-grid">
+      <label>Titre <input id="featuredTitle" placeholder="Le Système"></label>
+      <label>Artiste <input id="featuredArtist" placeholder="Sparetdee Simon"></label>
+      <label>Date <input id="featuredDate" placeholder="27/06/2026"></label>
+      <label class="wide">Image / pochette <input id="featuredCover" placeholder="assets/covers/image.png"></label>
+      <label class="wide">Description <textarea id="featuredDescription" placeholder="Description publique"></textarea></label>
+    </div>
+    <button class="btn" onclick="saveFeaturedDraft()">Préparer le focus</button>
+    <button class="btn ghost" onclick="downloadFeatured()">Télécharger featured.json</button>
+  </section>
+
+  <section class="panel">
+    <h2>Live TikTok</h2>
+    <p class="muted">Prépare le statut live affiché sur le site.</p>
+    <div class="live-actions">
+      <button class="btn live" onclick="setLive(true)">Activer le statut EN DIRECT</button>
+      <button class="btn ghost" onclick="setLive(false)">Repasser hors live</button>
+      <button class="btn ghost" onclick="downloadLive()">Télécharger live_status.json</button>
+    </div>
+    <label class="wide">Lien live <input id="liveUrl" placeholder="https://www.tiktok.com/@simonsparet/live"></label>
+    <pre id="livePreview"></pre>
+  </section>
+
+  <section class="panel">
+    <h2>Export rapide</h2>
+    <p class="muted">Télécharge les fichiers modifiés puis remplace-les dans le dossier <strong>data</strong> de ton dépôt GitHub.</p>
+    <div class="live-actions">
+      <button class="btn" onclick="downloadAll()">Télécharger tous les JSON préparés</button>
+      <button class="btn ghost" onclick="resetDrafts()">Réinitialiser les brouillons</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Prévisualisation des brouillons</h2>
+    <pre id="draftPreview"></pre>
+  </section>
+</main>
+
+<script src="admin.js?v=3.4.0"></script>
 </body>
 </html>

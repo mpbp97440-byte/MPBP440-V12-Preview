@@ -1,3 +1,2 @@
-site_mpbp440_VERSION_3_3_3_ADMIN_READY
-Ajout : admin.html, admin.js, admin.css
-Préparation du portail administrable.
+site_mpbp440_VERSION_3_4_0_ADMIN_INTERACTIVE
+Admin interactif local : brouillons news, focus officiel, statut live, export JSON.

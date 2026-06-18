@@ -9,7 +9,7 @@
 <meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
 <meta name="theme-color" content="#050405">
 <link rel="icon" href="assets/logo/mpbp440-logo.jpg">
-<link rel="stylesheet" href="style.css?v=3.2.19-juste-plume-direct-fix">
+<link rel="stylesheet" href="style.css?v=3.3.1-media-center-pro">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     <a href="#upcoming">À venir</a>
     <a href="#events">Évènements</a>
     <a href="#music">Morceaux</a>
-    <a href="#mpbp-tv">MPBP TV</a><a href="#radio">Radio</a>
+    <a href="#mpbp-tv">MPBP TV</a><a href="#radio">Radio</a><a href="#news">Actus</a>
     <a href="#videos">Clips</a>
     <a href="#gallery">Galerie</a>
     <a href="#links">Liens</a>
@@ -544,11 +544,71 @@
 </section>
 
 
+
+<section id="media-center-pro" class="section panel media-center-pro">
+  <div class="section-head">
+    <p class="sup">V3.3.1 — Hub officiel</p>
+    <h2>MPBP440 MEDIA CENTER PRO</h2>
+    <p>Le centre multimédia du label : sorties, radio, clips, live TikTok, actualités et programmation officielle.</p>
+  </div>
+  <div class="media-pro-grid">
+    <article>
+      <span>🎵</span>
+      <h3>Radio MPBP440</h3>
+      <p>Playlist Spotify officielle du label.</p>
+      <a class="btn ghost" href="#radio">Écouter</a>
+    </article>
+    <article>
+      <span>📺</span>
+      <h3>MPBP TV</h3>
+      <p>Clips, vidéos et programmation visuelle.</p>
+      <a class="btn ghost" href="#mpbp-tv">Regarder</a>
+    </article>
+    <article>
+      <span>🔴</span>
+      <h3>Live TikTok</h3>
+      <p>Statut live pilotable par Brenda.</p>
+      <a class="btn ghost" href="#events">Voir les lives</a>
+    </article>
+    <article>
+      <span>📰</span>
+      <h3>Actus Label</h3>
+      <p>Nouveautés, sorties et annonces MPBP440.</p>
+      <a class="btn ghost" href="#news">Lire</a>
+    </article>
+  </div>
+</section>
+
+<section id="news" class="section panel news-mpbp">
+  <div class="section-head">
+    <p class="sup">Actualités officielles</p>
+    <h2>ACTUS MPBP440</h2>
+    <p>Les dernières annonces du label, prêtes à être mises à jour par Brenda.</p>
+  </div>
+  <div id="newsList" class="news-list">
+    <article>
+      <p class="sup">27/06/2026</p>
+      <h3>Le Système — prochaine sortie officielle</h3>
+      <p>Le nouveau titre de Sparetdee Simon sera disponible sur toutes les plateformes.</p>
+    </article>
+    <article>
+      <p class="sup">20/06/2026</p>
+      <h3>Double sortie Sparetdee Simon</h3>
+      <p>L’Argent et Je Vous Pousse Tous arrivent en sortie officielle.</p>
+    </article>
+    <article>
+      <p class="sup">16/06/2026</p>
+      <h3>Je sais que tu sais disponible</h3>
+      <p>Le premier titre de Juste Une Plume est disponible sur les plateformes.</p>
+    </article>
+  </div>
+</section>
+
 </main>
 
 <footer><p>© 2026 MPBP 440 Corp.2026 — Sparetdee Simon / Juste Une Plume</p></footer>
 
-<script src="script.js?v=3.2.19-juste-plume-direct-fix"></script>
+<script src="script.js?v=3.3.1-media-center-pro"></script>
 
 
 
@@ -653,6 +713,27 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     }
   });
+});
+</script>
+
+
+<script>
+/* V3.3.1 — chargement actus MPBP440 */
+document.addEventListener("DOMContentLoaded", async function(){
+  const newsList = document.getElementById("newsList");
+  if(newsList){
+    try{
+      const r = await fetch("data/news.json?v=3.3.1", {cache:"no-store"});
+      const news = await r.json();
+      newsList.innerHTML = news.map(n => `
+        <article>
+          <p class="sup">${n.date || ""}</p>
+          <h3>${n.title || ""}</h3>
+          <p>${n.text || ""}</p>
+        </article>
+      `).join("");
+    }catch(e){}
+  }
 });
 </script>
 

@@ -627,3 +627,41 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 .platform-links .btn{
   min-width:auto;
 }
+
+
+/* V3.3.1 — Media Center Pro */
+.media-center-pro{
+  border-color:rgba(0,255,135,.35);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0,255,135,.14), transparent 32%),
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+}
+.media-pro-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+.media-pro-grid article,
+.news-list article{
+  border:1px solid rgba(244,211,94,.28);
+  border-radius:22px;
+  padding:20px;
+  background:rgba(0,0,0,.25);
+}
+.media-pro-grid span{
+  display:block;
+  font-size:2rem;
+  margin-bottom:10px;
+}
+.media-pro-grid h3,
+.news-list h3{
+  color:#fff1bd;
+  margin:6px 0 10px;
+}
+.news-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:24px;
+}

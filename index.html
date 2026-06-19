@@ -9,7 +9,9 @@
 <meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
 <meta name="theme-color" content="#050405">
 <link rel="icon" href="assets/logo/mpbp440-logo.jpg">
-<link rel="stylesheet" href="style.css?v=3.4.3">
+<link rel="stylesheet" href="style.css?v=4.0-portail-interactif">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f4d35e">
 </head>
 
 <body>
@@ -29,7 +31,7 @@
     <a href="#upcoming">À venir</a>
     <a href="#events">Évènements</a>
     <a href="#music">Morceaux</a>
-    <a href="#mpbp-tv">MPBP TV</a><a href="#radio">Radio</a><a href="#news">Actus</a>
+    <a href="#mpbp-tv">MPBP TV</a><a href="#radio">Radio</a><a href="#news">Actus</a><a href="#artists-space">Artistes</a><a href="#search">Recherche</a>
     <a href="#videos">Clips</a>
     <a href="#gallery">Galerie</a>
     <a href="#links">Liens</a>
@@ -625,11 +627,40 @@
   </div>
 </section>
 
+
+<section id="artists-space" class="section panel artists-space">
+  <div class="section-head">
+    <p class="sup">Espace artistes</p>
+    <h2>ARTISTES MPBP440</h2>
+    <p>Découvrez les univers, biographies, sorties et liens officiels des artistes du label.</p>
+  </div>
+  <div id="artistsGrid" class="artists-grid"></div>
+</section>
+
+<section id="search" class="section panel site-search">
+  <div class="section-head">
+    <p class="sup">Recherche interne</p>
+    <h2>RECHERCHER DANS MPBP440</h2>
+    <p>Retrouvez rapidement un titre, un artiste, une actualité, une vidéo ou une sortie.</p>
+  </div>
+  <input id="siteSearchInput" class="site-search-input" type="search" placeholder="Rechercher : Le Système, Juste Une Plume, Radio...">
+  <div id="siteSearchResults" class="search-results"></div>
+</section>
+
+<section id="favorites" class="section panel favorites-section">
+  <div class="section-head">
+    <p class="sup">Favoris visiteurs</p>
+    <h2>MES FAVORIS MPBP440</h2>
+    <p>Conservez vos coups de cœur sur cet appareil et retrouvez-les à votre prochaine visite.</p>
+  </div>
+  <div id="favoritesList" class="favorites-list"></div>
+</section>
+
 </main>
 
 <footer><p>© 2026 MPBP 440 Corp.2026 — Sparetdee Simon / Juste Une Plume</p></footer>
 
-<script src="script.js?v=3.4.3"></script>
+<script src="script.js?v=4.0-portail-interactif"></script>
 
 
 
@@ -770,6 +801,124 @@ document.addEventListener("DOMContentLoaded", function(){
   const sessionEl = document.getElementById("sessionVisitCount");
   if(totalEl) totalEl.textContent = total;
   if(sessionEl) sessionEl.textContent = sessionStorage.getItem(sessionKey);
+});
+</script>
+
+
+<script>
+/* V4.0 — Portail interactif MPBP440 */
+const MPBP_FAV_KEY = "mpbp440_favorites";
+
+function getFavorites(){
+  try{return JSON.parse(localStorage.getItem(MPBP_FAV_KEY) || "[]");}
+  catch(e){return [];}
+}
+function saveFavorites(favs){
+  localStorage.setItem(MPBP_FAV_KEY, JSON.stringify(favs));
+}
+function toggleFavorite(type, title, meta){
+  const favs = getFavorites();
+  const key = `${type}:${title}`;
+  const found = favs.findIndex(f => f.key === key);
+  if(found >= 0) favs.splice(found, 1);
+  else favs.unshift({key,type,title,meta,created_at:new Date().toISOString()});
+  saveFavorites(favs);
+  renderFavorites();
+}
+function renderFavorites(){
+  const box = document.getElementById("favoritesList");
+  if(!box) return;
+  const favs = getFavorites();
+  box.innerHTML = favs.length ? favs.map(f => `
+    <article class="favorite-card">
+      <p class="sup">${f.type}</p>
+      <h3>${f.title}</h3>
+      <p>${f.meta || ""}</p>
+      <button class="btn ghost" onclick="toggleFavorite('${f.type.replace(/'/g,"\'")}','${f.title.replace(/'/g,"\'")}','${String(f.meta||"").replace(/'/g,"\'")}')">Retirer</button>
+    </article>
+  `).join("") : "<p>Aucun favori enregistré pour le moment.</p>";
+}
+
+async function loadArtistsSpace(){
+  const grid = document.getElementById("artistsGrid");
+  if(!grid) return;
+  try{
+    const r = await fetch("data/artists.json?v=4.0", {cache:"no-store"});
+    const artists = await r.json();
+    grid.innerHTML = artists.map(a => `
+      <article class="artist-card-v4">
+        ${a.image ? `<img src="${a.image}" alt="${a.name}">` : `<div class="artist-avatar">${(a.name||"?").charAt(0)}</div>`}
+        <p class="sup">${a.role || "Artiste MPBP440"}</p>
+        <h3>${a.name || ""}</h3>
+        <p>${a.bio || ""}</p>
+        <div class="platform-links">
+          ${a.links?.spotify ? `<a class="btn ghost" href="${a.links.spotify}" target="_blank" rel="noopener">Spotify</a>` : ""}
+          ${a.links?.apple ? `<a class="btn ghost" href="${a.links.apple}" target="_blank" rel="noopener">Apple Music</a>` : ""}
+          ${a.links?.deezer ? `<a class="btn ghost" href="${a.links.deezer}" target="_blank" rel="noopener">Deezer</a>` : ""}
+          ${a.links?.youtube ? `<a class="btn ghost" href="${a.links.youtube}" target="_blank" rel="noopener">YouTube</a>` : ""}
+        </div>
+        <button class="btn ghost" onclick="toggleFavorite('Artiste','${(a.name||"").replace(/'/g,"\'")}','${(a.role||"").replace(/'/g,"\'")}')">Ajouter aux favoris</button>
+      </article>
+    `).join("");
+  }catch(e){
+    grid.innerHTML = "<p>Les artistes seront affichés prochainement.</p>";
+  }
+}
+
+async function buildSearchIndex(){
+  const sources = [
+    ["Actualité","data/news.json"],
+    ["Artiste","data/artists.json"],
+    ["Sortie","data/releases.json"],
+    ["Vidéo","data/videos.json"],
+    ["Événement","data/events.json"]
+  ];
+  const items = [];
+  for(const [type,url] of sources){
+    try{
+      const r = await fetch(url + "?v=4.0", {cache:"no-store"});
+      const data = await r.json();
+      if(Array.isArray(data)){
+        data.forEach(x => items.push({
+          type,
+          title:x.title || x.name || "Sans titre",
+          text:x.text || x.description || x.bio || x.artist || "",
+          url:x.url || x.links?.spotify || ""
+        }));
+      }
+    }catch(e){}
+  }
+  return items;
+}
+
+async function initSiteSearch(){
+  const input = document.getElementById("siteSearchInput");
+  const results = document.getElementById("siteSearchResults");
+  if(!input || !results) return;
+  const index = await buildSearchIndex();
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    if(!q){results.innerHTML=""; return;}
+    const found = index.filter(i => (i.title + " " + i.text + " " + i.type).toLowerCase().includes(q)).slice(0,20);
+    results.innerHTML = found.length ? found.map(i => `
+      <article class="search-result-card">
+        <p class="sup">${i.type}</p>
+        <h3>${i.title}</h3>
+        <p>${i.text}</p>
+        ${i.url ? `<a class="btn ghost" href="${i.url}" target="_blank" rel="noopener">Ouvrir</a>` : ""}
+        <button class="btn ghost" onclick="toggleFavorite('${i.type.replace(/'/g,"\'")}','${i.title.replace(/'/g,"\'")}','${String(i.text||"").replace(/'/g,"\'")}')">Favori</button>
+      </article>
+    `).join("") : "<p>Aucun résultat trouvé.</p>";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  loadArtistsSpace();
+  initSiteSearch();
+  renderFavorites();
+  if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("sw.js").catch(()=>{});
+  }
 });
 </script>
 

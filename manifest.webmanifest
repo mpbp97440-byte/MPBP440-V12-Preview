@@ -1,9 +1,10 @@
 {
-  "name": "Sparetdee Simon",
-  "short_name": "Sparetdee",
-  "start_url": ".",
+  "name": "MPBP440",
+  "short_name": "MPBP440",
+  "description": "Portail officiel du label M.P.B.P 440.",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#06050a",
-  "theme_color": "#d4af37",
+  "background_color": "#050505",
+  "theme_color": "#f4d35e",
   "icons": []
 }

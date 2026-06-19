@@ -676,3 +676,56 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 .visitor-grid article{border:1px solid rgba(244,211,94,.25);border-radius:22px;padding:22px;background:rgba(0,0,0,.25);text-align:center}
 .visitor-grid strong{display:block;font-size:clamp(2.2rem,6vw,4rem);color:#fff1bd}
 .visitor-grid span{color:rgba(255,255,255,.72)}
+
+
+/* V4.0 — Portail interactif */
+.artists-grid,
+.search-results,
+.favorites-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+.artist-card-v4,
+.search-result-card,
+.favorite-card{
+  border:1px solid rgba(244,211,94,.25);
+  border-radius:24px;
+  padding:20px;
+  background:rgba(0,0,0,.25);
+}
+.artist-card-v4 img,
+.artist-avatar{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(135deg,rgba(244,211,94,.18),rgba(0,255,135,.12));
+  display:grid;
+  place-items:center;
+  font-size:4rem;
+  color:#fff1bd;
+  font-weight:900;
+}
+.artist-card-v4 h3,
+.search-result-card h3,
+.favorite-card h3{
+  color:#fff1bd;
+}
+.site-search-input{
+  width:100%;
+  border:1px solid rgba(244,211,94,.35);
+  border-radius:999px;
+  padding:16px 20px;
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  font:inherit;
+  margin-top:18px;
+}
+.artists-space,
+.site-search,
+.favorites-section{
+  border-color:rgba(0,255,135,.28);
+}

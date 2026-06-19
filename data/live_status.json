@@ -1,10 +1,10 @@
 {
   "is_live": false,
   "platform": "TikTok",
-  "title": "Sparetdee Simon — Live TikTok",
+  "title": "Live MPBP440",
   "url": "https://www.tiktok.com/@simonsparet/live",
   "fallback_url": "https://www.tiktok.com/@simonsparet",
-  "message_live": "🔴 En direct maintenant — rejoins le live TikTok",
-  "message_offline": "Prochain live TikTok annoncé ici",
-  "updated_at": "2026-06-18T00:07:08"
+  "message_live": "🔴 En direct maintenant — rejoins le live",
+  "message_offline": "Prochain live annoncé prochainement",
+  "updated_at": ""
 }

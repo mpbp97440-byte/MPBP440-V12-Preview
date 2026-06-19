@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "types": [
+    "sorties",
+    "lives",
+    "clips"
+  ],
+  "message": "Les notifications locales sont stockées uniquement sur cet appareil."
+}

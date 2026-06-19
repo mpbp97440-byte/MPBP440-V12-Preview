@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Center MPBP440</title>
+<link rel="stylesheet" href="live.css?v=5.1">
+</head>
+<body>
+<main class="live-page">
+  <header class="top">
+    <a class="logo" href="../index.html">M.P.B.P 440</a>
+    <a class="btn ghost" href="../index.html">Retour au site</a>
+  </header>
+
+  <section id="liveHero" class="hero">
+    <p class="sup">Live Center officiel</p>
+    <h1>MPBP440 LIVE CENTER</h1>
+    <p id="liveMessage">Chargement du statut live...</p>
+    <a id="liveButton" class="btn" href="https://www.tiktok.com/@simonsparet" target="_blank" rel="noopener">Voir le TikTok officiel</a>
+  </section>
+
+  <section class="section">
+    <p class="sup">Prochain direct</p>
+    <h2 id="nextLiveTitle">Prochain live MPBP440</h2>
+    <p id="nextLiveDescription">Les prochains directs seront annoncés ici.</p>
+    <div id="liveCountdown" class="countdown" data-date="">
+      <div><strong>--</strong><span>jours</span></div>
+      <div><strong>--</strong><span>heures</span></div>
+      <div><strong>--</strong><span>minutes</span></div>
+      <div><strong>--</strong><span>secondes</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="sup">Notifications locales</p>
+    <h2>Préférences visiteurs</h2>
+    <p>Choisis les rappels que tu veux conserver sur cet appareil.</p>
+    <div class="notify-grid">
+      <label><input type="checkbox" value="sorties"> Sorties musicales</label>
+      <label><input type="checkbox" value="lives"> Lives et événements</label>
+      <label><input type="checkbox" value="clips"> Nouveaux clips</label>
+    </div>
+    <button class="btn" onclick="saveNotificationPrefs()">Enregistrer mes préférences</button>
+    <p id="notifyStatus"></p>
+  </section>
+
+  <section class="section">
+    <p class="sup">Historique & événements</p>
+    <h2>Lives MPBP440</h2>
+    <div id="liveEventsList" class="events-list"></div>
+  </section>
+</main>
+<script src="live.js?v=5.1"></script>
+</body>
+</html>

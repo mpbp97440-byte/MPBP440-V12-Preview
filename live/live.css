@@ -1,0 +1,21 @@
+
+:root{--gold:#f4d35e;--soft:#fff1bd}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at 20% 0%,rgba(255,0,0,.16),transparent 34%),#050505;color:#fff}
+a{text-decoration:none}
+.live-page{max-width:1180px;margin:auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:28px}
+.logo{color:var(--gold);font-weight:900;letter-spacing:.18em}
+.btn{display:inline-flex;border-radius:999px;padding:12px 16px;background:var(--gold);color:#111;font-weight:900;margin:6px;border:0;cursor:pointer;text-decoration:none}
+.btn.ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(244,211,94,.35)}
+.sup{color:#00ff87;text-transform:uppercase;letter-spacing:.16em;font-weight:900}
+.hero,.section{border:1px solid rgba(244,211,94,.32);border-radius:30px;padding:28px;background:rgba(255,255,255,.06);margin-bottom:24px}
+.hero h1{font-size:clamp(3rem,9vw,7rem);line-height:.88;color:var(--soft);margin:10px 0 16px;text-transform:uppercase}
+.hero.is-live{border-color:rgba(255,0,0,.65);box-shadow:0 0 50px rgba(255,0,0,.25)}
+.countdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin-top:20px}
+.countdown div{border:1px solid rgba(244,211,94,.25);border-radius:20px;padding:18px;text-align:center;background:rgba(0,0,0,.25)}
+.countdown strong{display:block;font-size:2.2rem;color:#fff1bd}
+.countdown span{color:rgba(255,255,255,.72)}
+.notify-grid,.events-list{display:grid;gap:14px;margin-top:18px}
+.notify-grid label,.event-card{border:1px solid rgba(244,211,94,.22);border-radius:18px;padding:16px;background:rgba(0,0,0,.25)}
+.event-card h3{color:#fff1bd;margin:6px 0}

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Vérifier les titres",
+    "done": false
+  },
+  {
+    "label": "Vérifier les dates",
+    "done": false
+  },
+  {
+    "label": "Vérifier les pochettes",
+    "done": false
+  },
+  {
+    "label": "Vérifier les liens plateformes",
+    "done": false
+  },
+  {
+    "label": "Vérifier l’affichage mobile",
+    "done": false
+  }
+]

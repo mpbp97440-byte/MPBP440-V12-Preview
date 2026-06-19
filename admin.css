@@ -103,3 +103,45 @@ select{
 @media(max-width:780px){
   .calendar-item{grid-template-columns:1fr;}
 }
+
+
+/* V3.6.0 — Studio de publication */
+.studio-pro{
+  border-color:rgba(0,255,135,.35);
+  background:radial-gradient(circle at 15% 10%, rgba(0,255,135,.12), transparent 34%),rgba(255,255,255,.07);
+}
+.studio-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0 20px;
+}
+.studio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+.studio-grid article{
+  border:1px solid rgba(244,211,94,.22);
+  border-radius:18px;
+  padding:18px;
+  background:rgba(0,0,0,.25);
+}
+.checklist{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+.check-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid rgba(244,211,94,.22);
+  border-radius:16px;
+  padding:14px;
+  background:rgba(0,0,0,.22);
+}
+.check-item input{
+  width:20px;
+  height:20px;
+}

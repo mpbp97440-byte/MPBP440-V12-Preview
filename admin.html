@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPBP440 Admin Manuel</title>
-<link rel="stylesheet" href="admin.css?v=3.5.0">
+<link rel="stylesheet" href="admin.css?v=3.6.0">
 </head>
 <body>
 <header class="topbar">
@@ -38,6 +38,39 @@
     <article class="card"><h2 id="eventsCount">--</h2><p>Événements</p></article>
     <article class="card"><h2 id="artistsCount">--</h2><p>Artistes</p></article>
     <article class="card"><h2 id="liveStatus">--</h2><p>Statut Live</p></article>
+  </section>
+
+
+
+  <section class="panel studio-pro">
+    <h2>Studio de publication MPBP440</h2>
+    <p class="muted">Centre de préparation avant mise en ligne : sauvegardes, contrôle final et export des brouillons.</p>
+
+    <div class="studio-actions">
+      <button class="btn" onclick="makeStudioBackup()">Créer une sauvegarde des brouillons</button>
+      <button class="btn ghost" onclick="downloadStudioBackup()">Télécharger la sauvegarde</button>
+      <button class="btn ghost" onclick="document.getElementById('restoreBackupFile').click()">Restaurer une sauvegarde</button>
+      <input id="restoreBackupFile" type="file" accept="application/json" style="display:none" onchange="restoreStudioBackup(event)">
+    </div>
+
+    <div class="studio-grid">
+      <article>
+        <p class="sup">État publication</p>
+        <h3 id="studioStatus">Analyse en cours</h3>
+        <p id="studioStatusText">Vérification des brouillons...</p>
+      </article>
+      <article>
+        <p class="sup">Dernière sauvegarde</p>
+        <h3 id="lastBackupDate">--</h3>
+        <p>Les sauvegardes restent dans ton navigateur jusqu’à export.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Checklist avant publication</h2>
+    <p class="muted">Contrôle rapide avant d’envoyer les fichiers sur GitHub.</p>
+    <div id="publishingChecklist" class="checklist"></div>
   </section>
 
 
@@ -238,6 +271,6 @@
   </section>
 </main>
 
-<script src="admin.js?v=3.5.0"></script>
+<script src="admin.js?v=3.6.0"></script>
 </body>
 </html>

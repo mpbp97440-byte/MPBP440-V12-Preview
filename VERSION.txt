@@ -1,2 +1,2 @@
-site_mpbp440_VERSION_3_5_0_DASHBOARD_PRO
-Dashboard Pro : stats admin, calendrier sorties, gestionnaire médias, notifications.
+site_mpbp440_VERSION_3_6_0_STUDIO_PUBLICATION
+Studio de publication : sauvegardes brouillons, restauration, checklist, analyse avant publication.

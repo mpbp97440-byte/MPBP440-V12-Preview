@@ -358,3 +358,121 @@ render = function(){
   oldRender();
   renderDashboardPro();
 };
+
+
+/* V3.6.0 — Studio de publication */
+let studioBackup = null;
+let checklistItems = [
+  "Vérifier les titres",
+  "Vérifier les dates",
+  "Vérifier les pochettes",
+  "Vérifier les liens plateformes",
+  "Vérifier l’affichage mobile"
+];
+
+function makeStudioBackup(){
+  studioBackup = {
+    version: "3.6.0",
+    created_at: new Date().toISOString(),
+    drafts: JSON.parse(JSON.stringify(drafts))
+  };
+  localStorage.setItem("mpbp_studio_backup", JSON.stringify(studioBackup));
+  renderStudio();
+  alert("Sauvegarde créée dans le navigateur.");
+}
+
+function downloadStudioBackup(){
+  if(!studioBackup){
+    const saved = localStorage.getItem("mpbp_studio_backup");
+    if(saved) studioBackup = JSON.parse(saved);
+  }
+  if(!studioBackup){ alert("Aucune sauvegarde disponible."); return; }
+  const blob = new Blob([JSON.stringify(studioBackup, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "mpbp440-studio-backup.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function restoreStudioBackup(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const backup = JSON.parse(reader.result);
+      if(!backup.drafts){ alert("Sauvegarde invalide."); return; }
+      drafts = backup.drafts;
+      persist();
+      localStorage.setItem("mpbp_studio_backup", JSON.stringify(backup));
+      studioBackup = backup;
+      renderStudio();
+      alert("Sauvegarde restaurée.");
+    }catch(e){ alert("Impossible de lire la sauvegarde."); }
+  };
+  reader.readAsText(file);
+}
+
+function renderChecklist(){
+  const box = document.getElementById("publishingChecklist");
+  if(!box) return;
+  const saved = JSON.parse(localStorage.getItem("mpbp_checklist") || "{}");
+  box.innerHTML = checklistItems.map((label, i) => `
+    <label class="check-item">
+      <input type="checkbox" ${saved[label] ? "checked" : ""} onchange="toggleChecklist('${label.replace(/'/g,"\\'")}', this.checked)">
+      <span>${label}</span>
+    </label>
+  `).join("");
+}
+
+function toggleChecklist(label, value){
+  const saved = JSON.parse(localStorage.getItem("mpbp_checklist") || "{}");
+  saved[label] = value;
+  localStorage.setItem("mpbp_checklist", JSON.stringify(saved));
+  renderStudio();
+}
+
+function analyzePublishingState(){
+  const warnings = [];
+  (drafts.releases || []).forEach(r => {
+    if(!r.cover) warnings.push(`Pochette manquante : ${r.title}`);
+    if(!r.date && !r.isoDate) warnings.push(`Date manquante : ${r.title}`);
+    if(!r.links || !Object.values(r.links).some(Boolean)) warnings.push(`Liens plateformes manquants : ${r.title}`);
+  });
+  (drafts.videos || []).forEach(v => {
+    if(!v.youtubeId) warnings.push(`Identifiant YouTube manquant : ${v.title}`);
+  });
+  return warnings;
+}
+
+function renderStudio(){
+  const status = document.getElementById("studioStatus");
+  const text = document.getElementById("studioStatusText");
+  const last = document.getElementById("lastBackupDate");
+  if(!status || !text) return;
+
+  const warnings = analyzePublishingState();
+  if(warnings.length){
+    status.textContent = "À vérifier";
+    text.textContent = warnings.slice(0,4).join(" • ");
+  }else{
+    status.textContent = "Prêt à publier";
+    text.textContent = "Aucun point bloquant détecté dans les brouillons.";
+  }
+
+  const saved = localStorage.getItem("mpbp_studio_backup");
+  if(saved){
+    try{
+      const b = JSON.parse(saved);
+      if(last) last.textContent = new Date(b.created_at).toLocaleString();
+    }catch(e){}
+  }
+  renderChecklist();
+}
+
+const oldRenderStudioBase = render;
+render = function(){
+  oldRenderStudioBase();
+  renderStudio();
+};

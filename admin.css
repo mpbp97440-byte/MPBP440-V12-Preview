@@ -58,3 +58,48 @@ select{
 @media(max-width:760px){
   .media-preview{grid-template-columns:1fr;}
 }
+
+
+/* V3.5.0 — Dashboard Pro */
+.calendar-list,.media-manager,.notifications-list{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+.calendar-item,.media-admin-card,.notifications-list article{
+  border:1px solid rgba(244,211,94,.22);
+  border-radius:18px;
+  padding:16px;
+  background:rgba(0,0,0,.24);
+}
+.calendar-item{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:14px;
+  align-items:center;
+}
+.calendar-item strong,.media-admin-card h3{
+  color:#fff1bd;
+  display:block;
+}
+.calendar-item span{
+  color:rgba(255,255,255,.68);
+  display:block;
+  margin-top:4px;
+}
+.calendar-item time,.calendar-item em{
+  color:#f4d35e;
+  font-style:normal;
+  font-weight:900;
+}
+.media-admin-card code{
+  display:block;
+  margin:10px 0;
+  word-break:break-word;
+}
+.dashboard-pro{
+  border-color:rgba(0,255,135,.35);
+}
+@media(max-width:780px){
+  .calendar-item{grid-template-columns:1fr;}
+}

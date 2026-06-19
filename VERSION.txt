@@ -1,2 +1,2 @@
-site_mpbp440_VERSION_3_4_3_SORTIES_EVENTS_COUNTER
-Ajout : création sorties officielles, countdowns/events/news automatiques, compteur local visites.
+site_mpbp440_VERSION_3_5_0_DASHBOARD_PRO
+Dashboard Pro : stats admin, calendrier sorties, gestionnaire médias, notifications.

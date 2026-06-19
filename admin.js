@@ -268,3 +268,93 @@ function addReleasePack(){
 function downloadReleases(){ downloadFile('releases.json', drafts.releases); }
 function downloadCountdowns(){ downloadFile('countdowns.json', drafts.countdowns); }
 function downloadEvents(){ downloadFile('events.json', drafts.events); }
+
+
+/* V3.5.0 — Dashboard Pro */
+function parseDateFromRelease(item){
+  if(item.isoDate) return item.isoDate;
+  if(item.date && /^\d{2}\/\d{2}\/\d{4}$/.test(item.date)){
+    const [d,m,y] = item.date.split('/');
+    return `${y}-${m}-${d}`;
+  }
+  if(item.date && item.date.includes('T')) return item.date.split('T')[0];
+  return item.date || '';
+}
+
+function renderDashboardPro(){
+  const rel = drafts.releases || [];
+  const vids = drafts.videos || [];
+  const gal = drafts.gallery || [];
+  const cnt = drafts.countdowns || [];
+
+  const byId = (id) => document.getElementById(id);
+  if(byId('releaseCount')) byId('releaseCount').textContent = rel.length;
+  if(byId('videoCount')) byId('videoCount').textContent = vids.length;
+  if(byId('galleryCount')) byId('galleryCount').textContent = gal.length;
+  if(byId('countdownCount')) byId('countdownCount').textContent = cnt.length;
+
+  const calendar = byId('releaseCalendar');
+  if(calendar){
+    const items = [...rel, ...cnt.map(c => ({
+      title: c.title,
+      artist: c.artist || '',
+      date: c.date,
+      cover: c.cover,
+      status: 'Compte à rebours'
+    }))];
+
+    items.sort((a,b) => (parseDateFromRelease(a)||'').localeCompare(parseDateFromRelease(b)||''));
+
+    calendar.innerHTML = items.length ? items.map(item => `
+      <article class="calendar-item">
+        <div>
+          <strong>${item.title || 'Sans titre'}</strong>
+          <span>${item.artist || ''}</span>
+        </div>
+        <time>${item.date || item.isoDate || 'Date non définie'}</time>
+        <em>${item.status || 'Sortie'}</em>
+      </article>
+    `).join('') : '<p class="muted">Aucune sortie programmée dans les brouillons.</p>';
+  }
+
+  const media = byId('mediaManager');
+  if(media){
+    const mediaItems = [
+      ...gal.map(g => ({type:'Galerie', title:g.title, path:g.image})),
+      ...rel.map(r => ({type:'Pochette', title:r.title, path:r.cover})),
+      ...vids.map(v => ({type:'Vidéo', title:v.title, path:v.url}))
+    ].filter(x => x.path || x.title);
+
+    media.innerHTML = mediaItems.length ? mediaItems.map((m, i) => `
+      <article class="media-admin-card">
+        <p class="sup">${m.type}</p>
+        <h3>${m.title || 'Sans titre'}</h3>
+        <code>${m.path || ''}</code>
+        <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(m.path || '').replace(/'/g,"\\'")}')">Copier chemin</button>
+      </article>
+    `).join('') : '<p class="muted">Aucun média préparé dans les brouillons.</p>';
+  }
+
+  const notif = byId('adminNotifications');
+  if(notif){
+    const notices = [];
+    rel.forEach(r => {
+      if(!r.cover) notices.push(`La sortie "${r.title}" n’a pas encore de pochette.`);
+      if(!r.links || !Object.values(r.links).some(Boolean)) notices.push(`La sortie "${r.title}" n’a aucun lien plateforme.`);
+    });
+    vids.forEach(v => {
+      if(!v.youtubeId) notices.push(`La vidéo "${v.title}" n’a pas d’identifiant YouTube détecté.`);
+    });
+    cnt.forEach(c => {
+      if(!c.date) notices.push(`Un compte à rebours n’a pas de date.`);
+    });
+
+    notif.innerHTML = notices.length ? notices.map(n => `<article>⚠ ${n}</article>`).join('') : '<article>✅ Aucun point bloquant détecté dans les brouillons.</article>';
+  }
+}
+
+const oldRender = render;
+render = function(){
+  oldRender();
+  renderDashboardPro();
+};

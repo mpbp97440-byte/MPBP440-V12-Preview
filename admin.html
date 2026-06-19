@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPBP440 Admin Manuel</title>
-<link rel="stylesheet" href="admin.css?v=3.4.3">
+<link rel="stylesheet" href="admin.css?v=3.5.0">
 </head>
 <body>
 <header class="topbar">
@@ -39,6 +39,38 @@
     <article class="card"><h2 id="artistsCount">--</h2><p>Artistes</p></article>
     <article class="card"><h2 id="liveStatus">--</h2><p>Statut Live</p></article>
   </section>
+
+
+  <section class="panel dashboard-pro">
+    <h2>Dashboard Pro MPBP440</h2>
+    <p class="muted">Vue d’ensemble du portail : contenus, sorties, médias et alertes de gestion.</p>
+
+    <div class="grid cards">
+      <article class="card"><h2 id="releaseCount">--</h2><p>Sorties</p></article>
+      <article class="card"><h2 id="videoCount">--</h2><p>Vidéos</p></article>
+      <article class="card"><h2 id="galleryCount">--</h2><p>Images galerie</p></article>
+      <article class="card"><h2 id="countdownCount">--</h2><p>Comptes à rebours</p></article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Calendrier des sorties</h2>
+    <p class="muted">Aperçu des sorties programmées et événements liés.</p>
+    <div id="releaseCalendar" class="calendar-list"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Gestionnaire de médias</h2>
+    <p class="muted">Aperçu des images et vidéos préparées dans les brouillons.</p>
+    <div id="mediaManager" class="media-manager"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Centre de notifications</h2>
+    <p class="muted">Points à vérifier avant publication.</p>
+    <div id="adminNotifications" class="notifications-list"></div>
+  </section>
+
 
   <section class="panel">
     <h2>Gestion des images</h2>
@@ -206,6 +238,6 @@
   </section>
 </main>
 
-<script src="admin.js?v=3.4.3"></script>
+<script src="admin.js?v=3.5.0"></script>
 </body>
 </html>

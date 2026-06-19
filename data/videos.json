@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "artist": "Sparetdee Simon",
+    "title": "Clip officiel à venir",
+    "youtube": "",
+    "description": "Ajoute ici les prochains clips de Sparetdee Simon."
+  },
+  {
+    "artist": "Juste Une Plume",
+    "title": "Je sais que tu sais",
+    "youtube": "https://youtu.be/jkKGmZDQMtE?si=wWLZSqLFOA5320VT",
+    "description": "Premier titre officiel de Juste Une Plume."
+  }
+]

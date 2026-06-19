@@ -1,0 +1,26 @@
+
+/* V4.4 - Clips dynamiques */
+.video-grid{display:grid;gap:16px}
+.video-card{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:16px;
+  padding:16px;
+  border:1px solid rgba(244,211,94,.22);
+  border-radius:20px;
+  background:rgba(0,0,0,.24);
+}
+.video-card img,
+.video-placeholder{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:14px;
+  background:#050505;
+  display:grid;
+  place-items:center;
+  font-size:2rem;
+}
+@media(max-width:720px){
+  .video-card{grid-template-columns:1fr;}
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galerie MPBP440</title>
+<link rel="stylesheet" href="galerie.css?v=4.5">
+</head>
+<body>
+<main class="gallery-page">
+  <header class="top">
+    <a class="logo" href="../index.html">M.P.B.P 440</a>
+    <a class="btn ghost" href="../index.html">Retour au site</a>
+  </header>
+
+  <section class="hero">
+    <p class="sup">Galerie officielle</p>
+    <h1>Galerie MPBP440</h1>
+    <p>Photos d’artistes, pochettes, flyers, visuels officiels et archives créatives du label.</p>
+  </section>
+
+  <section class="filters">
+    <button class="btn ghost" data-filter="Tous">Tous</button>
+    <button class="btn ghost" data-filter="Sparetdee Simon">Sparetdee Simon</button>
+    <button class="btn ghost" data-filter="Juste Une Plume">Juste Une Plume</button>
+    <button class="btn ghost" data-filter="Pochette">Pochettes</button>
+    <button class="btn ghost" data-filter="Profil artiste">Profils</button>
+    <button class="btn ghost" data-filter="Événement">Événements</button>
+  </section>
+
+  <section id="galleryGrid" class="gallery-grid"></section>
+</main>
+
+<div id="lightbox" class="lightbox" hidden>
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" alt="">
+  <div>
+    <h2 id="lightboxTitle"></h2>
+    <p id="lightboxText"></p>
+  </div>
+</div>
+
+<script src="galerie.js?v=4.5"></script>
+</body>
+</html>

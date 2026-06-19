@@ -1,0 +1,97 @@
+
+:root{--gold:#f4d35e;--soft:#fff1bd}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:radial-gradient(circle at 20% 0%,rgba(244,211,94,.16),transparent 35%),#050505;
+  color:#fff;
+}
+a{text-decoration:none}
+.gallery-page{max-width:1180px;margin:auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:28px}
+.logo{color:var(--gold);font-weight:900;letter-spacing:.18em}
+.sup{color:#00ff87;text-transform:uppercase;letter-spacing:.16em;font-weight:900}
+.hero{
+  border:1px solid rgba(244,211,94,.32);
+  border-radius:30px;
+  padding:34px;
+  background:rgba(255,255,255,.06);
+}
+.hero h1{
+  font-size:clamp(3rem,9vw,7rem);
+  line-height:.88;
+  color:var(--soft);
+  margin:10px 0 16px;
+  text-transform:uppercase;
+}
+.btn{
+  display:inline-flex;
+  border-radius:999px;
+  padding:12px 16px;
+  background:var(--gold);
+  color:#111;
+  font-weight:900;
+  margin:6px;
+  border:0;
+  cursor:pointer;
+}
+.btn.ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(244,211,94,.35)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.gallery-card{
+  border:1px solid rgba(244,211,94,.25);
+  border-radius:24px;
+  overflow:hidden;
+  background:rgba(255,255,255,.055);
+  cursor:pointer;
+  transition:.25s;
+}
+.gallery-card:hover{transform:translateY(-4px);border-color:rgba(244,211,94,.75)}
+.gallery-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+}
+.gallery-card div{padding:16px}
+.gallery-card h3{color:#fff1bd;margin:6px 0}
+.gallery-card p{color:rgba(255,255,255,.75)}
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:grid;
+  place-items:center;
+  padding:24px;
+  z-index:9999;
+}
+.lightbox[hidden]{display:none}
+.lightbox img{
+  max-width:min(92vw,1100px);
+  max-height:72vh;
+  object-fit:contain;
+  border-radius:20px;
+  border:1px solid rgba(244,211,94,.35);
+}
+.lightbox div{
+  max-width:900px;
+  text-align:center;
+}
+.lightbox-close{
+  position:fixed;
+  top:20px;
+  right:24px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(244,211,94,.5);
+  background:#111;
+  color:#fff;
+  font-size:2rem;
+  cursor:pointer;
+}

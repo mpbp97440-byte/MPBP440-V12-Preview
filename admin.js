@@ -1,5 +1,5 @@
 
-let drafts = { news: [], featured: {}, live: {}, gallery: [], videos: [] };
+let drafts = { news: [], featured: {}, live: {}, gallery: [], videos: [], releases: [], countdowns: [], events: [] };
 let preparedMedia = { file:null, filename:'', path:'', url:'' };
 
 async function loadJson(path, fallback){
@@ -13,6 +13,9 @@ async function init(){
   drafts.live = JSON.parse(localStorage.getItem('mpbp_live_draft') || 'null') || await loadJson('data/live_status.json',{is_live:false});
   drafts.gallery = JSON.parse(localStorage.getItem('mpbp_gallery_draft') || 'null') || await loadJson('data/gallery.json',[]);
   drafts.videos = JSON.parse(localStorage.getItem('mpbp_videos_draft') || 'null') || await loadJson('data/videos.json',[]);
+  drafts.releases = JSON.parse(localStorage.getItem('mpbp_releases_draft') || 'null') || await loadJson('data/releases.json',[]);
+  drafts.countdowns = JSON.parse(localStorage.getItem('mpbp_countdowns_draft') || 'null') || await loadJson('data/countdowns.json',[]);
+  drafts.events = JSON.parse(localStorage.getItem('mpbp_events_draft') || 'null') || await loadJson('data/events.json',[]);
 
   const events = await loadJson('data/events.json',[]);
   const artists = await loadJson('data/artists.json',[]);
@@ -90,6 +93,9 @@ function persist(){
   localStorage.setItem('mpbp_live_draft', JSON.stringify(drafts.live));
   localStorage.setItem('mpbp_gallery_draft', JSON.stringify(drafts.gallery));
   localStorage.setItem('mpbp_videos_draft', JSON.stringify(drafts.videos));
+  localStorage.setItem('mpbp_releases_draft', JSON.stringify(drafts.releases));
+  localStorage.setItem('mpbp_countdowns_draft', JSON.stringify(drafts.countdowns));
+  localStorage.setItem('mpbp_events_draft', JSON.stringify(drafts.events));
   render();
 }
 
@@ -220,10 +226,45 @@ function downloadAll(){
   setTimeout(downloadLive, 500);
   setTimeout(downloadGallery, 750);
   setTimeout(downloadVideos, 1000);
+  setTimeout(downloadReleases, 1250);
+  setTimeout(downloadCountdowns, 1500);
+  setTimeout(downloadEvents, 1750);
 }
 function resetDrafts(){
   if(!confirm('Réinitialiser les brouillons locaux ?')) return;
-  ['mpbp_news_draft','mpbp_featured_draft','mpbp_live_draft','mpbp_gallery_draft','mpbp_videos_draft'].forEach(k => localStorage.removeItem(k));
+  ['mpbp_news_draft','mpbp_featured_draft','mpbp_live_draft','mpbp_gallery_draft','mpbp_videos_draft','mpbp_releases_draft','mpbp_countdowns_draft','mpbp_events_draft'].forEach(k => localStorage.removeItem(k));
   location.reload();
 }
 init();
+
+
+function useMediaForRelease(){
+  if(!preparedMedia.path){ alert('Prépare d’abord une image.'); return; }
+  document.getElementById('releaseCover').value = preparedMedia.path;
+}
+function addReleasePack(){
+  const artist = document.getElementById('releaseArtist').value;
+  const title = document.getElementById('releaseTitle').value;
+  const date = document.getElementById('releaseDate').value;
+  const cover = document.getElementById('releaseCover').value;
+  const description = document.getElementById('releaseDescription').value;
+  if(!artist || !title || !date){ alert('Artiste, titre et date obligatoires.'); return; }
+  const frDate = date.split('-').reverse().join('/');
+  const links = {
+    spotify: document.getElementById('releaseSpotify').value,
+    apple: document.getElementById('releaseApple').value,
+    deezer: document.getElementById('releaseDeezer').value,
+    youtube: document.getElementById('releaseYoutube').value,
+    amazon: document.getElementById('releaseAmazon').value
+  };
+  const release = {artist,title,date:frDate,isoDate:date,cover,description,links,status:'À venir'};
+  drafts.releases.unshift(release);
+  drafts.countdowns.unshift({title:`${title} — ${artist}`,artist,date:`${date}T00:00:00+02:00`,label:`Prochaine sortie ${artist}`,description,cover});
+  drafts.events.unshift({title:`Sortie officielle — ${title}`,date:frDate,time:"00h00",place:"Toutes les plateformes",description:description || `${title} de ${artist} disponible sur toutes les plateformes.`,cover,buttonText:"Écouter",url:links.spotify || links.youtube || links.apple || "#"});
+  drafts.news.unshift({date,type:"sortie",title:`${title} — sortie officielle`,text:description || `${artist} présente ${title}, disponible le ${frDate} sur toutes les plateformes.`});
+  persist();
+  alert('Pack sortie créé : releases, countdowns, events et news mis à jour.');
+}
+function downloadReleases(){ downloadFile('releases.json', drafts.releases); }
+function downloadCountdowns(){ downloadFile('countdowns.json', drafts.countdowns); }
+function downloadEvents(){ downloadFile('events.json', drafts.events); }

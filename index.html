@@ -9,7 +9,7 @@
 <meta property="og:image" content="assets/covers/la-france-se-souleve.jpg">
 <meta name="theme-color" content="#050405">
 <link rel="icon" href="assets/logo/mpbp440-logo.jpg">
-<link rel="stylesheet" href="style.css?v=3.3.1-media-center-pro">
+<link rel="stylesheet" href="style.css?v=3.4.3">
 </head>
 
 <body>
@@ -612,11 +612,24 @@
   </div>
 </section>
 
+
+<section id="visitor-counter" class="section panel visitor-counter">
+  <div class="section-head">
+    <p class="sup">Fréquentation</p>
+    <h2>VISITES MPBP440</h2>
+    <p>Merci à tous les visiteurs qui suivent l’évolution du label et de ses artistes.</p>
+  </div>
+  <div class="visitor-grid">
+    <article><strong id="localVisitCount">--</strong><span>visites depuis cet appareil</span></article>
+    <article><strong id="sessionVisitCount">--</strong><span>session actuelle</span></article>
+  </div>
+</section>
+
 </main>
 
 <footer><p>© 2026 MPBP 440 Corp.2026 — Sparetdee Simon / Juste Une Plume</p></footer>
 
-<script src="script.js?v=3.3.1-media-center-pro"></script>
+<script src="script.js?v=3.4.3"></script>
 
 
 
@@ -742,6 +755,21 @@ document.addEventListener("DOMContentLoaded", async function(){
       `).join("");
     }catch(e){}
   }
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const totalKey = "mpbp440_total_visits";
+  const sessionKey = "mpbp440_session_started";
+  let total = parseInt(localStorage.getItem(totalKey) || "0", 10) + 1;
+  localStorage.setItem(totalKey, total.toString());
+  if(!sessionStorage.getItem(sessionKey)) sessionStorage.setItem(sessionKey, "1");
+  const totalEl = document.getElementById("localVisitCount");
+  const sessionEl = document.getElementById("sessionVisitCount");
+  if(totalEl) totalEl.textContent = total;
+  if(sessionEl) sessionEl.textContent = sessionStorage.getItem(sessionKey);
 });
 </script>
 

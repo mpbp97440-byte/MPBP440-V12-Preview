@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPBP440 Admin Manuel</title>
-<link rel="stylesheet" href="admin.css?v=3.4.2">
+<link rel="stylesheet" href="admin.css?v=3.4.3">
 </head>
 <body>
 <header class="topbar">
@@ -132,6 +132,40 @@
     <p class="path">Fichier GitHub à remplacer : <code>data/videos.json</code></p>
   </section>
 
+
+  <section class="panel">
+    <h2>Créer une sortie officielle</h2>
+    <p class="muted">Prépare une sortie avec pochette, compte à rebours, actualité et liens plateformes.</p>
+    <div class="form-grid">
+      <label>Artiste <input id="releaseArtist" placeholder="Sparetdee Simon"></label>
+      <label>Titre <input id="releaseTitle" placeholder="Le Système"></label>
+      <label>Date de sortie <input id="releaseDate" type="date"></label>
+      <label class="wide">Pochette <input id="releaseCover" placeholder="assets/covers/le-systeme.png"></label>
+      <label>Spotify <input id="releaseSpotify" placeholder="https://open.spotify.com/..."></label>
+      <label>Apple Music <input id="releaseApple" placeholder="https://music.apple.com/..."></label>
+      <label>Deezer <input id="releaseDeezer" placeholder="https://deezer.com/..."></label>
+      <label>YouTube Music <input id="releaseYoutube" placeholder="https://music.youtube.com/..."></label>
+      <label>Amazon Music <input id="releaseAmazon" placeholder="https://amazon.fr/music/..."></label>
+      <label class="wide">Description <textarea id="releaseDescription" placeholder="Description publique de la sortie"></textarea></label>
+    </div>
+    <button class="btn" onclick="useMediaForRelease()">Utiliser l’image préparée</button>
+    <button class="btn" onclick="addReleasePack()">Créer le pack sortie</button>
+    <button class="btn ghost" onclick="downloadReleases()">Télécharger releases.json</button>
+    <button class="btn ghost" onclick="downloadCountdowns()">Télécharger countdowns.json</button>
+    <button class="btn ghost" onclick="downloadEvents()">Télécharger events.json</button>
+    <p class="path">Fichiers GitHub à remplacer : <code>data/releases.json</code>, <code>data/countdowns.json</code>, <code>data/events.json</code>, <code>data/news.json</code></p>
+  </section>
+
+  <section class="panel">
+    <h2>Compteur de visites</h2>
+    <p class="muted">Le site affiche un compteur local compatible GitHub Pages. Un compteur global pourra être ajouté plus tard avec un service externe.</p>
+    <div class="preview-grid">
+      <article><p class="sup">Mode actuel</p><h3>Local navigateur</h3><p>Fonctionne sans serveur et sans domaine personnalisé.</p></article>
+      <article><p class="sup">Évolution future</p><h3>Compteur global</h3><p>Possible plus tard avec une API externe ou un hébergement dynamique.</p></article>
+    </div>
+  </section>
+
+
   <section class="panel">
     <h2>Live TikTok</h2>
     <p class="muted">Prépare le statut live affiché publiquement sur le site.</p>
@@ -172,6 +206,6 @@
   </section>
 </main>
 
-<script src="admin.js?v=3.4.2"></script>
+<script src="admin.js?v=3.4.3"></script>
 </body>
 </html>

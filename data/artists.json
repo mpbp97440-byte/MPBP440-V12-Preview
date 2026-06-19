@@ -1,14 +1,14 @@
 [
   {
+    "slug": "sparetdee-simon",
     "name": "Sparetdee Simon",
     "role": "Artiste principal",
-    "bio": "Rap conscient, plume de quartier, vision humaine et cosmique. Fondateur de l’univers MPBP440.",
-    "status": "active"
+    "image": "assets/artists/sparetdee-simon.png"
   },
   {
+    "slug": "juste-une-plume",
     "name": "Juste Une Plume",
-    "role": "Artiste du label",
-    "bio": "Une artiste portée par l’espoir, la sensibilité humaine et la bienveillance.",
-    "status": "active"
+    "role": "Artiste MPBP440",
+    "image": "assets/artists/juste-une-plume.png"
   }
 ]

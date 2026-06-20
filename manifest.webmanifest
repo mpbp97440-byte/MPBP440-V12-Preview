@@ -1,10 +1,47 @@
 {
-  "name": "MPBP440",
+  "name": "MPBP440 — Portail Musical Officiel",
   "short_name": "MPBP440",
-  "description": "Portail officiel du label M.P.B.P 440.",
-  "start_url": "./index.html",
+  "description": "Site officiel du label M.P.B.P 440 : artistes, sorties, radio, clips, lives et Music Hub.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#050505",
   "theme_color": "#f4d35e",
-  "icons": []
+  "categories": [
+    "music",
+    "entertainment"
+  ],
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/assets/icons/mpbp440-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/mpbp440-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Music Hub",
+      "short_name": "Music",
+      "url": "/music/index.html"
+    },
+    {
+      "name": "Live Center",
+      "short_name": "Live",
+      "url": "/live/index.html"
+    },
+    {
+      "name": "Galerie",
+      "short_name": "Galerie",
+      "url": "/galerie/index.html"
+    }
+  ]
 }

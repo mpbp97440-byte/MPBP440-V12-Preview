@@ -1,0 +1,54 @@
+/* MPBP440 PWA — V5.2 */
+.mpbp-install-btn{
+  position:fixed;
+  right:18px;
+  bottom:86px;
+  z-index:9998;
+  border:1px solid rgba(244,211,94,.55);
+  border-radius:999px;
+  padding:13px 18px;
+  background:#f4d35e;
+  color:#111;
+  font-weight:900;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+  cursor:pointer;
+}
+.mpbp-install-btn[hidden]{display:none}
+.offline-page{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:radial-gradient(circle at 20% 0%, rgba(244,211,94,.16), transparent 34%),#050505;
+  color:#fff;
+  font-family:Arial,sans-serif;
+}
+.offline-card{
+  max-width:620px;
+  border:1px solid rgba(244,211,94,.35);
+  border-radius:30px;
+  background:rgba(255,255,255,.06);
+  padding:32px;
+  text-align:center;
+}
+.offline-card img{width:110px;height:110px;border-radius:24px}
+.offline-card h1{
+  font-size:clamp(3rem,9vw,6rem);
+  line-height:.9;
+  color:#fff1bd;
+  margin:12px 0;
+}
+.sup{color:#00ff87;text-transform:uppercase;letter-spacing:.16em;font-weight:900}
+.pwa-btn{
+  display:inline-flex;
+  border-radius:999px;
+  padding:13px 18px;
+  background:#f4d35e;
+  color:#111;
+  font-weight:900;
+  text-decoration:none;
+  margin-top:18px;
+}
+@media(max-width:640px){
+  .mpbp-install-btn{left:16px;right:16px;bottom:18px}
+}

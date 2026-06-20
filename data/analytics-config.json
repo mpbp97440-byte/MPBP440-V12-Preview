@@ -1,0 +1,37 @@
+{
+  "version": "5.4",
+  "namespace": "mpbp440-official",
+  "site": "www.mpbp440.com",
+  "mode": "global_with_local_fallback",
+  "public_dashboard": true,
+  "tracked_pages": [
+    {
+      "label": "Accueil",
+      "path": "/"
+    },
+    {
+      "label": "Application",
+      "path": "/application/index.html"
+    },
+    {
+      "label": "Music Hub",
+      "path": "/music/index.html"
+    },
+    {
+      "label": "Live Center",
+      "path": "/live/index.html"
+    },
+    {
+      "label": "Galerie",
+      "path": "/galerie/index.html"
+    },
+    {
+      "label": "Sparetdee Simon",
+      "path": "/artistes/sparetdee-simon.html"
+    },
+    {
+      "label": "Juste Une Plume",
+      "path": "/artistes/juste-une-plume.html"
+    }
+  ]
+}

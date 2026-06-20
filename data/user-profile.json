@@ -1,0 +1,5 @@
+{
+  "version": "5.5",
+  "mode": "localStorage",
+  "description": "Profil utilisateur local compatible GitHub Pages et PWA."
+}

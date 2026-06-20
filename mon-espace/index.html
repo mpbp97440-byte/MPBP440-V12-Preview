@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mon espace MPBP440</title>
+<meta name="description" content="Espace personnel MPBP440 : profil, favoris, notifications et historique local.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/pwa/pwa.css?v=5.5">
+<link rel="stylesheet" href="profile.css?v=5.5">
+</head>
+<body>
+<main class="space-page">
+  <header class="top">
+    <a class="logo" href="/">M.P.B.P 440</a>
+    <a class="btn ghost" href="/">Retour au site</a>
+  </header>
+
+  <section class="hero">
+    <p class="sup">Espace personnel</p>
+    <h1>MON ESPACE</h1>
+    <p>Profil local, favoris, notifications et historique MPBP440 conservés sur cet appareil.</p>
+  </section>
+
+  <section class="section">
+    <p class="sup">Profil</p>
+    <h2>Mon profil local</h2>
+    <div class="profile-grid">
+      <label>Pseudo <input id="pseudo" placeholder="Votre pseudo"></label>
+      <label>Avatar / emoji <input id="avatar" placeholder="🎵"></label>
+      <label>Artiste favori <input id="favoriteArtist" placeholder="Sparetdee Simon"></label>
+      <label>Style préféré <input id="favoriteStyle" placeholder="Rap conscient, old school..."></label>
+    </div>
+    <button class="btn" onclick="saveProfileForm()">Enregistrer mon profil</button>
+    <p id="profileStatus"></p>
+  </section>
+
+  <section class="section dashboard">
+    <article><p class="sup">Profil</p><strong id="profileName">Invité</strong><span id="profileAvatar">🎵</span></article>
+    <article><p class="sup">Favoris</p><strong id="favCount">0</strong><span>éléments sauvegardés</span></article>
+    <article><p class="sup">Historique</p><strong id="historyCount">0</strong><span>pages consultées</span></article>
+    <article><p class="sup">Notifications</p><strong id="notifCount">0</strong><span>préférences actives</span></article>
+  </section>
+
+  <section class="section">
+    <p class="sup">Favoris</p>
+    <h2>Ma bibliothèque</h2>
+    <div id="favoritesList" class="cards-list"></div>
+  </section>
+
+  <section class="section">
+    <p class="sup">Notifications</p>
+    <h2>Mes préférences</h2>
+    <div class="notify-grid">
+      <label><input type="checkbox" value="sorties"> Sorties musicales</label>
+      <label><input type="checkbox" value="lives"> Lives et événements</label>
+      <label><input type="checkbox" value="clips"> Nouveaux clips</label>
+      <label><input type="checkbox" value="app"> Mises à jour de l’application</label>
+    </div>
+    <button class="btn" onclick="saveNotifPrefsForm()">Enregistrer mes notifications</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Historique</p>
+    <h2>Dernières consultations</h2>
+    <div id="historyList" class="cards-list"></div>
+  </section>
+
+  <section class="section danger-zone">
+    <p class="sup">Gestion locale</p>
+    <h2>Réinitialiser mes données</h2>
+    <p>Cette action supprime uniquement les données de cet appareil.</p>
+    <button class="btn ghost" onclick="resetLocalSpace()">Réinitialiser mon espace</button>
+  </section>
+</main>
+<script src="/pwa/pwa.js?v=5.5"></script>
+<script src="/js/favorites.js?v=5.5"></script>
+<script src="/js/profile-manager.js?v=5.5"></script>
+<script src="profile.js?v=5.5"></script>
+</body>
+</html>

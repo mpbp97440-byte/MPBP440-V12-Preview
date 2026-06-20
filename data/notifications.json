@@ -1,9 +1,12 @@
-{
-  "enabled": true,
-  "types": [
-    "sorties",
-    "lives",
-    "clips"
-  ],
-  "message": "Les notifications locales sont stockées uniquement sur cet appareil."
-}
+[
+  {
+    "type": "info",
+    "title": "Bienvenue sur MPBP440",
+    "text": "Votre espace personnel conserve vos favoris et préférences sur cet appareil."
+  },
+  {
+    "type": "app",
+    "title": "Application MPBP440",
+    "text": "L’application peut être installée sur Windows, Android, iPhone et iPad."
+  }
+]

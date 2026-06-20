@@ -38,6 +38,7 @@
 <!-- V5.3.1 FIX MENU APPLICATION -->
 <!-- MPBP440 V5.4 Analytics -->
 <!-- V5.4.1 FIX MENU APPLICATION -->
+<!-- V5.4.2 FORCE APPLICATION LINK -->
 </head>
 
 <body>
@@ -61,7 +62,7 @@
     <a href="#videos">Clips</a>
     <a href="#gallery">Galerie</a>
     <a href="#links">Liens</a>
-    <a href="#guestbook">Application</a><a href="/analytics/index.html">Stats</a><a href="/application/index.html">Livre d’or</a>
+    <a href="/application/index.html">Application</a><a href="/analytics/index.html">Stats</a><a href="/application/index.html">Livre d’or</a>
   </nav>
 </header>
 
@@ -977,5 +978,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
 <script src="/pwa/pwa.js?v=5.2-full"></script>
 <script src="/analytics/tracker.js?v=5.4"></script>
+
+<script>
+/* V5.4.2 — Force lien Application */
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll("a").forEach(function(a){
+    const txt = (a.textContent || "").trim().toLowerCase();
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if(txt === "application" || href === "#application" || href === "#application-info"){
+      a.setAttribute("href", "/application/index.html");
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        window.location.href = "/application/index.html";
+      });
+    }
+  });
+});
+</script>
+
 </body>
 </html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administration MPBP440 — Accès réservé</title>
+<link rel="stylesheet" href="admin.css?v=5.7.2">
+</head>
+<body>
+<section id="loginBox" class="login-wrap">
+  <div class="login-card">
+    <p class="sup">Accès réservé</p>
+    <h1>Administration MPBP440</h1>
+    <p class="muted">Cette zone est privée. Connexion nécessaire.</p>
+
+    <label>Identifiant
+      <input id="adminUser" autocomplete="username" placeholder="Identifiant">
+    </label>
+
+    <label>Mot de passe
+      <div class="password-row">
+        <input id="adminPass" type="password" autocomplete="current-password" placeholder="Mot de passe">
+        <button type="button" onclick="togglePassword()">Voir</button>
+      </div>
+    </label>
+
+    <label class="remember">
+      <input id="rememberAdmin" type="checkbox" checked>
+      <span>Rester connecté 24 h</span>
+    </label>
+
+    <button class="btn" onclick="loginAdmin()">Accéder à l'administration</button>
+    <p id="loginMsg" class="msg"></p>
+    <p id="attemptsMsg" class="muted small"></p>
+
+    <div class="login-footer">
+      <button class="btn ghost" onclick="showHelp()">Aide</button>
+      <button class="btn ghost" onclick="clearLockLocal()">Réinitialiser verrou local</button>
+    </div>
+  </div>
+</section>
+
+<section id="adminBox" style="display:none">
+  <div class="admin-secure-bar">
+    <strong>Administration MPBP440</strong>
+    <span id="sessionInfo">Session active</span>
+    <button onclick="logoutAdmin()">Se déconnecter</button>
+  </div>
+  
+<main class="admin-page">
+  <header class="top">
+    <a class="logo" href="/">M.P.B.P 440</a>
+    <a class="btn ghost" href="/">Retour au site</a>
+  </header>
+
+  <section class="hero">
+    <p class="sup">Admin Pro</p>
+    <h1>GÉNÉRATEUR INTELLIGENT</h1>
+    <p>Préparez sorties, artistes, clips, galerie, lives et changelog sans modifier les JSON à la main.</p>
+  </section>
+
+  <section class="section">
+    <p class="sup">Média</p>
+    <h2>Préparer une image</h2>
+    <div class="form-grid">
+      <label>Dossier cible
+        <select id="mediaFolder">
+          <option value="assets/covers">Pochette / sortie</option>
+          <option value="assets/artists">Photo artiste</option>
+          <option value="assets/gallery">Galerie</option>
+          <option value="assets/events">Événement</option>
+        </select>
+      </label>
+      <label>Titre / nom public <input id="mediaTitle" placeholder="Le Système"></label>
+      <label class="wide">Image <input id="mediaFile" type="file" accept="image/*"></label>
+    </div>
+    <button class="btn" onclick="prepareMedia()">Préparer l’image</button>
+    <button class="btn ghost" onclick="downloadPreparedMedia()">Télécharger l’image renommée</button>
+    <p class="path">Chemin généré : <code id="mediaPath">---</code></p>
+    <img id="mediaPreview" class="media-preview" alt="">
+  </section>
+
+  <section class="section">
+    <p class="sup">Sortie musicale</p>
+    <h2>Créer une sortie</h2>
+    <div class="form-grid">
+      <label>Artiste <input id="releaseArtist" placeholder="Sparetdee Simon"></label>
+      <label>Titre <input id="releaseTitle" placeholder="Le Système"></label>
+      <label>Date ISO <input id="releaseIsoDate" type="date"></label>
+      <label>Type <input id="releaseType" value="Single"></label>
+      <label class="wide">Pochette <input id="releaseCover" placeholder="assets/covers/le-systeme.png"></label>
+      <label>Spotify <input id="releaseSpotify"></label>
+      <label>Apple Music <input id="releaseApple"></label>
+      <label>Deezer <input id="releaseDeezer"></label>
+      <label>YouTube <input id="releaseYoutube"></label>
+      <label>Amazon Music <input id="releaseAmazon"></label>
+      <label class="wide">Description <textarea id="releaseDescription"></textarea></label>
+    </div>
+    <button class="btn" onclick="useMediaFor('releaseCover')">Utiliser l’image préparée</button>
+    <button class="btn" onclick="addRelease()">Ajouter au brouillon releases.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Artiste</p>
+    <h2>Créer / modifier un artiste</h2>
+    <div class="form-grid">
+      <label>Nom <input id="artistName" placeholder="Juste Une Plume"></label>
+      <label>Rôle <input id="artistRole" placeholder="Artiste MPBP440"></label>
+      <label class="wide">Photo <input id="artistImage" placeholder="assets/artists/juste-une-plume.png"></label>
+      <label class="wide">Bio <textarea id="artistBio"></textarea></label>
+      <label>Spotify <input id="artistSpotify"></label>
+      <label>Apple <input id="artistApple"></label>
+      <label>Deezer <input id="artistDeezer"></label>
+      <label>YouTube <input id="artistYoutube"></label>
+    </div>
+    <button class="btn" onclick="useMediaFor('artistImage')">Utiliser l’image préparée</button>
+    <button class="btn" onclick="addArtist()">Ajouter au brouillon artists.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Clip</p>
+    <h2>Ajouter une vidéo</h2>
+    <div class="form-grid">
+      <label>Artiste <input id="videoArtist"></label>
+      <label>Titre <input id="videoTitle"></label>
+      <label class="wide">Lien YouTube <input id="videoYoutube"></label>
+      <label class="wide">Description <textarea id="videoDescription"></textarea></label>
+    </div>
+    <button class="btn" onclick="addVideo()">Ajouter au brouillon videos.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Galerie</p>
+    <h2>Ajouter un visuel</h2>
+    <div class="form-grid">
+      <label>Artiste <input id="galleryArtist"></label>
+      <label>Titre <input id="galleryTitle"></label>
+      <label>Type <input id="galleryType" placeholder="Pochette / Profil artiste / Événement"></label>
+      <label class="wide">Image <input id="galleryImage" placeholder="assets/gallery/image.png"></label>
+      <label class="wide">Description <textarea id="galleryDescription"></textarea></label>
+    </div>
+    <button class="btn" onclick="useMediaFor('galleryImage')">Utiliser l’image préparée</button>
+    <button class="btn" onclick="addGallery()">Ajouter au brouillon gallery.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Live</p>
+    <h2>Ajouter un événement live</h2>
+    <div class="form-grid">
+      <label>Titre <input id="liveTitle"></label>
+      <label>Artiste <input id="liveArtist"></label>
+      <label>Date <input id="liveDate" type="date"></label>
+      <label>Heure <input id="liveTime" type="time"></label>
+      <label>Plateforme <input id="livePlatform" value="TikTok"></label>
+      <label class="wide">Lien <input id="liveUrl" placeholder="https://www.tiktok.com/@simonsparet/live"></label>
+      <label class="wide">Description <textarea id="liveDescription"></textarea></label>
+    </div>
+    <button class="btn" onclick="addLiveEvent()">Ajouter au brouillon live_events.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Application</p>
+    <h2>Ajouter une note de version</h2>
+    <div class="form-grid">
+      <label>Version <input id="changeVersion" placeholder="1.2 / V5.8"></label>
+      <label>Date <input id="changeDate" placeholder="2026"></label>
+      <label class="wide">Texte <textarea id="changeText"></textarea></label>
+    </div>
+    <button class="btn" onclick="addChangelog()">Ajouter au brouillon app-version.json</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Export</p>
+    <h2>Fichiers prêts à uploader</h2>
+    <div class="actions">
+      <button class="btn" onclick="downloadJson('releases')">Télécharger releases.json</button>
+      <button class="btn" onclick="downloadJson('artists')">Télécharger artists.json</button>
+      <button class="btn" onclick="downloadJson('videos')">Télécharger videos.json</button>
+      <button class="btn" onclick="downloadJson('gallery')">Télécharger gallery.json</button>
+      <button class="btn" onclick="downloadJson('live_events')">Télécharger live_events.json</button>
+      <button class="btn" onclick="downloadJson('app_version')">Télécharger app-version.json</button>
+      <button class="btn ghost" onclick="downloadAllJson()">Télécharger tous les JSON</button>
+      <button class="btn ghost" onclick="resetDrafts()">Réinitialiser les brouillons</button>
+    </div>
+    <p class="path">Déposez ensuite les fichiers JSON dans le dossier <code>data</code> de GitHub.</p>
+  </section>
+
+  <section class="section">
+    <p class="sup">Prévisualisation</p>
+    <h2>Brouillons actuels</h2>
+    <pre id="draftPreview"></pre>
+  </section>
+</main>
+
+
+
+
+
+</section>
+
+<script src="auth.js?v=5.7.2"></script>
+<script src="/pwa/pwa.js?v=5.7.2"></script>
+<script src="/pwa/pwa-advanced.js?v=5.7.2"></script>
+<script src="admin-pro.js?v=5.7.2"></script>
+</body>
+</html>

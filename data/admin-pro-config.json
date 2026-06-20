@@ -1,0 +1,18 @@
+{
+  "version": "5.7",
+  "mode": "static_github_pages_generator",
+  "outputs": [
+    "releases.json",
+    "artists.json",
+    "videos.json",
+    "gallery.json",
+    "live_events.json",
+    "app-version.json"
+  ],
+  "media_folders": [
+    "assets/covers",
+    "assets/artists",
+    "assets/gallery",
+    "assets/events"
+  ]
+}

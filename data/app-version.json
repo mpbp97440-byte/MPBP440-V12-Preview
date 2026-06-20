@@ -1,0 +1,24 @@
+{
+  "version": "5.6",
+  "app_version": "1.1",
+  "name": "MPBP440 App",
+  "features": [
+    "Splash Screen",
+    "Cache avancé",
+    "Raccourcis rapides",
+    "Détection de mise à jour",
+    "Notifications locales"
+  ],
+  "changelog": [
+    {
+      "version": "1.1 / V5.6",
+      "date": "2026",
+      "text": "Application avancée : écran de démarrage, cache amélioré, page téléchargements et notifications locales."
+    },
+    {
+      "version": "1.0 / V5.2",
+      "date": "2026",
+      "text": "Première version installable PWA MPBP440."
+    }
+  ]
+}

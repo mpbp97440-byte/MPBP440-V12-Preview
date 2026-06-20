@@ -1,17 +1,13 @@
 {
   "name": "MPBP440 — Portail Musical Officiel",
   "short_name": "MPBP440",
-  "description": "Site officiel du label M.P.B.P 440 : artistes, sorties, radio, clips, lives et Music Hub.",
+  "description": "Application officielle MPBP440 : Music Hub, artistes, sorties, clips, galerie, lives et espace personnel.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#050505",
   "theme_color": "#f4d35e",
-  "categories": [
-    "music",
-    "entertainment"
-  ],
   "lang": "fr-FR",
   "icons": [
     {
@@ -42,6 +38,11 @@
       "name": "Galerie",
       "short_name": "Galerie",
       "url": "/galerie/index.html"
+    },
+    {
+      "name": "Mon Espace",
+      "short_name": "Espace",
+      "url": "/mon-espace/index.html"
     }
   ]
 }

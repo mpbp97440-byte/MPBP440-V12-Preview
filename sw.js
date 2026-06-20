@@ -1,24 +1,29 @@
-/* MPBP440 PWA Service Worker — V5.2 FULL */
-const MPBP_CACHE = "mpbp440-pwa-v5-2-full";
+/* MPBP440 Service Worker — V5.6 Application avancée */
+const MPBP_CACHE = "mpbp440-pwa-v5-6";
 const CORE_ASSETS = [
   "/",
   "/index.html",
   "/offline.html",
   "/manifest.webmanifest",
   "/pwa/pwa.css",
-  "/pwa/pwa.js",
+  "/pwa/pwa-advanced.js",
   "/assets/icons/mpbp440-icon.svg",
   "/assets/icons/mpbp440-maskable.svg",
+  "/application/index.html",
+  "/telechargements/index.html",
+  "/music/index.html",
+  "/live/index.html",
+  "/galerie/index.html",
+  "/mon-espace/index.html",
+  "/analytics/index.html",
+  "/artistes/sparetdee-simon.html",
+  "/artistes/juste-une-plume.html",
   "/data/artists.json",
   "/data/music-library.json",
   "/data/releases.json",
   "/data/videos.json",
   "/data/gallery.json",
-  "/music/index.html",
-  "/live/index.html",
-  "/galerie/index.html",
-  "/artistes/sparetdee-simon.html",
-  "/artistes/juste-une-plume.html"
+  "/data/app-version.json"
 ];
 
 self.addEventListener("install", event => {
@@ -36,7 +41,8 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   const req = event.request;
-  if (req.method !== "GET") return;
+  if(req.method !== "GET") return;
+
   event.respondWith(
     fetch(req)
       .then(res => {

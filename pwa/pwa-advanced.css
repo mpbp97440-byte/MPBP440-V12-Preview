@@ -1,0 +1,44 @@
+/* MPBP440 PWA Advanced — V5.6 */
+.mpbp-splash{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(244,211,94,.18), transparent 35%),
+    #050505;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  transition:.55s ease;
+}
+.mpbp-splash.hide{opacity:0;transform:scale(1.03)}
+.mpbp-splash div{text-align:center}
+.mpbp-splash img{width:132px;height:132px;border-radius:30px;box-shadow:0 0 50px rgba(244,211,94,.25)}
+.mpbp-splash h1{font-size:clamp(3rem,12vw,7rem);line-height:.9;color:#fff1bd;margin:18px 0 10px}
+.mpbp-splash p{color:#f4d35e;font-weight:900;letter-spacing:.18em}
+.mpbp-update-toast{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:9999;
+  max-width:360px;
+  border:1px solid rgba(244,211,94,.45);
+  border-radius:18px;
+  background:#111;
+  color:#fff;
+  padding:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,.38);
+  font-family:Arial,sans-serif;
+}
+.mpbp-update-toast strong{display:block;color:#fff1bd}
+.mpbp-update-toast span{display:block;color:rgba(255,255,255,.72);margin:4px 0 8px}
+.mpbp-update-toast button{
+  border:0;
+  border-radius:999px;
+  background:#f4d35e;
+  color:#111;
+  font-weight:900;
+  padding:8px 13px;
+  cursor:pointer;
+}

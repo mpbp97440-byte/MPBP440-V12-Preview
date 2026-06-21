@@ -1,9 +1,9 @@
 {
-  "version": "6.1.1",
+  "version": "6.2",
   "hero": {
-    "kicker": "Application MPBP440",
+    "kicker": "Application sociale MPBP440",
     "title": "Dashboard MPBP440",
-    "subtitle": "L’écran d’accueil de l’application : sorties, radio, live, galerie, espace personnel et accès au site classique."
+    "subtitle": "Votre portail musical interactif : compte membre, favoris, notifications, actualités, radio et sorties."
   },
   "featured_release": {
     "title": "Le Système",
@@ -14,79 +14,79 @@
   },
   "quick_actions": [
     {
-      "icon": "🌐",
-      "title": "Site classique",
-      "text": "Retour au portail web MPBP440.",
-      "url": "/"
+      "icon": "👤",
+      "title": "Compte membre",
+      "text": "Profil local, favoris et historique.",
+      "url": "/members/index.html"
+    },
+    {
+      "icon": "🔔",
+      "title": "Notifications",
+      "text": "Sorties, lives, clips et mises à jour.",
+      "url": "/notifications/index.html"
     },
     {
       "icon": "🎵",
       "title": "Music Hub",
-      "text": "Sorties, favoris et paroles officielles.",
+      "text": "Morceaux, paroles et plateformes.",
       "url": "/music/index.html"
     },
     {
       "icon": "🔴",
       "title": "Live Center",
-      "text": "Lives, événements et annonces.",
+      "text": "Lives et événements officiels.",
       "url": "/live/index.html"
     },
     {
       "icon": "🖼️",
       "title": "Galerie",
-      "text": "Pochettes, flyers et visuels officiels.",
+      "text": "Visuels officiels du label.",
       "url": "/galerie/index.html"
     },
     {
-      "icon": "👤",
-      "title": "Mon Espace",
-      "text": "Profil, favoris, historique et notifications.",
-      "url": "/mon-espace/index.html"
-    },
-    {
-      "icon": "📲",
-      "title": "Application",
-      "text": "Installer ou gérer l’application MPBP440.",
-      "url": "/application/index.html"
+      "icon": "🌐",
+      "title": "Site classique",
+      "text": "Retour au portail web.",
+      "url": "/"
     }
   ],
   "internal_notifications": [
     {
-      "type": "app",
-      "title": "Dashboard activé",
-      "text": "L’application MPBP440 s’ouvre maintenant directement sur le Dashboard."
+      "type": "membre",
+      "title": "Comptes membres locaux",
+      "text": "Créez votre profil MPBP440 sans inscription serveur."
     },
     {
-      "type": "pwa",
-      "title": "Mode application",
-      "text": "Le site classique reste accessible via le bouton Site classique."
+      "type": "notifications",
+      "title": "Centre de notifications",
+      "text": "Les annonces du label sont maintenant centralisées."
     },
     {
-      "type": "info",
-      "title": "Correctif iPhone conservé",
-      "text": "La barre mobile problématique ne revient pas dans cette version."
+      "type": "push",
+      "title": "Push préparé",
+      "text": "Architecture prête pour notifications avancées sur Windows/Android."
     }
   ],
   "widgets": [
     {
-      "label": "Accueil app",
-      "value": "Dashboard",
-      "url": "/dashboard/"
+      "label": "Compte",
+      "value": "Profil local",
+      "url": "/members/index.html"
     },
     {
-      "label": "Site classique",
-      "value": "www.mpbp440.com",
-      "url": "/"
+      "label": "Favoris",
+      "value": "Bibliothèque",
+      "url": "/members/index.html"
     },
     {
-      "label": "Music Hub",
-      "value": "Écouter",
-      "url": "/music/index.html"
+      "label": "Notifications",
+      "value": "Centre actif",
+      "url": "/notifications/index.html"
     },
     {
-      "label": "Mon Espace",
-      "value": "Profil & favoris",
-      "url": "/mon-espace/index.html"
+      "label": "Actualités",
+      "value": "Fil MPBP440",
+      "url": "/notifications/index.html"
     }
   ]
 }

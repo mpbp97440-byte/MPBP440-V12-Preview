@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notifications MPBP440</title>
+<meta name="description" content="Centre de notifications internes MPBP440 : sorties, lives, clips et mises à jour.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="notifications.css?v=6.2">
+</head>
+<body>
+<main class="notif-page">
+  <header class="top">
+    <a class="logo" href="/dashboard/">M.P.B.P 440</a>
+    <a class="btn ghost" href="/dashboard/">Dashboard</a>
+  </header>
+
+  <section class="hero">
+    <p class="sup">Centre de notifications</p>
+    <h1>NOTIFICATIONS MPBP440</h1>
+    <p>Suivez les sorties, lives, clips, actualités du label et mises à jour de l’application.</p>
+    <button class="btn" onclick="askNotificationPermission()">Préparer les notifications push</button>
+    <button class="btn ghost" onclick="markRead()">Marquer comme lues</button>
+  </section>
+
+  <section class="section">
+    <p class="sup">Fil officiel</p>
+    <h2>Annonces du label</h2>
+    <div id="officialNotifications" class="notice-list"></div>
+  </section>
+
+  <section class="section">
+    <p class="sup">Notifications locales</p>
+    <h2>Vos notifications</h2>
+    <div id="localNotifications" class="notice-list"></div>
+  </section>
+
+  <section class="section">
+    <p class="sup">Actualités</p>
+    <h2>Fil MPBP440</h2>
+    <div id="newsFeed" class="notice-list"></div>
+  </section>
+</main>
+<script src="/app/member-system.js?v=6.2"></script>
+<script src="notifications.js?v=6.2"></script>
+</body>
+</html>

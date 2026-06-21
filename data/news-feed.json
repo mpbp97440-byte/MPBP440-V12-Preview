@@ -1,0 +1,20 @@
+[
+  {
+    "category": "Application",
+    "title": "MPBP440 passe en V6.2",
+    "text": "Ajout des comptes membres locaux, notifications et fil d’actualité.",
+    "url": "/dashboard/"
+  },
+  {
+    "category": "Musique",
+    "title": "Music Hub MPBP440",
+    "text": "Écoutez, explorez et sauvegardez vos coups de cœur.",
+    "url": "/music/index.html"
+  },
+  {
+    "category": "Communauté",
+    "title": "Mon Espace",
+    "text": "Retrouvez votre profil, vos favoris et votre historique.",
+    "url": "/members/index.html"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "version": "6.2",
+  "mode": "localStorage",
+  "description": "Comptes membres locaux MPBP440 compatibles GitHub Pages et PWA.",
+  "fields": [
+    "pseudo",
+    "avatar",
+    "favoriteArtist",
+    "favoriteStyle",
+    "favoriteTracks",
+    "favoriteClips",
+    "history"
+  ]
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compte membre MPBP440</title>
+<meta name="description" content="Compte membre local MPBP440 : profil, favoris, historique et préférences.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/pwa/pwa.css?v=6.2">
+<link rel="stylesheet" href="members.css?v=6.2">
+</head>
+<body>
+<main class="members-page">
+  <header class="top">
+    <a class="logo" href="/dashboard/">M.P.B.P 440</a>
+    <a class="btn ghost" href="/dashboard/">Dashboard</a>
+  </header>
+
+  <section class="hero">
+    <p class="sup">Compte membre local</p>
+    <h1>MON COMPTE MPBP440</h1>
+    <p>Créez votre profil local, sauvegardez vos favoris et retrouvez votre historique dans l’application.</p>
+  </section>
+
+  <section class="section">
+    <p class="sup">Profil</p>
+    <h2>Mes informations</h2>
+    <div class="form-grid">
+      <label>Pseudo <input id="pseudo" placeholder="Votre pseudo"></label>
+      <label>Avatar / emoji <input id="avatar" placeholder="🎵"></label>
+      <label>Artiste favori <input id="favoriteArtist" placeholder="Sparetdee Simon"></label>
+      <label>Style préféré <input id="favoriteStyle" placeholder="Rap conscient, old school..."></label>
+    </div>
+    <button class="btn" onclick="saveMemberForm()">Enregistrer mon compte</button>
+    <p id="saveStatus"></p>
+  </section>
+
+  <section class="section dashboard-grid">
+    <article><p class="sup">Pseudo</p><strong id="profileName">Invité</strong><span id="profileAvatar">🎵</span></article>
+    <article><p class="sup">Favoris</p><strong id="favCount">0</strong><span>éléments</span></article>
+    <article><p class="sup">Historique</p><strong id="historyCount">0</strong><span>consultations</span></article>
+    <article><p class="sup">Notifications</p><strong id="notifCount">0</strong><span>messages</span></article>
+  </section>
+
+  <section class="section">
+    <p class="sup">Favoris</p>
+    <h2>Ma bibliothèque personnelle</h2>
+    <div class="quick-add">
+      <button class="btn ghost" onclick="quickFav('Artiste','Sparetdee Simon','Artiste principal','/artistes/sparetdee-simon.html')">+ Sparetdee Simon</button>
+      <button class="btn ghost" onclick="quickFav('Artiste','Juste Une Plume','Artiste MPBP440','/artistes/juste-une-plume.html')">+ Juste Une Plume</button>
+      <button class="btn ghost" onclick="quickFav('Titre','Le Système','Sparetdee Simon','/music/index.html')">+ Le Système</button>
+    </div>
+    <div id="favoritesList" class="cards-list"></div>
+  </section>
+
+  <section class="section">
+    <p class="sup">Historique</p>
+    <h2>Dernières consultations</h2>
+    <div id="historyList" class="cards-list"></div>
+  </section>
+
+  <section class="section danger">
+    <p class="sup">Données locales</p>
+    <h2>Réinitialisation</h2>
+    <p>Supprime uniquement les données de cet appareil.</p>
+    <button class="btn ghost" onclick="resetMember()">Réinitialiser mon compte local</button>
+  </section>
+</main>
+<script src="/app/member-system.js?v=6.2"></script>
+<script src="members.js?v=6.2"></script>
+</body>
+</html>

@@ -1,23 +1,24 @@
 {
-  "version": "6.1.1",
-  "app_version": "2.1.1",
-  "name": "MPBP440 Dashboard Home App",
+  "version": "6.2",
+  "app_version": "2.2",
+  "name": "MPBP440 App Sociale",
   "features": [
-    "Dashboard comme accueil PWA",
-    "Site classique conservé",
-    "Raccourcis app",
-    "Correctif iPhone conservé"
+    "Comptes membres locaux",
+    "Favoris améliorés",
+    "Centre de notifications",
+    "Fil d’actualité",
+    "Préparation notifications push"
   ],
   "changelog": [
     {
-      "version": "2.1.1 / V6.1.1",
+      "version": "2.2 / V6.2",
       "date": "2026",
-      "text": "L’application PWA démarre directement sur le Dashboard, avec accès au site classique."
+      "text": "Ajout des comptes membres locaux, notifications, actualités et favoris améliorés."
     },
     {
-      "version": "2.1 / V6.1",
+      "version": "2.1.1 / V6.1.1",
       "date": "2026",
-      "text": "Dashboard application et widgets rapides."
+      "text": "Dashboard comme accueil de l’application."
     }
   ]
 }

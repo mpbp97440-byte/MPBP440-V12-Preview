@@ -1,12 +1,20 @@
 [
   {
-    "type": "info",
-    "title": "Bienvenue sur MPBP440",
-    "text": "Votre espace personnel conserve vos favoris et préférences sur cet appareil."
+    "type": "app",
+    "title": "Bienvenue dans MPBP440 V6.2",
+    "text": "Le centre de notifications et les comptes membres locaux sont maintenant disponibles.",
+    "date": "2026"
   },
   {
-    "type": "app",
-    "title": "Application MPBP440",
-    "text": "L’application peut être installée sur Windows, Android, iPhone et iPad."
+    "type": "sortie",
+    "title": "Sorties officielles",
+    "text": "Retrouvez les nouveautés du label dans le Music Hub.",
+    "date": "2026"
+  },
+  {
+    "type": "live",
+    "title": "Live Center",
+    "text": "Les lives et événements MPBP440 seront annoncés ici.",
+    "date": "2026"
   }
 ]

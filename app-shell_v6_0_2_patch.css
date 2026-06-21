@@ -1,0 +1,35 @@
+/* V6.0.2 - Correctif iPhone PWA */
+html,body{
+  height:auto !important;
+  min-height:100% !important;
+  overflow-x:hidden !important;
+}
+
+body{
+  padding-top:env(safe-area-inset-top) !important;
+  padding-bottom:0 !important;
+}
+
+.mpbp-native-shell{
+  position:fixed !important;
+  bottom:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:9999 !important;
+  padding-bottom:max(8px, env(safe-area-inset-bottom)) !important;
+}
+
+main,
+.main-content,
+#home,
+#app{
+  min-height:auto !important;
+  height:auto !important;
+}
+
+/* iPhone Safari / PWA */
+@supports (-webkit-touch-callout:none){
+  body{
+    min-height:-webkit-fill-available !important;
+  }
+}

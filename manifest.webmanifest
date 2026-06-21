@@ -1,15 +1,10 @@
 {
   "name": "MPBP440 — Portail Musical Officiel",
   "short_name": "MPBP440",
-  "description": "Application officielle MPBP440 : Music Hub, artistes, sorties, clips, galerie, lives, espace personnel et radio.",
-  "start_url": "/?source=pwa",
+  "description": "Application officielle MPBP440 : dashboard, Music Hub, artistes, clips, lives, galerie et espace personnel.",
+  "start_url": "/dashboard/?source=pwa",
   "scope": "/",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone",
-    "minimal-ui"
-  ],
   "orientation": "portrait-primary",
   "background_color": "#050505",
   "theme_color": "#f4d35e",
@@ -35,6 +30,11 @@
   ],
   "shortcuts": [
     {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/dashboard/"
+    },
+    {
       "name": "Music Hub",
       "short_name": "Music",
       "url": "/music/index.html"
@@ -55,9 +55,9 @@
       "url": "/mon-espace/index.html"
     },
     {
-      "name": "Application",
-      "short_name": "App",
-      "url": "/application/index.html"
+      "name": "Site classique",
+      "short_name": "Site",
+      "url": "/"
     }
   ]
 }

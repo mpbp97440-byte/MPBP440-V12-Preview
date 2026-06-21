@@ -1,24 +1,23 @@
 {
-  "version": "6.1",
-  "app_version": "2.1",
-  "name": "MPBP440 Dashboard Application Native",
+  "version": "6.1.1",
+  "app_version": "2.1.1",
+  "name": "MPBP440 Dashboard Home App",
   "features": [
-    "Dashboard application",
-    "Widgets rapides",
-    "Notifications internes",
-    "Préchargement hors ligne",
-    "Accueil app enrichi"
+    "Dashboard comme accueil PWA",
+    "Site classique conservé",
+    "Raccourcis app",
+    "Correctif iPhone conservé"
   ],
   "changelog": [
     {
-      "version": "2.1 / V6.1",
+      "version": "2.1.1 / V6.1.1",
       "date": "2026",
-      "text": "Ajout du dashboard application : widgets, raccourcis, notifications internes et préchargement hors ligne."
+      "text": "L’application PWA démarre directement sur le Dashboard, avec accès au site classique."
     },
     {
-      "version": "2.0 / V6.0",
+      "version": "2.1 / V6.1",
       "date": "2026",
-      "text": "Interface quasi native et PWA avancée."
+      "text": "Dashboard application et widgets rapides."
     }
   ]
 }

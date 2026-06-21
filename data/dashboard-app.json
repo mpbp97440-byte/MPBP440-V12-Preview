@@ -1,9 +1,9 @@
 {
-  "version": "6.1",
+  "version": "6.1.1",
   "hero": {
     "kicker": "Application MPBP440",
-    "title": "Bienvenue sur MPBP440",
-    "subtitle": "Le portail musical officiel du label : artistes, sorties, clips, radio, lives et actualités."
+    "title": "Dashboard MPBP440",
+    "subtitle": "L’écran d’accueil de l’application : sorties, radio, live, galerie, espace personnel et accès au site classique."
   },
   "featured_release": {
     "title": "Le Système",
@@ -14,79 +14,79 @@
   },
   "quick_actions": [
     {
-      "icon": "🎵",
-      "title": "Music Hub",
-      "text": "Écouter et retrouver les morceaux.",
-      "url": "/music/index.html"
+      "icon": "🌐",
+      "title": "Site classique",
+      "text": "Retour au portail web MPBP440.",
+      "url": "/"
     },
     {
-      "icon": "📻",
-      "title": "Radio",
-      "text": "Lancer l’espace radio MPBP440.",
-      "url": "/#radio"
+      "icon": "🎵",
+      "title": "Music Hub",
+      "text": "Sorties, favoris et paroles officielles.",
+      "url": "/music/index.html"
     },
     {
       "icon": "🔴",
       "title": "Live Center",
-      "text": "Lives et événements officiels.",
+      "text": "Lives, événements et annonces.",
       "url": "/live/index.html"
+    },
+    {
+      "icon": "🖼️",
+      "title": "Galerie",
+      "text": "Pochettes, flyers et visuels officiels.",
+      "url": "/galerie/index.html"
     },
     {
       "icon": "👤",
       "title": "Mon Espace",
-      "text": "Profil, favoris et historique.",
+      "text": "Profil, favoris, historique et notifications.",
       "url": "/mon-espace/index.html"
     },
     {
       "icon": "📲",
       "title": "Application",
-      "text": "Installer MPBP440 sur votre appareil.",
+      "text": "Installer ou gérer l’application MPBP440.",
       "url": "/application/index.html"
-    },
-    {
-      "icon": "📊",
-      "title": "Stats",
-      "text": "Voir les statistiques publiques.",
-      "url": "/analytics/index.html"
     }
   ],
   "internal_notifications": [
     {
-      "type": "sortie",
-      "title": "Nouvelle sortie officielle",
-      "text": "Suivez les prochaines sorties MPBP440 depuis l’application."
-    },
-    {
       "type": "app",
-      "title": "Application mise à jour",
-      "text": "Version 6.1 : dashboard application et widgets rapides."
+      "title": "Dashboard activé",
+      "text": "L’application MPBP440 s’ouvre maintenant directement sur le Dashboard."
     },
     {
-      "type": "live",
-      "title": "Live Center actif",
-      "text": "Les prochains lives seront annoncés dans l’espace dédié."
+      "type": "pwa",
+      "title": "Mode application",
+      "text": "Le site classique reste accessible via le bouton Site classique."
+    },
+    {
+      "type": "info",
+      "title": "Correctif iPhone conservé",
+      "text": "La barre mobile problématique ne revient pas dans cette version."
     }
   ],
   "widgets": [
     {
-      "label": "Dernière sortie",
-      "value": "Le Système",
+      "label": "Accueil app",
+      "value": "Dashboard",
+      "url": "/dashboard/"
+    },
+    {
+      "label": "Site classique",
+      "value": "www.mpbp440.com",
+      "url": "/"
+    },
+    {
+      "label": "Music Hub",
+      "value": "Écouter",
       "url": "/music/index.html"
     },
     {
-      "label": "Radio",
-      "value": "MPBP440 Radio",
-      "url": "/#radio"
-    },
-    {
-      "label": "Artistes",
-      "value": "Sparetdee Simon • Juste Une Plume",
-      "url": "/#artistes"
-    },
-    {
-      "label": "Application",
-      "value": "PWA installable",
-      "url": "/application/index.html"
+      "label": "Mon Espace",
+      "value": "Profil & favoris",
+      "url": "/mon-espace/index.html"
     }
   ]
 }

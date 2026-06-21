@@ -1,10 +1,10 @@
 async function loadJson(url,fallback){try{const r=await fetch(url,{cache:"no-store"});return await r.json()}catch(e){return fallback}}
 function standalone(){return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone}
 async function loadDashboard(){
-  const data=await loadJson("/data/dashboard-app.json?v=6.1",{});
+  const data=await loadJson("/data/dashboard-app.json?v=6.1.1",{});
   if(data.hero){
     heroKicker.textContent=data.hero.kicker||"Application MPBP440";
-    heroTitle.textContent=data.hero.title||"Bienvenue sur MPBP440";
+    heroTitle.textContent=data.hero.title||"Dashboard MPBP440";
     heroSubtitle.textContent=data.hero.subtitle||"";
   }
   const f=data.featured_release||{};
@@ -12,7 +12,7 @@ async function loadDashboard(){
   widgets.innerHTML=(data.widgets||[]).map(w=>`<a class="widget" href="${w.url||"#"}"><span>${w.label}</span><strong>${w.value}</strong></a>`).join("");
   quickActions.innerHTML=(data.quick_actions||[]).map(a=>`<a class="action" href="${a.url||"#"}"><div class="icon">${a.icon||"•"}</div><h3>${a.title}</h3><p>${a.text||""}</p></a>`).join("");
   notifications.innerHTML=(data.internal_notifications||[]).map(n=>`<article class="notice"><p class="sup">${n.type||"info"}</p><h3>${n.title}</h3><p>${n.text||""}</p></article>`).join("");
-  appMode.textContent = standalone() ? "Mode application installé actif." : "Mode navigateur actif. Vous pouvez installer l’application depuis la page Application.";
+  appMode.textContent = standalone() ? "Mode application installé actif : accueil Dashboard." : "Mode navigateur actif. Le site classique reste disponible.";
 }
 async function cacheEssentials(){
   if(window.mpbpCacheEssentials){

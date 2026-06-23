@@ -1,0 +1,18 @@
+{
+  "version": "6.4",
+  "sections": [
+    {
+      "title": "Clips Officiels",
+      "description": "Zone prévue pour les clips publiés ou intégrés depuis une plateforme."
+    },
+    {
+      "title": "Exclusivités MPBP440",
+      "description": "Zone réservée aux futurs clips MP4 inédits hébergés directement sur le site et l’application."
+    },
+    {
+      "title": "Lives & Archives",
+      "description": "Zone prévue pour les lives TikTok, archives et événements vidéo."
+    }
+  ],
+  "local_video_folder": "assets/videos/"
+}

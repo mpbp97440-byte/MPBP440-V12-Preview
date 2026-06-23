@@ -1,14 +1,13 @@
 {
   "name": "MPBP440 — Portail Musical Officiel",
   "short_name": "MPBP440",
-  "description": "Application musicale interactive MPBP440 : dashboard, artistes, sorties, clips, lives, galerie et espace personnel.",
+  "description": "Application musicale MPBP440 : Music Hub Pro, MPBP TV, artistes, sorties, membres et notifications.",
   "start_url": "/dashboard/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#050505",
   "theme_color": "#f4d35e",
-  "lang": "fr-FR",
   "icons": [
     {
       "src": "/assets/icons/mpbp440-app-icon.webp",
@@ -25,12 +24,7 @@
   ],
   "shortcuts": [
     {
-      "name": "Dashboard",
-      "short_name": "Dashboard",
-      "url": "/dashboard/"
-    },
-    {
-      "name": "Music Hub",
+      "name": "Music Hub Pro",
       "short_name": "Music",
       "url": "/music/index.html"
     },
@@ -40,14 +34,14 @@
       "url": "/mpbp-tv/index.html"
     },
     {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/dashboard/"
+    },
+    {
       "name": "Notifications",
       "short_name": "Notifs",
       "url": "/notifications/index.html"
-    },
-    {
-      "name": "Compte membre",
-      "short_name": "Compte",
-      "url": "/members/index.html"
     }
   ]
 }

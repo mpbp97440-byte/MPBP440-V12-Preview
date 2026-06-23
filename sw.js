@@ -1,5 +1,6 @@
-/* MPBP440 Service Worker — V6.3.4 */
-const MPBP_CACHE="mpbp440-pwa-v6-3-4";
-self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(MPBP_CACHE).then(c=>c.addAll(["/","/index.html","/refonte/refonte.css","/refonte/refonte.js","/assets/brand/mpbp440-official-logo.webp","/assets/brand/mpbp440-official-logo.jpg","/assets/artists/sparetdee-simon-profile.webp","/assets/artists/sparetdee-simon-profile.jpg","/assets/artists/juste-une-plume-profile.webp","/assets/artists/juste-une-plume-profile.jpg","/assets/covers/reves-et-cauchemards.webp","/assets/covers/reves-et-cauchemards.jpg","/assets/covers/je-vous-pousse-tous.webp","/assets/covers/je-vous-pousse-tous.jpg","/assets/covers/l-argent.webp","/assets/covers/l-argent.jpg"]).catch(()=>{})))});
+/* MPBP440 Service Worker — V6.4 */
+const MPBP_CACHE="mpbp440-pwa-v6-4";
+const CORE_ASSETS=["/","/index.html","/dashboard/","/music/index.html","/music/music-hub.css","/music/music-hub.js","/mpbp-tv/index.html","/mpbp-tv/mpbp-tv.css","/data/music-catalog-v64.json","/data/mpbp-tv-v64.json","/data/dashboard-app.json","/data/app-version.json","/manifest.webmanifest"];
+self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(MPBP_CACHE).then(c=>c.addAll(CORE_ASSETS).catch(()=>{})))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==MPBP_CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(fetch(e.request,{cache:"no-store"}).then(r=>{let cp=r.clone();caches.open(MPBP_CACHE).then(c=>c.put(e.request,cp)).catch(()=>{});return r}).catch(()=>caches.match(e.request)))});
+self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(fetch(e.request,{cache:"no-store"}).then(r=>{let cp=r.clone();caches.open(MPBP_CACHE).then(c=>c.put(e.request,cp)).catch(()=>{});return r}).catch(()=>caches.match(e.request).then(c=>c||caches.match("/offline.html"))))});

@@ -1,86 +1,50 @@
 {
-  "version": "6.3",
+  "version": "6.4",
   "hero": {
-    "kicker": "Refonte MPBP440",
-    "title": "Portail officiel du label",
-    "subtitle": "Logo officiel, artistes, sorties et accès direct à l’univers MPBP440."
-  },
-  "featured_release": {
-    "title": "Rêves et Cauchemards",
-    "artist": "Sparetdee Simon",
-    "date": "24/06/2026",
-    "cover": "assets/covers/reves-et-cauchemards.webp",
-    "url": "/music/index.html"
+    "kicker": "MPBP440 V6.4",
+    "title": "Music Hub & MPBP TV Pro",
+    "subtitle": "Catalogue musical réorganisé, MPBP TV préparé et navigation plus claire."
   },
   "quick_actions": [
     {
       "icon": "🎵",
-      "title": "Music Hub",
-      "text": "Morceaux disponibles et prochaines sorties.",
+      "title": "Music Hub Pro",
+      "text": "Discographie complète Sparetdee Simon et titre officiel Juste Une Plume.",
       "url": "/music/index.html"
     },
     {
       "icon": "📺",
-      "title": "MPBP TV",
-      "text": "Clips officiels et futures exclusivités du site.",
+      "title": "MPBP TV 2.0",
+      "text": "Clips officiels, exclusivités et futures archives live.",
       "url": "/mpbp-tv/index.html"
     },
     {
       "icon": "👤",
-      "title": "Sparetdee Simon",
-      "text": "Artiste, auteur, compositeur, interprète.",
-      "url": "/artistes/sparetdee-simon.html"
-    },
-    {
-      "icon": "🪶",
-      "title": "Juste Une Plume",
-      "text": "Artiste MPBP440, univers plume et écriture.",
-      "url": "/artistes/juste-une-plume.html"
+      "title": "Compte membre",
+      "text": "Profil local, favoris et historique.",
+      "url": "/members/index.html"
     },
     {
       "icon": "🔔",
       "title": "Notifications",
-      "text": "Actualités, lives et annonces du label.",
+      "text": "Actualités, sorties et mises à jour.",
       "url": "/notifications/index.html"
-    },
-    {
-      "icon": "🌐",
-      "title": "Site classique",
-      "text": "Retour au portail web complet.",
-      "url": "/"
-    }
-  ],
-  "internal_notifications": [
-    {
-      "type": "sortie",
-      "title": "Rêves et Cauchemards",
-      "text": "Sortie prévue le 24/06/2026."
-    },
-    {
-      "type": "mise à jour",
-      "title": "Refonte ergonomique V6.3",
-      "text": "Accueil réorganisé, visuel amélioré et MPBP TV préparé."
     }
   ],
   "widgets": [
     {
-      "label": "Prochaine sortie",
-      "value": "Rêves et Cauchemards",
+      "label": "Catalogue",
+      "value": "Sparetdee Simon complet",
       "url": "/music/index.html"
     },
     {
-      "label": "Sortie suivante",
-      "value": "Le Système",
-      "url": "/music/index.html"
-    },
-    {
-      "label": "Nouveaux titres",
-      "value": "Je Vous Pousse Tous • L’Argent",
+      "label": "Juste Une Plume",
+      "value": "Je Sais Que Tu Sais",
       "url": "/music/index.html"
     },
     {
       "label": "MPBP TV",
-      "value": "Exclusivités bientôt",
+      "value": "Exclusivités prêtes",
       "url": "/mpbp-tv/index.html"
     }
   ]

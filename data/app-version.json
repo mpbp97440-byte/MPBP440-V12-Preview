@@ -1,20 +1,19 @@
 {
-  "version": "6.3",
-  "app_version": "2.3",
-  "name": "MPBP440 Refonte Ergonomique",
+  "version": "6.4",
+  "app_version": "2.4",
+  "name": "MPBP440 Music Hub & MPBP TV Pro",
   "features": [
-    "Accueil réorganisé",
-    "Logo officiel mis en avant",
-    "Fiches artistes visibles en haut",
-    "Sorties mises à jour",
-    "Music Hub enrichi",
-    "MPBP TV préparé"
+    "Music Hub réorganisé",
+    "Discographie Sparetdee Simon",
+    "Juste Une Plume officiel",
+    "MPBP TV 2.0",
+    "Emplacements MP4 exclusifs"
   ],
   "changelog": [
     {
-      "version": "2.3 / V6.3",
+      "version": "2.4 / V6.4",
       "date": "2026",
-      "text": "Refonte ergonomique, nouveau visuel d’accueil, logo/app icon et mise à jour des sorties."
+      "text": "Refonte Music Hub, catalogue pro et MPBP TV préparé pour clips exclusifs."
     }
   ]
 }

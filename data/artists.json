@@ -2,44 +2,23 @@
   {
     "slug": "sparetdee-simon",
     "name": "Sparetdee Simon",
-    "role": "Artiste principal",
-    "image": "assets/artists/sparetdee-simon.png",
+    "role": "Auteur - Compositeur - Interprète",
+    "image": "assets/artists/sparetdee-simon-profile.webp",
     "page": "artistes/sparetdee-simon.html",
-    "bio": "Sparetdee Simon porte une plume consciente, roots et urbaine, entre vécu, spiritualité, mémoire de quartier et vision futuriste. Son univers mêle hip-hop old school, textes engagés, vibrations humaines et identité MPBP440.",
-    "tags": [
-      "Auteur",
-      "Compositeur",
-      "Interprète",
-      "Producteur",
-      "Créateur de sons"
-    ],
+    "bio": "Rap conscient, roots, vibration et univers MPBP440.",
     "links": {
-      "spotify": "https://open.spotify.com/artist/0",
-      "apple": "",
-      "deezer": "https://www.deezer.com/fr/artist/385051171",
-      "youtube": "",
-      "tiktok": "https://www.tiktok.com/@simonsparet"
+      "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html"
     }
   },
   {
     "slug": "juste-une-plume",
     "name": "Juste Une Plume",
     "role": "Artiste MPBP440",
-    "image": "assets/artists/juste-une-plume.png",
+    "image": "assets/artists/juste-une-plume-profile.webp",
     "page": "artistes/juste-une-plume.html",
-    "bio": "Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et une écriture bienveillante. Son univers transforme les émotions en textes sincères, avec une plume douce, profonde et lumineuse.",
-    "tags": [
-      "Autrice",
-      "Compositrice",
-      "Interprète",
-      "Sensibilité",
-      "Humanité"
-    ],
+    "bio": "Écriture, émotion et plume symbolique.",
     "links": {
-      "spotify": "https://open.spotify.com/artist/4LAJA1pkE8Z3OyAGFSWdT3?si=fypn9MRDSMO0dN3mAoSv4A",
-      "apple": "https://music.apple.com/fr/artist/juste-une-plume/6776260357",
-      "deezer": "https://link.deezer.com/s/33Abgbsu5jmfSOCNVpsFb",
-      "youtube": "https://youtu.be/jkKGmZDQMtE?si=wWLZSqLFOA5320VT"
+      "artist": "https://www.mpbp440.com/artistes/juste-une-plume.html"
     }
   }
 ]

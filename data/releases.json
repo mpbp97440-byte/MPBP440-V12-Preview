@@ -6,6 +6,7 @@
     "date": "24/06/2026",
     "isoDate": "2026-06-24",
     "cover": "assets/covers/reves-et-cauchemards.webp",
+    "coverFallback": "assets/covers/reves-et-cauchemards.jpg",
     "status": "À venir",
     "links": {
       "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html"

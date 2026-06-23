@@ -1,122 +1,19 @@
-/* MPBP440 V6.3.3 — Clean Refonte Fix */
+/* MPBP440 V6.3.4 — Preview + iPhone images fix */
 (function(){
-  const V633_ID = "mpbp-v633-home";
-
-  function isBadOldBlock(el){
-    if(!el || !el.textContent) return false;
-    const text = el.textContent.toLowerCase();
-    return text.includes("double sortie") || text.includes("double sorti");
+  const V="mpbp-v633-home";
+  function asset(path){return location.pathname.includes("/preview/") ? "../"+path.replace(/^\//,"") : path}
+  function pic(webp,jpg,alt,cls=""){let w=asset(webp)+"?v=6.3.4", j=asset(jpg)+"?v=6.3.4";return `<picture><source srcset="${w}" type="image/webp"><img class="${cls}" src="${j}" data-fallback="${j}" alt="${alt}" loading="eager" decoding="async"></picture>`}
+  function fix(){document.querySelectorAll("img[data-fallback]").forEach(i=>{i.onerror=function(){if(this.src!==this.dataset.fallback)this.src=this.dataset.fallback}})}
+  function bad(el){let t=(el.textContent||"").toLowerCase();return t.includes("double sortie")||t.includes("double sorti")}
+  function hideOld(){document.querySelectorAll(".mpbp-v63-hero,.mpbp-v63-section,.mpbp-v631-root,.mpbp-v631-hero,.mpbp-v631-section").forEach(e=>e.remove());document.querySelectorAll("section,article,div").forEach(e=>{if(!e.closest("#"+V)&&bad(e)&&e.children.length<12)e.classList.add("mpbp-v633-hide")})}
+  function build(){
+    if(document.getElementById(V))return;
+    let w=document.createElement("div");w.id=V;w.className="mpbp-v633-home";
+    w.innerHTML=`<section class="mpbp-v633-hero">${pic("/assets/brand/mpbp440-official-logo.webp","/assets/brand/mpbp440-official-logo.jpg","Logo officiel MPBP440","mpbp-v633-logo")}<div class="mpbp-v633-title"><p>Portail musical officiel</p><h1>MPBP 440 Corp.</h1><strong>Label indépendant — Sparetdee Simon • Juste Une Plume</strong><div class="mpbp-v633-artists"><a class="mpbp-v633-artist" href="/artistes/sparetdee-simon.html">${pic("/assets/artists/sparetdee-simon-profile.webp","/assets/artists/sparetdee-simon-profile.jpg","Sparetdee Simon")}<div><h3>Sparetdee Simon</h3><p>Rap conscient • Roots • Vibration</p></div></a><a class="mpbp-v633-artist" href="/artistes/juste-une-plume.html">${pic("/assets/artists/juste-une-plume-profile.webp","/assets/artists/juste-une-plume-profile.jpg","Juste Une Plume")}<div><h3>Juste Une Plume</h3><p>Écriture • émotion • plume symbolique</p></div></a></div></div></section>
+    <section class="mpbp-v633-section"><p>Comptes à rebours officiels</p><h2>Prochaines sorties</h2><div class="mpbp-v633-grid"><article class="mpbp-v633-card">${pic("/assets/covers/reves-et-cauchemards.webp","/assets/covers/reves-et-cauchemards.jpg","Rêves et Cauchemards")}<div class="mpbp-v633-content"><h3>Rêves et Cauchemards</h3><p>Sparetdee Simon — sortie officielle prévue le <strong>24/06/2026</strong>.</p><a class="mpbp-v633-btn" href="/music/index.html">Voir dans Music Hub</a></div></article><article class="mpbp-v633-card"><div class="mpbp-v633-content"><h3>Le Système</h3><p>Sparetdee Simon — sortie officielle prévue le <strong>27/06/2026</strong>.</p><a class="mpbp-v633-btn ghost" href="/music/index.html">Voir la sortie</a></div></article></div></section>
+    <section class="mpbp-v633-section"><p>Bibliothèque officielle</p><h2>Titres disponibles</h2><div class="mpbp-v633-grid"><article class="mpbp-v633-card">${pic("/assets/covers/je-vous-pousse-tous.webp","/assets/covers/je-vous-pousse-tous.jpg","Je Vous Pousse Tous")}<div class="mpbp-v633-content"><h3>Je Vous Pousse Tous</h3><p>Disponible sur toutes les plateformes.</p><a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a></div></article><article class="mpbp-v633-card">${pic("/assets/covers/l-argent.webp","/assets/covers/l-argent.jpg","L’Argent")}<div class="mpbp-v633-content"><h3>L’Argent</h3><p>Disponible sur toutes les plateformes.</p><a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a></div></article></div></section>`;
+    let h=document.querySelector("header"); if(h&&h.parentNode)h.insertAdjacentElement("afterend",w);else document.body.insertBefore(w,document.body.firstChild); fix();
   }
-
-  function hideOldBrokenBlocks(){
-    document.querySelectorAll(".mpbp-v63-hero,.mpbp-v63-section,.mpbp-v631-root,.mpbp-v631-hero,.mpbp-v631-section").forEach(el=>{
-      if(!el.classList.contains("mpbp-v633-home")) el.remove();
-    });
-
-    document.querySelectorAll("section, article").forEach(el=>{
-      if(el.closest("#"+V633_ID)) return;
-      if(isBadOldBlock(el)) el.classList.add("mpbp-v633-hide");
-    });
-
-    document.querySelectorAll("div").forEach(el=>{
-      if(el.closest("#"+V633_ID)) return;
-      if(el.children.length > 8) return;
-      if(isBadOldBlock(el)) el.classList.add("mpbp-v633-hide");
-    });
-  }
-
-  function buildHome(){
-    if(document.getElementById(V633_ID)) return;
-
-    const wrap = document.createElement("div");
-    wrap.id = V633_ID;
-    wrap.className = "mpbp-v633-home";
-    wrap.innerHTML = `
-      <section class="mpbp-v633-hero">
-        <img class="mpbp-v633-logo" src="/assets/brand/mpbp440-official-logo.webp?v=6.3.3" alt="Logo officiel MPBP440">
-        <div class="mpbp-v633-title">
-          <p>Portail musical officiel</p>
-          <h1>MPBP 440 Corp.</h1>
-          <strong>Label indépendant — Sparetdee Simon • Juste Une Plume</strong>
-          <div class="mpbp-v633-artists">
-            <a class="mpbp-v633-artist" href="/artistes/sparetdee-simon.html">
-              <img src="/assets/artists/sparetdee-simon-profile.webp?v=6.3.3" alt="Sparetdee Simon">
-              <div><h3>Sparetdee Simon</h3><p>Rap conscient • Roots • Vibration</p></div>
-            </a>
-            <a class="mpbp-v633-artist" href="/artistes/juste-une-plume.html">
-              <img src="/assets/artists/juste-une-plume-profile.webp?v=6.3.3" alt="Juste Une Plume">
-              <div><h3>Juste Une Plume</h3><p>Écriture • émotion • plume symbolique</p></div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="mpbp-v633-section">
-        <p>Comptes à rebours officiels</p>
-        <h2>Prochaines sorties</h2>
-        <div class="mpbp-v633-grid">
-          <article class="mpbp-v633-card">
-            <img src="/assets/covers/reves-et-cauchemards.webp?v=6.3.3" alt="Rêves et Cauchemards">
-            <div class="mpbp-v633-content">
-              <h3>Rêves et Cauchemards</h3>
-              <p>Sparetdee Simon — sortie officielle prévue le <strong>24/06/2026</strong>.</p>
-              <a class="mpbp-v633-btn" href="/music/index.html">Voir dans Music Hub</a>
-            </div>
-          </article>
-          <article class="mpbp-v633-card">
-            <div class="mpbp-v633-content">
-              <h3>Le Système</h3>
-              <p>Sparetdee Simon — sortie officielle prévue le <strong>27/06/2026</strong>.</p>
-              <a class="mpbp-v633-btn ghost" href="/music/index.html">Voir la sortie</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mpbp-v633-section">
-        <p>Bibliothèque officielle</p>
-        <h2>Titres disponibles</h2>
-        <div class="mpbp-v633-grid">
-          <article class="mpbp-v633-card">
-            <img src="/assets/covers/je-vous-pousse-tous.webp?v=6.3.3" alt="Je Vous Pousse Tous">
-            <div class="mpbp-v633-content">
-              <h3>Je Vous Pousse Tous</h3>
-              <p>Disponible sur toutes les plateformes.</p>
-              <a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a>
-            </div>
-          </article>
-          <article class="mpbp-v633-card">
-            <img src="/assets/covers/l-argent.webp?v=6.3.3" alt="L’Argent">
-            <div class="mpbp-v633-content">
-              <h3>L’Argent</h3>
-              <p>Disponible sur toutes les plateformes.</p>
-              <a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a>
-            </div>
-          </article>
-        </div>
-      </section>
-    `;
-
-    const header = document.querySelector("header");
-    if(header && header.parentNode){
-      header.insertAdjacentElement("afterend", wrap);
-    }else{
-      document.body.insertBefore(wrap, document.body.firstChild);
-    }
-  }
-
-  function apply(){
-    hideOldBrokenBlocks();
-    buildHome();
-    hideOldBrokenBlocks();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    apply();
-    setTimeout(apply, 500);
-    setTimeout(apply, 1500);
-
-    const observer = new MutationObserver(() => hideOldBrokenBlocks());
-    observer.observe(document.body, {childList:true, subtree:true});
-  });
+  function apply(){hideOld();build();hideOld();fix()}
+  document.addEventListener("DOMContentLoaded",()=>{apply();setTimeout(apply,500);setTimeout(apply,1500);new MutationObserver(()=>hideOld()).observe(document.body,{childList:true,subtree:true})});
 })();

@@ -1,15 +1,15 @@
 {
-  "version": "6.4",
+  "version": "6.4.1",
   "hero": {
-    "kicker": "MPBP440 V6.4",
-    "title": "Music Hub & MPBP TV Pro",
-    "subtitle": "Catalogue musical réorganisé, MPBP TV préparé et navigation plus claire."
+    "kicker": "MPBP440 V6.4.1",
+    "title": "Music Hub corrigé",
+    "subtitle": "Catalogue limité aux titres disponibles, avec sorties à venir séparées."
   },
   "quick_actions": [
     {
       "icon": "🎵",
       "title": "Music Hub Pro",
-      "text": "Discographie complète Sparetdee Simon et titre officiel Juste Une Plume.",
+      "text": "Titres disponibles et prochaines sorties séparées clairement.",
       "url": "/music/index.html"
     },
     {
@@ -33,8 +33,8 @@
   ],
   "widgets": [
     {
-      "label": "Catalogue",
-      "value": "Sparetdee Simon complet",
+      "label": "Sparetdee Simon",
+      "value": "Je Vous Pousse Tous • L’Argent",
       "url": "/music/index.html"
     },
     {
@@ -43,9 +43,9 @@
       "url": "/music/index.html"
     },
     {
-      "label": "MPBP TV",
-      "value": "Exclusivités prêtes",
-      "url": "/mpbp-tv/index.html"
+      "label": "Sorties à venir",
+      "value": "Rêves et Cauchemards • Le Système",
+      "url": "/music/index.html"
     }
   ]
 }

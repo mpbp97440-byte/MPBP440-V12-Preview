@@ -1,11 +1,15 @@
-/* MPBP440 V6.3.4 — Preview + iPhone images fix */
+/* MPBP440 V6.4.1 — Refonte active + admin hidden */
 (function(){
   const V="mpbp-v633-home";
   function asset(path){return location.pathname.includes("/preview/") ? "../"+path.replace(/^\//,"") : path}
-  function pic(webp,jpg,alt,cls=""){let w=asset(webp)+"?v=6.3.4", j=asset(jpg)+"?v=6.3.4";return `<picture><source srcset="${w}" type="image/webp"><img class="${cls}" src="${j}" data-fallback="${j}" alt="${alt}" loading="eager" decoding="async"></picture>`}
+  function pic(webp,jpg,alt,cls=""){let w=asset(webp)+"?v=6.4.1", j=asset(jpg)+"?v=6.4.1";return `<picture><source srcset="${w}" type="image/webp"><img class="${cls}" src="${j}" data-fallback="${j}" alt="${alt}" loading="eager" decoding="async"></picture>`}
   function fix(){document.querySelectorAll("img[data-fallback]").forEach(i=>{i.onerror=function(){if(this.src!==this.dataset.fallback)this.src=this.dataset.fallback}})}
   function bad(el){let t=(el.textContent||"").toLowerCase();return t.includes("double sortie")||t.includes("double sorti")}
-  function hideOld(){document.querySelectorAll(".mpbp-v63-hero,.mpbp-v63-section,.mpbp-v631-root,.mpbp-v631-hero,.mpbp-v631-section").forEach(e=>e.remove());document.querySelectorAll("section,article,div").forEach(e=>{if(!e.closest("#"+V)&&bad(e)&&e.children.length<12)e.classList.add("mpbp-v633-hide")})}
+  function hideAdminLinks(){
+    document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());
+    document.querySelectorAll("a,button,li,span").forEach(el=>{let t=(el.textContent||"").trim().toLowerCase();if(t==="admin pro"||t==="admin"||t.includes("admin pro"))el.remove()});
+  }
+  function hideOld(){document.querySelectorAll(".mpbp-v63-hero,.mpbp-v63-section,.mpbp-v631-root,.mpbp-v631-hero,.mpbp-v631-section").forEach(e=>e.remove());document.querySelectorAll("section,article,div").forEach(e=>{if(!e.closest("#"+V)&&bad(e)&&e.children.length<12)e.classList.add("mpbp-v633-hide")});hideAdminLinks()}
   function build(){
     if(document.getElementById(V))return;
     let w=document.createElement("div");w.id=V;w.className="mpbp-v633-home";
@@ -14,6 +18,6 @@
     <section class="mpbp-v633-section"><p>Bibliothèque officielle</p><h2>Titres disponibles</h2><div class="mpbp-v633-grid"><article class="mpbp-v633-card">${pic("/assets/covers/je-vous-pousse-tous.webp","/assets/covers/je-vous-pousse-tous.jpg","Je Vous Pousse Tous")}<div class="mpbp-v633-content"><h3>Je Vous Pousse Tous</h3><p>Disponible sur toutes les plateformes.</p><a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a></div></article><article class="mpbp-v633-card">${pic("/assets/covers/l-argent.webp","/assets/covers/l-argent.jpg","L’Argent")}<div class="mpbp-v633-content"><h3>L’Argent</h3><p>Disponible sur toutes les plateformes.</p><a class="mpbp-v633-btn" href="/artistes/sparetdee-simon.html">Page artiste</a></div></article></div></section>`;
     let h=document.querySelector("header"); if(h&&h.parentNode)h.insertAdjacentElement("afterend",w);else document.body.insertBefore(w,document.body.firstChild); fix();
   }
-  function apply(){hideOld();build();hideOld();fix()}
-  document.addEventListener("DOMContentLoaded",()=>{apply();setTimeout(apply,500);setTimeout(apply,1500);new MutationObserver(()=>hideOld()).observe(document.body,{childList:true,subtree:true})});
+  function apply(){hideOld();build();hideOld();fix();hideAdminLinks()}
+  document.addEventListener("DOMContentLoaded",()=>{apply();setTimeout(apply,500);setTimeout(apply,1500);new MutationObserver(()=>hideAdminLinks()).observe(document.body,{childList:true,subtree:true})});
 })();

@@ -1,51 +1,35 @@
 {
-  "version": "6.4.1",
-  "hero": {
-    "kicker": "MPBP440 V6.4.1",
-    "title": "Music Hub corrigé",
-    "subtitle": "Catalogue limité aux titres disponibles, avec sorties à venir séparées."
-  },
+  "version": "6.4.3",
   "quick_actions": [
     {
       "icon": "🎵",
-      "title": "Music Hub Pro",
-      "text": "Titres disponibles et prochaines sorties séparées clairement.",
+      "title": "Morceaux",
+      "text": "Catalogue officiel MPBP440.",
       "url": "/music/index.html"
     },
     {
       "icon": "📺",
-      "title": "MPBP TV 2.0",
-      "text": "Clips officiels, exclusivités et futures archives live.",
+      "title": "MPBP TV",
+      "text": "Clips et exclusivités.",
       "url": "/mpbp-tv/index.html"
     },
     {
-      "icon": "👤",
-      "title": "Compte membre",
-      "text": "Profil local, favoris et historique.",
-      "url": "/members/index.html"
-    },
-    {
-      "icon": "🔔",
-      "title": "Notifications",
-      "text": "Actualités, sorties et mises à jour.",
+      "icon": "📰",
+      "title": "Actualités",
+      "text": "Annonces et notifications.",
       "url": "/notifications/index.html"
-    }
-  ],
-  "widgets": [
-    {
-      "label": "Sparetdee Simon",
-      "value": "Je Vous Pousse Tous • L’Argent",
-      "url": "/music/index.html"
     },
     {
-      "label": "Juste Une Plume",
-      "value": "Je Sais Que Tu Sais",
-      "url": "/music/index.html"
+      "icon": "📅",
+      "title": "À venir",
+      "text": "Prochaines sorties.",
+      "url": "/music/index.html#upcoming"
     },
     {
-      "label": "Sorties à venir",
-      "value": "Rêves et Cauchemards • Le Système",
-      "url": "/music/index.html"
+      "icon": "🔴",
+      "title": "Événements",
+      "text": "Lives et archives.",
+      "url": "/live/index.html"
     }
   ]
 }

@@ -737,3 +737,71 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
 .artistCard{text-decoration:none;color:var(--text);display:block;overflow:hidden}
 .artistCard img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:24px;margin-bottom:14px}
 .footer{text-align:center;padding:40px;color:var(--muted)}
+
+
+/* =========================================================
+   MPBP440 V6.4.7 — Mise en page stable + mobile
+   ========================================================= */
+.topbar{min-height:70px!important;padding:10px clamp(12px,3vw,40px)!important}
+.topbar nav{align-items:center!important}
+.topbar nav a{line-height:1.1!important;white-space:nowrap!important}
+main{width:min(1120px,calc(100% - 28px))!important}
+.section{padding:42px 0!important}
+.panel{padding:22px!important;border-radius:24px!important}
+h1{font-size:clamp(58px,9vw,128px)!important}
+h2{font-size:clamp(42px,7vw,82px)!important;line-height:.9!important;margin:10px 0 22px!important}
+.tagline{font-size:clamp(18px,2.4vw,28px)!important}
+.hero{min-height:78vh!important;padding:105px clamp(16px,4vw,56px) 44px!important}
+.heroGrid{gap:24px!important}
+.premiumCard{width:min(360px,80vw)!important}
+.premiumBadge{width:92px!important;height:92px!important;right:-10px!important;bottom:-10px!important}
+.cards,.timeGrid,.eventsGrid,.galleryGrid,.linksGrid,.videoGrid,.artistGrid{gap:18px!important}
+.card,.time-card,.event-card,.galleryCard,.artistCard,.link-card{min-width:0!important;overflow:hidden!important}
+.card img,.time-card img,.event-card img,.galleryCard img,.artistCard img,.featuredCard img{max-width:100%!important;height:auto!important;object-fit:cover!important}
+.card img,.galleryCard img,.artistCard img{aspect-ratio:1/1!important}
+.time-card img,.event-card img,.featuredCard img{aspect-ratio:16/10!important}
+.btn,.platforms a,.link-card{max-width:100%!important;text-align:center!important;line-height:1.15!important;white-space:normal!important}
+.platforms{gap:8px!important}
+.platforms a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:8px 12px!important;border-radius:999px!important;border:1px solid var(--border)!important;background:rgba(255,255,255,.07)!important;color:var(--text)!important;font-weight:900!important;text-decoration:none!important}
+.featuredCard{display:grid!important;grid-template-columns:minmax(220px,420px) 1fr!important;gap:20px!important;align-items:center!important}
+.featuredCard img{width:100%!important;border-radius:22px!important}
+.searchInput{width:100%!important;max-width:100%!important}
+a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]{display:none!important;visibility:hidden!important;pointer-events:none!important}
+
+@media(max-width:900px){
+  .topbar{position:sticky!important;top:0!important;align-items:center!important}
+  .menuBtn{display:block!important;margin-left:auto!important}
+  .topbar nav{display:none!important;width:100%!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;padding-top:10px!important}
+  .topbar nav.open{display:flex!important}
+  .topbar nav a{display:block!important;padding:11px 12px!important;border:1px solid rgba(212,175,55,.22)!important;border-radius:12px!important;background:rgba(0,0,0,.28)!important;font-size:14px!important}
+  .brand span{font-size:15px!important;letter-spacing:2px!important}
+  .brand img{width:44px!important;height:44px!important}
+  .hero{min-height:auto!important;padding:96px 14px 32px!important}
+  .heroGrid{grid-template-columns:1fr!important;gap:20px!important}
+  .statsStrip{grid-template-columns:1fr!important}
+  .premiumCard{width:min(280px,100%)!important;justify-self:start!important}
+  main{width:calc(100% - 20px)!important}
+  .section{padding:28px 0!important}
+  .panel{padding:16px!important;border-radius:20px!important}
+  h1{font-size:clamp(50px,18vw,78px)!important;letter-spacing:2px!important}
+  h2{font-size:clamp(36px,13vw,58px)!important;letter-spacing:1px!important}
+  .sup{font-size:11px!important;letter-spacing:2px!important}
+  .featuredCard{grid-template-columns:1fr!important}
+  .cards,.timeGrid,.eventsGrid,.galleryGrid,.linksGrid,.videoGrid,.artistGrid{grid-template-columns:1fr!important}
+  .card,.time-card,.event-card,.galleryCard,.artistCard{border-radius:20px!important}
+  .card-body,.time-body,.galleryInfo{padding:14px!important}
+  .heroButtons,.platforms{width:100%!important}
+  .heroButtons .btn,.platforms a{flex:1 1 140px!important}
+}
+@media(max-width:480px){
+  body{font-size:15px!important}
+  .topbar{padding:8px 10px!important}
+  .hero{padding-top:88px!important}
+  h1{font-size:48px!important}
+  h2{font-size:34px!important}
+  .premiumCard{width:230px!important}
+  .premiumBadge{width:74px!important;height:74px!important}
+  .btn{min-height:42px!important;padding:0 13px!important;font-size:13px!important}
+  .card img,.artistCard img{aspect-ratio:1/1!important}
+  .time-card img,.event-card img,.featuredCard img{aspect-ratio:4/3!important}
+}

@@ -193,3 +193,57 @@ document.addEventListener("DOMContentLoaded", ()=>{
 document.addEventListener("DOMContentLoaded",()=>{
   document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());
 });
+
+
+// MPBP440 V6.4.7 — navigation et clics stabilisés
+(function(){
+  function cleanText(s){return String(s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+  function fixMenu(){
+    const btn=document.getElementById("menuBtn");
+    const nav=document.getElementById("mainNav")||document.querySelector(".topbar nav");
+    if(btn&&nav&&!btn.dataset.v647){
+      btn.dataset.v647="1";
+      btn.addEventListener("click",()=>nav.classList.toggle("open"));
+      nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+    }
+  }
+  function normalizeLinks(){
+    const routes=[
+      {keys:["accueil"],url:"/#home"},
+      {keys:["label"],url:"/#label"},
+      {keys:["sortie"],url:"/#sortie"},
+      {keys:["a venir","à venir"],url:"/#avenir"},
+      {keys:["evenements","événements","evenement","évènement"],url:"/#events"},
+      {keys:["morceaux","music hub"],url:"/#morceaux"},
+      {keys:["mpbp tv"],url:"/mpbp-tv/index.html"},
+      {keys:["radio"],url:"/#radio"},
+      {keys:["actus","actualites","actualités"],url:"/#actus"},
+      {keys:["artistes"],url:"/#artistes"},
+      {keys:["recherche"],url:"/#morceaux"},
+      {keys:["clips"],url:"/#clips"},
+      {keys:["galerie"],url:"/#galerie"},
+      {keys:["liens"],url:"/#liens"},
+      {keys:["application"],url:"/#application"},
+      {keys:["mon espace","espace"],url:"/members/index.html"},
+      {keys:["telechargements","téléchargements"],url:"/telechargements/index.html"}
+    ];
+    document.querySelectorAll(".topbar nav a,#mainNav a").forEach(a=>{
+      const t=cleanText(a.textContent);
+      for(const r of routes){if(r.keys.some(k=>t===cleanText(k))){a.setAttribute("href",r.url);break;}}
+    });
+    const tv=Array.from(document.querySelectorAll(".topbar nav a,#mainNav a")).filter(a=>cleanText(a.textContent)==="mpbp tv");
+    tv.forEach((a,i)=>{a.href="/mpbp-tv/index.html";if(i>0)a.remove();});
+  }
+  function cleanPublicText(){
+    const badPatterns=[/git/i,/assets/i,/mp4/i,/zone/i,/chemin/i,/compress/i,/html/i,/dev/i,/technique/i];
+    document.querySelectorAll("p,div,article,section,li").forEach(el=>{
+      if(el.children.length>8)return;
+      const txt=el.textContent||"";
+      if(badPatterns.filter(rx=>rx.test(txt)).length>=2)el.innerHTML="<p>Des contenus exclusifs seront ajoutés progressivement dans cet espace officiel MPBP440.</p>";
+    });
+  }
+  function removeAdmin(){document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());}
+  function fixBrokenImages(){document.querySelectorAll("img").forEach(img=>{if(!img.dataset.v647){img.dataset.v647="1";img.addEventListener("error",function(){this.src="/assets/brand/mpbp440-official-logo.jpg";});}});}
+  function apply(){fixMenu();normalizeLinks();cleanPublicText();removeAdmin();fixBrokenImages();}
+  document.addEventListener("DOMContentLoaded",()=>{apply();setTimeout(apply,500);setTimeout(apply,1500);});
+})();

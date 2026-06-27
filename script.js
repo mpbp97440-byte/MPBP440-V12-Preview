@@ -258,13 +258,26 @@ document.addEventListener("DOMContentLoaded", async ()=>{
   try{
     const res = await fetch("/data.json?v=6.4.9", {cache:"no-store"});
     const siteData = await res.json();
+    async function getRadioData(){
+      const mainRadio = siteData.radio || {};
+      if(mainRadio.embed) return mainRadio;
+      try{
+        const radioRes = await fetch("/data/radio.json?v=6.4.9", {cache:"no-store"});
+        if(radioRes.ok){
+          const radioData = await radioRes.json();
+          return Object.assign({}, mainRadio, radioData);
+        }
+      }catch(e){}
+      return mainRadio;
+    }
 
     // Corrige la radio : pas de iframe cassée si l'embed Spotify n'est pas valide.
     const radio = document.querySelector("#radio");
     if(radio){
       const oldBox = radio.querySelector(".spotifyRadioBox");
-      const embed = siteData.radio && siteData.radio.embed;
-      const spotify = siteData.radio && siteData.radio.spotify;
+      const radioData = await getRadioData();
+      const embed = radioData.embed;
+      const spotify = radioData.spotify || radioData.spotify_playlist;
       if(oldBox){
         const frame = oldBox.querySelector("iframe");
         if(embed && frame){

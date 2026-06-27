@@ -535,6 +535,14 @@
   ],
   "countdowns": [
     {
+      "title": "BrainRot Society 2.0",
+      "artist": "Sparetdee Simon",
+      "date": "2026-07-11T00:00:00+02:00",
+      "label": "Prochaine sortie",
+      "description": "Pré-sortie officielle sur toutes les plateformes le 11/07/2026",
+      "cover": "assets/covers/brainrot-society-2-0-pre-sortie.jpg"
+    },
+    {
       "title": "Le Système",
       "artist": "Sparetdee Simon",
       "date": "2026-06-27T00:00:00+02:00",

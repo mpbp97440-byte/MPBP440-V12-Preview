@@ -922,3 +922,61 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
     padding:16px 12px!important;
   }
 }
+
+/* V6.4.12 - prochaine sortie */
+.nextReleaseCountdown{
+  display:grid!important;
+  grid-template-columns:minmax(220px,360px) 1fr!important;
+  gap:24px!important;
+  align-items:center!important;
+  overflow:hidden!important;
+}
+
+.nextReleaseCover{
+  width:100%!important;
+  max-height:420px!important;
+  aspect-ratio:1/1!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  display:block!important;
+  border-radius:22px!important;
+  border:1px solid var(--border)!important;
+  background:#050505!important;
+}
+
+.nextReleaseBody{
+  min-width:0!important;
+}
+
+.nextReleaseBody h3{
+  font-family:Bebas Neue,Impact,sans-serif!important;
+  font-size:clamp(42px,6vw,78px)!important;
+  line-height:.92!important;
+  color:#fff1bd!important;
+  margin:10px 0!important;
+  overflow-wrap:anywhere!important;
+}
+
+.nextReleaseTimer{
+  margin-top:18px!important;
+}
+
+.nextReleaseStatus,
+.nextReleaseMissing{
+  color:var(--green)!important;
+  font-weight:900!important;
+}
+
+@media(max-width:900px){
+  .nextReleaseCountdown{
+    grid-template-columns:1fr!important;
+  }
+
+  .nextReleaseCover{
+    max-height:none!important;
+  }
+
+  .nextReleaseTimer{
+    grid-template-columns:repeat(2,1fr)!important;
+  }
+}

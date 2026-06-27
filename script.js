@@ -65,6 +65,92 @@ function itemLinks(item={}, data={}){
   return mergeLinks(canUseGlobalLinks ? data.socials : {}, item.links || {});
 }
 
+function parseReleaseDate(value){
+  if(!value) return null;
+  if(String(value).includes("T")){
+    const date = new Date(value);
+    return isNaN(date) ? null : date;
+  }
+  const parts = String(value).split("/");
+  if(parts.length === 3){
+    const [day, month, year] = parts.map(Number);
+    const date = new Date(year, month - 1, day);
+    return isNaN(date) ? null : date;
+  }
+  const date = new Date(value);
+  return isNaN(date) ? null : date;
+}
+
+function countdownParts(target){
+  let diff = Math.max(0, target.getTime() - Date.now());
+  const days = Math.floor(diff / 86400000); diff %= 86400000;
+  const hours = Math.floor(diff / 3600000); diff %= 3600000;
+  const minutes = Math.floor(diff / 60000); diff %= 60000;
+  const seconds = Math.floor(diff / 1000);
+  return [days, hours, minutes, seconds];
+}
+
+function formatReleaseDate(value, targetDate){
+  if(value && !String(value).includes("T")) return value;
+  if(!targetDate) return value || "";
+  return targetDate.toLocaleDateString("fr-FR", {day:"2-digit", month:"2-digit", year:"numeric"});
+}
+
+function renderNextRelease(data={}){
+  const box = document.getElementById("nextReleaseCountdown");
+  if(!box) return;
+
+  const releases = [...(data.countdowns || []), ...(data.upcoming || [])]
+    .map(item => ({...item, targetDate: parseReleaseDate(item.date)}))
+    .filter(item => item.targetDate);
+  const candidates = releases
+    .filter(item => item.targetDate.getTime() >= Date.now())
+    .sort((a,b)=>a.targetDate - b.targetDate);
+  const release = releases.find(item => cleanKey(item.title).includes("brainrot society 2.0")) || candidates[0];
+
+  if(!release){
+    box.innerHTML = `<div class="nextReleaseBody"><span class="status-pill">Disponible maintenant</span><h3>Disponible maintenant</h3></div>`;
+    return;
+  }
+
+  const coverHtml = release.cover
+    ? `<img class="nextReleaseCover" src="${release.cover}" alt="${release.title}" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'nextReleaseMissing',textContent:'Image manquante : ${release.cover}'}))">`
+    : `<p class="nextReleaseMissing">Image manquante pour cette sortie.</p>`;
+
+  box.innerHTML = `
+    ${coverHtml}
+    <div class="nextReleaseBody">
+      <span class="status-pill">${release.label || "Prochaine sortie"}</span>
+      <h3>${release.title}</h3>
+      <p class="sup">${release.artist || "MPBP440"} • ${formatReleaseDate(release.date, release.targetDate)}</p>
+      <p>${release.description || "Pré-sortie officielle sur toutes les plateformes le 11/07/2026"}</p>
+      <div class="countdown nextReleaseTimer" data-date="${release.targetDate.toISOString()}">
+        <div><strong>00</strong><span>Jours</span></div>
+        <div><strong>00</strong><span>Heures</span></div>
+        <div><strong>00</strong><span>Minutes</span></div>
+        <div><strong>00</strong><span>Secondes</span></div>
+      </div>
+      <p class="nextReleaseStatus" aria-live="polite"></p>
+    </div>`;
+
+  const timer = box.querySelector(".nextReleaseTimer");
+  const values = timer.querySelectorAll("strong");
+  const status = box.querySelector(".nextReleaseStatus");
+  function tick(){
+    if(release.targetDate.getTime() <= Date.now()){
+      status.textContent = "Disponible maintenant";
+      values.forEach(value => value.textContent = "00");
+      return;
+    }
+    countdownParts(release.targetDate).forEach((value,index)=>{
+      if(values[index]) values[index].textContent = String(value).padStart(2,"0");
+    });
+    status.textContent = "";
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
 async function loadData(){
   try{
     const data = await fetch("data.json?v=3.2.17-verif-complete", {cache:"no-store"}).then(r=>r.json());
@@ -82,6 +168,8 @@ async function loadData(){
           <div class="platforms">${orderedLinksHtml(itemLinks(f, data))}</div>
         </div>`;
     }
+
+    renderNextRelease(data);
 
     const upcomingGrid = document.getElementById("upcomingGrid");
     if(upcomingGrid){

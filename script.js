@@ -250,3 +250,68 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 // V6.4.8 — sorties/radio/nav public fixes
 document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());const navMap=[["morceaux","#morceaux"],["mpbp tv","/mpbp-tv/index.html"],["actus","#actus"],["actualites","#actus"],["actualités","#actus"],["a venir","#avenir"],["à venir","#avenir"],["evenements","#events"],["événements","#events"]];document.querySelectorAll(".topbar nav a,#mainNav a").forEach(a=>{const t=(a.textContent||"").trim().toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");navMap.forEach(([k,u])=>{if(t===k.normalize("NFD").replace(/[\\u0300-\\u036f]/g,""))a.href=u;});});const radio=document.querySelector("#radio");if(radio&&!radio.querySelector("iframe")){radio.insertAdjacentHTML("beforeend",`<div class="spotifyRadioBox panel"><h3>Playlist MPBP440 sur Spotify</h3><p>Écoute la sélection officielle directement depuis le site.</p><iframe style="border-radius:18px" src="https://open.spotify.com/embed/artist/1893053126?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`);}});
+
+
+
+// V6.4.9 — correctif radio Spotify + liens plateformes complets
+document.addEventListener("DOMContentLoaded", async ()=>{
+  try{
+    const res = await fetch("/data.json?v=6.4.9", {cache:"no-store"});
+    const siteData = await res.json();
+
+    // Corrige la radio : pas de iframe cassée si l'embed Spotify n'est pas valide.
+    const radio = document.querySelector("#radio");
+    if(radio){
+      const oldBox = radio.querySelector(".spotifyRadioBox");
+      const embed = siteData.radio && siteData.radio.embed;
+      const spotify = siteData.radio && siteData.radio.spotify;
+      if(oldBox){
+        const frame = oldBox.querySelector("iframe");
+        if(embed && frame){
+          frame.src = embed;
+        }else{
+          oldBox.innerHTML = `<div class="spotifyRadioFallback">
+            <h3>Playlist MPBP440 sur Spotify</h3>
+            <p>Le lecteur intégré n'est pas disponible ici. Ouvre la playlist officielle directement sur Spotify.</p>
+            <a href="${spotify || 'https://open.spotify.com/search/MPBP440'}" target="_blank" rel="noopener">Ouvrir sur Spotify</a>
+          </div>`;
+        }
+      }
+    }
+
+    // Ajoute les boutons manquants sur Rêves et Le Système si l'ancien rendu n'en affiche que deux.
+    const fullLinks = {};
+    (siteData.tracks || []).forEach(t=>{
+      const n=(t.title||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+      if(n.includes("l'argent") || n.includes("argent") || n.includes("pousse")){
+        Object.assign(fullLinks, t.links || {});
+      }
+    });
+    (siteData.tracks || []).forEach(t=>{
+      const n=(t.title||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+      if(n.includes("systeme") || n.includes("reves") || n.includes("cauchemards")){
+        const title = (t.title || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+        document.querySelectorAll(".card,.featuredCard,.time-card").forEach(card=>{
+          const txt=(card.textContent||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+          if(txt.includes(title.split(" ")[0]) || (title.includes("systeme") && txt.includes("systeme")) || (title.includes("reves") && txt.includes("reves"))){
+            let box = card.querySelector(".platforms");
+            if(!box){
+              box = document.createElement("div");
+              box.className = "platforms";
+              card.appendChild(box);
+            }
+            const links = Object.assign({}, fullLinks, t.links || {});
+            const labels = {spotify:"Spotify",youtube:"YouTube",tiktok:"TikTok",facebook:"Facebook",deezer:"Deezer",apple:"Apple Music",amazon:"Amazon Music"};
+            Object.keys(labels).forEach(k=>{
+              if(links[k] && !Array.from(box.querySelectorAll("a")).some(a=>(a.textContent||"").toLowerCase().includes(labels[k].toLowerCase().split(" ")[0]))){
+                const a=document.createElement("a");
+                a.href=links[k]; a.target="_blank"; a.rel="noopener"; a.textContent=labels[k];
+                box.appendChild(a);
+              }
+            });
+          }
+        });
+      }
+    });
+  }catch(e){}
+});

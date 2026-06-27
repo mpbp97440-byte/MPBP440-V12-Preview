@@ -4,8 +4,65 @@ function safeText(value){
   return String(value || "");
 }
 
+function cleanKey(value){
+  return safeText(value).trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+
+const platformLabels = {
+  spotify: "Spotify",
+  youtube: "YouTube",
+  tiktok: "TikTok",
+  facebook: "Facebook",
+  deezer: "Deezer",
+  apple: "Apple Music",
+  amazon: "Amazon Music"
+};
+
+const platformOrder = ["spotify","youtube","tiktok","facebook","deezer","apple","amazon"];
+
+function platformKey(name){
+  const key = cleanKey(name).replace(/\s+/g,"");
+  if(key.includes("spotify")) return "spotify";
+  if(key.includes("youtube")) return "youtube";
+  if(key.includes("tiktok")) return "tiktok";
+  if(key.includes("facebook")) return "facebook";
+  if(key.includes("deezer")) return "deezer";
+  if(key.includes("apple")) return "apple";
+  if(key.includes("amazon")) return "amazon";
+  return cleanKey(name);
+}
+
+function normalizeLinks(links={}){
+  const normalized = {};
+  Object.entries(links || {}).forEach(([name,url])=>{
+    if(!url) return;
+    const key = platformKey(name);
+    normalized[key] = {label: platformLabels[key] || name, url};
+  });
+  return normalized;
+}
+
+function mergeLinks(...sources){
+  return sources.reduce((merged, source)=>Object.assign(merged, normalizeLinks(source)), {});
+}
+
+function orderedLinksHtml(links={}){
+  const orderedKeys = [...platformOrder, ...Object.keys(links).filter(k=>!platformOrder.includes(k))];
+  return orderedKeys.map(key => {
+    const item = links[key];
+    return item && item.url ? `<a href="${item.url}" target="_blank" rel="noopener">${item.label}</a>` : "";
+  }).join("");
+}
+
 function linksHtml(links={}){
-  return Object.entries(links).map(([n,u]) => u ? `<a href="${u}" target="_blank" rel="noopener">${n}</a>` : "").join("");
+  return orderedLinksHtml(normalizeLinks(links));
+}
+
+function itemLinks(item={}, data={}){
+  const itemArtist = cleanKey(item.artist || data.artist);
+  const mainArtist = cleanKey(data.artist);
+  const canUseGlobalLinks = !item.artist || itemArtist === mainArtist;
+  return mergeLinks(canUseGlobalLinks ? data.socials : {}, item.links || {});
 }
 
 async function loadData(){
@@ -22,7 +79,7 @@ async function loadData(){
           <h3>${f.title}</h3>
           <p class="sup">${f.date || ""}</p>
           <p>${f.description || ""}</p>
-          <div class="platforms">${linksHtml(f.links || data.socials || {})}</div>
+          <div class="platforms">${orderedLinksHtml(itemLinks(f, data))}</div>
         </div>`;
     }
 
@@ -55,7 +112,7 @@ async function loadData(){
         </article>`).join("");
     }
 
-    allTracks = (data.tracks || []).map(t => ({...t, links: t.links || data.socials || {}}));
+    allTracks = (data.tracks || []).map(t => ({...t, displayLinks: itemLinks(t, data)}));
     renderTracks(allTracks);
 
     const videoList = document.getElementById("videoList");
@@ -110,7 +167,7 @@ function renderTracks(tracks){
         ${t.year ? `<p class="sup">${t.artist ? t.artist + " • " : ""}${t.year}</p>` : ""}
         <h3>${t.title}</h3>
         <p>${t.description || ""}</p>
-        <div class="platforms">${linksHtml(t.links || {})}</div>
+        <div class="platforms">${orderedLinksHtml(t.displayLinks || normalizeLinks(t.links || {}))}</div>
       </div>
     </article>`).join("");
 }

@@ -891,3 +891,34 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
     max-height:none!important;
   }
 }
+
+/* V6.4.11 - liens officiels sans debordement mobile */
+.linksGrid{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+
+.linksGrid .link-card{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  white-space:normal!important;
+  line-height:1.2!important;
+}
+
+@media(max-width:900px){
+  .linksGrid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  .linksGrid .link-card{
+    padding:16px 12px!important;
+  }
+}

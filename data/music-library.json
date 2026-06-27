@@ -1,24 +1,45 @@
 [
   {
+    "id": "brainrot-society-2-0",
+    "title": "BrainRot Society 2.0",
+    "artist": "Sparetdee Simon",
+    "date": "11/07/2026",
+    "status": "À venir",
+    "cover": "assets/covers/brainrot-society-2-0-pre-sortie.jpg",
+    "type": "Single",
+    "links": {},
+    "description": "Pré-sortie officielle prévue le 11/07/2026."
+  },
+  {
+    "id": "reves-et-cauchemards",
+    "title": "Rêves et Cauchemards",
+    "artist": "Sparetdee Simon",
+    "date": "Disponible",
+    "status": "Disponible",
+    "cover": "assets/covers/reves-et-cauchemards-officiel.jpg",
+    "type": "Single",
+    "links": {
+      "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+      "deezer": "https://www.deezer.com/fr/artist/385051171"
+    },
+    "description": "Disponible sur toutes les plateformes."
+  },
+  {
     "id": "le-systeme",
     "title": "Le Système",
     "artist": "Sparetdee Simon",
-    "date": "27/06/2026",
-    "status": "À venir",
-    "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
+    "date": "Disponible",
+    "status": "Disponible",
+    "cover": "assets/covers/le-systeme-officiel.jpg",
     "type": "Single",
-    "lyrics": "lyrics/le-systeme.html",
     "links": {
-      "spotify": "",
-      "apple": "",
-      "deezer": "",
-      "youtube": "",
-      "amazon": ""
+      "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+      "deezer": "https://www.deezer.com/fr/artist/385051171"
     },
-    "description": "Nouvelle sortie officielle de Sparetdee Simon."
+    "description": "Sortie officielle disponible sur toutes les plateformes."
   },
   {
-    "id": "largent",
+    "id": "l-argent",
     "title": "L’Argent",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -57,7 +78,7 @@
     "id": "je-sais-que-tu-sais",
     "title": "Je sais que tu sais",
     "artist": "Juste Une Plume",
-    "date": "À venir • 16/06/2026",
+    "date": "Disponible",
     "status": "Disponible",
     "cover": "assets/covers/je-sais-juste-une-plume.jpg",
     "type": "Single",
@@ -68,7 +89,7 @@
       "youtube": "https://youtu.be/jkKGmZDQMtE?si=wWLZSqLFOA5320VT",
       "amazon": "https://amazon.fr/music/player/albums/B0H3W4P77J?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR"
     },
-    "description": "Premier titre officiel de Juste Une Plume."
+    "description": "Titre officiel de Juste Une Plume, disponible sur les plateformes."
   },
   {
     "id": "l-asticot-getga",
@@ -89,7 +110,7 @@
     "description": "Nouveau morceau disponible sur toutes les plateformes."
   },
   {
-    "id": "la-france-se-soul-ve",
+    "id": "la-france-se-souleve",
     "title": "La France Se Soulève",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -161,7 +182,7 @@
     "description": "Un délire visuel et musical explosif, entre satire moderne, énergie digitale et rap coloré."
   },
   {
-    "id": "la-route-dor-e-remix",
+    "id": "la-route-doree-remix",
     "title": "La Route Dorée Remix",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -179,7 +200,7 @@
     "description": "Une route symbolique entre choix, humain et espérance."
   },
   {
-    "id": "de-saint-beno-t-saint-andr-remix",
+    "id": "de-saint-beno-t-saint-andre-remix",
     "title": "De Saint-Benoît à Saint-André Remix",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -197,7 +218,7 @@
     "description": "97470 vers 97440, une histoire vraie entre racines, mémoire et trajectoire."
   },
   {
-    "id": "l-galise-la-kalit",
+    "id": "legalise-la-kalite",
     "title": "Légalise La Kalité",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -215,7 +236,7 @@
     "description": "Un morceau engagé, entre feu social et souffle vert."
   },
   {
-    "id": "savoir-la-savour",
+    "id": "savoir-la-savoure",
     "title": "Savoir La Savouré",
     "artist": "Sparetdee Simon",
     "date": "Disponible",
@@ -377,7 +398,7 @@
     "description": "Tension narrative, horloge fissurée et DA noire/or."
   },
   {
-    "id": "prince-des-toiles",
+    "id": "prince-des-etoiles",
     "title": "Prince Des Étoiles",
     "artist": "Sparetdee Simon",
     "date": "2026",
@@ -413,7 +434,7 @@
     "description": "Réunion, exil, ville et nostalgie solaire."
   },
   {
-    "id": "11-hivers-et-11-t-s",
+    "id": "11-hivers-et-11-etes",
     "title": "11 hivers et 11 étés",
     "artist": "Sparetdee Simon",
     "date": "2026",

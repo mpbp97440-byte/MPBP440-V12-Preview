@@ -1,26 +1,35 @@
 [
   {
     "artist": "Sparetdee Simon",
-    "title": "Rêves et Cauchemards",
+    "title": "Le Système",
     "type": "Single",
-    "date": "24/06/2026",
-    "isoDate": "2026-06-24",
-    "cover": "assets/covers/reves-et-cauchemards.jpg",
+    "date": "Disponible maintenant",
+    "cover": "assets/covers/le-systeme-officiel.jpg",
     "status": "Disponible",
     "links": {
-      "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html"
+      "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+      "deezer": "https://www.deezer.com/fr/artist/385051171"
     }
   },
   {
     "artist": "Sparetdee Simon",
-    "title": "Le Système",
+    "title": "Rêves et Cauchemards",
     "type": "Single",
-    "date": "27/06/2026",
-    "isoDate": "2026-06-27",
-    "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
-    "status": "À venir",
+    "date": "Disponible maintenant",
+    "cover": "assets/covers/reves-et-cauchemards-officiel.jpg",
+    "status": "Disponible",
     "links": {
-      "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html"
+      "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+      "deezer": "https://www.deezer.com/fr/artist/385051171"
     }
+  },
+  {
+    "artist": "Sparetdee Simon",
+    "title": "BrainRot Society 2.0",
+    "type": "Single",
+    "date": "11/07/2026",
+    "cover": "assets/covers/brainrot-society-2-0-pre-sortie.jpg",
+    "status": "À venir",
+    "links": {}
   }
 ]

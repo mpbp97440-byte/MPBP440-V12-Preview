@@ -805,3 +805,6 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
   .card img,.artistCard img{aspect-ratio:1/1!important}
   .time-card img,.event-card img,.featuredCard img{aspect-ratio:4/3!important}
 }
+
+/* V6.4.8 — sorties + radio + mobile polish */
+.spotifyRadioBox{margin-top:22px;overflow:hidden}.spotifyRadioBox iframe{display:block;max-width:100%;background:#111}.card img,.time-card img,.featuredCard img,.event-card img,.galleryCard img{max-width:100%;object-fit:cover}.card img,.galleryCard img{aspect-ratio:1/1}.time-card img,.featuredCard img,.event-card img{aspect-ratio:16/10}.platforms a{min-height:38px}a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]{display:none!important}@media(max-width:900px){main{width:calc(100% - 20px)!important}.section{padding:30px 0!important}.panel{padding:16px!important;border-radius:20px!important}.featuredCard{grid-template-columns:1fr!important}.cards,.timeGrid,.eventsGrid,.galleryGrid,.linksGrid,.videoGrid,.artistGrid{grid-template-columns:1fr!important}.hero{min-height:auto!important;padding-bottom:32px!important}.premiumCard{width:min(280px,100%)!important}h1{font-size:clamp(48px,16vw,76px)!important}h2{font-size:clamp(34px,12vw,56px)!important}.spotifyRadioBox iframe{height:352px}}

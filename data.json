@@ -15,40 +15,50 @@
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
-    "title": "Rêves et Cauchemards",
+    "title": "Le Système",
     "artist": "Sparetdee Simon",
-    "date": "24/06/2026",
-    "description": "Nouvelle sortie officielle de Sparetdee Simon. Disponible sur toutes les plateformes.",
-    "cover": "assets/covers/reves-et-cauchemards.jpg",
-    "status": "Sortie officielle",
+    "date": "Disponible maintenant",
+    "description": "Sortie officielle disponible sur toutes les plateformes.",
+    "cover": "assets/covers/le-systeme-officiel.jpg",
+    "status": "Disponible",
     "links": {
-      "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
-      "YouTube": "https://www.youtube.com/@sparetdee440",
-      "TikTok": "https://www.tiktok.com/@simonsparet",
-      "Facebook": "https://www.facebook.com/Sparetdee.simon/",
-      "Deezer": "https://link.deezer.com/s/33irRvA9B9fRe2H5gP4D2",
-      "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
+      "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+      "deezer": "https://www.deezer.com/fr/artist/385051171"
     }
   },
   "upcoming": [
     {
-      "title": "Le Système",
+      "title": "BrainRot Society 2.0",
       "artist": "Sparetdee Simon",
-      "date": "27/06/2026",
-      "description": "Prochaine sortie officielle de Sparetdee Simon. Disponible le 27/06/2026 sur toutes les plateformes.",
-      "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
+      "date": "11/07/2026",
+      "description": "Pré-sortie officielle prévue le 11/07/2026 sur toutes les plateformes.",
+      "cover": "assets/covers/brainrot-society-2-0-pre-sortie.jpg",
       "status": "À venir"
-    },
-    {
-      "title": "Rêves et Cauchemards",
-      "artist": "Sparetdee Simon",
-      "date": "24/06/2026",
-      "description": "Nouvelle sortie officielle de Sparetdee Simon. Disponible sur toutes les plateformes.",
-      "cover": "assets/covers/reves-et-cauchemards.jpg",
-      "status": "Sortie officielle"
     }
   ],
   "tracks": [
+    {
+      "title": "Rêves et Cauchemards",
+      "artist": "Sparetdee Simon",
+      "year": "Disponible",
+      "description": "Disponible sur toutes les plateformes.",
+      "cover": "assets/covers/reves-et-cauchemards-officiel.jpg",
+      "links": {
+        "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+        "deezer": "https://www.deezer.com/fr/artist/385051171"
+      }
+    },
+    {
+      "title": "Le Système",
+      "artist": "Sparetdee Simon",
+      "year": "Disponible",
+      "description": "Sortie officielle disponible sur toutes les plateformes.",
+      "cover": "assets/covers/le-systeme-officiel.jpg",
+      "links": {
+        "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
+        "deezer": "https://www.deezer.com/fr/artist/385051171"
+      }
+    },
     {
       "title": "L’Argent",
       "artist": "Sparetdee Simon",
@@ -82,8 +92,8 @@
     {
       "title": "Je sais que tu sais",
       "artist": "Juste Une Plume",
-      "year": "À venir • 16/06/2026",
-      "description": "Premier titre officiel de Juste Une Plume.",
+      "year": "Disponible",
+      "description": "Titre officiel de Juste Une Plume, disponible sur les plateformes.",
       "cover": "assets/covers/je-sais-juste-une-plume.jpg",
       "links": {
         "spotify": "https://open.spotify.com/artist/4LAJA1pkE8Z3OyAGFSWdT3?si=fypn9MRDSMO0dN3mAoSv4A",
@@ -588,5 +598,10 @@
     "description": "L’Argent + Je Vous Pousse Tous — sortie officielle le 20/06/2026 sur toutes les plateformes.",
     "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.jpg",
     "status": "Sortie du moment"
+  },
+  "radio": {
+    "title": "Playlist MPBP440",
+    "description": "Retrouvez la sélection officielle MPBP440 sur Spotify.",
+    "spotify": "https://open.spotify.com/embed/artist/1893053126?utm_source=generator"
   }
 }

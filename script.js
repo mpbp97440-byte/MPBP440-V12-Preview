@@ -213,7 +213,7 @@ function renderNextRelease(data={}){
 
 async function loadData(){
   try{
-    const data = await fetch("/data.json?v=20260703-video14", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("/data.json?v=8.0-essential", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
@@ -476,13 +476,13 @@ document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[h
 // V6.4.9 — correctif radio Spotify + liens plateformes complets
 document.addEventListener("DOMContentLoaded", async ()=>{
   try{
-    const res = await fetch("/data.json?v=6.4.9", {cache:"no-store"});
+    const res = await fetch("/data.json?v=8.0-essential", {cache:"no-store"});
     const siteData = await res.json();
     async function getRadioData(){
       const mainRadio = siteData.radio || {};
       if(mainRadio.embed) return mainRadio;
       try{
-        const radioRes = await fetch("/data/radio.json?v=6.4.9", {cache:"no-store"});
+        const radioRes = await fetch("/data/radio.json?v=8.0-essential", {cache:"no-store"});
         if(radioRes.ok){
           const radioData = await radioRes.json();
           return Object.assign({}, mainRadio, radioData);

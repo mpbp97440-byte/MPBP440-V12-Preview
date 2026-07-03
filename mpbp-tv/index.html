@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MPBP TV — Officiel</title><link rel="stylesheet" href="/style.css?v=20260703-video14"><link rel="manifest" href="/manifest.webmanifest"></head>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPBP TV — Officiel</title>
+<link rel="stylesheet" href="/style.css?v=8.0-essential">
+<link rel="manifest" href="/manifest.webmanifest">
+</head>
 <body>
-<header class="topbar"><a class="brand" href="/"><img src="/assets/brand/mpbp440-official-logo.jpg" alt="MPBP440"><span>M.P.B.P 440</span></a><button class="menuBtn" id="menuBtn">☰</button><nav id="mainNav"><a href="/">Accueil</a><a href="/music/index.html">Morceaux</a><a href="/notifications/index.html">Actus</a></nav></header>
-<main style="padding-top:110px">
-<section class="section panel"><p class="sup">MPBP TV</p><h1>Clips & exclusivités</h1><p>L’espace vidéo officiel du label MPBP440 : clips, lives, archives et contenus inédits.</p></section>
-<section class="section panel exclusiveVideo">
-  <div class="exclusiveVideoText">
-    <p class="sup">Clip exclusif</p>
-    <h2>L’Argent</h2>
-    <p class="sup">Sparetdee Simon • M.P.B.P 440 Corp.2026</p>
-    <p>Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.</p>
-  </div>
-  <video class="siteVideo" controls preload="metadata" playsinline poster="/assets/covers/largent-officiel.jpg">
-    <source src="/assets/videos/l-argent.mp4" type="video/mp4">
-  </video>
-</section>
-<section class="section"><p class="sup">Clips officiels</p><h2>Vidéos du label</h2><div id="videoList" class="videoGrid"></div></section>
-<section class="section panel"><p class="sup">Exclusivités</p><h2>Programmes à venir</h2><p>Contenu bientôt disponible : lives, sessions et formats exclusifs MPBP440 seront ajoutés ici progressivement.</p><a class="btn primary" href="/">Retour au portail</a></section>
+<header class="topbar">
+  <a class="brand" href="/"><img src="/assets/brand/mpbp440-official-logo.jpg" alt="MPBP440"><span>M.P.B.P 440</span></a>
+  <button class="menuBtn" id="menuBtn">☰</button>
+  <nav id="mainNav"><a href="/">Accueil</a><a href="/music/index.html">Morceaux</a><a href="/#clips">Clips</a></nav>
+</header>
+<main class="tvPage">
+  <section class="section panel tvHero">
+    <p class="sup">MPBP TV</p>
+    <h1>Plateforme vidéo officielle</h1>
+    <p>Clips, lives, archives et exclusivités du label MPBP440.</p>
+  </section>
+
+  <section class="section panel exclusiveVideo tvFeatured">
+    <div class="exclusiveVideoText">
+      <p class="sup">À la une • Clip exclusif</p>
+      <h2>L’Argent</h2>
+      <p class="sup">Sparetdee Simon • M.P.B.P 440 Corp.2026</p>
+      <p>Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.</p>
+    </div>
+    <video class="siteVideo" controls preload="metadata" playsinline poster="/assets/covers/largent-officiel.jpg">
+      <source src="/assets/videos/l-argent.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <section class="section tvBlock">
+    <p class="sup">Clips officiels</p>
+    <h2>Vidéos du label</h2>
+    <div id="videoList" class="videoGrid"></div>
+  </section>
+
+  <section class="section panel tvSplit">
+    <div>
+      <p class="sup">Exclusivités site/app</p>
+      <h2>Formats MPBP440</h2>
+      <p>Des sessions, archives et contenus dédiés seront publiés progressivement dans cet espace officiel.</p>
+      <a class="btn primary" href="/#clips">Retour aux clips</a>
+    </div>
+    <div class="tvSoon">
+      <p class="sup">Bientôt disponible</p>
+      <h3>Nouveaux programmes</h3>
+      <p>Contenu bientôt disponible.</p>
+    </div>
+  </section>
 </main>
-<script src="/script.js?v=20260703-video14"></script>
-</body></html>
+<script src="/script.js?v=8.0-essential"></script>
+</body>
+</html>

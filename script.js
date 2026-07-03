@@ -351,7 +351,7 @@ function initMPBPTVControls(){
 
 async function loadLiveStatus(){
   try{
-    const res = await fetch("live_status.json?v=" + Date.now(), {cache:"no-store"});
+    const res = await fetch("/live_status.json?v=" + Date.now(), {cache:"no-store"});
     if(!res.ok) return;
     const live = await res.json();
     const card = document.getElementById("livePortalCard");

@@ -118,6 +118,10 @@ function matchesTrackSearch(track={}, query=""){
   return tokens.every(token => haystack.includes(token));
 }
 
+function isPublicItem(item={}){
+  return !item.hidden && cleanKey(item.status) !== "masque";
+}
+
 function emptyStateHtml(message, href="#home", label="Retour a l'accueil"){
   return `<div class="panel emptyState">
     <p>${message}</p>
@@ -233,7 +237,7 @@ async function loadData(){
 
     const upcomingGrid = document.getElementById("upcomingGrid");
     if(upcomingGrid){
-      const upcoming = data.upcoming || [];
+      const upcoming = (data.upcoming || []).filter(isPublicItem);
       upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>`
         <article class="time-card">
           <img src="${mediaSrc(x.cover)}" alt="${x.title}">
@@ -248,7 +252,7 @@ async function loadData(){
 
     const eventsGrid = document.getElementById("eventsGrid");
     if(eventsGrid){
-      const events = data.events || [];
+      const events = (data.events || []).filter(isPublicItem);
       eventsGrid.innerHTML = events.length ? events.map(e=>`
         <article class="event-card panel">
           <img src="${mediaSrc(e.cover)}" alt="${e.title}">
@@ -262,12 +266,12 @@ async function loadData(){
         </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains evenements MPBP440 seront annonces ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
     }
 
-    allTracks = (data.tracks || []).map(t => ({...t, displayLinks: itemLinks(t, data)}));
+    allTracks = (data.tracks || []).filter(isPublicItem).map(t => ({...t, displayLinks: itemLinks(t, data)}));
     renderTracks(allTracks);
 
     const videoList = document.getElementById("videoList");
     if(videoList){
-      const videos = data.videos || [];
+      const videos = (data.videos || []).filter(isPublicItem);
       videoList.innerHTML = videos.length ? videos.map(v=>`
         <div>
           <div class="video-frame">
@@ -279,7 +283,7 @@ async function loadData(){
 
     const galleryGrid = document.getElementById("galleryGrid");
     if(galleryGrid){
-      const gallery = data.gallery || [];
+      const gallery = (data.gallery || []).filter(isPublicItem);
       galleryGrid.innerHTML = gallery.length ? gallery.map(item => `
         <article class="galleryCard">
           <img src="${mediaSrc(item.image)}" alt="${item.title}">

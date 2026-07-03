@@ -8,6 +8,29 @@ function cleanKey(value){
   return safeText(value).trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 }
 
+const fallbackLogo = "/assets/brand/mpbp440-official-logo.jpg";
+
+function mediaSrc(value){
+  const src = safeText(value).trim();
+  if(!src) return fallbackLogo;
+  if(/^(https?:|data:|blob:)/i.test(src) || src.startsWith("/")) return src;
+  return "/" + src.replace(/^\.?\//,"");
+}
+
+function fallbackImage(event){
+  const img = event.currentTarget;
+  img.onerror = null;
+  img.src = fallbackLogo;
+}
+
+function applyImageFallbacks(root=document){
+  root.querySelectorAll("img").forEach(img => {
+    if(img.dataset.mpbpFallback) return;
+    img.dataset.mpbpFallback = "1";
+    img.addEventListener("error", fallbackImage);
+  });
+}
+
 const platformLabels = {
   spotify: "Spotify",
   youtube: "YouTube",
@@ -151,8 +174,8 @@ function renderNextRelease(data={}){
   }
 
   const coverHtml = release.cover
-    ? `<img class="nextReleaseCover" src="${release.cover}" alt="${release.title}" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'nextReleaseMissing',textContent:'Image manquante : ${release.cover}'}))">`
-    : `<p class="nextReleaseMissing">Image manquante pour cette sortie.</p>`;
+    ? `<img class="nextReleaseCover" src="${mediaSrc(release.cover)}" alt="${release.title}">`
+    : `<img class="nextReleaseCover" src="${fallbackLogo}" alt="${release.title || "MPBP440"}">`;
 
   box.innerHTML = `
     ${coverHtml}
@@ -190,13 +213,13 @@ function renderNextRelease(data={}){
 
 async function loadData(){
   try{
-    const data = await fetch("/data.json?v=20260703-quality", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("/data.json?v=20260703-video", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
     if(f && featuredCard){
       featuredCard.innerHTML = `
-        <img src="${f.cover}" alt="${f.title}">
+        <img src="${mediaSrc(f.cover)}" alt="${f.title}">
         <div>
           <span class="status-pill">${f.status || "Sortie officielle"}</span>
           <h3>${f.title}</h3>
@@ -213,7 +236,7 @@ async function loadData(){
       const upcoming = data.upcoming || [];
       upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>`
         <article class="time-card">
-          <img src="${x.cover}" alt="${x.title}">
+          <img src="${mediaSrc(x.cover)}" alt="${x.title}">
           <div class="time-body">
             <p class="sup">${x.artist || "MPBP 440"} • Étape ${i+1}</p>
             <h3>${x.title}</h3>
@@ -228,7 +251,7 @@ async function loadData(){
       const events = data.events || [];
       eventsGrid.innerHTML = events.length ? events.map(e=>`
         <article class="event-card panel">
-          <img src="${e.cover}" alt="${e.title}">
+          <img src="${mediaSrc(e.cover)}" alt="${e.title}">
           <div>
             <p class="sup">${e.date || ""}${e.time ? " • " + e.time : ""}</p>
             <h3>${e.title}</h3>
@@ -259,7 +282,7 @@ async function loadData(){
       const gallery = data.gallery || [];
       galleryGrid.innerHTML = gallery.length ? gallery.map(item => `
         <article class="galleryCard">
-          <img src="${item.image}" alt="${item.title}">
+          <img src="${mediaSrc(item.image)}" alt="${item.title}">
           <div class="galleryInfo"><h3>${item.title}</h3><p>${item.description || ""}</p></div>
         </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains visuels seront ajoutes ici.", "#liens", "Voir les liens officiels");
     }
@@ -277,6 +300,7 @@ async function loadData(){
         renderTracks(filtered);
       });
     }
+    applyImageFallbacks();
   }catch(err){
     console.warn("Chargement data.json impossible, affichage statique conservé.", err);
   }
@@ -300,7 +324,7 @@ function renderTracks(tracks){
   }
   tracksEl.innerHTML = tracks.map(t=>`
     <article class="card">
-      <img src="${t.cover}" alt="${t.title}">
+      <img src="${mediaSrc(t.cover)}" alt="${t.title}">
       <div class="card-body">
         ${t.year ? `<p class="sup">${t.artist ? t.artist + " • " : ""}${t.year}</p>` : ""}
         <h3>${t.title}</h3>
@@ -308,6 +332,7 @@ function renderTracks(tracks){
         <div class="platforms">${orderedLinksHtml(t.displayLinks || normalizeLinks(t.links || {}))}</div>
       </div>
     </article>`).join("");
+  applyImageFallbacks(tracksEl);
 }
 
 function setupAllMiniCountdowns(){

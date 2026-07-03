@@ -1010,3 +1010,42 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
     justify-content:center!important;
   }
 }
+
+/* V6.4.13 - clip exclusif MPBP TV */
+.exclusiveVideo{
+  display:grid!important;
+  grid-template-columns:minmax(220px,.72fr) minmax(280px,1.28fr)!important;
+  gap:24px!important;
+  align-items:center!important;
+  overflow:hidden!important;
+}
+
+.exclusiveVideoText{
+  min-width:0!important;
+}
+
+.exclusiveVideoText h2{
+  margin:8px 0!important;
+}
+
+.siteVideo{
+  width:100%!important;
+  max-width:100%!important;
+  aspect-ratio:16/9!important;
+  display:block!important;
+  border-radius:22px!important;
+  border:1px solid rgba(0,234,255,.28)!important;
+  background:#050505!important;
+  object-fit:contain!important;
+}
+
+@media(max-width:900px){
+  .exclusiveVideo{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+
+  .siteVideo{
+    border-radius:18px!important;
+  }
+}

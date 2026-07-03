@@ -213,7 +213,7 @@ function renderNextRelease(data={}){
 
 async function loadData(){
   try{
-    const data = await fetch("/data.json?v=20260703-video", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("/data.json?v=20260703-video14", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");

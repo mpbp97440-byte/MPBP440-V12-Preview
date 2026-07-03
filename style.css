@@ -1039,6 +1039,30 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
   object-fit:contain!important;
 }
 
+.homeExclusiveClip{
+  display:grid!important;
+  grid-template-columns:minmax(170px,260px) 1fr!important;
+  gap:20px!important;
+  align-items:center!important;
+  margin:0 0 22px!important;
+  overflow:hidden!important;
+}
+
+.homeExclusiveClip img{
+  width:100%!important;
+  aspect-ratio:1/1!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  display:block!important;
+  border-radius:20px!important;
+  background:#050505!important;
+}
+
+.homeExclusiveClip h3{
+  margin:6px 0 10px!important;
+  color:#fff1bd!important;
+}
+
 @media(max-width:900px){
   .exclusiveVideo{
     grid-template-columns:1fr!important;
@@ -1047,5 +1071,9 @@ a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="
 
   .siteVideo{
     border-radius:18px!important;
+  }
+
+  .homeExclusiveClip{
+    grid-template-columns:1fr!important;
   }
 }

@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "9.2-cinematic";
+const MPBP_PUBLIC_VERSION = "9.3-intro-audio";
 
 function safeText(value){
   return String(value || "");
@@ -401,7 +401,7 @@ function initMPBPIntro(){
     finish();
   };
   skip?.addEventListener("click", close, {once:true});
-  setTimeout(close, 3900);
+  setTimeout(close, 7000);
 }
 
 function startMPBPCinematicParticles(){
@@ -422,13 +422,13 @@ function startMPBPCinematicParticles(){
     ctx.setTransform(DPR,0,0,DPR,0,0);
   }
   function seed(){
-    const count = width < 700 ? 92 : 170;
+      const count = width < 700 ? 110 : 190;
     const cx = width * .5;
     const cy = height * .48;
     sparks = Array.from({length:count}, () => {
       const angle = Math.random() * Math.PI * 2;
       const speed = 1.6 + Math.random() * 7.2;
-      const life = 52 + Math.random() * 58;
+      const life = 130 + Math.random() * 115;
       return {
         x: cx + (Math.random() - .5) * 22,
         y: cy + (Math.random() - .5) * 22,
@@ -512,6 +512,112 @@ if("serviceWorker" in navigator){
     navigator.serviceWorker.register("/sw.js").catch(() => {});
   });
 }
+
+function initMPBPAmbianceAudio(){
+  if(document.getElementById("mpbpAudioControl")) return;
+  const audioPath = "/assets/audio/mpbp-ambiance.mp3";
+  const isSubPage = location.pathname.includes("/artistes/");
+  const radioHref = isSubPage ? "../index.html#radio" : "/#radio";
+  const control = document.createElement("div");
+  control.id = "mpbpAudioControl";
+  control.className = "mpbpAudioControl";
+  control.innerHTML = `<button type="button" class="mpbpAudioButton">Activer l'ambiance MPBP440</button>
+    <label class="mpbpAudioVolume" aria-label="Volume ambiance"><span>Volume</span><input type="range" min="0" max="1" step="0.01"></label>`;
+  document.body.appendChild(control);
+
+  const button = control.querySelector(".mpbpAudioButton");
+  const volumeInput = control.querySelector("input");
+  const storedVolume = Number(localStorage.getItem("mpbpAmbianceVolume"));
+  let baseVolume = Number.isFinite(storedVolume) && storedVolume >= 0 ? Math.min(storedVolume, 1) : 0.22;
+  let available = false;
+  let playing = false;
+  let fadeTimer = null;
+  const audio = new Audio(audioPath);
+  audio.loop = true;
+  audio.preload = "none";
+  audio.volume = baseVolume;
+  volumeInput.value = String(baseVolume);
+
+  function setUnavailable(){
+    control.classList.add("is-fallback");
+    control.innerHTML = `<a class="mpbpAudioButton" href="${radioHref}">Ouvrir Radio MPBP440</a>`;
+  }
+  function setButton(){
+    button.textContent = playing ? "Mettre l'ambiance en pause" : (localStorage.getItem("mpbpAmbianceEnabled") === "1" ? "Reprendre l'ambiance MPBP440" : "Activer l'ambiance MPBP440");
+  }
+  function fadeTo(target, done){
+    clearInterval(fadeTimer);
+    const start = audio.volume;
+    const steps = 18;
+    let i = 0;
+    fadeTimer = setInterval(() => {
+      i += 1;
+      audio.volume = start + (target - start) * (i / steps);
+      if(i >= steps){
+        clearInterval(fadeTimer);
+        audio.volume = target;
+        if(done) done();
+      }
+    }, 32);
+  }
+  function restoreAmbiance(){
+    if(!available || !playing || audio.paused) return;
+    fadeTo(baseVolume);
+  }
+  function duckAmbiance(){
+    if(!available || !playing || audio.paused) return;
+    fadeTo(0.04);
+  }
+  function bindVideos(){
+    document.querySelectorAll("video").forEach(video => {
+      if(video.dataset.mpbpAudioBound) return;
+      video.dataset.mpbpAudioBound = "1";
+      video.addEventListener("play", duckAmbiance);
+      video.addEventListener("pause", restoreAmbiance);
+      video.addEventListener("ended", restoreAmbiance);
+    });
+  }
+
+  fetch(audioPath, {method:"HEAD", cache:"no-store"}).then(res => {
+    if(!res.ok){ setUnavailable(); return; }
+    available = true;
+    control.classList.add("is-ready");
+    setButton();
+    bindVideos();
+  }).catch(setUnavailable);
+
+  button.addEventListener("click", async () => {
+    if(!available) return;
+    if(playing){
+      fadeTo(0, () => audio.pause());
+      playing = false;
+      localStorage.setItem("mpbpAmbianceEnabled", "0");
+      setButton();
+      return;
+    }
+    try{
+      audio.volume = 0;
+      await audio.play();
+      playing = true;
+      localStorage.setItem("mpbpAmbianceEnabled", "1");
+      fadeTo(baseVolume);
+      setButton();
+      bindVideos();
+    }catch(e){
+      playing = false;
+      setButton();
+    }
+  });
+  volumeInput.addEventListener("input", event => {
+    baseVolume = Math.min(Number(event.target.value) || 0, 1);
+    localStorage.setItem("mpbpAmbianceVolume", String(baseVolume));
+    if(playing && !audio.paused) audio.volume = baseVolume;
+  });
+  setButton();
+  setTimeout(bindVideos, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", initMPBPAmbianceAudio);
 
 
 // V3.2.9 — MPBP440 Media Center controls

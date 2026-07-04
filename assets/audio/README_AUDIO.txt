@@ -1,0 +1,1 @@
+Place le fichier audio d'ambiance ici sous le nom mpbp-ambiance.mp3. Il sera charge uniquement apres clic utilisateur, sans autoplay, et ne sera pas precache par le service worker.

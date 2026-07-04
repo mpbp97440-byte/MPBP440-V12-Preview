@@ -31,7 +31,7 @@ function norm(s){
 function linkButtons(links){
   if(!links) return "";
   const labels = {spotify:"Spotify", apple:"Apple Music", deezer:"Deezer", youtube:"YouTube", amazon:"Amazon Music"};
-  return Object.keys(labels).map(k => links[k] ? `<a class="btn ghost small" href="${links[k]}" target="_blank" rel="noopener">${labels[k]}</a>` : "").join("");
+  return Object.keys(labels).map(k => (links[k] || links[labels[k]]) ? `<a class="btn ghost small" href="${links[k] || links[labels[k]]}" target="_blank" rel="noopener">${labels[k]}</a>` : "").join("");
 }
 async function loadArtistReleases(){
   const box = document.getElementById("artistDiscography");
@@ -39,7 +39,7 @@ async function loadArtistReleases(){
   const artistName = document.body.dataset.artist || "";
   if(!box) return;
   try{
-    const r = await fetch("../data/releases.json?v=4.3", {cache:"no-store"});
+    const r = await fetch("../data/releases.json?v=8.5", {cache:"no-store"});
     const releases = await r.json();
     const artistReleases = releases.filter(x => norm(x.artist) === norm(artistName));
     let current = "Tous";

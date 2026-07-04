@@ -6,7 +6,7 @@
 <title>MPBP440 — Portail Musical Officiel</title>
 <meta name="description" content="MPBP440 : site officiel du label, Sparetdee Simon, Juste Une Plume, sorties, morceaux, clips, radio et actualités.">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/style.css?v=8.0-essential">
+<link rel="stylesheet" href="/style.css?v=8.5">
 </head>
 <body>
 <div class="noise"></div>
@@ -60,7 +60,7 @@
   </div>
 </section>
 
-<main>
+<main class="v85-main">
   <section class="section v8FocusGrid" aria-label="Priorités MPBP440">
     <article class="panel v8FocusCard v8FocusBrand">
       <p class="sup">Label</p>
@@ -97,13 +97,13 @@
     </article>
   </section>
 
-  <section class="section panel" id="label">
+  <section class="section panel v85-label" id="label">
     <p class="sup">Label officiel</p>
     <h2>M.P.B.P 440 Corp.</h2>
     <p>Un portail musical indépendant pour suivre les sorties, les clips, les actualités et les contenus exclusifs du label.</p>
   </section>
 
-  <section class="section" id="sortie">
+  <section class="section v85-release-band" id="sortie">
     <p class="sup">Sortie mise en avant</p>
     <h2>À la une</h2>
     <div id="featuredCard" class="featuredCard panel"></div>
@@ -127,14 +127,14 @@
     <div id="eventsGrid" class="eventsGrid"></div>
   </section>
 
-  <section class="section" id="morceaux">
+  <section class="section v85-music-band" id="morceaux">
     <p class="sup">Catalogue officiel</p>
     <h2>Morceaux</h2>
     <input id="searchInput" class="searchInput" placeholder="Rechercher un titre, artiste ou mot-clé...">
     <div id="tracks" class="cards"></div>
   </section>
 
-  <section class="section" id="artistes">
+  <section class="section v85-artists-band" id="artistes">
     <p class="sup">Artistes du label</p>
     <h2>Artistes</h2>
     <div class="artistGrid">
@@ -143,7 +143,7 @@
     </div>
   </section>
 
-  <section class="section" id="clips">
+  <section class="section v85-tv-band" id="clips">
     <p class="sup">MPBP TV</p>
     <h2>Clips & exclusivités</h2>
     <article class="homeExclusiveClip panel">
@@ -174,9 +174,8 @@
     </div>
   </section>
 
-  <section class="section" id="galerie">
-    <p class="sup">Galerie</p>
-    <h2>Galerie</h2>
+  <section class="section v85-gallery-band" id="galerie">
+    <div class="v85-section-head"><div><p class="sup">Galerie</p><h2>Galerie</h2></div><div class="galleryFilters" id="galleryFilters"><button class="active" data-filter="all">Tous</button><button data-filter="flyers">Flyers</button><button data-filter="artistes">Artistes</button><button data-filter="clips">Clips</button><button data-filter="evenements">Événements</button></div></div>
     <div id="galleryGrid" class="galleryGrid"></div>
   </section>
 
@@ -193,7 +192,7 @@
   </section>
 </main>
 
-<footer class="footer">© MPBP440 Corp. — Portail musical officiel</footer>
-<script src="/script.js?v=8.0-essential"></script>
+<footer class="footer v85-footer"><div><strong>MPBP440 Corp.</strong><span>Portail musical officiel</span></div><nav aria-label="Footer public"><a href="/#artistes">Artistes</a><a href="/music/index.html">Music Hub</a><a href="/mpbp-tv/index.html">MPBP TV</a><a href="/#application">Application</a><a href="mailto:mpbp97440@gmail.com">Contact</a></nav></footer>
+<script src="/script.js?v=8.5"></script>
 </body>
 </html>

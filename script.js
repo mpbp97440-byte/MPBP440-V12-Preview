@@ -217,7 +217,7 @@ function renderNextRelease(data={}){
 
 async function loadData(){
   try{
-    const data = await fetch("/data.json?v=8.0-essential", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("/data.json?v=8.5", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
@@ -273,12 +273,12 @@ async function loadData(){
     if(videoList){
       const videos = (data.videos || []).filter(isPublicItem);
       videoList.innerHTML = videos.length ? videos.map(v=>`
-        <div>
+        <article class="v85-video-card"><span class="v85-badge">Clip officiel</span>
           <div class="video-frame">
             <iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allowfullscreen></iframe>
           </div>
           <div class="platforms"><a href="${v.url}" target="_blank" rel="noopener">${v.title}</a></div>
-        </div>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains clips seront publies ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
+        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains clips seront publies ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
     }
 
     const galleryGrid = document.getElementById("galleryGrid");
@@ -327,7 +327,7 @@ function renderTracks(tracks){
     return;
   }
   tracksEl.innerHTML = tracks.map(t=>`
-    <article class="card">
+    <article class="card v85-track-card">
       <img src="${mediaSrc(t.cover)}" alt="${t.title}">
       <div class="card-body">
         ${t.year ? `<p class="sup">${t.artist ? t.artist + " • " : ""}${t.year}</p>` : ""}
@@ -357,7 +357,7 @@ function setupAllMiniCountdowns(){
   });
 }
 
-document.getElementById("menuBtn")?.addEventListener("click",()=>document.getElementById("navlinks").classList.toggle("open"));
+document.getElementById("menuBtn")?.addEventListener("click",()=>{const nav=document.getElementById("mainNav")||document.getElementById("navlinks"); if(nav) nav.classList.toggle("open");});
 window.addEventListener("scroll",()=>{const b=document.getElementById("topBtn"); if(b)b.style.display=scrollY>500?"block":"none"});
 document.getElementById("topBtn")?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
 
@@ -480,13 +480,13 @@ document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[h
 // V6.4.9 — correctif radio Spotify + liens plateformes complets
 document.addEventListener("DOMContentLoaded", async ()=>{
   try{
-    const res = await fetch("/data.json?v=8.0-essential", {cache:"no-store"});
+    const res = await fetch("/data.json?v=8.5", {cache:"no-store"});
     const siteData = await res.json();
     async function getRadioData(){
       const mainRadio = siteData.radio || {};
       if(mainRadio.embed) return mainRadio;
       try{
-        const radioRes = await fetch("/data/radio.json?v=8.0-essential", {cache:"no-store"});
+        const radioRes = await fetch("/data/radio.json?v=8.5", {cache:"no-store"});
         if(radioRes.ok){
           const radioData = await radioRes.json();
           return Object.assign({}, mainRadio, radioData);
@@ -553,3 +553,37 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     });
   }catch(e){}
 });
+
+
+// V8.5 public polish: gallery filters and final public cleanup.
+function setupV85PublicPolish(){
+  const filters = document.getElementById("galleryFilters");
+  const gallery = document.getElementById("galleryGrid");
+  if(filters && gallery && !filters.dataset.v85){
+    filters.dataset.v85 = "1";
+    filters.addEventListener("click", event => {
+      const button = event.target.closest("button[data-filter]");
+      if(!button) return;
+      filters.querySelectorAll("button").forEach(btn => btn.classList.toggle("active", btn === button));
+      const filter = button.dataset.filter;
+      gallery.querySelectorAll(".galleryCard").forEach(card => {
+        const text = cleanKey(card.textContent || "");
+        const img = cleanKey(card.querySelector("img")?.getAttribute("src") || "");
+        const haystack = text + " " + img;
+        const visible = filter === "all"
+          || (filter === "flyers" && /cover|pochette|flyer|sortie/.test(haystack))
+          || (filter === "artistes" && /artist|profil|sparetdee|plume/.test(haystack))
+          || (filter === "clips" && /clip|video|tv/.test(haystack))
+          || (filter === "evenements" && /event|live|tiktok|evenement/.test(haystack));
+        card.hidden = !visible;
+      });
+    });
+  }
+  const navLinks = Array.from(document.querySelectorAll(".topbar nav a"));
+  navLinks.forEach((link, index, list) => {
+    const key = cleanKey(link.textContent);
+    if(key === "mpbp tv" && list.findIndex(a => cleanKey(a.textContent) === key) !== index) link.remove();
+  });
+  document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el => el.remove());
+}
+document.addEventListener("DOMContentLoaded", () => { setupV85PublicPolish(); setTimeout(setupV85PublicPolish, 700); });

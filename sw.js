@@ -1,5 +1,5 @@
-/* MPBP440 Service Worker - V9.1 Intro */
-const MPBP_CACHE="mpbp440-pwa-v9-1-intro";
+/* MPBP440 Service Worker - V9.2 Cinematic Intro */
+const MPBP_CACHE="mpbp440-pwa-v9-2-cinematic";
 const PRECACHE=["/","/index.html","/style.css","/script.js","/manifest.webmanifest","/data.json","/music/index.html","/mpbp-tv/index.html","/members/index.html","/telechargements/index.html"];
 self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(MPBP_CACHE).then(c=>c.addAll(PRECACHE)).catch(()=>{}))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==MPBP_CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});

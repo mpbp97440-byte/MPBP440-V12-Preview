@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "9.1-intro";
+const MPBP_PUBLIC_VERSION = "9.2-cinematic";
 
 function safeText(value){
   return String(value || "");
@@ -373,10 +373,13 @@ function initMPBPIntro(){
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const storage = {
     get(){
-      try{return window.sessionStorage.getItem("mpbpIntroPlayed") === "1";}catch(e){return false;}
+      try{return window.sessionStorage.getItem("mpbpIntroPlayed") === "1";}catch(e){}
+      try{return /\bmpbpIntroPlayed=1\b/.test(window.name || "");}catch(e){}
+      return false;
     },
     set(){
       try{window.sessionStorage.setItem("mpbpIntroPlayed", "1");}catch(e){}
+      try{if(!/\bmpbpIntroPlayed=1\b/.test(window.name || "")) window.name = `${window.name || ""} mpbpIntroPlayed=1`.trim();}catch(e){}
     }
   };
   const hasPlayed = storage.get();
@@ -389,14 +392,92 @@ function initMPBPIntro(){
     intro.remove();
     return;
   }
+  const stopParticles = startMPBPCinematicParticles();
   document.body.classList.add("intro-active");
   const skip = document.getElementById("mpbpIntroSkip");
   const close = () => {
+    stopParticles();
     document.body.classList.remove("intro-active");
     finish();
   };
   skip?.addEventListener("click", close, {once:true});
   setTimeout(close, 3900);
+}
+
+function startMPBPCinematicParticles(){
+  const canvas = document.getElementById("mpbpIntroCanvas");
+  if(!canvas) return () => {};
+  const ctx = canvas.getContext("2d", {alpha:true});
+  if(!ctx) return () => {};
+  let running = true;
+  let width = 0;
+  let height = 0;
+  let sparks = [];
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+  function resize(){
+    width = canvas.clientWidth || window.innerWidth;
+    height = canvas.clientHeight || window.innerHeight;
+    canvas.width = Math.floor(width * DPR);
+    canvas.height = Math.floor(height * DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  function seed(){
+    const count = width < 700 ? 92 : 170;
+    const cx = width * .5;
+    const cy = height * .48;
+    sparks = Array.from({length:count}, () => {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1.6 + Math.random() * 7.2;
+      const life = 52 + Math.random() * 58;
+      return {
+        x: cx + (Math.random() - .5) * 22,
+        y: cy + (Math.random() - .5) * 22,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed * .72 - Math.random() * .8,
+        size: .7 + Math.random() * 2.1,
+        life,
+        maxLife: life,
+        drift: (Math.random() - .5) * .035
+      };
+    });
+  }
+  function draw(){
+    if(!running) return;
+    ctx.clearRect(0,0,width,height);
+    ctx.globalCompositeOperation = "lighter";
+    sparks.forEach(p => {
+      const alpha = Math.max(0, p.life / p.maxLife);
+      const glow = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size * 8);
+      glow.addColorStop(0, `rgba(255,244,190,${alpha})`);
+      glow.addColorStop(.32, `rgba(212,175,55,${alpha * .72})`);
+      glow.addColorStop(1, "rgba(212,175,55,0)");
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size * 8,0,Math.PI * 2);
+      ctx.fill();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vx *= .982;
+      p.vy = p.vy * .982 + .018;
+      p.vx += p.drift;
+      p.life -= 1;
+      if(p.life <= 0){
+        p.x = width * .5;
+        p.y = height * .48;
+        p.life = 0;
+      }
+    });
+    if(sparks.some(p => p.life > 0)) requestAnimationFrame(draw);
+  }
+  resize();
+  seed();
+  draw();
+  window.addEventListener("resize", resize, {passive:true});
+  return () => {
+    running = false;
+    window.removeEventListener("resize", resize);
+    ctx.clearRect(0,0,width,height);
+  };
 }
 
 function initPremiumMotion(){

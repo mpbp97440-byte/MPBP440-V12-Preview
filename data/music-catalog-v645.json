@@ -4,12 +4,12 @@
   "sparetdee_available": [
     {
       "title": "Je Vous Pousse Tous",
-      "cover": "/assets/covers/je-vous-pousse-tous.jpg",
+      "cover": "/assets/covers/je-vous-pousse-tous.webp",
       "artist": "Sparetdee Simon"
     },
     {
       "title": "L’Argent",
-      "cover": "/assets/covers/l-argent.jpg",
+      "cover": "/assets/covers/l-argent.webp",
       "artist": "Sparetdee Simon"
     },
     {
@@ -84,13 +84,13 @@
     {
       "title": "Rêves et Cauchemards",
       "date": "24/06/2026",
-      "cover": "/assets/covers/reves-et-cauchemards.jpg",
+      "cover": "/assets/covers/reves-et-cauchemards.webp",
       "artist": "Sparetdee Simon"
     },
     {
       "title": "Le Système",
       "date": "27/06/2026",
-      "cover": "/assets/covers/le-systeme.jpg",
+      "cover": "/assets/covers/le-systeme.webp",
       "artist": "Sparetdee Simon"
     }
   ],

@@ -39,7 +39,7 @@ async function loadArtistReleases(){
   const artistName = document.body.dataset.artist || "";
   if(!box) return;
   try{
-    const r = await fetch("../data/releases.json?v=8.5", {cache:"no-store"});
+    const r = await fetch("../data/releases.json?v=9-performance", {cache:"no-store"});
     const releases = await r.json();
     const artistReleases = releases.filter(x => norm(x.artist) === norm(artistName));
     let current = "Tous";

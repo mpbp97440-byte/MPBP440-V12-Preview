@@ -3,21 +3,21 @@
     "artist": "Sparetdee Simon",
     "title": "Profil officiel Sparetdee Simon",
     "type": "Profil artiste",
-    "image": "assets/artists/sparetdee-simon.png",
+    "image": "assets/artists/sparetdee-simon.webp",
     "description": "Visuel officiel de Sparetdee Simon pour le portail MPBP440."
   },
   {
     "artist": "Juste Une Plume",
     "title": "Profil officiel Juste Une Plume",
     "type": "Profil artiste",
-    "image": "assets/artists/juste-une-plume.png",
+    "image": "assets/artists/juste-une-plume.webp",
     "description": "Visuel officiel de Juste Une Plume pour le portail MPBP440."
   },
   {
     "artist": "Sparetdee Simon",
     "title": "Le Système",
     "type": "Pochette",
-    "image": "assets/covers/le-systeme-pre-sortie-27-06-2026.png",
+    "image": "assets/covers/le-systeme-pre-sortie-27-06-2026.webp",
     "description": "Pochette de pré-sortie du titre Le Système."
   }
 ]

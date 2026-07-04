@@ -7,8 +7,8 @@ MISE À JOUR ULTRA PRO — SPARETDEE SIMON
 Add file → Upload files
 4. Glisse :
 - style-upgrade.css
-- assets/covers/dernier-chapitre.jpg
-- assets/covers/monde-alternatif.jpg
+- assets/covers/dernier-chapitre.webp
+- assets/covers/monde-alternatif.webp
 
 5. Dans index.html :
 remplace la classe du grand titre par :
@@ -23,7 +23,7 @@ class="logo-text"
 "title":"Dernier Chapitre",
 "year":"2026",
 "description":"Nouvelle sortie officielle.",
-"cover":"assets/covers/dernier-chapitre.jpg"
+"cover":"assets/covers/dernier-chapitre.webp"
 }
 
 et :
@@ -32,7 +32,7 @@ et :
 "title":"Monde Alternatif",
 "year":"2026",
 "description":"Univers sentimental futuriste.",
-"cover":"assets/covers/monde-alternatif.jpg"
+"cover":"assets/covers/monde-alternatif.webp"
 }
 
 8. Recharge le site avec CTRL + F5

@@ -1,5 +1,6 @@
-/* MPBP440 Service Worker - V8.5 */
-const MPBP_CACHE="mpbp440-pwa-v8-5";
-self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(MPBP_CACHE).then(c=>c.addAll(["/","/index.html","/style.css","/script.js","/data.json","/data/music-library.json","/data/releases.json","/data/countdowns.json","/music/index.html","/mpbp-tv/index.html","/members/index.html","/telechargements/index.html","/assets/covers/largent-officiel.jpg","/assets/covers/le-systeme-officiel.jpg","/assets/covers/brainrot-society-2-0-pre-sortie.jpg","/assets/covers/reves-et-cauchemards-officiel.jpg","/assets/covers/je-sais-juste-une-plume.jpg","/assets/videos/l-argent.mp4"]).catch(()=>{})))});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==MPBP_CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(fetch(e.request,{cache:"no-store"}).then(r=>{let cp=r.clone();caches.open(MPBP_CACHE).then(c=>c.put(e.request,cp)).catch(()=>{});return r}).catch(()=>caches.match(e.request)))});
+/* MPBP440 Service Worker - V9 Performance */
+const MPBP_CACHE="mpbp440-pwa-v9-performance";
+const PRECACHE=["/","/index.html","/style.css","/script.js","/manifest.webmanifest","/data.json","/music/index.html","/mpbp-tv/index.html","/members/index.html","/telechargements/index.html"];
+self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(MPBP_CACHE).then(c=>c.addAll(PRECACHE)).catch(()=>{}))});
+self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==MPBP_CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
+self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;const url=new URL(e.request.url);const isVideo=url.pathname.endsWith(".mp4");const isMedia=/^\/assets\//.test(url.pathname);if(isVideo||isMedia){e.respondWith(fetch(e.request));return;}e.respondWith(fetch(e.request,{cache:"no-store"}).then(r=>{const copy=r.clone();caches.open(MPBP_CACHE).then(c=>c.put(e.request,copy)).catch(()=>{});return r}).catch(()=>caches.match(e.request)))});

@@ -4,7 +4,7 @@
     "title": "Je Vous Pousse Tous",
     "status": "Disponible",
     "cover": "/assets/covers/je-vous-pousse-tous.webp",
-    "coverFallback": "/assets/covers/je-vous-pousse-tous.jpg",
+    "coverFallback": "/assets/covers/je-vous-pousse-tous.webp",
     "links": {
       "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html",
       "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
@@ -16,7 +16,7 @@
     "title": "L’Argent",
     "status": "Disponible",
     "cover": "/assets/covers/l-argent.webp",
-    "coverFallback": "/assets/covers/l-argent.jpg",
+    "coverFallback": "/assets/covers/l-argent.webp",
     "links": {
       "artist": "https://www.mpbp440.com/artistes/sparetdee-simon.html",
       "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",

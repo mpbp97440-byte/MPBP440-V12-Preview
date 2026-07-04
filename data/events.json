@@ -5,7 +5,7 @@
     "time": "21h00",
     "place": "TikTok officiel de Sparetdee Simon",
     "description": "Live spécial Fête de la musique : présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » et du premier titre de Juste Une Plume.",
-    "cover": "assets/events/live-tiktok-fete-musique-21062026-full.jpg",
+    "cover": "assets/events/live-tiktok-fete-musique-21062026-full.webp",
     "buttonText": "Rejoindre TikTok",
     "url": "https://www.tiktok.com/@simonsparet"
   },
@@ -15,7 +15,7 @@
     "time": "Sortie officielle",
     "place": "Toutes les plateformes",
     "description": "Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.",
-    "cover": "assets/events/je-sais-sortie-officielle.jpg",
+    "cover": "assets/events/je-sais-sortie-officielle.webp",
     "buttonText": "Voir la fiche artiste",
     "url": "#artiste-juste-une-plume"
   }

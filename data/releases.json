@@ -4,7 +4,7 @@
     "title": "Le Système",
     "type": "Single",
     "date": "Disponible maintenant",
-    "cover": "assets/covers/le-systeme-officiel.jpg",
+    "cover": "assets/covers/le-systeme-officiel.webp",
     "status": "Disponible",
     "links": {
       "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
@@ -22,7 +22,7 @@
     "title": "Rêves et Cauchemards",
     "type": "Single",
     "date": "Disponible maintenant",
-    "cover": "assets/covers/reves-et-cauchemards-officiel.jpg",
+    "cover": "assets/covers/reves-et-cauchemards-officiel.webp",
     "status": "Disponible",
     "links": {
       "Spotify": "https://open.spotify.com/artist/4JVhHLEc4vOZ2627BBNQKu",
@@ -40,7 +40,7 @@
     "title": "BrainRot Society 2.0",
     "type": "Single",
     "date": "11/07/2026",
-    "cover": "assets/covers/brainrot-society-2-0-pre-sortie.jpg",
+    "cover": "assets/covers/brainrot-society-2-0-pre-sortie.webp",
     "status": "À venir",
     "links": {}
   }

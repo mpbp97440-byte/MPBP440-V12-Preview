@@ -178,8 +178,8 @@ function renderNextRelease(data={}){
   }
 
   const coverHtml = release.cover
-    ? `<img class="nextReleaseCover" src="${mediaSrc(release.cover)}" alt="${release.title}">`
-    : `<img class="nextReleaseCover" src="${fallbackLogo}" alt="${release.title || "MPBP440"}">`;
+    ? `<img class="nextReleaseCover" src="${mediaSrc(release.cover)}" alt="${release.title}" loading="lazy" decoding="async">`
+    : `<img class="nextReleaseCover" src="${fallbackLogo}" alt="${release.title || "MPBP440"}" loading="lazy" decoding="async">`;
 
   box.innerHTML = `
     ${coverHtml}
@@ -217,7 +217,7 @@ function renderNextRelease(data={}){
 
 async function loadData(){
   try{
-    const data = await fetch("/data.json?v=8.5", {cache:"no-store"}).then(r=>r.json());
+    const data = await fetch("/data.json?v=9-performance", {cache:"no-store"}).then(r=>r.json());
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");
@@ -240,7 +240,7 @@ async function loadData(){
       const upcoming = (data.upcoming || []).filter(isPublicItem);
       upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>`
         <article class="time-card">
-          <img src="${mediaSrc(x.cover)}" alt="${x.title}">
+          <img src="${mediaSrc(x.cover)}" alt="${x.title}" loading="lazy" decoding="async">
           <div class="time-body">
             <p class="sup">${x.artist || "MPBP 440"} • Étape ${i+1}</p>
             <h3>${x.title}</h3>
@@ -255,7 +255,7 @@ async function loadData(){
       const events = (data.events || []).filter(isPublicItem);
       eventsGrid.innerHTML = events.length ? events.map(e=>`
         <article class="event-card panel">
-          <img src="${mediaSrc(e.cover)}" alt="${e.title}">
+          <img src="${mediaSrc(e.cover)}" alt="${e.title}" loading="lazy" decoding="async">
           <div>
             <p class="sup">${e.date || ""}${e.time ? " • " + e.time : ""}</p>
             <h3>${e.title}</h3>
@@ -275,7 +275,7 @@ async function loadData(){
       videoList.innerHTML = videos.length ? videos.map(v=>`
         <article class="v85-video-card"><span class="v85-badge">Clip officiel</span>
           <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="platforms"><a href="${v.url}" target="_blank" rel="noopener">${v.title}</a></div>
         </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains clips seront publies ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
@@ -286,7 +286,7 @@ async function loadData(){
       const gallery = (data.gallery || []).filter(isPublicItem);
       galleryGrid.innerHTML = gallery.length ? gallery.map(item => `
         <article class="galleryCard">
-          <img src="${mediaSrc(item.image)}" alt="${item.title}">
+          <img src="${mediaSrc(item.image)}" alt="${item.title}" loading="lazy" decoding="async">
           <div class="galleryInfo"><h3>${item.title}</h3><p>${item.description || ""}</p></div>
         </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains visuels seront ajoutes ici.", "#liens", "Voir les liens officiels");
     }
@@ -328,7 +328,7 @@ function renderTracks(tracks){
   }
   tracksEl.innerHTML = tracks.map(t=>`
     <article class="card v85-track-card">
-      <img src="${mediaSrc(t.cover)}" alt="${t.title}">
+      <img src="${mediaSrc(t.cover)}" alt="${t.title}" loading="lazy" decoding="async">
       <div class="card-body">
         ${t.year ? `<p class="sup">${t.artist ? t.artist + " • " : ""}${t.year}</p>` : ""}
         <h3>${t.title}</h3>
@@ -480,13 +480,13 @@ document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[h
 // V6.4.9 — correctif radio Spotify + liens plateformes complets
 document.addEventListener("DOMContentLoaded", async ()=>{
   try{
-    const res = await fetch("/data.json?v=8.5", {cache:"no-store"});
+    const res = await fetch("/data.json?v=9-performance", {cache:"no-store"});
     const siteData = await res.json();
     async function getRadioData(){
       const mainRadio = siteData.radio || {};
       if(mainRadio.embed) return mainRadio;
       try{
-        const radioRes = await fetch("/data/radio.json?v=8.5", {cache:"no-store"});
+        const radioRes = await fetch("/data/radio.json?v=9-performance", {cache:"no-store"});
         if(radioRes.ok){
           const radioData = await radioRes.json();
           return Object.assign({}, mainRadio, radioData);
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
 });
 
 
-// V8.5 public polish: gallery filters and final public cleanup.
+// V9-performance public polish: gallery filters and final public cleanup.
 function setupV85PublicPolish(){
   const filters = document.getElementById("galleryFilters");
   const gallery = document.getElementById("galleryGrid");

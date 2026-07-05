@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "9.7-audio-experience";
+const MPBP_PUBLIC_VERSION = "9.7.1-audio-off-fix";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -514,8 +514,11 @@ function initMPBPIntro(){
     close();
   }, {once:true});
   soundOff?.addEventListener("click", () => {
-    try{localStorage.setItem("mpbpAmbianceEnabled", "0");}catch(e){}
-    window.MPBPAudio?.stopIntroJingle?.();
+    try{
+      localStorage.setItem("mpbpAmbianceEnabled", "0");
+      localStorage.setItem("mpbpAmbianceMode", "off");
+    }catch(e){}
+    window.MPBPAudio?.stopAllAudio?.();
     close();
   }, {once:true});
   skip?.addEventListener("click", close, {once:true});
@@ -643,22 +646,26 @@ function initMPBPAmbianceAudio(){
   const control = document.createElement("div");
   control.id = "mpbpAudioControl";
   control.className = "mpbpAudioControl";
-  control.innerHTML = `<button type="button" class="mpbpAudioButton">Activer l'ambiance MPBP440</button>
+  control.innerHTML = `<button type="button" class="mpbpAudioButton" aria-pressed="false">Activer l'ambiance MPBP440</button>
+    <button type="button" class="mpbpAudioOffButton" aria-pressed="false">Couper le son</button>
     <span class="mpbpAudioStatus" aria-live="polite">Ambiance OFF</span>
     <label class="mpbpAudioVolume" aria-label="Volume ambiance"><span>Volume</span><input type="range" min="0" max="1" step="0.01"></label>`;
   document.body.appendChild(control);
 
   const button = control.querySelector(".mpbpAudioButton");
+  const offButton = control.querySelector(".mpbpAudioOffButton");
   const status = control.querySelector(".mpbpAudioStatus");
   const volumeInput = control.querySelector("input");
   const storedVolume = Number(localStorage.getItem("mpbpAmbianceVolume"));
   let baseVolume = Number.isFinite(storedVolume) && storedVolume >= 0 ? Math.min(storedVolume, 1) : 0.22;
+  let audioMode = localStorage.getItem("mpbpAmbianceMode") || (localStorage.getItem("mpbpAmbianceEnabled") === "1" ? "paused" : "off");
   let ambianceAvailable = true;
   let jingleAvailable = true;
   let ambiancePlaying = false;
   let jinglePlaying = false;
   let ducked = false;
   let audioBlocked = false;
+  let backgroundPaused = false;
   let ambianceFadeTimer = null;
   let jingleFadeTimer = null;
   const ambiance = new Audio(ambiancePath);
@@ -680,13 +687,23 @@ function initMPBPAmbianceAudio(){
   function setState(text){
     if(status) status.textContent = text;
   }
+  function persistMode(mode){
+    audioMode = mode;
+    localStorage.setItem("mpbpAmbianceMode", mode);
+    localStorage.setItem("mpbpAmbianceEnabled", mode === "on" ? "1" : "0");
+  }
   function setButton(){
     if(!button) return;
-    if(jinglePlaying) button.textContent = "Passer a l'ambiance";
-    else button.textContent = ambiancePlaying ? "Pause ambiance" : (localStorage.getItem("mpbpAmbianceEnabled") === "1" ? "Reprendre ambiance" : "Activer l'ambiance MPBP440");
-    setState(audioBlocked ? "Son a relancer" : (jinglePlaying ? "Jingle" : (ducked ? "Muet pendant lecture" : (ambiancePlaying ? "Ambiance ON" : "Ambiance OFF"))));
+    if(jinglePlaying) button.textContent = "Pause";
+    else if(ambiancePlaying) button.textContent = "Pause";
+    else button.textContent = audioMode === "paused" ? "Relancer l'ambiance" : "Activer l'ambiance MPBP440";
+    button.setAttribute("aria-pressed", ambiancePlaying || jinglePlaying ? "true" : "false");
+    offButton?.setAttribute("aria-pressed", audioMode === "off" ? "true" : "false");
+    setState(audioBlocked ? "Son a relancer" : (jinglePlaying ? "Jingle" : (ducked ? "Muet pendant lecture" : (ambiancePlaying ? "Ambiance ON" : (audioMode === "paused" ? "Ambiance en pause" : "Ambiance OFF")))));
     control.classList.toggle("is-playing", ambiancePlaying || jinglePlaying);
     control.classList.toggle("is-ducked", ducked);
+    control.classList.toggle("is-paused", audioMode === "paused" && !ambiancePlaying && !jinglePlaying);
+    control.classList.toggle("is-off", audioMode === "off");
   }
   function fadeAudio(audio, target, done, kind){
     const timerName = kind === "jingle" ? "jingle" : "ambiance";
@@ -708,6 +725,11 @@ function initMPBPAmbianceAudio(){
     else ambianceFadeTimer = timer;
   }
   function restoreAmbiance(){
+    if(audioMode !== "on"){
+      ducked = false;
+      setButton();
+      return;
+    }
     ducked = false;
     if(!ambianceAvailable || !ambiancePlaying || ambiance.paused){
       setButton();
@@ -717,6 +739,7 @@ function initMPBPAmbianceAudio(){
     setButton();
   }
   function duckAmbiance(){
+    if(audioMode !== "on" || !ambiancePlaying) return;
     ducked = true;
     if(!ambianceAvailable || !ambiancePlaying || ambiance.paused){
       setButton();
@@ -731,11 +754,12 @@ function initMPBPAmbianceAudio(){
       jingle.pause();
       jingle.currentTime = 0;
       jinglePlaying = false;
+      backgroundPaused = false;
       ambiance.volume = 0;
       await ambiance.play();
       audioBlocked = false;
       ambiancePlaying = true;
-      localStorage.setItem("mpbpAmbianceEnabled", "1");
+      persistMode("on");
       fadeAudio(ambiance, ducked ? 0.04 : baseVolume, setButton, "ambiance");
       setButton();
       bindInternalMedia();
@@ -747,23 +771,50 @@ function initMPBPAmbianceAudio(){
       return false;
     }
   }
-  function pauseAmbiance(){
-    if(!ambiancePlaying) return;
+  function pauseAmbiance(reason){
+    if(jinglePlaying){
+      clearInterval(jingleFadeTimer);
+      jingle.pause();
+      jinglePlaying = false;
+    }
+    if(!ambiancePlaying){
+      if(reason !== "background") persistMode("paused");
+      setButton();
+      return;
+    }
     fadeAudio(ambiance, 0, () => {
       ambiance.pause();
       ambiancePlaying = false;
       setButton();
     }, "ambiance");
-    localStorage.setItem("mpbpAmbianceEnabled", "0");
+    if(reason === "background") backgroundPaused = true;
+    if(reason !== "jingle") persistMode("paused");
+    setButton();
+  }
+  function stopAllAudio(){
+    clearInterval(ambianceFadeTimer);
+    clearInterval(jingleFadeTimer);
+    ambiance.pause();
+    jingle.pause();
+    try{ambiance.currentTime = 0;}catch(e){}
+    try{jingle.currentTime = 0;}catch(e){}
+    ambiance.volume = baseVolume;
+    jingle.volume = Math.min(Math.max(baseVolume, 0.18), 0.32);
+    ambiancePlaying = false;
+    jinglePlaying = false;
+    ducked = false;
+    audioBlocked = false;
+    backgroundPaused = false;
+    persistMode("off");
     setButton();
   }
   async function startIntroJingle(){
-    localStorage.setItem("mpbpAmbianceEnabled", "1");
+    persistMode("on");
     if(!jingleAvailable){
       return startAmbiance();
     }
     try{
-      if(ambiancePlaying) pauseAmbiance();
+      if(ambiancePlaying) pauseAmbiance("jingle");
       jingle.volume = Math.min(Math.max(baseVolume, 0.18), 0.32);
       jingle.currentTime = 0;
       await jingle.play();
@@ -809,10 +860,6 @@ function initMPBPAmbianceAudio(){
     bindInternalMedia();
   }).catch(setUnavailable);
 
-  button.addEventListener("click", async () => {
-    if(jinglePlaying || !ambiancePlaying) await startAmbiance();
-    else pauseAmbiance();
-  });
   volumeInput.addEventListener("input", event => {
     baseVolume = Math.min(Number(event.target.value) || 0, 1);
     localStorage.setItem("mpbpAmbianceVolume", String(baseVolume));
@@ -823,7 +870,7 @@ function initMPBPAmbianceAudio(){
   jingle.addEventListener("ended", () => {
     jinglePlaying = false;
     setButton();
-    startAmbiance();
+    if(audioMode === "on") startAmbiance();
   });
   ambiance.addEventListener("pause", () => {
     if(!jinglePlaying){
@@ -836,22 +883,31 @@ function initMPBPAmbianceAudio(){
     stopIntroJingle,
     startAmbiance,
     pauseAmbiance,
+    stopAllAudio,
     duckAmbiance,
     restoreAmbiance,
     getState(){
-      return {ambianceAvailable,jingleAvailable,ambiancePlaying,jinglePlaying,ducked,audioBlocked,baseVolume};
+      return {ambianceAvailable,jingleAvailable,ambiancePlaying,jinglePlaying,ducked,audioBlocked,backgroundPaused,audioMode,baseVolume};
     }
   };
-  if(localStorage.getItem("mpbpAmbianceEnabled") === "1"){
-    const resumeAfterGesture = event => {
-      if(event.target && event.target.closest && event.target.closest("#mpbpAudioControl")) return;
-      startAmbiance();
-      document.removeEventListener("pointerdown", resumeAfterGesture);
-      document.removeEventListener("keydown", resumeAfterGesture);
-    };
-    document.addEventListener("pointerdown", resumeAfterGesture, {passive:true});
-    document.addEventListener("keydown", resumeAfterGesture);
-  }
+  button.addEventListener("click", async () => {
+    if(jinglePlaying || ambiancePlaying) pauseAmbiance("user");
+    else await startAmbiance();
+  });
+  offButton?.addEventListener("click", stopAllAudio);
+  document.addEventListener("visibilitychange", () => {
+    if(document.hidden && (ambiancePlaying || jinglePlaying)) pauseAmbiance("background");
+    else if(backgroundPaused && audioMode === "paused") setButton();
+  });
+  window.addEventListener("pagehide", () => {
+    if(ambiancePlaying || jinglePlaying) pauseAmbiance("background");
+  });
+  window.addEventListener("blur", () => {
+    if(document.hidden && (ambiancePlaying || jinglePlaying)) pauseAmbiance("background");
+  });
+  window.addEventListener("beforeunload", () => {
+    if(ambiancePlaying || jinglePlaying) pauseAmbiance("background");
+  });
   setButton();
   setTimeout(bindInternalMedia, 1000);
 }

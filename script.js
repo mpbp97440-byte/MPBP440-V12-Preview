@@ -1,5 +1,6 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "9.3-intro-audio";
+const MPBP_PUBLIC_VERSION = "9.4-media-radio";
+const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
   return String(value || "");
@@ -268,7 +269,8 @@ async function loadData(){
     }
 
     allTracks = (data.tracks || []).filter(isPublicItem).map(t => ({...t, displayLinks: itemLinks(t, data)}));
-    renderTracks(allTracks);
+    setupV94MusicHub(allTracks);
+    applyV94MusicFilters();
 
     const videoList = document.getElementById("videoList");
     if(videoList){
@@ -301,8 +303,8 @@ async function loadData(){
     const searchInput = document.getElementById("searchInput");
     if(searchInput){
       searchInput.addEventListener("input", e => {
-        const filtered = allTracks.filter(t => matchesTrackSearch(t, e.target.value));
-        renderTracks(filtered);
+        musicHubState.query = e.target.value;
+        applyV94MusicFilters();
       });
     }
     applyImageFallbacks();
@@ -322,7 +324,8 @@ function renderTracks(tracks){
         event.preventDefault();
         const searchInput = document.getElementById("searchInput");
         if(searchInput) searchInput.value = "";
-        renderTracks(allTracks);
+        musicHubState.query = "";
+        applyV94MusicFilters();
       });
     }
     return;
@@ -332,12 +335,94 @@ function renderTracks(tracks){
       <img src="${mediaSrc(t.cover)}" alt="${t.title}" loading="lazy" decoding="async">
       <div class="card-body">
         ${t.year ? `<p class="sup">${t.artist ? t.artist + " • " : ""}${t.year}</p>` : ""}
+        ${trackBadgesHtml(t)}
         <h3>${t.title}</h3>
         <p>${t.description || ""}</p>
         <div class="platforms">${orderedLinksHtml(t.displayLinks || normalizeLinks(t.links || {}))}</div>
       </div>
     </article>`).join("");
   applyImageFallbacks(tracksEl);
+}
+
+function trackBadgesHtml(track={}){
+  const badges = [];
+  const status = cleanKey(track.status);
+  const title = cleanKey(track.title);
+  if(status.includes("avenir") || status.includes("pre") || status.includes("soon")) badges.push("À venir");
+  else badges.push("Disponible");
+  if(title.includes("argent")) badges.push("Clip");
+  if(title.includes("remix")) badges.push("Remix");
+  return `<div class="v94-track-badges">${badges.map(label=>`<span>${label}</span>`).join("")}</div>`;
+}
+
+function trackDateSortValue(track={}){
+  const parsed = parseReleaseDate(track.date || track.releaseDate || track.year || "");
+  return parsed ? parsed.getTime() : 0;
+}
+
+function setupV94MusicHub(tracks=[]){
+  const tracksEl = document.getElementById("tracks");
+  if(!tracksEl || tracksEl.dataset.v94HubReady) return;
+  tracksEl.dataset.v94HubReady = "1";
+  const artists = Array.from(new Set(tracks.map(t => safeText(t.artist || "MPBP440")).filter(Boolean))).sort((a,b)=>a.localeCompare(b, "fr"));
+  const controls = document.createElement("div");
+  controls.className = "v94-music-tools";
+  controls.innerHTML = `
+    <div class="v94-listen-now">
+      <div>
+        <p class="sup">Écouter maintenant</p>
+        <h3>Catalogue officiel</h3>
+        <p>35 titres Sparetdee Simon synchronisés avec pochettes, liens plateformes et recherche accentuée.</p>
+      </div>
+      <div class="v94-listen-actions">
+        <a class="btn primary" href="/mpbp-tv/index.html">Voir le clip L'Argent</a>
+        <a class="btn" href="/#radio">Ouvrir la radio</a>
+      </div>
+    </div>
+    <div class="v94-filter-row" aria-label="Filtres du catalogue">
+      <label>Artiste
+        <select id="artistFilter"><option value="all">Tous</option>${artists.map(artist=>`<option value="${artist}">${artist}</option>`).join("")}</select>
+      </label>
+      <label>Statut
+        <select id="statusFilter"><option value="all">Tous</option><option value="available">Disponible</option><option value="upcoming">À venir</option></select>
+      </label>
+      <label>Tri
+        <select id="sortFilter"><option value="source">Ordre officiel</option><option value="title">Titre A-Z</option><option value="artist">Artiste</option><option value="recent">Plus récent</option></select>
+      </label>
+    </div>`;
+  tracksEl.before(controls);
+  controls.querySelector("#artistFilter")?.addEventListener("change", event => {
+    musicHubState.artist = event.target.value;
+    applyV94MusicFilters();
+  });
+  controls.querySelector("#statusFilter")?.addEventListener("change", event => {
+    musicHubState.status = event.target.value;
+    applyV94MusicFilters();
+  });
+  controls.querySelector("#sortFilter")?.addEventListener("change", event => {
+    musicHubState.sort = event.target.value;
+    applyV94MusicFilters();
+  });
+}
+
+function applyV94MusicFilters(){
+  let filtered = allTracks.filter(track => matchesTrackSearch(track, musicHubState.query));
+  if(musicHubState.artist !== "all"){
+    filtered = filtered.filter(track => safeText(track.artist || "MPBP440") === musicHubState.artist);
+  }
+  if(musicHubState.status !== "all"){
+    filtered = filtered.filter(track => {
+      const status = cleanKey(track.status);
+      const upcoming = status.includes("avenir") || status.includes("pre") || status.includes("soon");
+      return musicHubState.status === "upcoming" ? upcoming : !upcoming;
+    });
+  }
+  const indexed = filtered.map((track,index)=>({track,index}));
+  if(musicHubState.sort === "title") indexed.sort((a,b)=>safeText(a.track.title).localeCompare(safeText(b.track.title), "fr"));
+  if(musicHubState.sort === "artist") indexed.sort((a,b)=>safeText(a.track.artist).localeCompare(safeText(b.track.artist), "fr"));
+  if(musicHubState.sort === "recent") indexed.sort((a,b)=>trackDateSortValue(b.track) - trackDateSortValue(a.track));
+  if(musicHubState.sort === "source") indexed.sort((a,b)=>a.index - b.index);
+  renderTracks(indexed.map(item => item.track));
 }
 
 function setupAllMiniCountdowns(){
@@ -358,7 +443,14 @@ function setupAllMiniCountdowns(){
   });
 }
 
-document.getElementById("menuBtn")?.addEventListener("click",()=>{const nav=document.getElementById("mainNav")||document.getElementById("navlinks"); if(nav) nav.classList.toggle("open");});
+const primaryMenuBtn = document.getElementById("menuBtn");
+if(primaryMenuBtn && !primaryMenuBtn.dataset.v647){
+  primaryMenuBtn.dataset.v647 = "1";
+  primaryMenuBtn.addEventListener("click",()=>{
+    const nav=document.getElementById("mainNav")||document.getElementById("navlinks");
+    if(nav) nav.classList.toggle("open");
+  });
+}
 window.addEventListener("scroll",()=>{const b=document.getElementById("topBtn"); if(b)b.style.display=scrollY>500?"block":"none"});
 document.getElementById("topBtn")?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
 
@@ -383,7 +475,10 @@ function initMPBPIntro(){
     }
   };
   const hasPlayed = storage.get();
+  let introClosed = false;
   const finish = () => {
+    if(introClosed) return;
+    introClosed = true;
     intro.classList.add("is-done");
     storage.set();
     setTimeout(() => intro.remove(), 520);
@@ -402,6 +497,8 @@ function initMPBPIntro(){
   };
   skip?.addEventListener("click", close, {once:true});
   setTimeout(close, 7000);
+  setTimeout(close, 7600);
+  window.addEventListener("pagehide", close, {once:true});
 }
 
 function startMPBPCinematicParticles(){
@@ -840,3 +937,23 @@ function setupV85PublicPolish(){
   document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el => el.remove());
 }
 document.addEventListener("DOMContentLoaded", () => { setupV85PublicPolish(); setTimeout(setupV85PublicPolish, 700); });
+
+function setupV94MobileMenu(){
+  const btn = document.getElementById("menuBtn");
+  const nav = document.getElementById("mainNav") || document.querySelector(".topbar nav");
+  if(!btn || !nav || btn.dataset.v94Menu) return;
+  btn.dataset.v94Menu = "1";
+  const sync = () => {
+    const open = nav.classList.contains("open");
+    document.body.classList.toggle("menu-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+  btn.addEventListener("click", () => setTimeout(sync, 0));
+  nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    sync();
+  }));
+  sync();
+}
+
+document.addEventListener("DOMContentLoaded", setupV94MobileMenu);

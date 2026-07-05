@@ -3,10 +3,14 @@
   "artist": "Sparetdee Simon",
   "date": "Disponible maintenant",
   "description": "Sortie officielle disponible sur toutes les plateformes.",
-  "cover": "assets/covers/le-systeme-officiel.webp",
+  "cover": "assets/covers/le-systeme.webp",
   "status": "Disponible",
   "links": {
-    "apple": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126",
-    "deezer": "https://www.deezer.com/fr/artist/385051171"
+    "spotify": "https://open.spotify.com/album/0zN3ZRFzJBRcT2KZ2XwETX?si=Ee6BWJQ8Q7CM8c3D2O-uag",
+    "deezer": "https://link.deezer.com/s/33Kdq8FWS8ad97Ehxav41",
+    "youtube": "https://www.youtube.com/@sparetdee440/releases",
+    "apple": "https://music.apple.com/fr/album/le-syst%C3%A8me-single/6781041946",
+    "tiktok": "https://www.tiktok.com/@simonsparet",
+    "facebook": "https://www.facebook.com/Sparetdee.simon"
   }
 }

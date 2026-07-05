@@ -4,3 +4,5 @@ Allow: /
 Disallow: /admin-pro/
 Disallow: /admin/
 Disallow: /admin-440-mpbp-corp/
+
+Sitemap: https://www.mpbp440.com/sitemap.xml

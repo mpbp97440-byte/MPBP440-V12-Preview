@@ -1,20 +1,29 @@
 [
   {
-    "type": "app",
-    "title": "Bienvenue dans MPBP440 V6.2",
-    "text": "Le centre de notifications et les comptes membres locaux sont maintenant disponibles.",
-    "date": "2026"
+    "id": "v10-notifications",
+    "date": "2026-07-06",
+    "type": "site",
+    "title": "Nouveau centre de notifications",
+    "message": "MPBP440 ajoute un centre de notifications pour suivre les nouveautés du site.",
+    "url": "/",
+    "priority": "normal"
   },
   {
-    "type": "sortie",
-    "title": "Sorties officielles",
-    "text": "Retrouvez les nouveautés du label dans le Music Hub.",
-    "date": "2026"
+    "id": "clip-largent",
+    "date": "2026-07-06",
+    "type": "clip",
+    "title": "Clip exclusif : L’Argent",
+    "message": "Regarde le clip exclusif L’Argent de Sparetdee Simon sur MPBP TV.",
+    "url": "/mpbp-tv/#l-argent",
+    "priority": "high"
   },
   {
-    "type": "live",
-    "title": "Live Center",
-    "text": "Les lives et événements MPBP440 seront annoncés ici.",
-    "date": "2026"
+    "id": "v99-seo-stable",
+    "date": "2026-07-06",
+    "type": "site",
+    "title": "Partage réseaux amélioré",
+    "message": "Les cartes de partage MPBP440 sont maintenant optimisées pour WhatsApp, Facebook, Messenger et les réseaux sociaux.",
+    "url": "/mpbp-tv/#l-argent",
+    "priority": "normal"
   }
 ]

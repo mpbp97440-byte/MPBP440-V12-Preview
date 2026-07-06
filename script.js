@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "9.9-seo-stable";
+const MPBP_PUBLIC_VERSION = "10-notifications";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -913,6 +913,229 @@ function initMPBPAmbianceAudio(){
 }
 
 document.addEventListener("DOMContentLoaded", initMPBPAmbianceAudio);
+
+// V10 - Centre de notifications local MPBP440.
+// Future push server integration placeholder: no VAPID key, token or external API is used in this static GitHub Pages version.
+async function initMPBPNotifications(){
+  const header = document.querySelector(".topbar, .artist-page .top");
+  if(!header || document.getElementById("mpbpNotificationsButton")) return;
+  if(!document.querySelector('link[href*="style.css"]') && !document.getElementById("mpbpNotificationsInlineStyle")){
+    const style = document.createElement("style");
+    style.id = "mpbpNotificationsInlineStyle";
+    style.textContent = `.mpbpHeaderActions{display:flex;align-items:center;gap:8px;margin-left:auto}.mpbpNotificationsButton{position:relative;display:inline-grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,220,125,.34);border-radius:999px;background:linear-gradient(145deg,rgba(255,220,125,.14),rgba(0,0,0,.42));color:#fff1bd;cursor:pointer}.mpbpNotificationsBadge{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;display:inline-grid;place-items:center;border-radius:999px;background:linear-gradient(90deg,#d4af37,#fff1bd);color:#140d03;font-size:11px;font-weight:900}.mpbpNotificationsPanel{position:fixed;inset:0;z-index:950;display:none;justify-content:flex-end;background:rgba(0,0,0,.34);backdrop-filter:blur(4px)}.mpbpNotificationsPanel.open{display:flex}.mpbpNotificationsShell{width:min(430px,calc(100vw - 18px));max-height:calc(100dvh - 22px);margin:10px;overflow:hidden;display:grid;grid-template-rows:auto auto minmax(0,1fr);border:1px solid rgba(255,220,125,.28);border-radius:22px;background:linear-gradient(160deg,rgba(16,13,8,.98),rgba(4,4,5,.96));box-shadow:0 24px 80px rgba(0,0,0,.52)}.mpbpNotificationsHead{display:flex;justify-content:space-between;gap:14px;padding:18px;border-bottom:1px solid rgba(255,220,125,.14)}.mpbpNotificationsClose,.mpbpNotificationsTools button,.mpbpNotificationRead{border:1px solid rgba(255,220,125,.24);border-radius:999px;background:rgba(255,255,255,.06);color:#fff1bd;padding:9px 12px;font-weight:900;cursor:pointer}.mpbpNotificationsList{overflow:auto;padding:0 18px 18px;-webkit-overflow-scrolling:touch}.mpbpNotificationItem{display:grid;gap:9px;margin:0 0 12px;padding:14px;border:1px solid rgba(255,220,125,.18);border-radius:16px;background:rgba(255,255,255,.045)}.mpbpNotificationItem.high{border-color:rgba(255,220,125,.42)}.mpbpNotificationMeta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:rgba(255,255,255,.65);font-size:12px;font-weight:900;text-transform:uppercase}.mpbpNotificationMeta span,.mpbpNotificationMeta strong{color:#140d03;background:linear-gradient(90deg,#d4af37,#fff1bd);border-radius:999px;padding:4px 8px}.mpbpNotificationActions{display:flex;flex-wrap:wrap;gap:8px}.mpbpNotificationItem h3{margin:0;color:#fff1bd}.mpbpNotificationItem p{margin:0;color:#fff}@media(max-width:720px){.mpbpNotificationsShell{width:calc(100vw - 16px);max-height:calc(100dvh - 18px);margin:8px;border-radius:18px}.mpbpNotificationsTools,.mpbpNotificationActions{display:grid;grid-template-columns:1fr}}`;
+    document.head.appendChild(style);
+  }
+
+  const storageKey = "mpbpNotificationsRead";
+  const openedKey = "mpbpNotificationsOpened";
+  const nativeShownKey = "mpbpNotificationsNativeShown";
+  const notificationUrl = `/data/notifications.json?v=${MPBP_PUBLIC_VERSION}`;
+  let notifications = [];
+
+  function readIds(){
+    try{
+      const raw = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      return Array.isArray(raw) ? raw : [];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function saveRead(ids){
+    localStorage.setItem(storageKey, JSON.stringify(Array.from(new Set(ids))));
+  }
+
+  function seenNativeIds(){
+    try{
+      const raw = JSON.parse(localStorage.getItem(nativeShownKey) || "[]");
+      return Array.isArray(raw) ? raw : [];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function saveNativeShown(ids){
+    localStorage.setItem(nativeShownKey, JSON.stringify(Array.from(new Set(ids))));
+  }
+
+  function labelForType(type){
+    const labels = {site:"Site", sortie:"Sortie", clip:"Clip", artiste:"Artiste", radio:"Radio", evenement:"Événement", annonce:"Annonce"};
+    return labels[cleanKey(type)] || "Annonce";
+  }
+
+  function actionLabel(item){
+    const type = cleanKey(item.type);
+    if(type === "clip") return "Voir le clip";
+    if(type === "sortie") return "Voir les morceaux";
+    if(type === "radio") return "Ouvrir la radio";
+    return "Découvrir";
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "mpbpHeaderActions";
+  actions.innerHTML = `<button id="mpbpNotificationsButton" class="mpbpNotificationsButton" type="button" aria-expanded="false" aria-controls="mpbpNotificationsPanel" aria-label="Ouvrir les notifications">
+    <span aria-hidden="true">🔔</span><span class="mpbpNotificationsBadge" hidden>0</span>
+  </button>`;
+  const menuButton = header.querySelector("#menuBtn,.menuBtn");
+  header.insertBefore(actions, menuButton || header.querySelector("nav") || null);
+
+  const panel = document.createElement("aside");
+  panel.id = "mpbpNotificationsPanel";
+  panel.className = "mpbpNotificationsPanel";
+  panel.setAttribute("aria-hidden", "true");
+  panel.innerHTML = `<div class="mpbpNotificationsShell" role="dialog" aria-modal="false" aria-labelledby="mpbpNotificationsTitle">
+    <div class="mpbpNotificationsHead">
+      <div><p class="sup">Nouveautés</p><h2 id="mpbpNotificationsTitle">Notifications MPBP440</h2></div>
+      <button type="button" class="mpbpNotificationsClose" aria-label="Fermer les notifications">×</button>
+    </div>
+    <div class="mpbpNotificationsTools">
+      <button type="button" class="mpbpNotificationsReadAll">Tout marquer comme lu</button>
+      <button type="button" class="mpbpNotificationsPermission" hidden>Autoriser les notifications locales</button>
+    </div>
+    <div class="mpbpNotificationsList" aria-live="polite"><p class="mpbpNotificationsEmpty">Chargement des nouveautés...</p></div>
+  </div>`;
+  document.body.appendChild(panel);
+
+  const button = actions.querySelector("#mpbpNotificationsButton");
+  const badge = actions.querySelector(".mpbpNotificationsBadge");
+  const list = panel.querySelector(".mpbpNotificationsList");
+  const closeButton = panel.querySelector(".mpbpNotificationsClose");
+  const readAllButton = panel.querySelector(".mpbpNotificationsReadAll");
+  const permissionButton = panel.querySelector(".mpbpNotificationsPermission");
+
+  if("Notification" in window && Notification.permission === "default"){
+    permissionButton.hidden = false;
+  }
+
+  function unreadItems(){
+    const read = new Set(readIds());
+    return notifications.filter(item => item.id && !read.has(item.id));
+  }
+
+  function updateBadge(){
+    const count = unreadItems().length;
+    badge.textContent = String(count);
+    badge.hidden = count === 0;
+    button.classList.toggle("has-unread", count > 0);
+    button.setAttribute("aria-label", count ? `Ouvrir les notifications, ${count} non lue${count > 1 ? "s" : ""}` : "Ouvrir les notifications");
+  }
+
+  function renderList(){
+    const read = new Set(readIds());
+    if(!notifications.length){
+      list.innerHTML = `<p class="mpbpNotificationsEmpty">Aucune notification disponible.</p>`;
+      updateBadge();
+      return;
+    }
+    list.innerHTML = notifications.map(item => {
+      const isRead = read.has(item.id);
+      const priority = cleanKey(item.priority) === "high" ? " high" : "";
+      const url = safeText(item.url);
+      return `<article class="mpbpNotificationItem${isRead ? " is-read" : " is-unread"}${priority}" data-id="${item.id}">
+        <div class="mpbpNotificationMeta"><span>${labelForType(item.type)}</span><time>${safeText(item.date)}</time>${isRead ? "" : "<strong>Nouveau</strong>"}</div>
+        <h3>${safeText(item.title)}</h3>
+        <p>${safeText(item.message)}</p>
+        <div class="mpbpNotificationActions">
+          ${url ? `<a class="btn small" href="${url}">${actionLabel(item)}</a>` : ""}
+          <button type="button" class="mpbpNotificationRead">${isRead ? "Lu" : "Marquer comme lu"}</button>
+        </div>
+      </article>`;
+    }).join("");
+    updateBadge();
+  }
+
+  function openPanel(){
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden", "false");
+    button.setAttribute("aria-expanded", "true");
+    localStorage.setItem(openedKey, new Date().toISOString());
+  }
+
+  function closePanel(){
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden", "true");
+    button.setAttribute("aria-expanded", "false");
+  }
+
+  function markAsRead(id){
+    if(!id) return;
+    saveRead(readIds().concat(id));
+    renderList();
+  }
+
+  function markAllRead(){
+    saveRead(notifications.map(item => item.id).filter(Boolean));
+    renderList();
+  }
+
+  function renderJournal(){
+    const journal = document.getElementById("mpbpJournalList");
+    if(!journal) return;
+    if(!notifications.length){
+      journal.innerHTML = `<div class="panel emptyState"><p>Aucune nouveauté disponible pour le moment.</p></div>`;
+      return;
+    }
+    journal.innerHTML = notifications.slice(0, 5).map(item => `<article class="mpbpJournalItem panel">
+      <div class="mpbpNotificationMeta"><span>${labelForType(item.type)}</span><time>${safeText(item.date)}</time></div>
+      <h3>${safeText(item.title)}</h3>
+      <p>${safeText(item.message)}</p>
+      ${item.url ? `<a class="btn" href="${item.url}">${actionLabel(item)}</a>` : ""}
+    </article>`).join("");
+  }
+
+  async function maybeShowLocalNotification(){
+    if(!("Notification" in window) || Notification.permission !== "granted") return;
+    const unread = unreadItems().filter(item => cleanKey(item.priority) === "high");
+    if(!unread.length) return;
+    const shown = new Set(seenNativeIds());
+    const next = unread.find(item => !shown.has(item.id));
+    if(!next) return;
+    try{
+      new Notification(next.title || "MPBP440", {
+        body: next.message || "Nouvelle notification MPBP440",
+        icon: "/assets/brand/mpbp440-official-logo.jpg",
+        tag: next.id
+      });
+      shown.add(next.id);
+      saveNativeShown(Array.from(shown));
+    }catch(e){}
+  }
+
+  button.addEventListener("click", () => {
+    panel.classList.contains("open") ? closePanel() : openPanel();
+  });
+  closeButton.addEventListener("click", closePanel);
+  panel.addEventListener("click", event => {
+    if(event.target === panel) closePanel();
+    const item = event.target.closest(".mpbpNotificationItem");
+    if(event.target.closest(".mpbpNotificationRead") && item) markAsRead(item.dataset.id);
+    if(event.target.closest("a")) closePanel();
+  });
+  readAllButton.addEventListener("click", markAllRead);
+  permissionButton.addEventListener("click", async () => {
+    if(!("Notification" in window)) return;
+    const result = await Notification.requestPermission();
+    permissionButton.hidden = result !== "default";
+    if(result === "granted") maybeShowLocalNotification();
+  });
+  document.addEventListener("keydown", event => {
+    if(event.key === "Escape") closePanel();
+  });
+
+  try{
+    const res = await fetch(notificationUrl, {cache:"no-store"});
+    notifications = res.ok ? await res.json() : [];
+    if(!Array.isArray(notifications)) notifications = [];
+    notifications.sort((a,b) => safeText(b.date).localeCompare(safeText(a.date)));
+  }catch(e){
+    notifications = [];
+  }
+  renderList();
+  renderJournal();
+  maybeShowLocalNotification();
+}
+
+document.addEventListener("DOMContentLoaded", initMPBPNotifications);
 
 
 // V3.2.9 — MPBP440 Media Center controls

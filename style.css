@@ -2091,3 +2091,196 @@ body{
     justify-content:center;
   }
 }
+
+/* V10 - Centre de notifications MPBP440 */
+.mpbpHeaderActions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto;
+}
+.mpbpNotificationsButton{
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(255,220,125,.34);
+  border-radius:999px;
+  background:linear-gradient(145deg,rgba(255,220,125,.14),rgba(0,0,0,.42));
+  color:#fff1bd;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.28),0 0 16px rgba(212,175,55,.10);
+}
+.mpbpNotificationsButton.has-unread{
+  border-color:rgba(255,220,125,.70);
+  box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 18px rgba(212,175,55,.24);
+}
+.mpbpNotificationsBadge{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  min-width:20px;
+  height:20px;
+  display:inline-grid;
+  place-items:center;
+  padding:0 5px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#d4af37,#fff1bd);
+  color:#140d03;
+  font-size:11px;
+  font-weight:1000;
+  border:1px solid rgba(0,0,0,.55);
+}
+.mpbpNotificationsPanel{
+  position:fixed;
+  inset:0;
+  z-index:950;
+  display:none;
+  justify-content:flex-end;
+  background:rgba(0,0,0,.34);
+  backdrop-filter:blur(4px);
+}
+.mpbpNotificationsPanel.open{
+  display:flex;
+}
+.mpbpNotificationsShell{
+  width:min(430px,calc(100vw - 18px));
+  max-height:calc(100dvh - 22px);
+  margin:calc(10px + env(safe-area-inset-top)) calc(10px + env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) 10px;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:auto auto minmax(0,1fr);
+  border:1px solid rgba(255,220,125,.28);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(212,175,55,.18),transparent 34%),
+    linear-gradient(160deg,rgba(16,13,8,.98),rgba(4,4,5,.96));
+  box-shadow:0 24px 80px rgba(0,0,0,.52);
+}
+.mpbpNotificationsHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 18px 10px;
+  border-bottom:1px solid rgba(255,220,125,.14);
+}
+.mpbpNotificationsHead h2{
+  font-size:clamp(30px,7vw,44px)!important;
+  margin:0;
+}
+.mpbpNotificationsClose{
+  width:36px;
+  height:36px;
+  border:1px solid rgba(255,220,125,.24);
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  color:#fff1bd;
+  font-size:24px;
+  cursor:pointer;
+}
+.mpbpNotificationsTools{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 18px;
+}
+.mpbpNotificationsTools button,
+.mpbpNotificationRead{
+  border:1px solid rgba(255,220,125,.24);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  color:#fff1bd;
+  padding:9px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.mpbpNotificationsList{
+  overflow:auto;
+  padding:0 18px 18px;
+  -webkit-overflow-scrolling:touch;
+}
+.mpbpNotificationItem,
+.mpbpJournalItem{
+  display:grid;
+  gap:9px;
+  margin:0 0 12px;
+  padding:14px;
+  border:1px solid rgba(255,220,125,.18);
+  border-radius:16px;
+  background:rgba(255,255,255,.045);
+}
+.mpbpNotificationItem.high{
+  border-color:rgba(255,220,125,.42);
+  background:linear-gradient(145deg,rgba(212,175,55,.13),rgba(255,255,255,.04));
+}
+.mpbpNotificationItem.is-read{
+  opacity:.72;
+}
+.mpbpNotificationMeta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.mpbpNotificationMeta span,
+.mpbpNotificationMeta strong{
+  color:#140d03;
+  background:linear-gradient(90deg,#d4af37,#fff1bd);
+  border-radius:999px;
+  padding:4px 8px;
+}
+.mpbpNotificationItem h3,
+.mpbpJournalItem h3{
+  margin:0;
+  color:#fff1bd;
+}
+.mpbpNotificationItem p,
+.mpbpJournalItem p{
+  margin:0;
+  color:var(--text);
+}
+.mpbpNotificationActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+.mpbpNotificationsEmpty{
+  margin:0;
+  color:var(--muted);
+}
+.mpbpJournalList{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;
+}
+@media(max-width:720px){
+  .mpbpHeaderActions{
+    margin-left:auto;
+  }
+  .mpbpNotificationsButton{
+    width:40px;
+    height:40px;
+  }
+  .mpbpNotificationsPanel{
+    align-items:flex-end;
+  }
+  .mpbpNotificationsShell{
+    width:calc(100vw - 16px);
+    max-height:calc(100dvh - 18px);
+    margin:8px;
+    border-radius:18px;
+  }
+  .mpbpNotificationsTools,
+  .mpbpNotificationActions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+}

@@ -73,3 +73,12 @@ h1{font-size:clamp(3rem,9vw,7rem);line-height:.88;margin:12px 0 16px;color:var(-
 
 /* MPBP440 V8.5 artist pages */
 .artist-page{width:min(1120px,calc(100% - 28px));padding:24px 0 42px}.top{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.88);backdrop-filter:blur(12px);border:1px solid rgba(244,211,94,.18);border-radius:18px;padding:10px 14px}.hero{grid-template-columns:minmax(240px,.82fr) minmax(0,1.18fr);border-radius:26px;background:radial-gradient(circle at 15% 10%,rgba(244,211,94,.13),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035))}.hero-img{object-fit:contain;background:#050505;padding:10px}.hero-content{padding:clamp(20px,4vw,38px)}.section{background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025));box-shadow:0 24px 70px rgba(0,0,0,.22)}.artistOfficialLinks .card{text-decoration:none;color:#fff;transition:.2s}.artistOfficialLinks .card:hover{transform:translateY(-3px);border-color:rgba(244,211,94,.55)}.release-card-artist{grid-template-columns:120px 1fr}.release-card-artist img,.release-placeholder{object-fit:contain;background:#050505}.release-links{align-items:stretch}.release-links .btn{min-height:38px;margin:0}.grid{align-items:stretch}@media(max-width:760px){.artist-page{width:calc(100% - 18px)}.top{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.hero-img{min-height:auto;aspect-ratio:1/1}.release-card-artist{grid-template-columns:1fr}h1{font-size:clamp(2.7rem,17vw,5rem)}}
+
+/* Makeda Muse artist page */
+.makeda-artist-body .hero-img{object-fit:contain}
+.makeda-release-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.makeda-release-card{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;border:1px solid rgba(244,211,94,.22);border-radius:20px;padding:16px;background:rgba(0,0,0,.24)}
+.makeda-release-card img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:16px;border:1px solid rgba(244,211,94,.25);background:#050505}
+.makeda-release-card h3{color:#fff1bd;margin:.2rem 0;font-size:clamp(1.6rem,4vw,2.5rem)}
+.makeda-countdown{display:inline-flex;margin:8px 0 12px;border:1px solid rgba(244,211,94,.34);border-radius:999px;background:rgba(244,211,94,.12);color:#fff1bd;font-weight:900;padding:9px 12px}
+@media(max-width:720px){.makeda-release-card{grid-template-columns:1fr}.makeda-release-card img{max-height:360px}}

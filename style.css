@@ -1477,6 +1477,22 @@ body.intro-active{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.mpbpAudioControl{transition:none!important}}
 
+/* Makeda Muse publication fix */
+.mpbpIntroArtistMuse{grid-column:2;align-self:start;animation-delay:3.45s!important}
+.mpbpIntroArtistMuse img{object-position:center}
+.artistCard img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#050505;border-radius:16px}
+.event-card img[src*="makeda-muse"],
+.time-card img[src*="makeda-muse"],
+.galleryCard img[src*="makeda-muse"]{object-fit:contain;background:#050505}
+@media(max-width:720px){
+  .mpbpIntroV92 .mpbpIntroArtists{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-column:1/3!important}
+  .mpbpIntroArtistLeft{grid-column:1!important}
+  .mpbpIntroArtistMuse{grid-column:2!important}
+  .mpbpIntroArtistRight{grid-column:3!important}
+  .mpbpIntroArtist img{width:min(25vw,98px)!important;min-width:68px!important}
+  .mpbpIntroArtist span{font-size:9px!important;letter-spacing:1px!important}
+}
+
 /* V9.5 - Pro layout public MPBP440 */
 :root{
   --v95-bg:#030302;

@@ -1,11 +1,40 @@
 [
   {
+    "id": "live-tiktok-makeda-2026-07-11",
+    "date": "2026-07-11",
+    "type": "event",
+    "title": "Live TikTok MPBP440 à 21h00",
+    "message": "Live spécial autour de BrainRot Society 2.0, Makeda Muse, Jour de pluie, Sixieme Sens et du clip Je sais que tu sais.",
+    "url": "/#events",
+    "image": "assets/makeda-muse/live-tiktok-2026-07-11.png",
+    "priority": "high"
+  },
+  {
+    "id": "makeda-muse-arrival",
+    "date": "2026-07-09",
+    "type": "artiste",
+    "title": "Makeda Muse rejoint officiellement MPBP440",
+    "message": "Portée par une écriture sensible et inspirée, Makeda Muse apporte au label une nouvelle couleur artistique. Son arrivée s'accompagne de Jour de pluie le 21 juillet 2026 puis Sixieme Sens le 23 juillet 2026.",
+    "url": "/artistes/makeda-muse.html",
+    "image": "assets/makeda-muse/makeda-muse-profile.png",
+    "priority": "high"
+  },
+  {
     "id": "v10-notifications",
     "date": "2026-07-06",
     "type": "site",
     "title": "Nouveau centre de notifications",
     "message": "MPBP440 ajoute un centre de notifications pour suivre les nouveautés du site.",
     "url": "/",
+    "priority": "normal"
+  },
+  {
+    "id": "v99-seo-stable",
+    "date": "2026-07-06",
+    "type": "site",
+    "title": "Partage réseaux amélioré",
+    "message": "Les cartes de partage MPBP440 sont maintenant optimisées pour WhatsApp, Facebook, Messenger et les réseaux sociaux.",
+    "url": "/mpbp-tv/#l-argent",
     "priority": "normal"
   },
   {
@@ -16,14 +45,5 @@
     "message": "Regarde le clip exclusif L’Argent de Sparetdee Simon sur MPBP TV.",
     "url": "/mpbp-tv/#l-argent",
     "priority": "high"
-  },
-  {
-    "id": "v99-seo-stable",
-    "date": "2026-07-06",
-    "type": "site",
-    "title": "Partage réseaux amélioré",
-    "message": "Les cartes de partage MPBP440 sont maintenant optimisées pour WhatsApp, Facebook, Messenger et les réseaux sociaux.",
-    "url": "/mpbp-tv/#l-argent",
-    "priority": "normal"
   }
 ]

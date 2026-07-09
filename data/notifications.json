@@ -10,40 +10,23 @@
     "priority": "high"
   },
   {
+    "id": "makeda-upcoming-releases",
+    "date": "2026-07-09",
+    "type": "sortie",
+    "title": "Jour de pluie et Sixieme Sens arrivent bientôt",
+    "message": "Makeda Muse prépare deux pré-sorties officielles : Jour de pluie le 21 juillet 2026, puis Sixieme Sens le 23 juillet 2026 sur toutes les plateformes.",
+    "url": "/#avenir",
+    "image": "assets/makeda-muse/jour-de-pluie-pre-sortie.png",
+    "priority": "high"
+  },
+  {
     "id": "makeda-muse-arrival",
     "date": "2026-07-09",
     "type": "artiste",
     "title": "Makeda Muse rejoint officiellement MPBP440",
-    "message": "Portée par une écriture sensible et inspirée, Makeda Muse apporte au label une nouvelle couleur artistique. Son arrivée s'accompagne de Jour de pluie le 21 juillet 2026 puis Sixieme Sens le 23 juillet 2026.",
+    "message": "Portée par une écriture sensible et inspirée, Makeda Muse apporte au label une nouvelle couleur artistique. Sa symbolique est la clé de sol : musique, ouverture et inspiration.",
     "url": "/artistes/makeda-muse.html",
     "image": "assets/makeda-muse/makeda-muse-profile.png",
-    "priority": "high"
-  },
-  {
-    "id": "v10-notifications",
-    "date": "2026-07-06",
-    "type": "site",
-    "title": "Nouveau centre de notifications",
-    "message": "MPBP440 ajoute un centre de notifications pour suivre les nouveautés du site.",
-    "url": "/",
-    "priority": "normal"
-  },
-  {
-    "id": "v99-seo-stable",
-    "date": "2026-07-06",
-    "type": "site",
-    "title": "Partage réseaux amélioré",
-    "message": "Les cartes de partage MPBP440 sont maintenant optimisées pour WhatsApp, Facebook, Messenger et les réseaux sociaux.",
-    "url": "/mpbp-tv/#l-argent",
-    "priority": "normal"
-  },
-  {
-    "id": "clip-largent",
-    "date": "2026-07-06",
-    "type": "clip",
-    "title": "Clip exclusif : L’Argent",
-    "message": "Regarde le clip exclusif L’Argent de Sparetdee Simon sur MPBP TV.",
-    "url": "/mpbp-tv/#l-argent",
     "priority": "high"
   }
 ]

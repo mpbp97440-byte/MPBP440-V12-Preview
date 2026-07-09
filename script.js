@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "makeda-fix-202607";
+const MPBP_PUBLIC_VERSION = "events-cleanup-202607";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -162,6 +162,23 @@ function formatReleaseDate(value, targetDate){
   return targetDate.toLocaleDateString("fr-FR", {day:"2-digit", month:"2-digit", year:"numeric"});
 }
 
+function parseEventDate(item={}){
+  if(item.datetime) return parseReleaseDate(item.datetime);
+  const raw = safeText(item.date).trim();
+  const match = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(match){
+    const [,d,m,y] = match;
+    return new Date(`${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}T23:59:59+02:00`);
+  }
+  return parseReleaseDate(raw);
+}
+
+function isCurrentEvent(item={}){
+  const date = parseEventDate(item);
+  if(!date) return true;
+  return date.getTime() >= Date.now();
+}
+
 function renderNextRelease(data={}){
   const box = document.getElementById("nextReleaseCountdown");
   if(!box) return;
@@ -254,7 +271,7 @@ async function loadData(){
 
     const eventsGrid = document.getElementById("eventsGrid");
     if(eventsGrid){
-      const events = (data.events || []).filter(isPublicItem);
+      const events = (data.events || []).filter(isPublicItem).filter(isCurrentEvent);
       eventsGrid.innerHTML = events.length ? events.map(e=>`
         <article class="event-card panel">
           <img src="${mediaSrc(e.cover)}" alt="${e.title}" loading="lazy" decoding="async">
@@ -1213,15 +1230,15 @@ async function loadLiveStatus(){
     if(live.is_live){
       card.classList.add("is-live");
       badge.textContent = "🔴 EN DIRECT MAINTENANT";
-      title.textContent = live.title || "Live TikTok MPBP440";
+      title.textContent = live.title || "Événement exclusif MPBP440 - Live TikTok";
       text.textContent = live.message_live || "Le live officiel est en cours.";
       button.textContent = "Rejoindre le live TikTok";
       button.href = live.url || live.fallback_url || "https://www.tiktok.com/@simonsparet";
     }else{
       card.classList.remove("is-live");
       badge.textContent = "🔴 LIVE / ÉVÈNEMENT";
-      title.textContent = live.title || "Live TikTok — Fête de la musique";
-      text.innerHTML = "<strong>21/06/2026 • 21h00</strong><br>Présentation des nouveautés Sparetdee Simon et Juste Une Plume.";
+      title.textContent = live.title || "Événement exclusif MPBP440 - Live TikTok";
+      text.innerHTML = "<strong>11/07/2026 • 21h00</strong><br>BrainRot Society 2.0, Makeda Muse, Jour de pluie, Sixieme Sens et Je sais que tu sais.";
       button.textContent = "Voir le TikTok officiel";
       button.href = live.fallback_url || live.url || "https://www.tiktok.com/@simonsparet";
     }

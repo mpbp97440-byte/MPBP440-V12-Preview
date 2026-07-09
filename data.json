@@ -1075,26 +1075,6 @@
   ],
   "events": [
     {
-      "title": "Live TikTok — Fête de la musique",
-      "date": "21/06/2026",
-      "time": "21h00",
-      "place": "TikTok officiel de Sparetdee Simon",
-      "description": "Live spécial Fête de la musique : présentation de la double sortie « L’Argent » / « Je Vous Pousse Tous » et du premier titre de Juste Une Plume.",
-      "cover": "assets/events/live-tiktok-fete-musique-21062026-full.webp",
-      "buttonText": "Rejoindre TikTok",
-      "url": "https://www.tiktok.com/@simonsparet"
-    },
-    {
-      "title": "Juste Une Plume — Je sais que tu sais",
-      "date": "16/06/2026",
-      "time": "Sortie officielle",
-      "place": "Toutes les plateformes",
-      "description": "Première sortie officielle de Juste Une Plume sous MPBP 440 Corp.2026.",
-      "cover": "assets/events/je-sais-sortie-officielle.webp",
-      "buttonText": "Voir la fiche artiste",
-      "url": "#artiste-juste-une-plume"
-    },
-    {
       "id": "live-tiktok-makeda-muse-2026-07-11",
       "title": "Événement exclusif MPBP440 - Live TikTok",
       "date": "11/07/2026",
@@ -1310,12 +1290,13 @@
     "title": "MPBP440 Media Center",
     "status": "TV • Live TikTok • Radio Label",
     "live": {
-      "title": "Live TikTok — Fête de la musique",
-      "date": "21/06/2026",
+      "title": "Événement exclusif MPBP440 - Live TikTok",
+      "date": "11/07/2026",
       "time": "21h00",
+      "datetime": "2026-07-11T21:00:00+02:00",
       "url": "https://www.tiktok.com/@simonsparet",
-      "cover": "assets/events/live-tiktok-fete-musique-21062026-full.webp",
-      "description": "Retrouve les directs, clips et rendez-vous officiels MPBP440 depuis cet espace vidéo."
+      "cover": "assets/makeda-muse/live-tiktok-2026-07-11.png",
+      "description": "Live spécial : BrainRot Society 2.0, pré-écoute exclusive de Makeda Muse, Jour de pluie, Sixieme Sens et diffusion du clip Je sais que tu sais."
     },
     "featured_videos": [
       "0YEqshdl7jI",

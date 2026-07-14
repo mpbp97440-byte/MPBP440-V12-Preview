@@ -1,38 +1,50 @@
 [
   {
     "date": "2026-07-15",
-    "title": "Mak?da Muse d?voile son clip exclusif ? J?existe ?",
-    "text": "Disponible d?s maintenant en exclusivit? sur MPBP440.com, le clip ? J?existe ? prolonge l?univers sensible et intense de Mak?da Muse. Une nouvelle immersion visuelle ? d?couvrir d?s aujourd?hui sur MPBP TV.",
-    "type": "clip"
+    "title": "Makéda Muse dévoile son clip exclusif « J’existe »",
+    "text": "Disponible dès maintenant en exclusivité sur MPBP440.com, le clip « J’existe » prolonge l’univers sensible et intense de Makéda Muse. Une nouvelle immersion visuelle à découvrir dès aujourd’hui sur MPBP TV.",
+    "type": "clip",
+    "url": "/mpbp-tv/index.html#clip-j-existe",
+    "buttonText": "Voir le clip"
   },
   {
     "date": "2026-07-11",
     "title": "BrainRot Society 2.0 disponible maintenant",
     "text": "Sparetdee Simon publie BrainRot Society 2.0 sur Spotify, Deezer, Apple Music et YouTube Music.",
-    "type": "sortie"
+    "type": "sortie",
+    "url": "/music/index.html#morceaux",
+    "buttonText": "Voir les morceaux"
   },
   {
     "date": "2026-07-11",
     "title": "Makeda Muse annonce Je laisse la porte ouverte et J'existe",
     "text": "La double pré-sortie Je laisse la porte ouverte / J'existe arrive le 25 juillet 2026 dans l'univers MPBP440.",
-    "type": "sortie"
+    "type": "sortie",
+    "url": "/artistes/makeda-muse.html",
+    "buttonText": "Voir Makéda Muse"
   },
   {
     "date": "2026-07-10",
     "title": "Clip exclusif : Je sais que tu sais",
     "text": "Le clip exclusif Je sais que tu sais de Juste Une Plume est disponible sur MPBP TV.",
-    "type": "clip"
+    "type": "clip",
+    "url": "/mpbp-tv/index.html#clip-je-sais-que-tu-sais",
+    "buttonText": "Voir le clip"
   },
   {
     "date": "2026-07-11",
     "title": "Live TikTok MPBP440 à 21h00",
     "text": "Live spécial autour de BrainRot Society 2.0, Makeda Muse, Jour de pluie, Sixieme Sens et du clip Je sais que tu sais.",
-    "type": "event"
+    "type": "event",
+    "url": "#journal",
+    "buttonText": "Voir le journal"
   },
   {
     "date": "2026-07-09",
     "title": "Makeda Muse rejoint officiellement MPBP440",
     "text": "Makeda Muse apporte au label une nouvelle couleur artistique et prépare Jour de pluie puis Sixieme Sens.",
-    "type": "artiste"
+    "type": "artiste",
+    "url": "/artistes/makeda-muse.html",
+    "buttonText": "Voir la page artiste"
   }
 ]

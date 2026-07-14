@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "jexiste-clip-exclusive-202607";
+const MPBP_PUBLIC_VERSION = "hotfix-actus-ux-202607";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -1205,6 +1205,59 @@ async function initMPBPNotifications(){
 
 document.addEventListener("DOMContentLoaded", initMPBPNotifications);
 
+function labelForNewsType(type){
+  const labels = {clip:"Clip", sortie:"Sortie", event:"Événement", evenement:"Événement", artiste:"Artiste", annonce:"Annonce"};
+  return labels[cleanKey(type)] || "Annonce";
+}
+
+function defaultNewsUrl(item={}){
+  const text = cleanKey(`${item.title || ""} ${item.text || ""}`);
+  if(text.includes("j existe") || text.includes("jexiste")) return "/mpbp-tv/index.html#clip-j-existe";
+  if(text.includes("je sais que tu sais")) return "/mpbp-tv/index.html#clip-je-sais-que-tu-sais";
+  if(text.includes("brainrot society 2.0")) return "/music/index.html#morceaux";
+  if(text.includes("je laisse la porte ouverte")) return "/artistes/makeda-muse.html";
+  if(text.includes("live tiktok")) return "#journal";
+  return "#journal";
+}
+
+function defaultNewsCta(item={}){
+  const text = cleanKey(`${item.title || ""} ${item.type || ""}`);
+  if(text.includes("clip")) return "Voir le clip";
+  if(text.includes("sortie") || text.includes("brainrot")) return "Voir les morceaux";
+  if(text.includes("live") || text.includes("event")) return "Voir le journal";
+  return "Découvrir";
+}
+
+async function initMPBPNewsSection(){
+  const list = document.getElementById("mpbpNewsList");
+  if(!list) return;
+  try{
+    const response = await fetch(`/data/news.json?v=${MPBP_PUBLIC_VERSION}`, {cache:"no-store"});
+    const news = response.ok ? await response.json() : [];
+    if(!Array.isArray(news) || !news.length){
+      list.innerHTML = emptyStateHtml("Aucune actualité disponible pour le moment.", "/music/index.html#morceaux", "Voir les morceaux");
+      return;
+    }
+    const items = news.filter(item => item && !item.hidden)
+      .sort((a,b) => safeText(b.date).localeCompare(safeText(a.date)))
+      .slice(0, 6);
+    list.innerHTML = items.map(item => {
+      const url = safeText(item.url || defaultNewsUrl(item));
+      const cta = safeText(item.buttonText || defaultNewsCta(item));
+      return `<article class="mpbpNewsCard panel">
+        <div class="mpbpNewsMeta"><span>${labelForNewsType(item.type || "annonce")}</span><time>${safeText(item.date)}</time></div>
+        <h3>${safeText(item.title)}</h3>
+        <p>${safeText(item.text || item.message || "")}</p>
+        ${url ? `<a class="btn" href="${url}">${cta}</a>` : ""}
+      </article>`;
+    }).join("");
+  }catch(error){
+    list.innerHTML = emptyStateHtml("Les actualités MPBP440 seront de nouveau disponibles dans un instant.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initMPBPNewsSection);
+
 
 // V3.2.9 — MPBP440 Media Center controls
 function initMPBPShareButtons(){
@@ -1256,6 +1309,23 @@ function initMPBPShareButtons(){
 }
 
 document.addEventListener("DOMContentLoaded", initMPBPShareButtons);
+
+function initMPBPVideoUtilities(){
+  document.querySelectorAll("[data-video-fullscreen]").forEach(button => {
+    if(button.dataset.videoUtilityReady) return;
+    button.dataset.videoUtilityReady = "1";
+    button.addEventListener("click", async () => {
+      const video = button.closest(".videoPlaybackBox, .exclusiveVideo")?.querySelector("video");
+      if(!video) return;
+      try{
+        if(video.requestFullscreen) await video.requestFullscreen();
+        else if(video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+      }catch(error){}
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initMPBPVideoUtilities);
 
 function initMPBPTVControls(){
   const player = document.getElementById("mpbpTvPlayer");

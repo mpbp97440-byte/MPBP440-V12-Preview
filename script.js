@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "brainrot-release-makeda-double-202607";
+const MPBP_PUBLIC_VERSION = "jexiste-clip-exclusive-202607";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){

@@ -82,3 +82,9 @@ h1{font-size:clamp(3rem,9vw,7rem);line-height:.88;margin:12px 0 16px;color:var(-
 .makeda-release-card h3{color:#fff1bd;margin:.2rem 0;font-size:clamp(1.6rem,4vw,2.5rem)}
 .makeda-countdown{display:inline-flex;margin:8px 0 12px;border:1px solid rgba(244,211,94,.34);border-radius:999px;background:rgba(244,211,94,.12);color:#fff1bd;font-weight:900;padding:9px 12px}
 @media(max-width:720px){.makeda-release-card{grid-template-columns:1fr}.makeda-release-card img{max-height:360px}}
+
+/* Makeda Muse exclusive clip */
+.makeda-clip-card{display:grid;grid-template-columns:minmax(220px,380px) 1fr;gap:20px;align-items:center;border:1px solid rgba(244,211,94,.24);border-radius:22px;padding:18px;background:radial-gradient(circle at 20% 0%,rgba(244,211,94,.13),transparent 34%),rgba(0,0,0,.26)}
+.makeda-clip-card img{width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:18px;border:1px solid rgba(244,211,94,.28);background:#050505}
+.makeda-clip-card h3{color:#fff1bd;margin:.2rem 0;font-size:clamp(1.8rem,4vw,3rem)}
+@media(max-width:720px){.makeda-clip-card{grid-template-columns:1fr}.makeda-clip-card img{max-height:320px}}

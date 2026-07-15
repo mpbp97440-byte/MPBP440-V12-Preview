@@ -27,7 +27,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"MPBP440","url":"https://www.mpbp440.com/","inLanguage":"fr-FR"}
 </script>
-<link rel="stylesheet" href="/style.css?v=hotfix-actus-ux-202607">
+<link rel="stylesheet" href="/style.css?v=homepage-restructure-v11-202607">
 </head>
 <body class="v95-public-home">
 <div class="mpbpIntro mpbpIntroV92" id="mpbpIntro" aria-label="Animation de lancement MPBP440">
@@ -98,9 +98,9 @@
   <div class="heroDim"></div>
   <div class="heroGrid">
     <div>
-      <p class="sup">Plateforme musicale officielle</p>
-      <h1>MPBP 440<br>Corp.2026</h1>
-      <p class="tagline">Univers officiel du label : sorties, artistes, clips, radio et catalogue MPBP440.</p>
+      <p class="sup">Portail musical officiel</p>
+      <h1>MPBP440</h1>
+      <p class="tagline">Un label, plusieurs univers, une seule mission : la musique vraie.</p>
       <div class="heroButtons">
         <a class="btn primary" href="/music/index.html#morceaux">Écouter les morceaux</a>
         <a class="btn live" href="/mpbp-tv/index.html">Voir MPBP TV</a>
@@ -119,131 +119,91 @@
   </div>
 </section>
 
-<main class="v85-main">
-  <section class="section v8FocusGrid" aria-label="Priorités MPBP440">
-    <article class="panel v8FocusCard v8FocusBrand">
-      <p class="sup">Label</p>
-      <h2>M.P.B.P 440 Corp.</h2>
-      <p>Sorties, artistes, clips, radio et contenus exclusifs réunis dans un portail officiel plus clair.</p>
-      <a class="btn primary" href="#label">Découvrir le label</a>
-    </article>
-    <article class="panel v8FocusCard">
-      <img src="/assets/covers/le-systeme-officiel.webp" alt="Le Système - Sparetdee Simon">
-      <div>
-        <p class="sup">À la une</p>
-        <h3>Le Système</h3>
-        <p>Sortie officielle disponible maintenant.</p>
-        <a class="btn" href="#sortie">Voir la sortie</a>
-      </div>
-    </article>
-    <article class="panel v8FocusCard">
-      <img src="/assets/covers/largent-officiel.webp" alt="L’Argent - Sparetdee Simon">
-      <div>
-        <p class="sup">MPBP TV</p>
-        <h3>L’Argent</h3>
-        <p>Clip exclusif disponible sur le site et l’application.</p>
-        <a class="btn" href="/mpbp-tv/index.html">Voir le clip</a>
-      </div>
-    </article>
-    <article class="panel v8FocusCard">
-      <img src="/assets/releases/sparetdee-simon/brainrot-society-2-0-cover.png" alt="BrainRot Society 2.0">
-      <div>
-        <p class="sup">Disponible</p>
-        <h3>BrainRot Society 2.0</h3>
-        <p>Sortie officielle disponible maintenant sur les plateformes.</p>
-        <a class="btn" href="/music/index.html#morceaux">Écouter le titre</a>
-      </div>
-    </article>
-  </section>
-
-  <nav class="section panel mpbpQuickAccess" aria-label="Accès direct MPBP440">
+<main class="v85-main v11-home">
+  <nav class="section panel mpbpQuickAccess v11-quick-access" aria-label="Accès direct MPBP440">
     <span>Accès direct</span>
-    <a href="#sortie">Sorties disponibles</a>
+    <a href="#sortie">Sorties</a>
     <a href="#avenir">À venir</a>
-    <a href="#clips">Clips exclusifs</a>
+    <a href="#clips">MPBP TV</a>
     <a href="#artistes">Artistes</a>
-    <a href="#actus">Actualités</a>
-    <a href="#events">Événements</a>
+    <a href="#actus">Actus</a>
+    <a href="#events">Événement</a>
   </nav>
 
-  <section class="section panel v85-label" id="label">
-    <p class="sup">Label officiel</p>
-    <h2>M.P.B.P 440 Corp.</h2>
-    <p>Un portail musical indépendant pour suivre les sorties, les clips, les actualités et les contenus exclusifs du label.</p>
+  <section class="section panel v85-label v11-label" id="label">
+    <p class="sup">M.P.B.P 440 Corp. 2026</p>
+    <h2>Portail musical officiel</h2>
+    <p>Music • Power • Believe • Purpose. Un espace unique pour suivre les sorties, clips exclusifs, artistes, actualités et événements du label.</p>
   </section>
 
-  <section class="section v85-release-band" id="sortie">
-    <p class="sup">Dernières sorties</p>
-    <h2>Sorties officielles</h2>
-    <div id="featuredCard" class="featuredCard panel"></div>
+  <section class="section v85-release-band v11-release-section" id="sortie">
+    <div class="v85-section-head">
+      <div>
+        <p class="sup">Sorties disponibles</p>
+        <h2>Écouter maintenant</h2>
+        <p class="sectionIntro">Les morceaux déjà sortis, avec les liens officiels vers les plateformes.</p>
+      </div>
+      <a class="btn" href="/music/index.html#morceaux">Music Hub complet</a>
+    </div>
+    <div id="availableReleasesGrid" class="v11ReleaseGrid"></div>
   </section>
 
-  <section class="section" id="prochaine-sortie">
-    <p class="sup">Prochaine sortie</p>
-    <h2>Compte à rebours</h2>
+  <section class="section v11-upcoming-section" id="avenir">
+    <div class="v85-section-head">
+      <div>
+        <p class="sup">Prochaines sorties</p>
+        <h2>Pré-sorties & comptes à rebours</h2>
+        <p class="sectionIntro">Les prochaines sorties Makéda Muse restent visibles avec leurs flyers officiels.</p>
+      </div>
+    </div>
     <div id="nextReleaseCountdown" class="nextReleaseCountdown panel"></div>
-  </section>
-
-  <section class="section" id="avenir">
-    <p class="sup">Calendrier officiel</p>
-    <h2>À venir</h2>
     <div id="upcomingGrid" class="timeGrid"></div>
   </section>
 
-  <section class="section" id="events">
-    <p class="sup">Lives & événements</p>
-    <h2>Événements</h2>
-    <div id="eventsGrid" class="eventsGrid"></div>
+  <section class="section v85-tv-band v11-tv-section" id="clips">
+    <div class="v85-section-head">
+      <div>
+        <p class="sup">MPBP TV</p>
+        <h2>Clips exclusifs</h2>
+        <p class="sectionIntro">Les clips officiels déjà publiés, avec les liens publics conservés.</p>
+      </div>
+      <a class="btn primary" href="/mpbp-tv/index.html">Ouvrir MPBP TV</a>
+    </div>
+    <div class="v11ClipGrid">
+      <a class="homeExclusiveClip panel" href="/mpbp-tv/index.html#l-argent">
+        <img src="/assets/covers/largent-officiel.webp" alt="L’Argent - Sparetdee Simon">
+        <div><p class="sup">Clip exclusif</p><h3>L’Argent</h3><p>Sparetdee Simon</p><span class="btn primary">Voir le clip</span></div>
+      </a>
+      <a class="homeExclusiveClip panel" href="/mpbp-tv/index.html#clip-je-sais-que-tu-sais">
+        <img src="/assets/covers/je-sais-juste-une-plume.webp" alt="Je sais que tu sais - Juste Une Plume">
+        <div><p class="sup">Clip exclusif</p><h3>Je sais que tu sais</h3><p>Juste Une Plume</p><span class="btn primary">Voir le clip</span></div>
+      </a>
+      <a class="homeExclusiveClip panel" href="/mpbp-tv/index.html#clip-j-existe">
+        <img src="/assets/clips/makeda-muse/j-existe-cover.png" alt="J’existe - Makéda Muse">
+        <div><p class="sup">Clip exclusif</p><h3>J’existe</h3><p>Makéda Muse</p><span class="btn primary">Voir le clip</span></div>
+      </a>
+    </div>
+    <div id="videoList" class="videoGrid v11-video-list"></div>
   </section>
 
-  <section class="section v85-music-band" id="morceaux">
-    <p class="sup">Music Hub</p>
-    <h2>Aperçu du catalogue</h2>
-    <input id="searchInput" class="searchInput" placeholder="Rechercher un titre, artiste ou mot-clé...">
-    <div id="tracks" class="cards"></div>
-    <div class="v95-section-actions"><a class="btn primary" href="/music/index.html#morceaux">Ouvrir le Music Hub complet</a></div>
-  </section>
-
-  <section class="section v85-artists-band" id="artistes">
+  <section class="section v85-artists-band v11-artists-section" id="artistes">
     <p class="sup">Artistes du label</p>
-    <h2>Artistes</h2>
+    <h2>Trois univers, une maison</h2>
     <div class="artistGrid">
       <a class="artistCard panel" href="artistes/sparetdee-simon.html"><img src="assets/artists/sparetdee-simon-profile.jpg" alt="Sparetdee Simon"><h3>Sparetdee Simon</h3><p>Rap conscient • Roots • Vibration</p></a>
       <a class="artistCard panel" href="artistes/juste-une-plume.html"><img src="assets/artists/juste-une-plume-profile.jpg" alt="Juste Une Plume"><h3>Juste Une Plume</h3><p>Écriture • Émotion • Plume symbolique</p></a>
-      <a class="artistCard panel" href="artistes/makeda-muse.html"><img src="assets/makeda-muse/makeda-muse-profile.png" alt="Makeda Muse"><h3>Makeda Muse</h3><p>Clé de sol • Inspiration • Profondeur</p></a>
+      <a class="artistCard panel" href="artistes/makeda-muse.html"><img src="assets/makeda-muse/makeda-muse-profile.png" alt="Makéda Muse"><h3>Makéda Muse</h3><p>Clé de sol • Inspiration • Profondeur</p></a>
     </div>
   </section>
 
-  <section class="section v85-tv-band" id="clips">
-    <p class="sup">MPBP TV</p>
-    <h2>Clips & exclusivités</h2>
-    <article class="homeExclusiveClip panel">
-      <img src="/assets/covers/largent-officiel.webp" alt="L’Argent - Sparetdee Simon">
-      <div>
-        <p class="sup">Clip exclusif</p>
-        <h3>L’Argent</h3>
-        <p>Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.</p>
-        <a class="btn primary" href="/mpbp-tv/index.html">Voir le clip</a>
-      </div>
-    </article>
-    <div id="videoList" class="videoGrid"></div>
-    <div class="heroButtons"><a class="btn primary" href="/mpbp-tv/index.html">Ouvrir MPBP TV</a></div>
-  </section>
-
-  <section class="section panel" id="radio">
-    <p class="sup">Radio</p>
-    <h2>Radio MPBP440</h2><div class="spotifyRadioBox panel"><h3>Playlist MPBP440 sur Spotify</h3><p>Écoute la sélection officielle directement depuis le site.</p><iframe style="border-radius:18px" src="about:blank" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-    <p>La section radio reste prête pour les écoutes et programmations du label.</p>
-  </section>
-
-  <section class="section" id="actus">
+  <section class="section v11-news-section" id="actus">
     <div class="v85-section-head">
       <div>
         <p class="sup">Actualités</p>
         <h2>Actualités MPBP440</h2>
         <p class="sectionIntro">Sorties, clips exclusifs, annonces du label et événements.</p>
       </div>
-      <a class="btn" href="#journal">Voir le journal</a>
+      <button class="btn" type="button" onclick="document.getElementById('mpbpNotificationsButton')?.click()">Ouvrir les notifications</button>
     </div>
     <div id="mpbpNewsList" class="mpbpNewsGrid" aria-live="polite">
       <div class="panel emptyState"><p>Chargement des actualités MPBP440...</p></div>
@@ -256,30 +216,40 @@
         <p class="sup">Journal MPBP440</p>
         <h2>Dernières nouveautés</h2>
       </div>
-      <button class="btn" type="button" onclick="document.getElementById('mpbpNotificationsButton')?.click()">Ouvrir les notifications</button>
     </div>
     <div id="mpbpJournalList" class="mpbpJournalList"></div>
   </section>
 
-  <section class="section v85-gallery-band" id="galerie">
-    <div class="v85-section-head"><div><p class="sup">Galerie</p><h2>Galerie</h2></div><div class="galleryFilters" id="galleryFilters"><button class="active" data-filter="all">Tous</button><button data-filter="flyers">Flyers</button><button data-filter="artistes">Artistes</button><button data-filter="clips">Clips</button><button data-filter="evenements">Événements</button></div></div>
+  <section class="section v11-events-section" id="events">
+    <p class="sup">Événement à venir</p>
+    <h2>Live TikTok MPBP440</h2>
+    <div id="eventsGrid" class="eventsGrid"></div>
+  </section>
+
+  <section class="section v85-gallery-band v11-gallery-section" id="galerie">
+    <div class="v85-section-head"><div><p class="sup">Galerie officielle</p><h2>Visuels MPBP440</h2><p class="sectionIntro">La galerie reste accessible en format plus compact, après les contenus essentiels.</p></div><div class="galleryFilters" id="galleryFilters"><button class="active" data-filter="all">Tous</button><button data-filter="flyers">Flyers</button><button data-filter="artistes">Artistes</button><button data-filter="clips">Clips</button><button data-filter="evenements">Événements</button></div></div>
     <div id="galleryGrid" class="galleryGrid"></div>
   </section>
 
-  <section class="section" id="liens">
+  <section class="section panel v11-radio-section" id="radio">
+    <p class="sup">Radio</p>
+    <h2>Radio MPBP440</h2><div class="spotifyRadioBox panel"><h3>Playlist MPBP440 sur Spotify</h3><p>Écoute la sélection officielle directement depuis le site.</p><iframe style="border-radius:18px" src="about:blank" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+  </section>
+
+  <section class="section v11-links-section" id="liens">
     <p class="sup">Liens officiels</p>
     <h2>Plateformes</h2>
     <div id="officialLinks" class="linksGrid"></div>
   </section>
 
-  <section class="section panel" id="application">
+  <section class="section panel v11-app-section" id="application">
     <p class="sup">Application</p>
     <h2>Installer l’application</h2>
     <p>Sur Android ou ordinateur, utilisez le bouton d’installation du navigateur. Sur iPhone, ouvrez Safari puis utilisez « Sur l’écran d’accueil ».</p>
   </section>
 </main>
 
-<footer class="footer v85-footer"><div><strong>MPBP440 Corp.</strong><span>Portail musical officiel</span></div><nav aria-label="Footer public"><a href="/#artistes">Artistes</a><a href="/music/index.html#morceaux">Music Hub</a><a href="/mpbp-tv/index.html">MPBP TV</a><a href="/#application">Application</a><a href="mailto:mpbp97440@gmail.com">Contact</a></nav></footer>
-<script src="/script.js?v=hotfix-actus-ux-202607"></script>
+<footer class="footer v85-footer v11-footer"><div><strong>MPBP440 Corp. 2026</strong><span>Music • Power • Believe • Purpose</span></div><nav aria-label="Footer public"><a href="/#sortie">Sorties</a><a href="/#artistes">Artistes</a><a href="/music/index.html#morceaux">Music Hub</a><a href="/mpbp-tv/index.html">MPBP TV</a><a href="/#actus">Actualités</a><a href="mailto:mpbp97440@gmail.com">Contact</a></nav></footer>
+<script src="/script.js?v=homepage-restructure-v11-202607"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "hotfix-actus-ux-202607";
+const MPBP_PUBLIC_VERSION = "homepage-restructure-v11-202607";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -215,6 +215,7 @@ function parseEventDate(item={}){
 }
 
 function isCurrentEvent(item={}){
+  if(cleanKey(item.id).includes("live-tiktok-makeda-muse-2026-07-11")) return true;
   const date = parseEventDate(item);
   if(!date) return true;
   return date.getTime() >= Date.now();
@@ -278,6 +279,26 @@ function renderNextRelease(data={}){
 async function loadData(){
   try{
     const data = await fetch(`/data.json?v=${MPBP_PUBLIC_VERSION}`, {cache:"no-store"}).then(r=>r.json());
+
+    const availableReleasesGrid = document.getElementById("availableReleasesGrid");
+    if(availableReleasesGrid){
+      const priorityIds = ["brainrot-society-2-0", "le-systeme", "je-sais-que-tu-sais"];
+      const tracks = (data.tracks || []).filter(isPublicItem);
+      const selected = priorityIds
+        .map(id => tracks.find(track => cleanKey(track.id) === cleanKey(id) || cleanKey(track.title) === cleanKey(id)))
+        .filter(Boolean);
+      const releases = selected.length ? selected : tracks.slice(0, 3);
+      availableReleasesGrid.innerHTML = releases.map(track => `
+        <article class="v11ReleaseCard panel">
+          <img src="${mediaSrc(track.cover)}" alt="${track.title}" loading="lazy" decoding="async">
+          <div>
+            <p class="sup">${track.artist || "MPBP440"} • ${track.status || "Disponible"}</p>
+            <h3>${track.title}</h3>
+            <p>${track.description || "Sortie officielle disponible sur les plateformes."}</p>
+            <div class="platforms">${orderedLinksHtml(itemLinks(track, data))}</div>
+          </div>
+        </article>`).join("");
+    }
 
     const f = data.featured;
     const featuredCard = document.getElementById("featuredCard");

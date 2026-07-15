@@ -1,5 +1,25 @@
 [
   {
+    "id": "sparetdee-dois-je-me-taire-pre-sortie-20260730",
+    "date": "2026-07-16",
+    "type": "sortie",
+    "title": "Dois-je me taire ? arrive le 30 juillet",
+    "message": "Prochaine sortie : « Dois-je me taire ? » de Sparetdee Simon arrive sur toutes les plateformes le 30 juillet 2026.",
+    "url": "/#avenir",
+    "image": "assets/releases/sparetdee-simon/dois-je-me-taire-pre-sortie.png",
+    "priority": "high"
+  },
+  {
+    "id": "sparetdee-dois-je-me-taire-clip-202607",
+    "date": "2026-07-16",
+    "type": "clip",
+    "title": "Nouveau clip exclusif : « Dois-je me taire ? »",
+    "message": "Nouveau clip exclusif : « Dois-je me taire ? » de Sparetdee Simon est disponible dès maintenant sur MPBP440.com.",
+    "url": "/mpbp-tv/index.html#clip-dois-je-me-taire",
+    "image": "assets/clips/sparetdee-simon/dois-je-me-taire-cover.png",
+    "priority": "high"
+  },
+  {
     "id": "makeda-jexiste-exclusive-clip-202607",
     "date": "2026-07-15",
     "type": "clip",

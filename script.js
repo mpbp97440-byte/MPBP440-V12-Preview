@@ -1,5 +1,5 @@
 let allTracks = [];
-const MPBP_PUBLIC_VERSION = "mobile-hotfix-v11-202607";
+const MPBP_PUBLIC_VERSION = "dois-je-me-taire-v11-202607";
 const musicHubState = {query:"", artist:"all", status:"all", sort:"source"};
 
 function safeText(value){
@@ -319,16 +319,26 @@ async function loadData(){
     const upcomingGrid = document.getElementById("upcomingGrid");
     if(upcomingGrid){
       const upcoming = (data.upcoming || []).filter(isPublicItem);
-      upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>`
+      upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>{
+        const target = parseReleaseDate(x.date);
+        const timer = target ? `<div class="miniCountdown" data-date="${target.toISOString()}" aria-label="Compte a rebours ${safeText(x.title)}">
+          <div><strong>00</strong><span>Jours</span></div>
+          <div><strong>00</strong><span>Heures</span></div>
+          <div><strong>00</strong><span>Minutes</span></div>
+          <div><strong>00</strong><span>Secondes</span></div>
+        </div>` : "";
+        return `
         <article class="time-card">
           <img src="${mediaSrc(x.cover)}" alt="${x.title}" loading="lazy" decoding="async">
           <div class="time-body">
-            <p class="sup">${x.artist || "MPBP 440"} • Étape ${i+1}</p>
+            <p class="sup">${x.artist || "MPBP 440"} &bull; Etape ${i+1}</p>
             <h3>${x.title}</h3>
             <p><strong>${x.date || ""}</strong></p>
             <p>${x.description || ""}</p>
+            ${timer}
           </div>
-        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochaines sorties seront annoncees ici.", "#morceaux", "Voir les morceaux");
+        </article>`;
+      }).join("") : emptyStateHtml("Contenu bientot disponible : les prochaines sorties seront annoncees ici.", "#morceaux", "Voir les morceaux");
     }
 
     const eventsGrid = document.getElementById("eventsGrid");
@@ -1233,6 +1243,7 @@ function labelForNewsType(type){
 
 function defaultNewsUrl(item={}){
   const text = cleanKey(`${item.title || ""} ${item.text || ""}`);
+  if(text.includes("dois je me taire")) return "/mpbp-tv/index.html#clip-dois-je-me-taire";
   if(text.includes("j existe") || text.includes("jexiste")) return "/mpbp-tv/index.html#clip-j-existe";
   if(text.includes("je sais que tu sais")) return "/mpbp-tv/index.html#clip-je-sais-que-tu-sais";
   if(text.includes("brainrot society 2.0")) return "/music/index.html#morceaux";

@@ -37,9 +37,11 @@
 <link rel="stylesheet" href="/assets/css/v12-components.css?v=12-lot1">
 <link rel="stylesheet" href="/assets/css/v12-layout.css?v=12-lot1">
 <link rel="stylesheet" href="/assets/css/v12-responsive.css?v=12-lot1">
+<link rel="stylesheet" href="/assets/css/v12-mpbp-tv.css?v=12-lot3">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/assets/icons/mpbp440-icon.svg" type="image/svg+xml">
 <script src="/assets/js/v12-navigation.js?v=12-lot1" defer></script>
+<script src="/assets/js/v12-mpbp-tv.js?v=12-lot3" defer></script>
 </head>
 <body class="v95-tv-body v12-shell">
 <a class="v12-skip-link" href="#contenu-principal">Aller au contenu principal</a>
@@ -50,15 +52,15 @@
   <button class="menuBtn v12-menu-button" id="menuBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="v12MobileMenu" data-v647="1" data-v94-menu="1" data-v12-menu-toggle><span class="v12-menu-button__icon" aria-hidden="true"></span></button>
 </header>
 <div class="v12-mobile-menu" id="v12MobileMenu" data-v12-mobile-menu aria-hidden="true" hidden><div class="v12-mobile-menu__surface" role="dialog" aria-modal="true" aria-labelledby="v12MobileMenuTitle"><div class="v12-mobile-menu__head"><h2 id="v12MobileMenuTitle">Navigation MPBP440</h2><button class="v12-button v12-button--ghost v12-button--icon" type="button" aria-label="Fermer le menu" data-v12-menu-close>×</button></div><div class="v12-mobile-menu__scroll" data-v12-navigation><div class="v12-mobile-menu__group"><p class="v12-mobile-menu__label">Principal</p><nav class="v12-mobile-menu__nav" aria-label="Navigation mobile principale"><a href="/#home">Accueil</a><a href="/#sortie">Sorties</a><a href="/#avenir">À venir</a><a href="/mpbp-tv/index.html">MPBP TV</a><a href="/#artistes">Artistes</a><a href="/#actus">Actus</a><a href="/#events">Événements</a><a href="/#galerie">Galerie</a><a href="/#radio">Radio</a></nav></div><div class="v12-mobile-menu__group"><p class="v12-mobile-menu__label">Label et autres accès</p><nav class="v12-mobile-menu__nav" aria-label="Navigation mobile secondaire"><a href="/#label">Label</a><a href="/music/index.html#morceaux">Morceaux</a><a href="/music/index.html#morceaux">Recherche</a><a href="/#clips">Clips</a><a href="/#liens">Liens</a><a href="/#application">Application</a><a href="/members/index.html">Mon espace</a><a href="/telechargements/index.html">Téléchargements</a></nav></div></div></div></div>
-<main class="tvPage v85-tv-page" id="contenu-principal">
-  <section class="section panel tvHero v85-tv-hero">
+<main class="tvPage v85-tv-page v12-tv" id="contenu-principal">
+  <section class="section panel tvHero v85-tv-hero v12-tv-hero">
     <div>
       <p class="sup">MPBP TV</p>
-      <h1>Plateforme vidéo officielle</h1>
-      <p>Clips, lives, archives et exclusivités du label MPBP440 dans une présentation plus cinéma.</p>
+      <p class="v12-eyebrow">MPBP TV</p><h1>La scène vidéo officielle</h1>
+      <p>Clips exclusifs et univers visuels du label MPBP440.</p>
     </div>
     <div class="v85-tv-badges"><span>Exclusif</span><span>Clip officiel</span><span>Bientôt</span></div>
-  </section>
+  </section><nav class="v12-tv-playlist" aria-label="Playlist MPBP TV"><a href="#l-argent">L’Argent</a><a href="#clip-je-sais-que-tu-sais">Je sais que tu sais</a><a href="#clip-j-existe">J’existe</a><a href="#clip-dois-je-me-taire">Dois-je me taire ?</a></nav>
 
   <section class="section panel exclusiveVideo tvFeatured v85-featured-video v98-exclusive-clip" id="l-argent">
     <div class="exclusiveVideoText">
@@ -67,7 +69,7 @@
       <p class="sup">Sparetdee Simon — M.P.B.P 440 Corp.2026</p>
       <p>Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.</p>
       <div class="v98-clip-actions">
-        <a class="btn primary" href="#l-argent">Regarder</a>
+        <button class="btn primary" type="button" data-v12-play="#l-argent">Regarder</button>
         <button
           class="btn v98-share-btn"
           type="button"
@@ -78,7 +80,7 @@
       </div>
       <p class="v98-share-feedback" aria-live="polite"></p>
     </div>
-    <video class="siteVideo" controls preload="metadata" playsinline poster="/assets/covers/largent-officiel.webp">
+    <video class="siteVideo" controls preload="none" playsinline poster="/assets/covers/largent-officiel.webp">
       <source src="/assets/videos/l-argent.mp4" type="video/mp4">
     </video>
   </section>
@@ -90,7 +92,7 @@
       <p class="sup">Juste Une Plume — M.P.B.P 440 Corp.2026</p>
       <p>Un clip exclusif MPBP TV signé Juste Une Plume. Entre sensibilité, tension poétique et vérité intérieure, "Je sais que tu sais" prolonge l'univers de l'artiste avec une image forte et une atmosphère intime.</p>
       <div class="v98-clip-actions">
-        <a class="btn primary" href="#clip-je-sais-que-tu-sais">Regarder le clip</a>
+        <button class="btn primary" type="button" data-v12-play="#clip-je-sais-que-tu-sais">Regarder le clip</button>
         <button
           class="btn v98-share-btn"
           type="button"
@@ -102,7 +104,7 @@
       </div>
       <p class="v98-share-feedback" aria-live="polite"></p>
     </div>
-    <video class="siteVideo siteVideoPortrait" controls preload="metadata" playsinline poster="/assets/covers/je-sais-juste-une-plume.webp">
+    <video class="siteVideo siteVideoPortrait" controls preload="none" playsinline poster="/assets/covers/je-sais-juste-une-plume.webp">
       <source src="/assets/videos/juste-une-plume/je-sais-que-tu-sais-clip-exclusif-2026.mp4" type="video/mp4">
     </video>
   </section>
@@ -114,7 +116,7 @@
       <p class="sup">Makéda Muse — M.P.B.P 440 Corp.2026</p>
       <p>Clip exclusif disponible uniquement sur MPBP440.com. Une immersion visuelle sensible et intense dans l’univers de Makéda Muse.</p>
       <div class="v98-clip-actions">
-        <a class="btn primary" href="#clip-j-existe">Voir le clip exclusif</a>
+        <button class="btn primary" type="button" data-v12-play="#clip-j-existe">Voir le clip exclusif</button>
         <button
           class="btn v98-share-btn"
           type="button"
@@ -127,7 +129,7 @@
       <p class="v98-share-feedback" aria-live="polite"></p>
     </div>
     <div class="videoPlaybackBox">
-      <video class="siteVideo" controls preload="metadata" playsinline poster="/assets/clips/makeda-muse/j-existe-cover.png">
+      <video class="siteVideo" controls preload="none" playsinline poster="/assets/clips/makeda-muse/j-existe-cover.png">
         <source src="/assets/clips/makeda-muse/j-existe-clip-exclusif-2026.mp4" type="video/mp4">
       </video>
       <div class="videoUtilityActions">
@@ -144,7 +146,7 @@
       <p class="sup">Sparetdee Simon — M.P.B.P 440 Corp.2026</p>
       <p>Découvrez en exclusivité sur MPBP440.com le clip officiel « Dois-je me taire ? » de Sparetdee Simon.</p>
       <div class="v98-clip-actions">
-        <a class="btn primary" href="#clip-dois-je-me-taire">Voir le clip</a>
+        <button class="btn primary" type="button" data-v12-play="#clip-dois-je-me-taire">Voir le clip</button>
         <button
           class="btn v98-share-btn"
           type="button"
@@ -157,7 +159,7 @@
       <p class="v98-share-feedback" aria-live="polite"></p>
     </div>
     <div class="videoPlaybackBox">
-      <video class="siteVideo" controls preload="metadata" playsinline poster="/assets/clips/sparetdee-simon/dois-je-me-taire-cover.png">
+      <video class="siteVideo" controls preload="none" playsinline poster="/assets/clips/sparetdee-simon/dois-je-me-taire-cover.png">
         <source src="/assets/clips/sparetdee-simon/dois-je-me-taire-clip-exclusif.mp4" type="video/mp4">
       </video>
       <div class="videoUtilityActions">
@@ -167,10 +169,10 @@
     </div>
   </section>
 
-  <section class="section tvBlock v85-video-shelf">
+  <section class="section tvBlock v85-video-shelf v12-tv-suggestions">
     <p class="sup">Clips officiels</p>
     <h2>Vidéos du label</h2>
-    <div id="videoList" class="videoGrid"></div>
+    <div class="v12-tv-suggestion-grid"><a href="#l-argent">Sparetdee Simon · L’Argent</a><a href="#clip-je-sais-que-tu-sais">Juste Une Plume · Je sais que tu sais</a><a href="#clip-j-existe">Makéda Muse · J’existe</a><a href="#clip-dois-je-me-taire">Sparetdee Simon · Dois-je me taire ?</a></div>
   </section>
 
   <section class="section panel tvSplit v85-tv-split">

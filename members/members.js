@@ -31,7 +31,7 @@ function renderMember(){
   historyCount.textContent = hist.length;
   notifCount.textContent = notifs.length;
 
-  favoritesList.innerHTML = favs.length ? favs.map(f => `<article><p class="sup">${f.type}</p><h3>${f.title}</h3><p>${f.meta||""}</p>${f.url?`<a class="btn ghost" href="${f.url}">Ouvrir</a>`:""}<button class="btn ghost" onclick="quickFav('${f.type.replace(/'/g,"\\'")}','${f.title.replace(/'/g,"\\'")}','${(f.meta||"").replace(/'/g,"\\'")}','${(f.url||"").replace(/'/g,"\\'")}')">Retirer</button></article>`).join("") : "<p>Aucun favori pour le moment.</p>";
+  favoritesList.innerHTML = favs.length ? favs.map(f => `<article><p class="sup">${f.type}</p><h3>${f.title}</h3><p>${f.meta||""}</p>${f.url?`<a class="btn ghost" href="${f.url}">Ouvrir</a>`:""}<button class="btn ghost" onclick="quickFav('${f.type.replace(/'/MPBP440-V12-Preview/g,"\\'")}','${f.title.replace(/'/MPBP440-V12-Preview/g,"\\'")}','${(f.meta||"").replace(/'/MPBP440-V12-Preview/g,"\\'")}','${(f.url||"").replace(/'/MPBP440-V12-Preview/g,"\\'")}')">Retirer</button></article>`).join("") : "<p>Aucun favori pour le moment.</p>";
 
   historyList.innerHTML = hist.length ? hist.slice(0,12).map(h => `<article><p class="sup">${h.type||"page"}</p><h3>${h.title}</h3><p>${new Date(h.date).toLocaleString()}</p><a class="btn ghost" href="${h.url}">Revoir</a></article>`).join("") : "<p>Aucun historique pour le moment.</p>";
 }

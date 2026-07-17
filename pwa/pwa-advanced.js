@@ -10,7 +10,7 @@
     splash.className = "mpbp-splash";
     splash.innerHTML = `
       <div>
-        <img src="/assets/icons/mpbp440-icon.svg" alt="MPBP440">
+        <img src="/MPBP440-V12-Preview/assets/icons/mpbp440-icon.svg" alt="MPBP440">
         <h1>M.P.B.P 440</h1>
         <p>PORTAIL MUSICAL OFFICIEL</p>
       </div>`;
@@ -54,7 +54,7 @@
     }
 
     if("serviceWorker" in navigator){
-      navigator.serviceWorker.register("/sw.js").then(reg => {
+      navigator.serviceWorker.register("/MPBP440-V12-Preview/sw.js").then(reg => {
         reg.addEventListener("updatefound", () => {
           addLocalNotification("update", "Mise à jour disponible", "Une nouvelle version de MPBP440 est en préparation.");
         });

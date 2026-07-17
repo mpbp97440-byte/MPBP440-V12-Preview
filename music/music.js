@@ -43,8 +43,8 @@ function renderMusic(){
         <h3>${t.title}</h3>
         <p>${t.artist}</p>
         <p>${t.description||""}</p>
-        <button class="btn small" onclick='playTrack(${JSON.stringify(t).replace(/'/g,"&apos;")})'>Sélectionner</button>
-        <button class="btn ghost small" onclick='toggleFav(${JSON.stringify(t).replace(/'/g,"&apos;")})'>${isFav(t.id)?"Retirer favori":"Favori"}</button>
+        <button class="btn small" onclick='playTrack(${JSON.stringify(t).replace(/'/MPBP440-V12-Preview/g,"&apos;")})'>Sélectionner</button>
+        <button class="btn ghost small" onclick='toggleFav(${JSON.stringify(t).replace(/'/MPBP440-V12-Preview/g,"&apos;")})'>${isFav(t.id)?"Retirer favori":"Favori"}</button>
         ${t.lyrics?`<a class="btn ghost small" href="../${t.lyrics}">Paroles</a>`:""}
         <div class="platforms">${platformButtons(t.links)}</div>
       </div>

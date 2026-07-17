@@ -1,12 +1,12 @@
 const DATA_FILES = {
-  site:"/data.json",
-  music:"/data/music-library.json",
-  releases:"/data/releases.json",
-  countdowns:"/data/countdowns.json",
-  videos:"/data/videos.json",
-  gallery:"/data/gallery.json",
-  events:"/data/events.json",
-  news:"/data/news.json"
+  site:"/MPBP440-V12-Preview/data.json",
+  music:"/MPBP440-V12-Preview/data/music-library.json",
+  releases:"/MPBP440-V12-Preview/data/releases.json",
+  countdowns:"/MPBP440-V12-Preview/data/countdowns.json",
+  videos:"/MPBP440-V12-Preview/data/videos.json",
+  gallery:"/MPBP440-V12-Preview/data/gallery.json",
+  events:"/MPBP440-V12-Preview/data/events.json",
+  news:"/MPBP440-V12-Preview/data/news.json"
 };
 
 const state = {
@@ -49,7 +49,7 @@ function cleanLinks(links){
 function ytId(url){
   try{
     const parsed = new URL(url);
-    if(parsed.hostname.includes("youtu.be")) return parsed.pathname.replace("/","");
+    if(parsed.hostname.includes("youtu.be")) return parsed.pathname.replace("/MPBP440-V12-Preview/","");
     return parsed.searchParams.get("v") || "";
   }catch(e){ return ""; }
 }
@@ -169,7 +169,7 @@ function renderDashboard(){
   ];
   $("previewCards").innerHTML = items.map(card => `
     <article class="preview-card">
-      <img src="/${card.image || "assets/brand/mpbp440-official-logo.jpg"}" alt="">
+      <img src="/MPBP440-V12-Preview/${card.image || "assets/brand/mpbp440-official-logo.jpg"}" alt="">
       <div><h3>${card.title || ""}</h3><p>${card.sub || ""}</p></div>
     </article>`).join("");
 }

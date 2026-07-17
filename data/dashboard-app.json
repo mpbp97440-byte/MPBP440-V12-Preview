@@ -5,31 +5,31 @@
       "icon": "🎵",
       "title": "Morceaux",
       "text": "Catalogue officiel MPBP440.",
-      "url": "/music/index.html"
+      "url": "/MPBP440-V12-Preview/music/index.html"
     },
     {
       "icon": "📺",
       "title": "MPBP TV",
       "text": "Clips et exclusivités.",
-      "url": "/mpbp-tv/index.html"
+      "url": "/MPBP440-V12-Preview/mpbp-tv/index.html"
     },
     {
       "icon": "📰",
       "title": "Actualités",
       "text": "Annonces et notifications.",
-      "url": "/notifications/index.html"
+      "url": "/MPBP440-V12-Preview/notifications/index.html"
     },
     {
       "icon": "📅",
       "title": "À venir",
       "text": "Prochaines sorties.",
-      "url": "/music/index.html#upcoming"
+      "url": "/MPBP440-V12-Preview/music/index.html#upcoming"
     },
     {
       "icon": "🔴",
       "title": "Événements",
       "text": "Lives et archives.",
-      "url": "/live/index.html"
+      "url": "/MPBP440-V12-Preview/live/index.html"
     }
   ]
 }

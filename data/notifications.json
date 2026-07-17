@@ -5,7 +5,7 @@
     "type": "sortie",
     "title": "Dois-je me taire ? arrive le 30 juillet",
     "message": "Prochaine sortie : « Dois-je me taire ? » de Sparetdee Simon arrive sur toutes les plateformes le 30 juillet 2026.",
-    "url": "/#avenir",
+    "url": "/MPBP440-V12-Preview/#avenir",
     "image": "assets/releases/sparetdee-simon/dois-je-me-taire-pre-sortie.png",
     "priority": "high"
   },
@@ -15,7 +15,7 @@
     "type": "clip",
     "title": "Nouveau clip exclusif : « Dois-je me taire ? »",
     "message": "Nouveau clip exclusif : « Dois-je me taire ? » de Sparetdee Simon est disponible dès maintenant sur MPBP440.com.",
-    "url": "/mpbp-tv/index.html#clip-dois-je-me-taire",
+    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-dois-je-me-taire",
     "image": "assets/clips/sparetdee-simon/dois-je-me-taire-cover.png",
     "priority": "high"
   },
@@ -25,7 +25,7 @@
     "type": "clip",
     "title": "Nouveau clip exclusif : J’existe",
     "message": "Makéda Muse dévoile son clip exclusif « J’existe », disponible dès maintenant en exclusivité sur MPBP440.com.",
-    "url": "/mpbp-tv/index.html#clip-j-existe",
+    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-j-existe",
     "image": "assets/clips/makeda-muse/j-existe-cover.png",
     "priority": "high"
   },
@@ -35,7 +35,7 @@
     "type": "sortie",
     "title": "Je laisse la porte ouverte / J'existe arrive le 25 juillet",
     "message": "Makéda Muse prépare une double pré-sortie officielle le 25 juillet 2026 : Je laisse la porte ouverte et J'existe.",
-    "url": "/#avenir",
+    "url": "/MPBP440-V12-Preview/#avenir",
     "image": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
     "priority": "high"
   },
@@ -45,7 +45,7 @@
     "type": "clip",
     "title": "Clip exclusif : Je sais que tu sais",
     "message": "Le clip exclusif Je sais que tu sais de Juste Une Plume est disponible sur MPBP TV avec un lien de repartage officiel.",
-    "url": "/mpbp-tv/index.html#clip-je-sais-que-tu-sais",
+    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-je-sais-que-tu-sais",
     "image": "assets/covers/je-sais-juste-une-plume.webp",
     "priority": "high"
   },
@@ -55,7 +55,7 @@
     "type": "event",
     "title": "Live TikTok MPBP440 à 21h00",
     "message": "Live spécial autour de BrainRot Society 2.0, Makéda Muse, Jour de pluie, Sixième Sens et du clip Je sais que tu sais.",
-    "url": "/#events",
+    "url": "/MPBP440-V12-Preview/#events",
     "image": "assets/makeda-muse/live-tiktok-2026-07-11.png",
     "priority": "high"
   },
@@ -65,7 +65,7 @@
     "type": "sortie",
     "title": "Jour de pluie et Sixième Sens arrivent bientôt",
     "message": "Makéda Muse prépare deux pré-sorties officielles : Jour de pluie le 21 juillet 2026, puis Sixième Sens le 23 juillet 2026 sur toutes les plateformes.",
-    "url": "/#avenir",
+    "url": "/MPBP440-V12-Preview/#avenir",
     "image": "assets/makeda-muse/jour-de-pluie-pre-sortie.png",
     "priority": "high"
   },
@@ -75,7 +75,7 @@
     "type": "artiste",
     "title": "Makéda Muse rejoint officiellement MPBP440",
     "message": "Portée par une écriture sensible et inspirée, Makéda Muse apporte au label une nouvelle couleur artistique. Sa symbolique est la clé de sol : musique, ouverture et inspiration.",
-    "url": "/artistes/makeda-muse.html",
+    "url": "/MPBP440-V12-Preview/artistes/makeda-muse.html",
     "image": "assets/makeda-muse/makeda-muse-profile.png",
     "priority": "high"
   }

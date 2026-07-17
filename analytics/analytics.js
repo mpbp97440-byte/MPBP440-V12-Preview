@@ -1,23 +1,23 @@
 /* MPBP440 Analytics Dashboard — V5.4 */
 const NS = "mpbp440-official";
 const trackedPages = [
-  ["Accueil", "/"],
-  ["Application", "/application/index.html"],
-  ["Music Hub", "/music/index.html"],
-  ["Live Center", "/live/index.html"],
-  ["Galerie", "/galerie/index.html"],
-  ["Sparetdee Simon", "/artistes/sparetdee-simon.html"],
-  ["Juste Une Plume", "/artistes/juste-une-plume.html"]
+  ["Accueil", "/MPBP440-V12-Preview/"],
+  ["Application", "/MPBP440-V12-Preview/application/index.html"],
+  ["Music Hub", "/MPBP440-V12-Preview/music/index.html"],
+  ["Live Center", "/MPBP440-V12-Preview/live/index.html"],
+  ["Galerie", "/MPBP440-V12-Preview/galerie/index.html"],
+  ["Sparetdee Simon", "/MPBP440-V12-Preview/artistes/sparetdee-simon.html"],
+  ["Juste Une Plume", "/MPBP440-V12-Preview/artistes/juste-une-plume.html"]
 ];
 
 function slugPath(path){
-  let p = (path || "/").replace(/^\//,"").replace(/\/$/,"");
+  let p = (path || "/MPBP440-V12-Preview/").replace(/^\//,"").replace(/\/$/,"");
   if(!p) p = "home";
   return p.replace(/[^a-zA-Z0-9]+/g,"_").toLowerCase();
 }
 async function getCount(key){
   try{
-    const r = await fetch("https://api.countapi.xyz/get/" + NS + "/" + encodeURIComponent(key), {cache:"no-store", mode:"cors"});
+    const r = await fetch("https://api.countapi.xyz/get/" + NS + "/MPBP440-V12-Preview/" + encodeURIComponent(key), {cache:"no-store", mode:"cors"});
     if(!r.ok) throw new Error("count api unavailable");
     const data = await r.json();
     return data.value || 0;

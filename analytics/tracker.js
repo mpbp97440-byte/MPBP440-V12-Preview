@@ -6,7 +6,7 @@
   const LOCAL_INSTALL = "mpbp440_pwa_install_count";
 
   function slugPath(path){
-    let p = (path || "/").replace(/^\//,"").replace(/\/$/,"");
+    let p = (path || "/MPBP440-V12-Preview/").replace(/^\//,"").replace(/\/$/,"");
     if(!p) p = "home";
     return p.replace(/[^a-zA-Z0-9]+/g,"_").toLowerCase();
   }
@@ -21,7 +21,7 @@
 
   async function countApiHit(key){
     try{
-      await fetch("https://api.countapi.xyz/hit/" + NS + "/" + encodeURIComponent(key), {cache:"no-store", mode:"cors"});
+      await fetch("https://api.countapi.xyz/hit/" + NS + "/MPBP440-V12-Preview/" + encodeURIComponent(key), {cache:"no-store", mode:"cors"});
     }catch(e){}
   }
 

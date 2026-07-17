@@ -37,7 +37,7 @@ function renderSpace(){
   document.querySelectorAll(".notify-grid input").forEach(input => input.checked = prefs.includes(input.value));
 
   const favBox = document.getElementById("favoritesList");
-  favBox.innerHTML = favs.length ? favs.map(f => `<article><p class="sup">${f.type}</p><h3>${f.title}</h3><p>${f.meta||""}</p>${f.url?`<a class="btn ghost" href="${f.url}">Ouvrir</a>`:""}<button class="btn ghost" onclick="mpbpRemoveFavorite('${f.key.replace(/'/g,"\\'")}'); renderSpace();">Retirer</button></article>`).join("") : "<p>Aucun favori pour le moment.</p>";
+  favBox.innerHTML = favs.length ? favs.map(f => `<article><p class="sup">${f.type}</p><h3>${f.title}</h3><p>${f.meta||""}</p>${f.url?`<a class="btn ghost" href="${f.url}">Ouvrir</a>`:""}<button class="btn ghost" onclick="mpbpRemoveFavorite('${f.key.replace(/'/MPBP440-V12-Preview/g,"\\'")}'); renderSpace();">Retirer</button></article>`).join("") : "<p>Aucun favori pour le moment.</p>";
 
   const histBox = document.getElementById("historyList");
   histBox.innerHTML = hist.length ? hist.slice(0,12).map(h => `<article><h3>${h.title}</h3><p>${new Date(h.date).toLocaleString()}</p><a class="btn ghost" href="${h.url}">Revoir</a></article>`).join("") : "<p>Aucun historique pour le moment.</p>";

@@ -154,9 +154,9 @@ function addGallery(){
 function youtubeId(url){
   try{
     const u = new URL(url);
-    if(u.hostname.includes('youtu.be')) return u.pathname.replace('/','');
+    if(u.hostname.includes('youtu.be')) return u.pathname.replace('/MPBP440-V12-Preview/','');
     if(u.searchParams.get('v')) return u.searchParams.get('v');
-    if(u.pathname.includes('/shorts/')) return u.pathname.split('/shorts/')[1].split('/')[0];
+    if(u.pathname.includes('/MPBP440-V12-Preview/shorts/')) return u.pathname.split('/MPBP440-V12-Preview/shorts/')[1].split('/MPBP440-V12-Preview/')[0];
   }catch(e){}
   return '';
 }
@@ -249,7 +249,7 @@ function addReleasePack(){
   const cover = document.getElementById('releaseCover').value;
   const description = document.getElementById('releaseDescription').value;
   if(!artist || !title || !date){ alert('Artiste, titre et date obligatoires.'); return; }
-  const frDate = date.split('-').reverse().join('/');
+  const frDate = date.split('-').reverse().join('/MPBP440-V12-Preview/');
   const links = {
     spotify: document.getElementById('releaseSpotify').value,
     apple: document.getElementById('releaseApple').value,
@@ -274,7 +274,7 @@ function downloadEvents(){ downloadFile('events.json', drafts.events); }
 function parseDateFromRelease(item){
   if(item.isoDate) return item.isoDate;
   if(item.date && /^\d{2}\/\d{2}\/\d{4}$/.test(item.date)){
-    const [d,m,y] = item.date.split('/');
+    const [d,m,y] = item.date.split('/MPBP440-V12-Preview/');
     return `${y}-${m}-${d}`;
   }
   if(item.date && item.date.includes('T')) return item.date.split('T')[0];
@@ -330,7 +330,7 @@ function renderDashboardPro(){
         <p class="sup">${m.type}</p>
         <h3>${m.title || 'Sans titre'}</h3>
         <code>${m.path || ''}</code>
-        <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(m.path || '').replace(/'/g,"\\'")}')">Copier chemin</button>
+        <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(m.path || '').replace(/'/MPBP440-V12-Preview/g,"\\'")}')">Copier chemin</button>
       </article>
     `).join('') : '<p class="muted">Aucun média préparé dans les brouillons.</p>';
   }
@@ -420,7 +420,7 @@ function renderChecklist(){
   const saved = JSON.parse(localStorage.getItem("mpbp_checklist") || "{}");
   box.innerHTML = checklistItems.map((label, i) => `
     <label class="check-item">
-      <input type="checkbox" ${saved[label] ? "checked" : ""} onchange="toggleChecklist('${label.replace(/'/g,"\\'")}', this.checked)">
+      <input type="checkbox" ${saved[label] ? "checked" : ""} onchange="toggleChecklist('${label.replace(/'/MPBP440-V12-Preview/g,"\\'")}', this.checked)">
       <span>${label}</span>
     </label>
   `).join("");
@@ -508,7 +508,7 @@ function renderVisualMediaManager(){
         <h3>${m.title || "Sans titre"}</h3>
         <code>${m.path || ""}</code>
         <div>
-          <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(m.path || "").replace(/'/g,"\\'")}')">Copier chemin</button>
+          <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(m.path || "").replace(/'/MPBP440-V12-Preview/g,"\\'")}')">Copier chemin</button>
           ${m.source !== "prepared" ? `<button class="btn ghost" onclick="removeDraftItem('${m.source}', ${m.index})">Supprimer</button>` : ""}
         </div>
       </article>`;
@@ -529,7 +529,7 @@ function renderAdvancedVideoManager(){
         <p>${v.description || ""}</p>
         <code>${v.url || ""}</code>
         <div>
-          <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(v.url || "").replace(/'/g,"\\'")}')">Copier lien</button>
+          <button class="btn ghost" onclick="navigator.clipboard.writeText('${String(v.url || "").replace(/'/MPBP440-V12-Preview/g,"\\'")}')">Copier lien</button>
           <button class="btn ghost" onclick="drafts.videos.splice(${i},1); persist();">Supprimer</button>
         </div>
       </article>`;

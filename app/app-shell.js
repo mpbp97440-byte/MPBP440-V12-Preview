@@ -10,7 +10,7 @@
 
   function registerSW(){
     if(!("serviceWorker" in navigator)) return;
-    navigator.serviceWorker.register("/sw.js?v=6.0.4").then(function(reg){
+    navigator.serviceWorker.register("/MPBP440-V12-Preview/sw.js?v=6.0.4").then(function(reg){
       if(reg.waiting){
         reg.waiting.postMessage({type:"SKIP_WAITING"});
       }

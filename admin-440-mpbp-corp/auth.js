@@ -17,7 +17,7 @@ function setMsg(txt){ const el = document.getElementById("loginMsg"); if(el) el.
 function setAttempts(){
   const el = document.getElementById("attemptsMsg");
   if(!el) return;
-  el.textContent = "Tentatives restantes : " + Math.max(0, MAX_FAILS - getFail()) + "/" + MAX_FAILS;
+  el.textContent = "Tentatives restantes : " + Math.max(0, MAX_FAILS - getFail()) + "/MPBP440-V12-Preview/" + MAX_FAILS;
 }
 function addLog(type){
   let logs = [];

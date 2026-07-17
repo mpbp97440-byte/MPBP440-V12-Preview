@@ -1,20 +1,20 @@
 {
   "name": "MPBP440 — Portail Musical Officiel",
   "short_name": "MPBP440",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/MPBP440-V12-Preview/",
+  "scope": "/MPBP440-V12-Preview/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#050505",
   "icons": [
     {
-      "src": "/assets/icons/mpbp440-icon.svg",
+      "src": "/MPBP440-V12-Preview/assets/icons/mpbp440-icon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/assets/icons/mpbp440-maskable.svg",
+      "src": "/MPBP440-V12-Preview/assets/icons/mpbp440-maskable.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "maskable"

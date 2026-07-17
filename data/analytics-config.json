@@ -7,31 +7,31 @@
   "tracked_pages": [
     {
       "label": "Accueil",
-      "path": "/"
+      "path": "/MPBP440-V12-Preview/"
     },
     {
       "label": "Application",
-      "path": "/application/index.html"
+      "path": "/MPBP440-V12-Preview/application/index.html"
     },
     {
       "label": "Music Hub",
-      "path": "/music/index.html"
+      "path": "/MPBP440-V12-Preview/music/index.html"
     },
     {
       "label": "Live Center",
-      "path": "/live/index.html"
+      "path": "/MPBP440-V12-Preview/live/index.html"
     },
     {
       "label": "Galerie",
-      "path": "/galerie/index.html"
+      "path": "/MPBP440-V12-Preview/galerie/index.html"
     },
     {
       "label": "Sparetdee Simon",
-      "path": "/artistes/sparetdee-simon.html"
+      "path": "/MPBP440-V12-Preview/artistes/sparetdee-simon.html"
     },
     {
       "label": "Juste Une Plume",
-      "path": "/artistes/juste-une-plume.html"
+      "path": "/MPBP440-V12-Preview/artistes/juste-une-plume.html"
     }
   ]
 }

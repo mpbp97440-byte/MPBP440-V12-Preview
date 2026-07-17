@@ -31,8 +31,8 @@
     .filter((element) => !element.hidden && element.getClientRects().length > 0);
 
   const normalizedPath = (pathname) => {
-    const withoutIndex = pathname.replace(/\/index\.html$/, "/");
-    return withoutIndex.length > 1 ? withoutIndex.replace(/\/$/, "") : "/";
+    const withoutIndex = pathname.replace(/\/index\.html$/, "/MPBP440-V12-Preview/");
+    return withoutIndex.length > 1 ? withoutIndex.replace(/\/$/, "") : "/MPBP440-V12-Preview/";
   };
 
   const closeMore = ({ restoreFocus = false } = {}) => {
@@ -128,9 +128,9 @@
         return;
       }
       const linkPath = normalizedPath(url.pathname);
-      const isHomeLink = linkPath === "/" && (!url.hash || url.hash === "#home");
+      const isHomeLink = linkPath === "/MPBP440-V12-Preview/" && (!url.hash || url.hash === "#home");
       const current = linkPath === currentPath
-        && (currentPath !== "/" || isHomeLink)
+        && (currentPath !== "/MPBP440-V12-Preview/" || isHomeLink)
         && (!url.hash || url.hash === window.location.hash || (url.hash === "#home" && !window.location.hash));
       if (current) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");

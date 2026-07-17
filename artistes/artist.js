@@ -54,7 +54,7 @@ async function loadArtistReleases(){
             <p>${item.description || ""}</p>
             <p><strong>${item.date || ""}</strong></p>
             <div class="release-links">${linkButtons(item.links)}</div>
-            <button class="btn ghost small" onclick="addReleaseFavorite('${String(item.title || "").replace(/'/g,"\\'")}','${String(item.artist || "").replace(/'/g,"\\'")}')">Favori</button>
+            <button class="btn ghost small" onclick="addReleaseFavorite('${String(item.title || "").replace(/'/MPBP440-V12-Preview/g,"\\'")}','${String(item.artist || "").replace(/'/MPBP440-V12-Preview/g,"\\'")}')">Favori</button>
           </div>
         </article>
       `).join("") : "<p>Aucune sortie à afficher pour le moment.</p>";

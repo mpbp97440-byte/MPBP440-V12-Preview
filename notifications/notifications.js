@@ -3,8 +3,8 @@ function card(n){
   return `<article><p class="sup">${n.type||n.category||"info"}</p><h3>${n.title}</h3><p>${n.text||""}</p>${n.url?`<a class="btn ghost" href="${n.url}">Ouvrir</a>`:""}</article>`;
 }
 async function loadNotifications(){
-  const official = await loadJson("/data/notifications.json?v=6.2",[]);
-  const news = await loadJson("/data/news-feed.json?v=6.2",[]);
+  const official = await loadJson("/MPBP440-V12-Preview/data/notifications.json?v=6.2",[]);
+  const news = await loadJson("/MPBP440-V12-Preview/data/news-feed.json?v=6.2",[]);
   const local = mpbpGetLocalNotifications();
 
   officialNotifications.innerHTML = official.length ? official.map(card).join("") : "<p>Aucune annonce officielle.</p>";

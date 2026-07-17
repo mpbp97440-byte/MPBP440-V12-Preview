@@ -34,7 +34,7 @@ function prepareMedia(){
   if(!file){ alert("Choisis une image."); return; }
   const ext = (file.name.split(".").pop() || "png").toLowerCase();
   mediaName = slugify(title) + "." + ext;
-  mediaPath = folder + "/" + mediaName;
+  mediaPath = folder + "/MPBP440-V12-Preview/" + mediaName;
   mediaBlob = file;
   document.getElementById("mediaPath").textContent = mediaPath;
   const img = document.getElementById("mediaPreview");
@@ -78,7 +78,7 @@ function addArtist(){
 function ytId(url){
   try{
     const u=new URL(url);
-    if(u.hostname.includes("youtu.be")) return u.pathname.replace("/","");
+    if(u.hostname.includes("youtu.be")) return u.pathname.replace("/MPBP440-V12-Preview/","");
     return u.searchParams.get("v") || "";
   }catch(e){return "";}
 }

@@ -34,7 +34,7 @@ window.addEventListener("appinstalled", () => {
 document.addEventListener("DOMContentLoaded", () => {
   mpbpCreateInstallButton();
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("/sw.js")
+    navigator.serviceWorker.register("/MPBP440-V12-Preview/sw.js")
       .then(() => console.log("MPBP440 PWA active"))
       .catch(err => console.warn("MPBP440 PWA erreur:", err));
   }

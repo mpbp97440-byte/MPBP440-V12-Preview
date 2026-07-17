@@ -169,7 +169,7 @@ function renderDashboard(){
   ];
   $("previewCards").innerHTML = items.map(card => `
     <article class="preview-card">
-      <img src="/MPBP440-V12-Preview/${card.image || "assets/brand/mpbp440-official-logo.jpg"}" alt="">
+      <img src="/MPBP440-V12-Preview/${card.image || "assets/brand/mpbp440-corp-official.png"}" alt="">
       <div><h3>${card.title || ""}</h3><p>${card.sub || ""}</p></div>
     </article>`).join("");
 }

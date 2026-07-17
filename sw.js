@@ -1,4 +1,4 @@
-const MPBP_CACHE = "mpbp440-v12-0-1-preview-202607";
+const MPBP_CACHE = "mpbp440-v12-0-2-preview-202607";
 const PRECACHE = ["/MPBP440-V12-Preview/","/MPBP440-V12-Preview/index.html","/MPBP440-V12-Preview/offline.html","/MPBP440-V12-Preview/style.css","/MPBP440-V12-Preview/script.js","/MPBP440-V12-Preview/manifest.webmanifest","/MPBP440-V12-Preview/data.json","/MPBP440-V12-Preview/data/news.json","/MPBP440-V12-Preview/data/gallery.json","/MPBP440-V12-Preview/assets/icons/mpbp440-icon.svg"];
 self.addEventListener("install", event => { self.skipWaiting(); event.waitUntil(caches.open(MPBP_CACHE).then(cache => cache.addAll(PRECACHE))); });
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith("mpbp440-") && key !== MPBP_CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

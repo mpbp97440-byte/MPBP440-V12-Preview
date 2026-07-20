@@ -10,13 +10,13 @@ function cleanKey(value){
   return safeText(value).trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 }
 
-const fallbackLogo = "/MPBP440-V12-Preview/assets/brand/mpbp440-corp-official.png";
+const fallbackLogo = "/assets/brand/mpbp440-corp-official.png";
 
 function mediaSrc(value){
   const src = safeText(value).trim();
   if(!src) return fallbackLogo;
-  if(/^(https?:|data:|blob:)/i.test(src) || src.startsWith("/MPBP440-V12-Preview/")) return src;
-  return "/MPBP440-V12-Preview/" + src.replace(/^\.?\//,"");
+  if(/^(https?:|data:|blob:)/i.test(src) || src.startsWith("/")) return src;
+  return "/" + src.replace(/^\.?\//,"");
 }
 
 function fallbackImage(event){
@@ -179,7 +179,7 @@ function parseReleaseDate(value){
     const date = new Date(value);
     return isNaN(date) ? null : date;
   }
-  const parts = String(value).split("/MPBP440-V12-Preview/");
+  const parts = String(value).split("/");
   if(parts.length === 3){
     const [day, month, year] = parts.map(Number);
     const date = new Date(year, month - 1, day);
@@ -393,7 +393,7 @@ async function loadData(){
             <p>${e.description || ""}</p>
             <a class="btn primary" href="${e.url || "#"}">${e.buttonText || "Voir l’évènement"}</a>
           </div>
-        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains evenements MPBP440 seront annonces ici.", "/MPBP440-V12-Preview/mpbp-tv/index.html", "Ouvrir MPBP TV");
+        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains evenements MPBP440 seront annonces ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
     }
 
     allTracks = (data.tracks || []).filter(isPublicItem).map(t => ({...t, displayLinks: itemLinks(t, data)}));
@@ -409,7 +409,7 @@ async function loadData(){
             <iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="platforms"><a href="${v.url}" target="_blank" rel="noopener">${v.title}</a></div>
-        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains clips seront publies ici.", "/MPBP440-V12-Preview/mpbp-tv/index.html", "Ouvrir MPBP TV");
+        </article>`).join("") : emptyStateHtml("Contenu bientot disponible : les prochains clips seront publies ici.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
     }
 
     const galleryGrid = document.getElementById("galleryGrid");
@@ -495,7 +495,7 @@ function setupV94MusicHub(tracks=[]){
   const artists = Array.from(new Set(tracks.map(t => safeText(t.artist || "MPBP440")).filter(Boolean))).sort((a,b)=>a.localeCompare(b, "fr"));
   const controls = document.createElement("div");
   controls.className = "v94-music-tools";
-  const isMusicPage = location.pathname.includes("/MPBP440-V12-Preview/music/");
+  const isMusicPage = location.pathname.includes("/music/");
   controls.innerHTML = `
     <div class="v94-listen-now">
       <div>
@@ -504,8 +504,8 @@ function setupV94MusicHub(tracks=[]){
         <p>${isMusicPage ? "35 titres Sparetdee Simon et Je sais que tu sais, avec pochettes, liens plateformes et recherche accentuée." : "Une sélection du catalogue officiel. La page Music Hub contient les 36 cartes et tous les filtres."}</p>
       </div>
       <div class="v94-listen-actions">
-        <a class="btn primary" href="/MPBP440-V12-Preview/music/index.html#morceaux">Ouvrir Music Hub</a>
-        <a class="btn" href="/MPBP440-V12-Preview/mpbp-tv/index.html">Voir le clip L'Argent</a>
+        <a class="btn primary" href="/music/index.html#morceaux">Ouvrir Music Hub</a>
+        <a class="btn" href="/mpbp-tv/index.html">Voir le clip L'Argent</a>
       </div>
     </div>
     <div class="v94-filter-row" aria-label="Filtres du catalogue">
@@ -551,15 +551,15 @@ function applyV94MusicFilters(){
   if(musicHubState.sort === "artist") indexed.sort((a,b)=>safeText(a.track.artist).localeCompare(safeText(b.track.artist), "fr"));
   if(musicHubState.sort === "recent") indexed.sort((a,b)=>trackDateSortValue(b.track) - trackDateSortValue(a.track));
   if(musicHubState.sort === "source") indexed.sort((a,b)=>a.index - b.index);
-  const isMusicPage = location.pathname.includes("/MPBP440-V12-Preview/music/");
+  const isMusicPage = location.pathname.includes("/music/");
   const preview = !isMusicPage && !musicHubState.query ? indexed.slice(0, 6) : indexed;
   renderTracks(preview.map(item => item.track));
 }
 
 function redirectLegacyMusicHash(){
-  const path = location.pathname.replace(/\/index\.html$/,"/MPBP440-V12-Preview/");
-  if((path === "/MPBP440-V12-Preview/" || path === "") && cleanKey(location.hash) === "#morceaux"){
-    location.replace("/MPBP440-V12-Preview/music/index.html#morceaux");
+  const path = location.pathname.replace(/\/index\.html$/,"/");
+  if((path === "/" || path === "") && cleanKey(location.hash) === "#morceaux"){
+    location.replace("/music/index.html#morceaux");
   }
 }
 
@@ -753,16 +753,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/MPBP440-V12-Preview/sw.js").catch(() => {});
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
   });
 }
 
 function initMPBPAmbianceAudio(){
   if(document.getElementById("mpbpAudioControl")) return;
-  const ambiancePath = "/MPBP440-V12-Preview/assets/audio/mpbp-ambiance.mp3";
-  const jinglePath = "/MPBP440-V12-Preview/assets/audio/mpbp-intro-jingle.mp3";
-  const isSubPage = location.pathname.includes("/MPBP440-V12-Preview/artistes/");
-  const radioHref = isSubPage ? "../index.html#radio" : "/MPBP440-V12-Preview/#radio";
+  const ambiancePath = "/assets/audio/mpbp-ambiance.mp3";
+  const jinglePath = "/assets/audio/mpbp-intro-jingle.mp3";
+  const isSubPage = location.pathname.includes("/artistes/");
+  const radioHref = isSubPage ? "../index.html#radio" : "/#radio";
   const control = document.createElement("div");
   control.id = "mpbpAudioControl";
   control.className = "mpbpAudioControl";
@@ -1258,10 +1258,10 @@ async function initMPBPNotifications(){
     try{
       const options = {
         body: next.message || "Nouvelle notification MPBP440",
-        icon: "/MPBP440-V12-Preview/assets/brand/mpbp440-corp-official.png",
-        badge: "/MPBP440-V12-Preview/assets/brand/mpbp440-corp-official.png",
+        icon: "/assets/brand/mpbp440-corp-official.png",
+        badge: "/assets/brand/mpbp440-corp-official.png",
         tag: next.id,
-        data: {url: next.url || "/MPBP440-V12-Preview/"},
+        data: {url: next.url || "/"},
         renotify: false
       };
       if(navigator.serviceWorker?.ready){
@@ -1348,11 +1348,11 @@ function labelForNewsType(type){
 
 function defaultNewsUrl(item={}){
   const text = cleanKey(`${item.title || ""} ${item.text || ""}`);
-  if(text.includes("dois je me taire")) return "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-dois-je-me-taire";
-  if(text.includes("j existe") || text.includes("jexiste")) return "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-j-existe";
-  if(text.includes("je sais que tu sais")) return "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-je-sais-que-tu-sais";
-  if(text.includes("brainrot society 2.0")) return "/MPBP440-V12-Preview/music/index.html#morceaux";
-  if(text.includes("je laisse la porte ouverte")) return "/MPBP440-V12-Preview/artistes/makeda-muse.html";
+  if(text.includes("dois je me taire")) return "/mpbp-tv/index.html#clip-dois-je-me-taire";
+  if(text.includes("j existe") || text.includes("jexiste")) return "/mpbp-tv/index.html#clip-j-existe";
+  if(text.includes("je sais que tu sais")) return "/mpbp-tv/index.html#clip-je-sais-que-tu-sais";
+  if(text.includes("brainrot society 2.0")) return "/music/index.html#morceaux";
+  if(text.includes("je laisse la porte ouverte")) return "/artistes/makeda-muse.html";
   if(text.includes("live tiktok")) return "#journal";
   return "#journal";
 }
@@ -1372,7 +1372,7 @@ async function initMPBPNewsSection(){
     const response = await fetch(`/data/news.json?v=${MPBP_PUBLIC_VERSION}`, {cache:"no-store"});
     const news = response.ok ? await response.json() : [];
     if(!Array.isArray(news) || !news.length){
-      list.innerHTML = emptyStateHtml("Aucune actualité disponible pour le moment.", "/MPBP440-V12-Preview/music/index.html#morceaux", "Voir les morceaux");
+      list.innerHTML = emptyStateHtml("Aucune actualité disponible pour le moment.", "/music/index.html#morceaux", "Voir les morceaux");
       return;
     }
     const items = news.filter(item => item && !item.hidden)
@@ -1389,7 +1389,7 @@ async function initMPBPNewsSection(){
       </article>`;
     }).join("");
   }catch(error){
-    list.innerHTML = emptyStateHtml("Les actualités MPBP440 seront de nouveau disponibles dans un instant.", "/MPBP440-V12-Preview/mpbp-tv/index.html", "Ouvrir MPBP TV");
+    list.innerHTML = emptyStateHtml("Les actualités MPBP440 seront de nouveau disponibles dans un instant.", "/mpbp-tv/index.html", "Ouvrir MPBP TV");
   }
 }
 
@@ -1476,7 +1476,7 @@ function initMPBPTVControls(){
 
 async function loadLiveStatus(){
   try{
-    const res = await fetch("/MPBP440-V12-Preview/live_status.json?v=" + Date.now(), {cache:"no-store"});
+    const res = await fetch("/live_status.json?v=" + Date.now(), {cache:"no-store"});
     if(!res.ok) return;
     const live = await res.json();
     const card = document.getElementById("livePortalCard");
@@ -1529,30 +1529,30 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
   function normalizeLinks(){
     const routes=[
-      {keys:["accueil"],url:"/MPBP440-V12-Preview/#home"},
-      {keys:["label"],url:"/MPBP440-V12-Preview/#label"},
-      {keys:["sortie"],url:"/MPBP440-V12-Preview/#sortie"},
-      {keys:["a venir","à venir"],url:"/MPBP440-V12-Preview/#avenir"},
-      {keys:["evenements","événements","evenement","évènement"],url:"/MPBP440-V12-Preview/#events"},
-      {keys:["morceaux","music hub"],url:"/MPBP440-V12-Preview/music/index.html#morceaux"},
-      {keys:["mpbp tv"],url:"/MPBP440-V12-Preview/mpbp-tv/index.html"},
-      {keys:["radio"],url:"/MPBP440-V12-Preview/#radio"},
-      {keys:["actus","actualites","actualités"],url:"/MPBP440-V12-Preview/#actus"},
-      {keys:["artistes"],url:"/MPBP440-V12-Preview/#artistes"},
-      {keys:["recherche"],url:"/MPBP440-V12-Preview/music/index.html#morceaux"},
-      {keys:["clips"],url:"/MPBP440-V12-Preview/#clips"},
-      {keys:["galerie"],url:"/MPBP440-V12-Preview/#galerie"},
-      {keys:["liens"],url:"/MPBP440-V12-Preview/#liens"},
-      {keys:["application"],url:"/MPBP440-V12-Preview/#application"},
-      {keys:["mon espace","espace"],url:"/MPBP440-V12-Preview/members/index.html"},
-      {keys:["telechargements","téléchargements"],url:"/MPBP440-V12-Preview/telechargements/index.html"}
+      {keys:["accueil"],url:"/#home"},
+      {keys:["label"],url:"/#label"},
+      {keys:["sortie"],url:"/#sortie"},
+      {keys:["a venir","à venir"],url:"/#avenir"},
+      {keys:["evenements","événements","evenement","évènement"],url:"/#events"},
+      {keys:["morceaux","music hub"],url:"/music/index.html#morceaux"},
+      {keys:["mpbp tv"],url:"/mpbp-tv/index.html"},
+      {keys:["radio"],url:"/#radio"},
+      {keys:["actus","actualites","actualités"],url:"/#actus"},
+      {keys:["artistes"],url:"/#artistes"},
+      {keys:["recherche"],url:"/music/index.html#morceaux"},
+      {keys:["clips"],url:"/#clips"},
+      {keys:["galerie"],url:"/#galerie"},
+      {keys:["liens"],url:"/#liens"},
+      {keys:["application"],url:"/#application"},
+      {keys:["mon espace","espace"],url:"/members/index.html"},
+      {keys:["telechargements","téléchargements"],url:"/telechargements/index.html"}
     ];
     document.querySelectorAll(".topbar nav a,#mainNav a").forEach(a=>{
       const t=cleanText(a.textContent);
       for(const r of routes){if(r.keys.some(k=>t===cleanText(k))){a.setAttribute("href",r.url);break;}}
     });
     const tv=Array.from(document.querySelectorAll(".topbar nav a,#mainNav a")).filter(a=>cleanText(a.textContent)==="mpbp tv");
-    tv.forEach((a,i)=>{a.href="/MPBP440-V12-Preview/mpbp-tv/index.html";if(i>0)a.remove();});
+    tv.forEach((a,i)=>{a.href="/mpbp-tv/index.html";if(i>0)a.remove();});
   }
   function cleanPublicText(){
     const badPatterns=[/git/i,/assets/i,/mp4/i,/zone/i,/chemin/i,/compress/i,/html/i,/dev/i,/technique/i];
@@ -1563,13 +1563,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
   function removeAdmin(){document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());}
-  function fixBrokenImages(){document.querySelectorAll("img").forEach(img=>{if(!img.dataset.v647){img.dataset.v647="1";img.addEventListener("error",function(){this.src="/MPBP440-V12-Preview/assets/brand/mpbp440-corp-official.png";});}});}
+  function fixBrokenImages(){document.querySelectorAll("img").forEach(img=>{if(!img.dataset.v647){img.dataset.v647="1";img.addEventListener("error",function(){this.src="/assets/brand/mpbp440-corp-official.png";});}});}
   function apply(){fixMenu();normalizeLinks();cleanPublicText();removeAdmin();fixBrokenImages();}
   document.addEventListener("DOMContentLoaded",()=>{apply();setTimeout(apply,500);setTimeout(apply,1500);});
 })();
 
 // V6.4.8 — sorties/radio/nav public fixes
-document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());const navMap=[["morceaux","/MPBP440-V12-Preview/music/index.html#morceaux"],["recherche","/MPBP440-V12-Preview/music/index.html#morceaux"],["mpbp tv","/MPBP440-V12-Preview/mpbp-tv/index.html"],["actus","#actus"],["actualites","#actus"],["actualités","#actus"],["a venir","#avenir"],["à venir","#avenir"],["evenements","#events"],["événements","#events"]];document.querySelectorAll(".topbar nav a,#mainNav a").forEach(a=>{const t=(a.textContent||"").trim().toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");navMap.forEach(([k,u])=>{if(t===k.normalize("NFD").replace(/[\\u0300-\\u036f]/g,""))a.href=u;});});const radio=document.querySelector("#radio");if(radio&&!radio.querySelector("iframe")){radio.insertAdjacentHTML("beforeend",`<div class="spotifyRadioBox panel"><h3>Playlist MPBP440 sur Spotify</h3><p>Écoute la sélection officielle directement depuis le site.</p><iframe style="border-radius:18px" src="https://open.spotify.com/embed/artist/1893053126?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`);}});
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('a[href*="admin-pro"],a[href*="admin-440-mpbp-corp"],[href*="admin-pro"],[href*="admin-440-mpbp-corp"]').forEach(el=>el.remove());const navMap=[["morceaux","/music/index.html#morceaux"],["recherche","/music/index.html#morceaux"],["mpbp tv","/mpbp-tv/index.html"],["actus","#actus"],["actualites","#actus"],["actualités","#actus"],["a venir","#avenir"],["à venir","#avenir"],["evenements","#events"],["événements","#events"]];document.querySelectorAll(".topbar nav a,#mainNav a").forEach(a=>{const t=(a.textContent||"").trim().toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");navMap.forEach(([k,u])=>{if(t===k.normalize("NFD").replace(/[\\u0300-\\u036f]/g,""))a.href=u;});});const radio=document.querySelector("#radio");if(radio&&!radio.querySelector("iframe")){radio.insertAdjacentHTML("beforeend",`<div class="spotifyRadioBox panel"><h3>Playlist MPBP440 sur Spotify</h3><p>Écoute la sélection officielle directement depuis le site.</p><iframe style="border-radius:18px" src="https://open.spotify.com/embed/artist/1893053126?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`);}});
 
 
 
@@ -1627,7 +1627,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
         const title = (t.title || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
         document.querySelectorAll(".card,.featuredCard,.time-card").forEach(card=>{
           const txt=(card.textContent||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-          if(txt.includes(title.split(" ")[0]) || (title.includes("systeme") && txt.includes("systeme")) || (title.includes("reves") && txt.includes("reves"))){
+          if(txt.includes(title) || (title.includes("systeme") && txt.includes("systeme")) || (title.includes("reves") && txt.includes("reves"))){
             let box = card.querySelector(".platforms");
             if(!box){
               box = document.createElement("div");

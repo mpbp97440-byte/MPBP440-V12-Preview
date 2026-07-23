@@ -1,11 +1,31 @@
 [
   {
+    "id": "makeda-sixieme-sens-disponible-20260723",
+    "date": "2026-07-23",
+    "title": "Makéda Muse — Sixième Sens est disponible",
+    "text": "Le nouveau titre « Sixième Sens » de Makéda Muse est désormais disponible sur toutes les plateformes officielles. Retrouvez-le sur Apple Music, Spotify, Deezer, YouTube Music et TikTok.",
+    "type": "sortie",
+    "image": "assets/releases/makeda-muse/sixieme-sens-pochette-officielle.png",
+    "url": "/music/index.html#morceaux",
+    "buttonText": "Écouter Sixième Sens"
+  },
+  {
+    "id": "roots-live-makeda-muse-20260725",
+    "date": "2026-07-23",
+    "title": "Root's Live le 25 juillet à 20h00",
+    "text": "Retrouvez Root's Live, une spéciale consacrée aux sorties de Makéda Muse, le 25 juillet 2026 à 20h00, heure de Paris : exclusivités, échanges, participation, partage et surprises.",
+    "type": "event",
+    "image": "assets/events/roots-live-25-07-2026.png",
+    "url": "/evenements/index.html#roots-live-25-07-2026",
+    "buttonText": "Voir l'événement"
+  },
+  {
     "id": "sparetdee-dois-je-me-taire-pre-sortie-20260730",
     "date": "2026-07-16",
     "title": "« Dois-je me taire ? » arrive le 30 juillet 2026",
     "text": "Le nouveau titre de Sparetdee Simon sera disponible officiellement sur toutes les plateformes le 30 juillet 2026. Retrouvez dès maintenant sa pré-sortie et son compte à rebours sur MPBP440.com.",
     "type": "sortie",
-    "url": "/MPBP440-V12-Preview/#avenir",
+    "url": "/#avenir",
     "buttonText": "Voir la pré-sortie"
   },
   {
@@ -14,7 +34,7 @@
     "title": "Sparetdee Simon dévoile le clip exclusif « Dois-je me taire ? »",
     "text": "Le clip officiel « Dois-je me taire ? » de Sparetdee Simon est disponible en exclusivité sur MPBP440.com. Une nouvelle création visuelle forte à découvrir dès maintenant sur MPBP TV.",
     "type": "clip",
-    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-dois-je-me-taire",
+    "url": "/mpbp-tv/index.html#clip-dois-je-me-taire",
     "buttonText": "Voir le clip exclusif"
   },
   {
@@ -22,7 +42,7 @@
     "title": "Makéda Muse dévoile son clip exclusif « J’existe »",
     "text": "Disponible dès maintenant en exclusivité sur MPBP440.com, le clip « J’existe » prolonge l’univers sensible et intense de Makéda Muse. Une nouvelle immersion visuelle à découvrir dès aujourd’hui sur MPBP TV.",
     "type": "clip",
-    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-j-existe",
+    "url": "/mpbp-tv/index.html#clip-j-existe",
     "buttonText": "Voir le clip"
   },
   {
@@ -30,7 +50,7 @@
     "title": "BrainRot Society 2.0 disponible maintenant",
     "text": "Sparetdee Simon publie BrainRot Society 2.0 sur Spotify, Deezer, Apple Music et YouTube Music.",
     "type": "sortie",
-    "url": "/MPBP440-V12-Preview/music/index.html#morceaux",
+    "url": "/music/index.html#morceaux",
     "buttonText": "Voir les morceaux"
   },
   {
@@ -38,7 +58,7 @@
     "title": "Makeda Muse annonce Je laisse la porte ouverte et J'existe",
     "text": "La double pré-sortie Je laisse la porte ouverte / J'existe arrive le 25 juillet 2026 dans l'univers MPBP440.",
     "type": "sortie",
-    "url": "/MPBP440-V12-Preview/artistes/makeda-muse.html",
+    "url": "/artistes/makeda-muse.html",
     "buttonText": "Voir Makéda Muse"
   },
   {
@@ -46,7 +66,7 @@
     "title": "Clip exclusif : Je sais que tu sais",
     "text": "Le clip exclusif Je sais que tu sais de Juste Une Plume est disponible sur MPBP TV.",
     "type": "clip",
-    "url": "/MPBP440-V12-Preview/mpbp-tv/index.html#clip-je-sais-que-tu-sais",
+    "url": "/mpbp-tv/index.html#clip-je-sais-que-tu-sais",
     "buttonText": "Voir le clip"
   },
   {
@@ -62,7 +82,7 @@
     "title": "Makeda Muse rejoint officiellement MPBP440",
     "text": "Makeda Muse apporte au label une nouvelle couleur artistique et prépare Jour de pluie puis Sixieme Sens.",
     "type": "artiste",
-    "url": "/MPBP440-V12-Preview/artistes/makeda-muse.html",
+    "url": "/artistes/makeda-muse.html",
     "buttonText": "Voir la page artiste"
   }
 ]

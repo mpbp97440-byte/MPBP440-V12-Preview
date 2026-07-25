@@ -2,6 +2,7 @@
   'use strict';
 
   const clips = {
+    'clip-que-restera-t-il-de-moi': { title: 'Que restera-t-il de moi ?', artist: 'Sparetdee Simon', description: 'Clip exclusif web disponible dès maintenant, en attendant la sortie officielle du morceau le 8 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'l-argent': { title: 'L’Argent', artist: 'Sparetdee Simon', description: 'Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.', src: '../assets/videos/l-argent.mp4', poster: '../assets/covers/largent-officiel.webp', artistUrl: '/artistes/sparetdee-simon.html' },
     'clip-je-sais-que-tu-sais': { title: 'Je sais que tu sais', artist: 'Juste Une Plume', description: 'Un clip exclusif MPBP TV signé Juste Une Plume, entre sensibilité, tension poétique et vérité intérieure.', src: '../assets/videos/juste-une-plume/je-sais-que-tu-sais-clip-exclusif-2026.mp4', poster: '../assets/covers/je-sais-juste-une-plume.webp', artistUrl: '/artistes/juste-une-plume.html' },
     'clip-j-existe': { title: 'J’existe', artist: 'Makéda Muse', description: 'Une immersion visuelle sensible et intense dans l’univers de Makéda Muse.', src: '../assets/clips/makeda-muse/j-existe-clip-exclusif-2026.mp4', poster: '../assets/clips/makeda-muse/j-existe-cover.png', artistUrl: '/artistes/makeda-muse.html' },
@@ -22,7 +23,7 @@
     const like = document.querySelector('[data-v12-like]');
     const viewCount = document.querySelector('[data-v12-view-count]');
     const likeCount = document.querySelector('[data-v12-like-count]');
-    const buttons = [...document.querySelectorAll('[data-v12-clip]')];
+    let buttons = [...document.querySelectorAll('[data-v12-clip]')];
     const panel = document.getElementById('mpbp-tv-player');
     const analytics = window.MPBP440Analytics;
     const commentsList = document.querySelector('[data-v12-comments-list]');
@@ -31,6 +32,13 @@
     const commentCount = document.querySelector('[data-v12-comment-count]');
     const commentsRetry = document.querySelector('[data-v12-comments-retry]');
     if (!player || !panel) return;
+    const playlist = document.querySelector('.v12-tv-playlist');
+    if (playlist && !playlist.querySelector('[data-v12-clip="clip-que-restera-t-il-de-moi"]')) {
+      const card = document.createElement('button');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-que-restera-t-il-de-moi'; card.setAttribute('aria-pressed', 'false');
+      card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Que restera-t-il de moi ?</strong><span>Sparetdee Simon · Clip exclusif web</span></span>';
+      playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
+    }
 
     let selected = 'l-argent'; let watched = 0; let lastPosition = null; let viewSent = false;
     const commentDate = (value) => new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium' }).format(new Date(value));

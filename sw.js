@@ -1,4 +1,4 @@
-const MPBP_CACHE = "mpbp440-v12-0-3-production-202607";
+const MPBP_CACHE = "mpbp440-editorial-makeda-sparetdee-20260808";
 const PRECACHE = ["/","/index.html","/offline.html","/style.css","/script.js","/manifest.webmanifest","/data.json","/data/news.json","/data/gallery.json","/assets/brand/mpbp440-corp-official.png"];
 self.addEventListener("install", event => { self.skipWaiting(); event.waitUntil(caches.open(MPBP_CACHE).then(cache => cache.addAll(PRECACHE))); });
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith("mpbp440-") && key !== MPBP_CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

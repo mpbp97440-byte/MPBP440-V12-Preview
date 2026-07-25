@@ -15,68 +15,76 @@
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
-    "title": "Sixième Sens",
+    "title": "J’existe",
     "artist": "Makéda Muse",
     "date": "Disponible maintenant",
     "description": "Le nouveau titre de Makéda Muse est désormais disponible sur toutes les plateformes officielles.",
-    "cover": "assets/releases/makeda-muse/sixieme-sens-disponible-maintenant.png",
+    "cover": "assets/releases/makeda-muse/makeda-muse-j-existe.png",
     "status": "Disponible",
     "links": {
-      "spotify": "https://open.spotify.com/intl-fr/track/7t1eBU5ytTHwKktUA8sxQX?si=fc69e2f800ef4833",
-      "deezer": "https://link.deezer.com/s/33UGWQLgUohs76rJp9g0m",
-      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kjqHYbgibPx1MayLadMr5qjNy8yuty5kc&si=vm3td4-Y_bGLxN1J",
-      "apple": "https://music.apple.com/fr/album/sixi%C3%A8me-sens-single/6790749284",
+      "spotify": "https://open.spotify.com/intl-fr/track/51syVlvoFtsVIALArlir1K?si=cc8ffc9e560c4f7a",
+      "deezer": "https://link.deezer.com/s/33VlMzF4CVy002y9zZ8EX",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kWwYFt4CPeD09g59vuQOmbOUQMmXgB9Kc&si=569p-0_6UogbHi1r",
+      "apple": "https://music.apple.com/fr/album/jexiste-single/6791558143",
       "tiktok": "https://www.tiktok.com/@makeda_77"
     }
   },
   "upcoming": [
     {
-      "id": "makeda-double-pre-sortie-2026-07-25",
-      "title": "Je laisse la porte ouverte / J'existe",
-      "artist": "Makéda Muse",
-      "date": "2026-07-25T00:00:00+02:00",
-      "label": "Double pré-sortie officielle",
-      "status": "Pré-sortie / Bientôt disponible",
-      "type": "Double pré-sortie",
-      "description": "Double pré-sortie officielle de Makeda Muse : Je laisse la porte ouverte et J'existe, disponible le 25 juillet 2026 sur toutes les plateformes.",
-      "cover": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
-      "links": {},
-      "keywords": [
-        "makeda muse",
-        "je laisse la porte ouverte",
-        "j'existe",
-        "j existe",
-        "double pre-sortie",
-        "pré-sortie",
-        "mpbp440",
-        "25 juillet 2026",
-        "clé de sol"
-      ]
-    },
-    {
-      "id": "dois-je-me-taire",
-      "title": "Dois-je me taire ?",
+      "id": "sparetdee-que-restera-t-il-de-moi-2026-08-08",
+      "title": "Que restera-t-il de moi ?",
       "artist": "Sparetdee Simon",
-      "date": "2026-07-30T00:00:00+02:00",
-      "label": "Pré-sortie officielle",
-      "status": "Pré-sortie / Bientôt disponible",
+      "date": "2026-08-08T00:00:00+02:00",
+      "label": "Prochaine sortie officielle",
+      "status": "Bientôt disponible",
       "type": "Single",
-      "description": "Sparetdee Simon revient avec « Dois-je me taire ? », un nouveau titre fort et engagé, disponible officiellement sur toutes les plateformes le 30 juillet 2026.",
-      "cover": "assets/releases/sparetdee-simon/dois-je-me-taire-pre-sortie.png",
+      "description": "La prochaine sortie de Sparetdee Simon arrive le 8 août 2026.",
+      "cover": "assets/releases/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-presortie.png",
       "links": {},
-      "keywords": [
-        "sparetdee simon",
-        "dois-je me taire",
-        "dois je me taire",
-        "mpbp440",
-        "pré-sortie",
-        "pre-sortie",
-        "30 juillet 2026",
-        "rap conscient"
-      ]
+      "keywords": ["sparetdee simon", "que restera-t-il de moi", "prochaine sortie", "bientôt disponible", "8 août 2026", "mpbp440"]
     }
   ],
   "tracks": [
+    {
+      "id": "makeda-jexiste",
+      "title": "J’existe",
+      "artist": "Makéda Muse",
+      "year": "2026",
+      "date": "2026-07-25",
+      "status": "Disponible",
+      "type": "Single",
+      "description": "Le nouveau titre de Makéda Muse est désormais disponible sur toutes les plateformes officielles.",
+      "cover": "assets/releases/makeda-muse/makeda-muse-j-existe.png",
+      "promoCover": "assets/releases/makeda-muse/makeda-muse-j-existe.png",
+      "links": {
+        "spotify": "https://open.spotify.com/intl-fr/track/51syVlvoFtsVIALArlir1K?si=cc8ffc9e560c4f7a",
+        "deezer": "https://link.deezer.com/s/33VlMzF4CVy002y9zZ8EX",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kWwYFt4CPeD09g59vuQOmbOUQMmXgB9Kc&si=569p-0_6UogbHi1r",
+        "apple": "https://music.apple.com/fr/album/jexiste-single/6791558143",
+        "tiktok": "https://www.tiktok.com/@makeda_77"
+      },
+      "keywords": ["makéda muse", "j'existe", "j existe", "mpbp440", "single", "disponible"]
+    },
+    {
+      "id": "makeda-je-laisse-la-porte-ouverte",
+      "title": "Je laisse la porte ouverte",
+      "artist": "Makéda Muse",
+      "year": "2026",
+      "date": "2026-07-25",
+      "status": "Disponible",
+      "type": "Single",
+      "description": "Le nouveau titre de Makéda Muse est désormais disponible sur toutes les plateformes officielles.",
+      "cover": "assets/releases/makeda-muse/makeda-muse-je-laisse-la-porte-ouverte.png",
+      "promoCover": "assets/releases/makeda-muse/makeda-muse-je-laisse-la-porte-ouverte.png",
+      "links": {
+        "spotify": "https://open.spotify.com/intl-fr/track/2H23epTAknBzKTokwLS407?si=f8f40d988462495d",
+        "deezer": "https://link.deezer.com/s/33VlQ9Qnx1gS2Q4QdO5xo",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_lWoAKqnRIWOij4rCvt7elYG_bjAD3bCM8&si=DN2zXoESPao1Bsfa",
+        "apple": "https://music.apple.com/fr/album/je-laisse-la-porte-ouverte/6791616981?i=6791616984",
+        "tiktok": "https://www.tiktok.com/@makeda_77"
+      },
+      "keywords": ["makéda muse", "je laisse la porte ouverte", "mpbp440", "single", "disponible"]
+    },
     {
       "id": "makeda-sixieme-sens",
       "title": "Sixième Sens",
@@ -1255,32 +1263,8 @@
       "role": "Artiste MPBP440",
       "bio": "Makeda Muse rejoint officiellement MPBP440 avec un univers inspiré, sensible et profond. Sa symbolique est la clé de sol : signe de musique, d'ouverture et d'inspiration.",
       "photo": "assets/makeda-muse/makeda-muse-profile.png",
-      "status": "Disponibles : Sixième Sens et Jour de pluie / Pré-sortie : Je laisse la porte ouverte & J'existe - 25/07/2026",
-      "upcoming": [
-        {
-          "id": "makeda-double-pre-sortie-2026-07-25",
-          "title": "Je laisse la porte ouverte / J'existe",
-          "artist": "Makéda Muse",
-          "date": "2026-07-25T00:00:00+02:00",
-          "label": "Double pré-sortie officielle",
-          "status": "Pré-sortie / Bientôt disponible",
-          "type": "Double pré-sortie",
-          "description": "Double pré-sortie officielle de Makeda Muse : Je laisse la porte ouverte et J'existe, disponible le 25 juillet 2026 sur toutes les plateformes.",
-          "cover": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
-          "links": {},
-          "keywords": [
-            "makeda muse",
-            "je laisse la porte ouverte",
-            "j'existe",
-            "j existe",
-            "double pre-sortie",
-            "pré-sortie",
-            "mpbp440",
-            "25 juillet 2026",
-            "clé de sol"
-          ]
-        }
-      ]
+      "status": "Disponibles : J'existe, Je laisse la porte ouverte, Sixième Sens et Jour de pluie",
+      "upcoming": []
     }
   ],
   "countdowns": [
@@ -1311,49 +1295,14 @@
       "cover": "assets/covers/reves-et-cauchemards.webp"
     },
     {
-      "id": "makeda-double-pre-sortie-2026-07-25",
-      "title": "Je laisse la porte ouverte / J'existe",
-      "artist": "Makéda Muse",
-      "date": "2026-07-25T00:00:00+02:00",
-      "label": "Double pré-sortie officielle",
-      "status": "Pré-sortie / Bientôt disponible",
-      "type": "Double pré-sortie",
-      "description": "Double pré-sortie officielle de Makeda Muse : Je laisse la porte ouverte et J'existe, disponible le 25 juillet 2026 sur toutes les plateformes.",
-      "cover": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
-      "links": {},
-      "keywords": [
-        "makeda muse",
-        "je laisse la porte ouverte",
-        "j'existe",
-        "j existe",
-        "double pre-sortie",
-        "pré-sortie",
-        "mpbp440",
-        "25 juillet 2026",
-        "clé de sol"
-      ]
-    },
-    {
-      "id": "dois-je-me-taire",
-      "title": "Dois-je me taire ?",
+      "id": "sparetdee-que-restera-t-il-de-moi-2026-08-08",
+      "title": "Que restera-t-il de moi ?",
       "artist": "Sparetdee Simon",
-      "date": "2026-07-30T00:00:00+02:00",
-      "label": "Pré-sortie officielle",
-      "status": "Pré-sortie / Bientôt disponible",
-      "type": "Single",
-      "description": "Sparetdee Simon revient avec « Dois-je me taire ? », un nouveau titre fort et engagé, disponible officiellement sur toutes les plateformes le 30 juillet 2026.",
-      "cover": "assets/releases/sparetdee-simon/dois-je-me-taire-pre-sortie.png",
-      "links": {},
-      "keywords": [
-        "sparetdee simon",
-        "dois-je me taire",
-        "dois je me taire",
-        "mpbp440",
-        "pré-sortie",
-        "pre-sortie",
-        "30 juillet 2026",
-        "rap conscient"
-      ]
+      "date": "2026-08-08T00:00:00+02:00",
+      "label": "Prochaine sortie officielle",
+      "status": "Bientôt disponible",
+      "description": "La prochaine sortie de Sparetdee Simon arrive le 8 août 2026.",
+      "cover": "assets/releases/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-presortie.png"
     }
   ],
   "mpbp_tv": {

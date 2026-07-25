@@ -1,47 +1,15 @@
 [
   {
-    "id": "makeda-double-pre-sortie-2026-07-25",
-    "title": "Je laisse la porte ouverte / J'existe",
-    "artist": "Makéda Muse",
-    "date": "2026-07-25T00:00:00+02:00",
-    "label": "Double pré-sortie officielle",
-    "status": "Pré-sortie / Bientôt disponible",
-    "type": "Double pré-sortie",
-    "description": "Double pré-sortie officielle de Makeda Muse : Je laisse la porte ouverte et J'existe, disponible le 25 juillet 2026 sur toutes les plateformes.",
-    "cover": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
-    "links": {},
-    "keywords": [
-      "makeda muse",
-      "je laisse la porte ouverte",
-      "j'existe",
-      "j existe",
-      "double pre-sortie",
-      "pré-sortie",
-      "mpbp440",
-      "25 juillet 2026",
-      "clé de sol"
-    ]
-  },
-  {
-    "id": "dois-je-me-taire",
-    "title": "Dois-je me taire ?",
+    "id": "sparetdee-que-restera-t-il-de-moi-2026-08-08",
+    "title": "Que restera-t-il de moi ?",
     "artist": "Sparetdee Simon",
-    "date": "2026-07-30T00:00:00+02:00",
-    "label": "Pré-sortie officielle",
-    "status": "Pré-sortie / Bientôt disponible",
+    "date": "2026-08-08T00:00:00+02:00",
+    "label": "Prochaine sortie officielle",
+    "status": "Bientôt disponible",
     "type": "Single",
-    "description": "Sparetdee Simon revient avec « Dois-je me taire ? », un nouveau titre fort et engagé, disponible officiellement sur toutes les plateformes le 30 juillet 2026.",
-    "cover": "assets/releases/sparetdee-simon/dois-je-me-taire-pre-sortie.png",
+    "description": "La prochaine sortie de Sparetdee Simon arrive le 8 août 2026.",
+    "cover": "assets/releases/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-presortie.png",
     "links": {},
-    "keywords": [
-      "sparetdee simon",
-      "dois-je me taire",
-      "dois je me taire",
-      "mpbp440",
-      "pré-sortie",
-      "pre-sortie",
-      "30 juillet 2026",
-      "rap conscient"
-    ]
+    "keywords": ["sparetdee simon", "que restera-t-il de moi", "prochaine sortie", "bientôt disponible", "8 août 2026", "mpbp440"]
   }
 ]

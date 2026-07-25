@@ -12,7 +12,7 @@
     if (!details) return;
     const main = document.querySelector('.artist-page');
     try {
-      const data = await fetch('../data.json?v=12-1-2-sixieme-sens-hotfix-20260724', {cache:'no-store'}).then(response => {
+      const data = await fetch('../data.json?v=makeda-sparetdee-20260808', {cache:'no-store'}).then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       });
@@ -24,6 +24,15 @@
         const history = available.slice(1, 3).map(item => `<article class="release-card-artist release-card-artist--history"><img src="../${escape(item.promoCover || item.cover)}" alt="${escape(item.title)} — disponible maintenant" loading="lazy"><div><p>Sortie précédente disponible</p><h3>${escape(item.title)}</h3><p>${escape(item.description || '')}</p><div class="release-links">${linkButtons(item)}</div></div></article>`).join('');
         section.innerHTML = `<p class="sup">Dernières sorties</p><h2>${escape(newest.title)}</h2><article class="release-card-artist"><img src="../${escape(newest.promoCover || newest.cover)}" alt="${escape(newest.title)} — disponible maintenant" loading="lazy"><div><p>${escape(newest.status || 'Sortie officielle')}</p><p>${escape(newest.description || '')}</p><div class="release-links">${linkButtons(newest)}</div></div></article>${history ? `<div class="v12-artist-release-history"><p class="sup">Sorties récentes</p>${history}</div>` : ''}`;
         main.querySelector('.hero')?.insertAdjacentElement('afterend', section);
+      }
+      const nextRelease = (data.upcoming || [])
+        .filter(item => item.artist === artist && new Date(item.date).getTime() > Date.now())
+        .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+      if (nextRelease && !main.querySelector('.v12-artist-upcoming-release')) {
+        const section = document.createElement('section'); section.className = 'section v12-artist-upcoming-release';
+        section.innerHTML = `<p class="sup">Prochaine sortie</p><h2>${escape(nextRelease.title)}</h2><article class="release-card-artist"><img src="../${escape(nextRelease.cover)}" alt="${escape(nextRelease.title)} — bientôt disponible" loading="lazy"><div><p>${escape(nextRelease.label || nextRelease.status || 'Bientôt disponible')}</p><p>${escape(nextRelease.description || '')}</p><div class="miniCountdown" data-date="${escape(nextRelease.date)}" aria-label="Compte à rebours avant ${escape(nextRelease.title)}"><div><strong>00</strong><span>Jours</span></div><div><strong>00</strong><span>Heures</span></div><div><strong>00</strong><span>Minutes</span></div><div><strong>00</strong><span>Secondes</span></div></div><p class="countdownStatus" aria-live="polite"></p></div></article>`;
+        main.querySelector('.hero')?.insertAdjacentElement('afterend', section);
+        window.initAllCountdowns?.(section);
       }
     } catch (error) { console.warn('Dernière sortie artiste indisponible.', error); }
     const media = document.createElement('section'); media.className = 'section v12-artist-gallery';

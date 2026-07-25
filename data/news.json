@@ -1,23 +1,23 @@
 [
   {
-    "id": "makeda-sixieme-sens-disponible-20260723",
-    "date": "2026-07-23",
-    "title": "Makéda Muse — Sixième Sens est disponible",
-    "text": "Le nouveau titre « Sixième Sens » de Makéda Muse est désormais disponible sur toutes les plateformes officielles. Retrouvez-le sur Apple Music, Spotify, Deezer, YouTube Music et TikTok.",
+    "id": "makeda-jexiste-je-laisse-la-porte-ouverte-disponibles-20260725",
+    "date": "2026-07-25",
+    "title": "Makéda Muse : J’existe et Je laisse la porte ouverte sont disponibles",
+    "text": "Les deux nouveaux titres de Makéda Muse sont maintenant disponibles sur Apple Music, Spotify, Deezer, YouTube Music et TikTok.",
     "type": "sortie",
-    "image": "assets/releases/makeda-muse/sixieme-sens-pochette-officielle.png",
+    "image": "assets/releases/makeda-muse/makeda-muse-j-existe.png",
     "url": "/music/index.html#morceaux",
-    "buttonText": "Écouter Sixième Sens"
+    "buttonText": "Écouter les nouveaux titres"
   },
   {
-    "id": "roots-live-makeda-muse-20260725",
-    "date": "2026-07-23",
-    "title": "Root's Live le 25 juillet à 20h00",
-    "text": "Retrouvez Root's Live, une spéciale consacrée aux sorties de Makéda Muse, le 25 juillet 2026 à 20h00, heure de Paris : exclusivités, échanges, participation, partage et surprises.",
-    "type": "event",
-    "image": "assets/events/roots-live-25-07-2026.png",
-    "url": "/evenements/index.html#roots-live-25-07-2026",
-    "buttonText": "Voir l'événement"
+    "id": "sparetdee-que-restera-t-il-de-moi-20260808",
+    "date": "2026-07-25",
+    "title": "Sparetdee Simon annonce Que restera-t-il de moi ?",
+    "text": "La prochaine sortie officielle de Sparetdee Simon arrivera le 8 août 2026. Retrouvez son compte à rebours sur MPBP440.",
+    "type": "sortie",
+    "image": "assets/releases/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-presortie.png",
+    "url": "/#avenir",
+    "buttonText": "Voir la prochaine sortie"
   },
   {
     "id": "sparetdee-dois-je-me-taire-pre-sortie-20260730",
@@ -52,14 +52,6 @@
     "type": "sortie",
     "url": "/music/index.html#morceaux",
     "buttonText": "Voir les morceaux"
-  },
-  {
-    "date": "2026-07-11",
-    "title": "Makeda Muse annonce Je laisse la porte ouverte et J'existe",
-    "text": "La double pré-sortie Je laisse la porte ouverte / J'existe arrive le 25 juillet 2026 dans l'univers MPBP440.",
-    "type": "sortie",
-    "url": "/artistes/makeda-muse.html",
-    "buttonText": "Voir Makéda Muse"
   },
   {
     "date": "2026-07-10",

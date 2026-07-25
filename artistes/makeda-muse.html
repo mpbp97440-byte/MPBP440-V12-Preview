@@ -45,23 +45,6 @@
     </div>
   </section>
 
-  <section class="section makeda-countdown-section">
-    <p class="sup">Prochaines sorties</p>
-    <h2>Double pré-sortie à venir</h2>
-    <div class="makeda-release-grid">
-      <article class="makeda-release-card" data-release-date="2026-07-25T00:00:00+02:00">
-        <img src="../assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png" alt="Je laisse la porte ouverte et J'existe - Makeda Muse">
-        <div>
-          <p class="sup">Double pré-sortie officielle</p>
-          <h3>Je laisse la porte ouverte / J'existe</h3>
-          <p>Disponible le 25 juillet 2026 sur toutes les plateformes.</p>
-          <div class="makeda-countdown" aria-live="polite">Calcul du compte à rebours...</div>
-          <p class="sup">Bientôt disponible</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section class="section makeda-clip-section">
     <p class="sup">Clip exclusif</p>
     <h2>J’existe</h2>
@@ -96,27 +79,7 @@
     </div>
   </section>
 </main>
-<script src="v12-artist.js?v=12-1-2-sixieme-sens-20260724"></script>
+<script src="v12-artist.js?v=makeda-sparetdee-20260808"></script>
 <script src="../script.js?v=countdown-notifications-hotfix-v11-202607"></script>
-<script>
-document.querySelectorAll(".makeda-release-card[data-release-date]").forEach(card => {
-  const target = new Date(card.dataset.releaseDate).getTime();
-  const box = card.querySelector(".makeda-countdown");
-  const tick = () => {
-    const diff = target - Date.now();
-    if(diff <= 0){
-      box.textContent = "Disponible maintenant";
-      return;
-    }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const minutes = Math.floor((diff % 3600000) / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
-    box.textContent = `${days}j ${hours}h ${minutes}m ${seconds}s`;
-  };
-  tick();
-  setInterval(tick, 1000);
-});
-</script>
 </body>
 </html>

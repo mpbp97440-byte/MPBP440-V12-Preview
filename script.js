@@ -360,7 +360,7 @@ async function loadData(){
 
     const upcomingGrid = document.getElementById("upcomingGrid");
     if(upcomingGrid){
-      const upcoming = (data.upcoming || []).filter(isPublicItem);
+      const upcoming = (data.upcoming || []).filter(isPublicItem).sort((a,b)=>parseReleaseDate(a.date) - parseReleaseDate(b.date));
       upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>{
         const target = parseReleaseDate(x.date);
         const timer = target ? `<div class="miniCountdown" data-date="${target.toISOString()}" aria-label="Compte a rebours ${safeText(x.title)}">

@@ -25,12 +25,12 @@
         section.innerHTML = `<p class="sup">Dernières sorties</p><h2>${escape(newest.title)}</h2><article class="release-card-artist"><img src="../${escape(newest.promoCover || newest.cover)}" alt="${escape(newest.title)} — disponible maintenant" loading="lazy"><div><p>${escape(newest.status || 'Sortie officielle')}</p><p>${escape(newest.description || '')}</p><div class="release-links">${linkButtons(newest)}</div></div></article>${history ? `<div class="v12-artist-release-history"><p class="sup">Sorties récentes</p>${history}</div>` : ''}`;
         main.querySelector('.hero')?.insertAdjacentElement('afterend', section);
       }
-      const nextRelease = (data.upcoming || [])
+      const upcomingReleases = (data.upcoming || [])
         .filter(item => item.artist === artist && new Date(item.date).getTime() > Date.now())
-        .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
-      if (nextRelease && !main.querySelector('.v12-artist-upcoming-release')) {
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+      if (upcomingReleases.length && !main.querySelector('.v12-artist-upcoming-release')) {
         const section = document.createElement('section'); section.className = 'section v12-artist-upcoming-release';
-        section.innerHTML = `<p class="sup">Prochaine sortie</p><h2>${escape(nextRelease.title)}</h2><article class="release-card-artist"><img src="../${escape(nextRelease.cover)}" alt="${escape(nextRelease.title)} — bientôt disponible" loading="lazy"><div><p>${escape(nextRelease.label || nextRelease.status || 'Bientôt disponible')}</p><p>${escape(nextRelease.description || '')}</p><div class="miniCountdown" data-date="${escape(nextRelease.date)}" aria-label="Compte à rebours avant ${escape(nextRelease.title)}"><div><strong>00</strong><span>Jours</span></div><div><strong>00</strong><span>Heures</span></div><div><strong>00</strong><span>Minutes</span></div><div><strong>00</strong><span>Secondes</span></div></div><p class="countdownStatus" aria-live="polite"></p></div></article>`;
+        section.innerHTML = `<p class="sup">${upcomingReleases.length > 1 ? 'Prochaines sorties' : 'Prochaine sortie'}</p><h2>${upcomingReleases.length > 1 ? 'À venir' : escape(upcomingReleases[0].title)}</h2>${upcomingReleases.map(nextRelease => `<article class="release-card-artist"><img src="../${escape(nextRelease.cover)}" alt="${escape(nextRelease.title)} — bientôt disponible" loading="lazy"><div><p>${escape(nextRelease.label || nextRelease.status || 'Bientôt disponible')}</p><h3>${escape(nextRelease.title)}</h3><p>${escape(nextRelease.description || '')}</p><div class="miniCountdown" data-date="${escape(nextRelease.date)}" aria-label="Compte à rebours avant ${escape(nextRelease.title)}"><div><strong>00</strong><span>Jours</span></div><div><strong>00</strong><span>Heures</span></div><div><strong>00</strong><span>Minutes</span></div><div><strong>00</strong><span>Secondes</span></div></div><p class="countdownStatus" aria-live="polite"></p></div></article>`).join('')}`;
         main.querySelector('.hero')?.insertAdjacentElement('afterend', section);
         window.initAllCountdowns?.(section);
       }

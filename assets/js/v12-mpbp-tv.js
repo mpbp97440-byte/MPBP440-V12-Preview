@@ -2,6 +2,7 @@
   'use strict';
 
   const clips = {
+    'clip-mon-influence': { title: 'Mon Influence', artist: 'Sparetdee Simon feat. Makéda Muse', description: 'Clip exclusif web disponible dès maintenant, avant la sortie officielle du morceau le 11 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'clip-que-restera-t-il-de-moi': { title: 'Que restera-t-il de moi ?', artist: 'Sparetdee Simon', description: 'Clip exclusif web disponible dès maintenant, en attendant la sortie officielle du morceau le 8 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'l-argent': { title: 'L’Argent', artist: 'Sparetdee Simon', description: 'Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.', src: '../assets/videos/l-argent.mp4', poster: '../assets/covers/largent-officiel.webp', artistUrl: '/artistes/sparetdee-simon.html' },
     'clip-je-sais-que-tu-sais': { title: 'Je sais que tu sais', artist: 'Juste Une Plume', description: 'Un clip exclusif MPBP TV signé Juste Une Plume, entre sensibilité, tension poétique et vérité intérieure.', src: '../assets/videos/juste-une-plume/je-sais-que-tu-sais-clip-exclusif-2026.mp4', poster: '../assets/covers/je-sais-juste-une-plume.webp', artistUrl: '/artistes/juste-une-plume.html' },
@@ -37,6 +38,13 @@
       const card = document.createElement('button');
       card.type = 'button'; card.dataset.v12Clip = 'clip-que-restera-t-il-de-moi'; card.setAttribute('aria-pressed', 'false');
       card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Que restera-t-il de moi ?</strong><span>Sparetdee Simon · Clip exclusif web</span></span>';
+      playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
+    }
+
+    if (playlist && !playlist.querySelector('[data-v12-clip="clip-mon-influence"]')) {
+      const card = document.createElement('button');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-mon-influence'; card.setAttribute('aria-pressed', 'false');
+      card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Mon Influence</strong><span>Sparetdee Simon feat. Makéda Muse · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
 

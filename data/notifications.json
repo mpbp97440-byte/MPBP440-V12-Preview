@@ -1,5 +1,25 @@
 [
   {
+    "id": "sparetdee-makeda-mon-influence-clip-exclusif-web-20260728",
+    "date": "2026-07-28",
+    "type": "clip",
+    "title": "Nouveau clip exclusif web : « Mon Influence »",
+    "message": "Le clip exclusif web de « Mon Influence », de Sparetdee Simon feat. Makéda Muse, est disponible maintenant sur MPBP TV.",
+    "url": "/mpbp-tv/index.html#clip-mon-influence",
+    "image": "assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png",
+    "priority": "high"
+  },
+  {
+    "id": "sparetdee-makeda-mon-influence-20260811",
+    "date": "2026-07-28",
+    "type": "sortie",
+    "title": "« Mon Influence » arrive le 11 août",
+    "message": "Prochaine sortie officielle : Sparetdee Simon feat. Makéda Muse — « Mon Influence », le 11 août 2026.",
+    "url": "/#avenir",
+    "image": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-presortie.png",
+    "priority": "high"
+  },
+  {
     "id": "sparetdee-que-restera-t-il-de-moi-clip-exclusif-web-20260725",
     "date": "2026-07-25",
     "type": "clip",

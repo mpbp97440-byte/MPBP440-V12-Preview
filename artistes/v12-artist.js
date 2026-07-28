@@ -1,6 +1,6 @@
 (() => {
   const config = {
-    sparetdee:{clip:'../mpbp-tv/index.html#clip-que-restera-t-il-de-moi',clipTitle:'Que restera-t-il de moi ?',poster:'../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png',gallery:['../assets/artists/sparetdee-simon.webp','../assets/covers/le-systeme-pre-sortie-27-06-2026.webp']},
+    sparetdee:{clip:'../mpbp-tv/index.html#clip-mon-influence',clipTitle:'Mon Influence',poster:'../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png',gallery:['../assets/artists/sparetdee-simon.webp','../assets/covers/le-systeme-pre-sortie-27-06-2026.webp']},
     jup:{clip:'../mpbp-tv/index.html#clip-je-sais-que-tu-sais',clipTitle:'Je sais que tu sais',poster:'../assets/covers/je-sais-juste-une-plume.webp',gallery:['../assets/artists/juste-une-plume.webp','../assets/events/je-sais-sortie-officielle.webp']},
     makeda:{clip:'../mpbp-tv/index.html#clip-j-existe',clipTitle:'J’existe',poster:'../assets/clips/makeda-muse/j-existe-cover.png',gallery:['../assets/makeda-muse/makeda-muse-profile.png','../assets/releases/makeda-muse/sixieme-sens-pochette-officielle.png']}
   };
@@ -16,7 +16,7 @@
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       });
-      const artistReleases = (data.tracks || []).filter(item => item.artist === artist);
+      const artistReleases = (data.tracks || []).filter(item => item.artist === artist || item.artists?.includes(artist));
       const available = artistReleases.filter(item => item.status === 'Disponible').sort((a,b) => String(b.date || '').localeCompare(String(a.date || '')));
       const newest = available[0];
       if (newest && !main.querySelector('.v12-latest-artist-release')) {
@@ -26,7 +26,7 @@
         main.querySelector('.hero')?.insertAdjacentElement('afterend', section);
       }
       const upcomingReleases = (data.upcoming || [])
-        .filter(item => item.artist === artist && new Date(item.date).getTime() > Date.now())
+        .filter(item => (item.artist === artist || item.artists?.includes(artist)) && new Date(item.date).getTime() > Date.now())
         .sort((a, b) => new Date(a.date) - new Date(b.date));
       if (upcomingReleases.length && !main.querySelector('.v12-artist-upcoming-release')) {
         const section = document.createElement('section'); section.className = 'section v12-artist-upcoming-release';

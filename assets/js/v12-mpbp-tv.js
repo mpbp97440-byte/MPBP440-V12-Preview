@@ -2,6 +2,7 @@
   'use strict';
 
   const clips = {
+    'clip-karma': { title: 'Karma', artist: 'Makéda Muse', description: 'Clip exclusif web disponible dès maintenant, avant la sortie officielle du morceau le 13 août 2026.', src: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif-web.mp4', poster: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png', artistUrl: '/artistes/makeda-muse.html' },
     'clip-mon-influence': { title: 'Mon Influence', artist: 'Sparetdee Simon feat. Makéda Muse', description: 'Clip exclusif web disponible dès maintenant, avant la sortie officielle du morceau le 11 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'clip-que-restera-t-il-de-moi': { title: 'Que restera-t-il de moi ?', artist: 'Sparetdee Simon', description: 'Clip exclusif web disponible dès maintenant, en attendant la sortie officielle du morceau le 8 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'l-argent': { title: 'L’Argent', artist: 'Sparetdee Simon', description: 'Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.', src: '../assets/videos/l-argent.mp4', poster: '../assets/covers/largent-officiel.webp', artistUrl: '/artistes/sparetdee-simon.html' },
@@ -45,6 +46,13 @@
       const card = document.createElement('button');
       card.type = 'button'; card.dataset.v12Clip = 'clip-mon-influence'; card.setAttribute('aria-pressed', 'false');
       card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Mon Influence</strong><span>Sparetdee Simon feat. Makéda Muse · Clip exclusif web</span></span>';
+      playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
+    }
+
+    if (playlist && !playlist.querySelector('[data-v12-clip="clip-karma"]')) {
+      const card = document.createElement('button');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-karma'; card.setAttribute('aria-pressed', 'false');
+      card.innerHTML = '<img src="../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Karma</strong><span>Makéda Muse · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
 

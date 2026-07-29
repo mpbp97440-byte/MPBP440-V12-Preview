@@ -1,5 +1,25 @@
 [
   {
+    "id": "makeda-muse-karma-clip-exclusif-web-20260729",
+    "date": "2026-07-29",
+    "type": "clip",
+    "title": "Nouveau clip exclusif web : « Karma »",
+    "message": "Le clip exclusif web de « Karma » de Makéda Muse est disponible maintenant sur MPBP TV.",
+    "url": "/mpbp-tv/index.html#clip-karma",
+    "image": "assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png",
+    "priority": "high"
+  },
+  {
+    "id": "makeda-muse-karma-20260813",
+    "date": "2026-07-29",
+    "type": "sortie",
+    "title": "Karma arrive le 13 août",
+    "message": "Prochaine sortie officielle : « Karma » de Makéda Muse arrive le 13 août 2026.",
+    "url": "/#avenir",
+    "image": "assets/releases/makeda-muse/makeda-muse-karma-presortie-2026-08-13.png",
+    "priority": "high"
+  },
+  {
     "id": "sparetdee-makeda-mon-influence-clip-exclusif-web-20260728",
     "date": "2026-07-28",
     "type": "clip",

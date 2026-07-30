@@ -17,7 +17,7 @@
         return response.json();
       });
       const artistReleases = (data.tracks || []).filter(item => item.artist === artist || item.artists?.includes(artist));
-      const available = artistReleases.filter(item => item.status === 'Disponible').sort((a,b) => String(b.date || '').localeCompare(String(a.date || '')));
+      const available = artistReleases.filter(item => item.status === 'Disponible' && !Number.isNaN(new Date(item.date).getTime())).sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       const newest = available[0];
       if (newest && !main.querySelector('.v12-latest-artist-release')) {
         const section = document.createElement('section'); section.className = 'section v12-latest-artist-release';

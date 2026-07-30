@@ -60,6 +60,16 @@
     "priority": "high"
   },
   {
+    "id": "sparetdee-dois-je-me-taire-disponible-20260730",
+    "date": "2026-07-30",
+    "type": "sortie",
+    "title": "« Dois-je me taire ? » disponible maintenant",
+    "message": "« Dois-je me taire ? » de Sparetdee Simon est disponible dès maintenant sur les principales plateformes.",
+    "url": "/music/index.html#morceaux",
+    "image": "assets/releases/sparetdee-simon/sparetdee-simon-dois-je-me-taire-cover-officielle.png",
+    "priority": "high"
+  },
+  {
     "id": "sparetdee-dois-je-me-taire-clip-202607",
     "date": "2026-07-16",
     "type": "clip",

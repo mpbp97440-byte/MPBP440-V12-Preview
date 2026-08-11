@@ -1,3 +1,4 @@
+# The workflow validates every versioned migration before a CMS function deploy.
 name: Validate and migrate Supabase
 
 on:

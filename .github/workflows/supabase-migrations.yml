@@ -66,3 +66,22 @@ jobs:
         run: |
           supabase functions deploy admin-media-upload --project-ref "$SUPABASE_PROJECT_REF"
           supabase functions deploy admin-publish-site --project-ref "$SUPABASE_PROJECT_REF"
+
+  deploy_cms_functions_validation:
+    name: Deploy CMS V2 Edge Functions for validation
+    needs: validate
+    if: >-
+      github.repository == 'mpbp97440-byte/Sparetdee-Simon-site' &&
+      github.ref == 'refs/heads/v13-admin-cms'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+      - name: Deploy only CMS V2 Edge Functions
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+        run: |
+          supabase functions deploy admin-media-upload --project-ref "$SUPABASE_PROJECT_REF"
+          supabase functions deploy admin-publish-site --project-ref "$SUPABASE_PROJECT_REF"

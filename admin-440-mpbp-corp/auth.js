@@ -34,7 +34,7 @@
       const response = await fetch(`${config.url}${path}`, {
         ...options,
         signal: controller.signal,
-        headers: { apikey: config.publishableKey, 'Content-Type': 'application/json', ...(options.headers || {}) }
+        headers: { apikey: config.publishableKey, ...(options.body instanceof FormData ? {} : {'Content-Type': 'application/json'}), ...(options.headers || {}) }
       });
       const body = await response.json().catch(() => null);
       if (!response.ok) {
@@ -83,7 +83,12 @@
     submit.textContent = loading ? 'Connexion…' : 'Accéder au back office';
   };
 
-  window.MPBP440Admin = Object.freeze({ rpc, signOut: clearSession });
+  const invoke = async (name, body) => request(`/functions/v1/${name}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token()}` },
+    body: body instanceof FormData ? body : JSON.stringify(body)
+  }, `function:${name}`);
+  window.MPBP440Admin = Object.freeze({ rpc, invoke, signOut: clearSession });
   window.togglePassword = () => {
     const field = byId('adminPass');
     if (field) field.type = field.type === 'password' ? 'text' : 'password';

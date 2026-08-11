@@ -4,14 +4,22 @@ const supabaseUrl = Deno.env.get('SUPABASE_URL') ?? '';
 const anonKey = Deno.env.get('SUPABASE_ANON_KEY') ?? '';
 const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '';
 
-export const corsHeaders = {
-  'Access-Control-Allow-Origin': Deno.env.get('CMS_ALLOWED_ORIGIN') ?? 'https://www.mpbp440.com',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS'
-};
+const defaultOrigins = 'https://www.mpbp440.com,https://mpbp97440-byte.github.io';
+const allowedOrigins = (Deno.env.get('CMS_ALLOWED_ORIGINS') ?? defaultOrigins).split(',').map((origin) => origin.trim()).filter(Boolean);
 
-export function response(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, 'Content-Type': 'application/json; charset=utf-8' } });
+export function corsHeaders(request?: Request) {
+  const origin = request?.headers.get('Origin') ?? '';
+  const allowedOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+  return {
+  'Access-Control-Allow-Origin': allowedOrigin,
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Vary': 'Origin'
+  };
+}
+
+export function response(body: unknown, status = 200, request?: Request) {
+  return new Response(JSON.stringify(body), { status, headers: { ...corsHeaders(request), 'Content-Type': 'application/json; charset=utf-8' } });
 }
 
 export async function requireAdmin(request: Request) {

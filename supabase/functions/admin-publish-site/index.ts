@@ -35,8 +35,8 @@ async function github(token: string, path: string, init: RequestInit = {}) {
 }
 
 Deno.serve(async (request) => {
-  if (request.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
-  if (request.method !== 'POST') return response({ error: 'method not allowed' }, 405);
+  if (request.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders(request) });
+  if (request.method !== 'POST') return response({ error: 'method not allowed' }, 405, request);
   try {
     const { user, admin } = await requireAdmin(request);
     const { payload } = await request.json();
@@ -58,9 +58,9 @@ Deno.serve(async (request) => {
     if (registry.length) await admin.from('content_registry').upsert(registry, { onConflict: 'content_type,content_id' });
     await admin.from('cms_publications').insert({ author_id: user.id, commit_sha: commit.sha, files: Object.keys(files), summary: { clips: clips.length } });
     await admin.from('cms_drafts').delete().eq('user_id', user.id);
-    return response({ sha: commit.sha, files: Object.keys(files), publishedAt: new Date().toISOString(), deployment: 'GitHub Pages déclenché' });
+    return response({ sha: commit.sha, files: Object.keys(files), publishedAt: new Date().toISOString(), deployment: 'GitHub Pages déclenché' }, 200, request);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'publication failed';
-    return response({ error: message }, /admin|session|authorization/i.test(message) ? 401 : 400);
+    return response({ error: message }, /admin|session|authorization/i.test(message) ? 401 : 400, request);
   }
 });

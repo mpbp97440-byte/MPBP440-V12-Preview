@@ -1,13 +1,15 @@
-const DATA_FILES = {
-  site:"/data.json",
-  music:"/data/music-library.json",
-  releases:"/data/releases.json",
-  countdowns:"/data/countdowns.json",
-  videos:"/data/videos.json",
-  gallery:"/data/gallery.json",
-  events:"/data/events.json",
-  news:"/data/news.json"
-};
+/* Resolve against the public site root, not the hostname root.  This keeps the
+ * CMS working both at www.mpbp440.com and under the GitHub Pages preview path. */
+const DATA_FILES = Object.freeze({
+  site:"data.json",
+  music:"data/music-library.json",
+  releases:"data/releases.json",
+  countdowns:"data/countdowns.json",
+  videos:"data/videos.json",
+  gallery:"data/gallery.json",
+  events:"data/events.json",
+  news:"data/news.json"
+});
 
 const state = {
   original:{},
@@ -61,27 +63,37 @@ function normalizeList(value){
 function visible(item){ return !item.hidden && item.status !== "Masqué"; }
 
 async function loadJsonFile(key, url){
-  const res = await fetch(url + "?admin=" + Date.now(), {cache:"no-store"});
-  if(!res.ok) throw new Error(url + " indisponible");
-  return res.json();
+  const target = new URL("../" + url, document.baseURI);
+  target.searchParams.set("admin", String(Date.now()));
+  const res = await fetch(target, {cache:"no-store"});
+  if(!res.ok) throw new Error(`${key} (${res.status})`);
+  try { return await res.json(); }
+  catch(_) { throw new Error(`${key} contient un JSON invalide`); }
 }
 async function loadAllData(){
-  const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key,url]) => {
-    try{ return [key, await loadJsonFile(key,url)]; }
-    catch(e){ return [key, key === "site" ? {} : []]; }
-  }));
-  state.original = Object.fromEntries(entries.map(([k,v]) => [k, clone(v)]));
-  state.data = Object.fromEntries(entries.map(([k,v]) => [k, clone(v)]));
-  if(!Array.isArray(state.data.site.tracks)) state.data.site.tracks = [];
-  if(!Array.isArray(state.data.site.videos)) state.data.site.videos = [];
-  if(!Array.isArray(state.data.site.gallery)) state.data.site.gallery = [];
-  if(!Array.isArray(state.data.site.events)) state.data.site.events = [];
-  if(!Array.isArray(state.data.site.upcoming)) state.data.site.upcoming = [];
-  if(!Array.isArray(state.data.site.countdowns)) state.data.site.countdowns = [];
-  if(!Array.isArray(state.data.site.label_artists)) state.data.site.label_artists = [];
-  state.ready = true;
-  renderAll();
-  renderCmsStatus();
+  cmsMessage("Chargement des données publiées…", false);
+  try {
+    const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key,url]) => [key, await loadJsonFile(key,url)]));
+    const next = Object.fromEntries(entries.map(([key,value]) => [key, clone(value)]));
+    if(!next.site || typeof next.site !== "object" || Array.isArray(next.site)) throw new Error("data.json est invalide");
+    for(const key of ["tracks","videos","gallery","events","upcoming","countdowns","label_artists"]){
+      if(next.site[key] === undefined) next.site[key] = [];
+      if(!Array.isArray(next.site[key])) throw new Error(`data.json.${key} doit être une collection`);
+    }
+    state.original = clone(next);
+    state.data = clone(next);
+    state.ready = true;
+    renderAll();
+    renderCmsStatus();
+    cmsMessage("Données publiées rechargées.", false);
+    return true;
+  } catch(error) {
+    /* Never replace a real collection with an empty fallback after a network,
+       path or JSON error.  Existing unsaved work stays untouched as well. */
+    cmsMessage(`Chargement impossible : ${error.message}. Les données existantes sont conservées.`, true);
+    renderCmsStatus();
+    return false;
+  }
 }
 
 function currentTracks(){ return state.data.site.tracks || []; }
@@ -329,6 +341,7 @@ function syncCountdown(item){
 }
 
 function changedJsonFiles(){
+  if(!state.ready) return [];
   const files = [];
   const pairs = [
     ["data.json", state.data.site, state.original.site],

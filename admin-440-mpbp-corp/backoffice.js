@@ -1,13 +1,15 @@
-const DATA_FILES = {
-  site:"/data.json",
-  music:"/data/music-library.json",
-  releases:"/data/releases.json",
-  countdowns:"/data/countdowns.json",
-  videos:"/data/videos.json",
-  gallery:"/data/gallery.json",
-  events:"/data/events.json",
-  news:"/data/news.json"
-};
+/* Resolve against the public site root, not the hostname root.  This keeps the
+ * CMS working both at www.mpbp440.com and under the GitHub Pages preview path. */
+const DATA_FILES = Object.freeze({
+  site:"data.json",
+  music:"data/music-library.json",
+  releases:"data/releases.json",
+  countdowns:"data/countdowns.json",
+  videos:"data/videos.json",
+  gallery:"data/gallery.json",
+  events:"data/events.json",
+  news:"data/news.json"
+});
 
 const state = {
   original:{},
@@ -32,7 +34,7 @@ function localPath(folder, title, file){
 }
 function setValue(id, value){ const el = $(id); if(el) el.value = value || ""; }
 function getValue(id){ return text($(id)?.value); }
-function markChanged(){ renderAll(); }
+function markChanged(){ renderAll(); renderCmsStatus(); }
 function linksFrom(prefix){
   return {
     Spotify:getValue(prefix+"Spotify"),
@@ -61,25 +63,37 @@ function normalizeList(value){
 function visible(item){ return !item.hidden && item.status !== "Masqué"; }
 
 async function loadJsonFile(key, url){
-  const res = await fetch(url + "?admin=" + Date.now(), {cache:"no-store"});
-  if(!res.ok) throw new Error(url + " indisponible");
-  return res.json();
+  const target = new URL("../" + url, document.baseURI);
+  target.searchParams.set("admin", String(Date.now()));
+  const res = await fetch(target, {cache:"no-store"});
+  if(!res.ok) throw new Error(`${key} (${res.status})`);
+  try { return await res.json(); }
+  catch(_) { throw new Error(`${key} contient un JSON invalide`); }
 }
 async function loadAllData(){
-  const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key,url]) => {
-    try{ return [key, await loadJsonFile(key,url)]; }
-    catch(e){ return [key, key === "site" ? {} : []]; }
-  }));
-  state.original = Object.fromEntries(entries.map(([k,v]) => [k, clone(v)]));
-  state.data = Object.fromEntries(entries.map(([k,v]) => [k, clone(v)]));
-  if(!Array.isArray(state.data.site.tracks)) state.data.site.tracks = [];
-  if(!Array.isArray(state.data.site.videos)) state.data.site.videos = [];
-  if(!Array.isArray(state.data.site.gallery)) state.data.site.gallery = [];
-  if(!Array.isArray(state.data.site.events)) state.data.site.events = [];
-  if(!Array.isArray(state.data.site.upcoming)) state.data.site.upcoming = [];
-  if(!Array.isArray(state.data.site.countdowns)) state.data.site.countdowns = [];
-  state.ready = true;
-  renderAll();
+  cmsMessage("Chargement des données publiées…", false);
+  try {
+    const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key,url]) => [key, await loadJsonFile(key,url)]));
+    const next = Object.fromEntries(entries.map(([key,value]) => [key, clone(value)]));
+    if(!next.site || typeof next.site !== "object" || Array.isArray(next.site)) throw new Error("data.json est invalide");
+    for(const key of ["tracks","videos","gallery","events","upcoming","countdowns","label_artists"]){
+      if(next.site[key] === undefined) next.site[key] = [];
+      if(!Array.isArray(next.site[key])) throw new Error(`data.json.${key} doit être une collection`);
+    }
+    state.original = clone(next);
+    state.data = clone(next);
+    state.ready = true;
+    renderAll();
+    renderCmsStatus();
+    cmsMessage("Données publiées rechargées.", false);
+    return true;
+  } catch(error) {
+    /* Never replace a real collection with an empty fallback after a network,
+       path or JSON error.  Existing unsaved work stays untouched as well. */
+    cmsMessage(`Chargement impossible : ${error.message}. Les données existantes sont conservées.`, true);
+    renderCmsStatus();
+    return false;
+  }
 }
 
 function currentTracks(){ return state.data.site.tracks || []; }
@@ -88,6 +102,7 @@ function currentGallery(){ return state.data.site.gallery || []; }
 function currentEvents(){ return state.data.site.events || []; }
 function currentNews(){ return normalizeList(state.data.news); }
 function currentUpcoming(){ return state.data.site.upcoming || []; }
+function currentArtists(){ return state.data.site.label_artists || []; }
 function setNewsList(list){
   if(Array.isArray(state.data.news)){
     state.data.news = list;
@@ -129,6 +144,7 @@ function initActions(){
       "save-event":saveEvent, "clear-event":clearEvent,
       "save-news":saveNews, "clear-news":clearNews,
       "save-upcoming":saveUpcoming, "clear-upcoming":clearUpcoming,
+      "save-artist":saveArtist, "clear-artist":clearArtist, "save-featured":saveFeatured,
       "export-zip":exportZip, "reset-work":resetWork
     })[action]?.();
   });
@@ -141,6 +157,8 @@ function initActions(){
   $("eventFile")?.addEventListener("change", () => saveFileInput("eventFile","eventCover","assets/gallery","eventTitle"));
   $("newsFile")?.addEventListener("change", () => saveFileInput("newsFile","newsImage","assets/gallery","newsTitle"));
   $("upcomingFile")?.addEventListener("change", () => saveFileInput("upcomingFile","upcomingCover","assets/covers","upcomingTitle"));
+  $("artistFile")?.addEventListener("change", () => saveFileInput("artistFile","artistPhoto","assets/artists","artistName"));
+  $("featuredType")?.addEventListener("change", renderFeaturedChoices);
 }
 
 function renderAll(){
@@ -152,6 +170,8 @@ function renderAll(){
   renderEvents();
   renderNews();
   renderUpcoming();
+  renderArtists();
+  renderFeaturedChoices();
   renderExport();
 }
 function renderDashboard(){
@@ -204,6 +224,18 @@ function renderUpcoming(){
   $("upcomingTable").innerHTML = currentUpcoming().map((item,index) => `
     <tr class="${visible(item) ? "" : "hidden-row"}"><td>${item.title || ""}</td><td>${item.artist || ""}</td><td>${item.date || ""}</td>${tableActions("upcoming",index)}</tr>`).join("");
 }
+function renderArtists(){
+  const root=$("artistsTable"); if(!root) return;
+  root.innerHTML=currentArtists().map((item,index)=>`<tr class="${visible(item) ? "" : "hidden-row"}"><td>${item.name || ""}</td><td>${item.role || ""}</td>${tableActions("artist",index)}</tr>`).join("");
+}
+function featuredSource(){
+  const type=getValue("featuredType") || "track";
+  return {track:currentTracks(),video:currentVideos(),event:currentEvents(),news:currentNews()}[type] || [];
+}
+function renderFeaturedChoices(){
+  const select=$("featuredItem"); if(!select) return;
+  select.innerHTML=featuredSource().map((item,index)=>`<option value="${index}">${item.title || "Sans titre"}${item.artist ? ` — ${item.artist}` : ""}</option>`).join("");
+}
 
 function editItem(type,index){
   const maps = {
@@ -212,13 +244,14 @@ function editItem(type,index){
     gallery:[currentGallery()[index], fillGallery],
     event:[currentEvents()[index], fillEvent],
     news:[currentNews()[index], fillNews],
-    upcoming:[currentUpcoming()[index], fillUpcoming]
+    upcoming:[currentUpcoming()[index], fillUpcoming],
+    artist:[currentArtists()[index], fillArtist]
   };
   const [item, fill] = maps[type] || [];
   if(fill) fill(item, index);
 }
 function hideItem(type,index){
-  const list = {track:currentTracks(), video:currentVideos(), gallery:currentGallery(), event:currentEvents(), news:currentNews(), upcoming:currentUpcoming()}[type];
+  const list = {track:currentTracks(), video:currentVideos(), gallery:currentGallery(), event:currentEvents(), news:currentNews(), upcoming:currentUpcoming(), artist:currentArtists()}[type];
   if(!list?.[index]) return;
   list[index].hidden = !list[index].hidden;
   if(list[index].hidden && !list[index].status) list[index].status = "Masqué";
@@ -226,7 +259,7 @@ function hideItem(type,index){
 }
 function deleteItem(type,index){
   if(!confirm("Supprimer cet élément du brouillon ?")) return;
-  const list = {track:currentTracks(), video:currentVideos(), gallery:currentGallery(), event:currentEvents(), news:currentNews(), upcoming:currentUpcoming()}[type];
+  const list = {track:currentTracks(), video:currentVideos(), gallery:currentGallery(), event:currentEvents(), news:currentNews(), upcoming:currentUpcoming(), artist:currentArtists()}[type];
   list?.splice(index,1);
   markChanged();
 }
@@ -284,6 +317,18 @@ function saveUpcoming(){
   const index = getValue("upcomingIndex"); if(index !== "") currentUpcoming()[Number(index)] = item; else currentUpcoming().unshift(item);
   syncCountdown(item); clearUpcoming(); markChanged();
 }
+function fillArtist(item={}, index=""){ setValue("artistIndex",index); setValue("artistName",item.name); setValue("artistRole",item.role); setValue("artistPhoto",item.photo); setValue("artistBio",item.bio); }
+function clearArtist(){ fillArtist({}); }
+function saveArtist(){
+  const item={name:getValue("artistName"),role:getValue("artistRole"),photo:getValue("artistPhoto"),bio:getValue("artistBio")};
+  if(!item.name) return;
+  const index=getValue("artistIndex"); if(index!=="") currentArtists()[Number(index)]=item; else currentArtists().push(item);
+  clearArtist(); markChanged();
+}
+function saveFeatured(){
+  const item=featuredSource()[Number(getValue("featuredItem"))]; if(!item) return;
+  state.data.site.featured={...item, type:getValue("featuredType")}; markChanged();
+}
 function syncCountdown(item){
   if(!Array.isArray(state.data.site.countdowns)) state.data.site.countdowns = [];
   const found = state.data.site.countdowns.find(x => slugify(x.title) === slugify(item.title));
@@ -296,6 +341,7 @@ function syncCountdown(item){
 }
 
 function changedJsonFiles(){
+  if(!state.ready) return [];
   const files = [];
   const pairs = [
     ["data.json", state.data.site, state.original.site],
@@ -405,3 +451,73 @@ document.addEventListener("DOMContentLoaded", () => {
   initActions();
 });
 document.addEventListener("mpbp-admin-ready", loadAllData);
+
+/* CMS V2: the existing editor remains the single source of truth.  These
+ * actions save private drafts in Supabase and publish changed JSON atomically
+ * through an authenticated Edge Function; no GitHub credential reaches the UI. */
+function cmsNode(id){ return document.getElementById(id); }
+function cmsMessage(message, error=false){
+  const node=cmsNode('cmsStatus'); if(!node) return;
+  node.textContent=message; node.classList.toggle('error',error); node.classList.toggle('success',!error && Boolean(message));
+}
+function cmsDraftPayload(){
+  return { version:2, files:Object.fromEntries(changedJsonFiles().map(([path,content])=>[path,JSON.parse(content)])) };
+}
+function renderCmsStatus(){
+  const count=changedJsonFiles().length + state.media.size;
+  const countNode=cmsNode('cmsChangeCount'); if(countNode) countNode.textContent=`${count} modification${count===1?'':'s'} non publiée${count===1?'':'s'}`;
+  const publish=cmsNode('publishSiteBtn'); if(publish) publish.disabled=!count;
+  const save=cmsNode('saveDraftBtn'); if(save) save.disabled=!count;
+}
+async function saveCmsDraft(){
+  const payload=cmsDraftPayload();
+  if(!Object.keys(payload.files).length && !state.media.size){ cmsMessage('Aucune modification à enregistrer.'); return; }
+  cmsMessage('Enregistrement du brouillon sécurisé…');
+  try {
+    await window.MPBP440Admin.rpc('cms_save_draft',{p_payload:payload});
+    cmsMessage('Brouillon enregistré. Le site public reste inchangé.');
+  } catch(error) { cmsMessage(`Brouillon non enregistré : ${error.message}`,true); }
+}
+function replaceMediaUrls(value, replacements){
+  if(Array.isArray(value)) return value.map(item=>replaceMediaUrls(item,replacements));
+  if(value && typeof value==='object') return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,replaceMediaUrls(item,replacements)]));
+  return typeof value==='string' && replacements.has(value) ? replacements.get(value) : value;
+}
+async function uploadCmsMedia(){
+  const replacements=new Map();
+  for(const [localPath,file] of state.media.entries()){
+    const folder=(localPath.split('/')[1]||'covers').replace('assets','covers');
+    const safeFolder=folder==='videos' ? 'clips' : (['covers','clips','gallery','events','artists'].includes(folder)?folder:'covers');
+    const form=new FormData(); form.append('folder',safeFolder); form.append('file',file,file.name);
+    const result=await window.MPBP440Admin.invoke('admin-media-upload',form);
+    if(!result?.url) throw new Error('URL média manquante après import');
+    replacements.set(localPath,result.url);
+  }
+  if(replacements.size){
+    state.data=replaceMediaUrls(state.data,replacements);
+    state.media.clear(); renderAll();
+  }
+}
+async function publishCmsSite(){
+  if(!Object.keys(cmsDraftPayload().files).length && !state.media.size) return;
+  if(!confirm('Publier ces modifications sur le site public ? Cette action crée un seul commit et déclenche GitHub Pages.')) return;
+  const button=cmsNode('publishSiteBtn'); if(button) button.disabled=true;
+  cmsMessage('Import des médias et validation des données…');
+  try {
+    await uploadCmsMedia();
+    const payload=cmsDraftPayload();
+    if(!Object.keys(payload.files).length) throw new Error('Aucun JSON modifié à publier.');
+    cmsMessage('Publication atomique en cours…');
+    const result=await window.MPBP440Admin.invoke('admin-publish-site',{payload});
+    cmsMessage(`Publié : commit ${result.sha}. GitHub Pages est déclenché.`);
+    state.original=clone(state.data); renderAll();
+  } catch(error) { cmsMessage(`Publication refusée : ${error.message}`,true); }
+  finally { renderCmsStatus(); }
+}
+document.addEventListener('mpbp-admin-ready',()=>{
+  cmsNode('saveDraftBtn')?.addEventListener('click',saveCmsDraft);
+  cmsNode('publishSiteBtn')?.addEventListener('click',publishCmsSite);
+  cmsNode('publishSiteBtnSecondary')?.addEventListener('click',publishCmsSite);
+  cmsNode('quickExportBtn')?.addEventListener('click',()=>cmsNode('tab-export')?.scrollIntoView({behavior:'smooth',block:'start'}));
+  renderCmsStatus();
+},{once:true});

@@ -13,7 +13,7 @@
   const youtube = [['Mon Influence Version Long 2026 — Sparetdee Simon feat. Makéda Muse', 'qWhe7fzbx_g'], ['Le Réseau Fantôme', 'HKzweo2V-iw'], ['Climat sous contrôle Remix', 'GiGwGXqL1DY'], ['Prince Des étoiles', 'EzsriXQY-04'], ['Fiainana Tsotra', 'RV87WDHFjKE'], ['Monde Alternatif', '0YEqshdl7I'], ['BrainRot Society', 'zHx-OHSAKcs']];
   const canonical = (key) => `${location.origin}/mpbp-tv/index.html#${key}`;
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     const player = document.getElementById('v12TvPlayer');
     const title = document.getElementById('mpbpTvPlayerTitle');
     const artist = document.getElementById('v12TvPlayerArtist');
@@ -55,6 +55,25 @@
       card.innerHTML = '<img src="../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Karma</strong><span>Makéda Muse · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
+
+    /* Clips published by CMS V2 are read from the same public data document as
+       the rest of the site.  A new content id therefore needs no script edit. */
+    try {
+      const data = await fetch(new URL('../data.json', document.baseURI), { cache: 'no-store' }).then((response) => response.ok ? response.json() : Promise.reject(response));
+      (Array.isArray(data.videos) ? data.videos : []).forEach((item) => {
+        const key = String(item.id || '').trim();
+        if (!key || clips[key] || item.hidden) return;
+        if (item.youtubeId) { youtube.unshift([item.title || key, item.youtubeId]); return; }
+        if (!item.src || !/^https:\/\//.test(item.src)) return;
+        clips[key] = { title: item.title || key, artist: item.artist || 'MPBP440', description: item.description || '', src: item.src, poster: item.poster || '', artistUrl: item.artistUrl || '/artistes/' };
+        if (!playlist) return;
+        const card = document.createElement('button');
+        card.type = 'button'; card.dataset.v12Clip = key; card.setAttribute('aria-pressed', 'false');
+        card.innerHTML = `<img src="${item.poster || '../assets/brand/mpbp440-corp-official.png'}" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>${item.title || key}</strong><span>${item.artist || 'MPBP440'} · ${item.category || 'Clip officiel'}</span></span>`;
+        playlist.prepend(card);
+      });
+      buttons = [...document.querySelectorAll('[data-v12-clip]')];
+    } catch (_) { /* Existing curated playlist remains available offline. */ }
 
     let selected = 'l-argent'; let watched = 0; let lastPosition = null; let viewSent = false;
     const commentDate = (value) => new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium' }).format(new Date(value));

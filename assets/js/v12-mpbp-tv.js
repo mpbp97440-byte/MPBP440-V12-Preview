@@ -10,7 +10,7 @@
     'clip-j-existe': { title: 'J’existe', artist: 'Makéda Muse', description: 'Une immersion visuelle sensible et intense dans l’univers de Makéda Muse.', src: '../assets/clips/makeda-muse/j-existe-clip-exclusif-2026.mp4', poster: '../assets/clips/makeda-muse/j-existe-cover.png', artistUrl: '/artistes/makeda-muse.html' },
     'clip-dois-je-me-taire': { title: 'Dois-je me taire ?', artist: 'Sparetdee Simon', description: 'Clip officiel exclusif de Sparetdee Simon, disponible sur MPBP440.com.', src: '../assets/clips/sparetdee-simon/dois-je-me-taire-clip-exclusif.mp4', poster: '../assets/clips/sparetdee-simon/dois-je-me-taire-cover.png', artistUrl: '/artistes/sparetdee-simon.html' }
   };
-  const youtube = [['Le Réseau Fantôme', 'HKzweo2V-iw'], ['Climat sous contrôle Remix', 'GiGwGXqL1DY'], ['Prince Des étoiles', 'EzsriXQY-04'], ['Fiainana Tsotra', 'RV87WDHFjKE'], ['Monde Alternatif', '0YEqshdl7I'], ['BrainRot Society', 'zHx-OHSAKcs']];
+  const youtube = [['Mon Influence Version Long 2026 — Sparetdee Simon feat. Makéda Muse', 'qWhe7fzbx_g'], ['Le Réseau Fantôme', 'HKzweo2V-iw'], ['Climat sous contrôle Remix', 'GiGwGXqL1DY'], ['Prince Des étoiles', 'EzsriXQY-04'], ['Fiainana Tsotra', 'RV87WDHFjKE'], ['Monde Alternatif', '0YEqshdl7I'], ['BrainRot Society', 'zHx-OHSAKcs']];
   const canonical = (key) => `${location.origin}/mpbp-tv/index.html#${key}`;
 
   document.addEventListener('DOMContentLoaded', () => {

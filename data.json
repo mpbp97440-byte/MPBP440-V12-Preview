@@ -42,20 +42,6 @@
       "cover": "assets/releases/makeda-muse/makeda-muse-karma-presortie-2026-08-13.png",
       "links": {},
       "keywords": ["makéda muse", "karma", "prochaine sortie", "13 août 2026", "mpbp440"]
-    },
-    {
-      "id": "sparetdee-makeda-mon-influence-2026-08-11",
-      "title": "Mon Influence",
-      "artist": "Sparetdee Simon feat. Makéda Muse",
-      "artists": ["Sparetdee Simon", "Makéda Muse"],
-      "date": "2026-08-11T00:00:00+02:00",
-      "label": "Prochaine sortie officielle · Featuring",
-      "status": "Bientôt disponible",
-      "type": "Single",
-      "description": "Sparetdee Simon feat. Makéda Muse : sortie officielle le 11 août 2026.",
-      "cover": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-presortie.png",
-      "links": {},
-      "keywords": ["sparetdee simon", "makéda muse", "mon influence", "featuring", "prochaine sortie", "11 août 2026", "mpbp440"]
     }
   ],
   "tracks": [
@@ -1176,6 +1162,19 @@
         "facebook": "https://www.facebook.com/Sparetdee.simon"
       },
       "keywords": ["sparetdee simon", "que restera-t-il de moi", "mpbp440", "disponible", "spotify", "deezer"]
+    },
+    {
+      "id": "sparetdee-makeda-mon-influence-2026-08-11",
+      "title": "Mon Influence",
+      "artist": "Sparetdee Simon feat. Makéda Muse",
+      "artists": ["Sparetdee Simon", "Makéda Muse"],
+      "date": "2026-08-11T00:00:00+02:00",
+      "label": "Sortie officielle · Featuring",
+      "status": "Disponible",
+      "type": "Single",
+      "description": "« Mon Influence » de Sparetdee Simon feat. Makéda Muse est disponible dès maintenant sur les plateformes officielles.",
+      "cover": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-cover-officielle.png",
+      "links": {"apple":"https://music.apple.com/fr/album/mon-influence-feat-mak%C3%A9da-muse/6798229601?i=6798229904","spotify":"https://open.spotify.com/intl-fr/album/1eki915TBkT0Q7TOeBUtrD?si=9CUdxoQhTi2i15_cnPAk8g","deezer":"https://link.deezer.com/s/345073fpGuytPFjfuBDXt","youtube":"https://music.youtube.com/playlist?list=OLAK5uy_lAziOX53l6bMiz60YyUGVAJ_0pDrUzppA&si=J9VjhGmHNuET0clP"}
     }
   ],
   "videos": [

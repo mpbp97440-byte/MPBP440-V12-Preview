@@ -41,7 +41,13 @@
       "description": "La prochaine sortie de Makéda Muse arrive le 13 août 2026.",
       "cover": "assets/releases/makeda-muse/makeda-muse-karma-presortie-2026-08-13.png",
       "links": {},
-      "keywords": ["makéda muse", "karma", "prochaine sortie", "13 août 2026", "mpbp440"]
+      "keywords": [
+        "makéda muse",
+        "karma",
+        "prochaine sortie",
+        "13 août 2026",
+        "mpbp440"
+      ]
     }
   ],
   "tracks": [
@@ -63,7 +69,14 @@
         "apple": "https://music.apple.com/fr/album/jexiste-single/6791558143",
         "tiktok": "https://www.tiktok.com/@makeda_77"
       },
-      "keywords": ["makéda muse", "j'existe", "j existe", "mpbp440", "single", "disponible"]
+      "keywords": [
+        "makéda muse",
+        "j'existe",
+        "j existe",
+        "mpbp440",
+        "single",
+        "disponible"
+      ]
     },
     {
       "id": "makeda-je-laisse-la-porte-ouverte",
@@ -83,7 +96,13 @@
         "apple": "https://music.apple.com/fr/album/je-laisse-la-porte-ouverte/6791616981?i=6791616984",
         "tiktok": "https://www.tiktok.com/@makeda_77"
       },
-      "keywords": ["makéda muse", "je laisse la porte ouverte", "mpbp440", "single", "disponible"]
+      "keywords": [
+        "makéda muse",
+        "je laisse la porte ouverte",
+        "mpbp440",
+        "single",
+        "disponible"
+      ]
     },
     {
       "id": "makeda-sixieme-sens",
@@ -103,7 +122,13 @@
         "apple": "https://music.apple.com/fr/album/sixi%C3%A8me-sens-single/6790749284",
         "tiktok": "https://www.tiktok.com/@makeda_77"
       },
-      "keywords": ["makéda muse", "sixième sens", "mpbp440", "single", "disponible"]
+      "keywords": [
+        "makéda muse",
+        "sixième sens",
+        "mpbp440",
+        "single",
+        "disponible"
+      ]
     },
     {
       "id": "makeda-jour-de-pluie",
@@ -123,7 +148,13 @@
         "apple": "https://music.apple.com/fr/album/jour-de-pluie-single/6790335730",
         "tiktok": "https://www.tiktok.com/@makeda_77?is_from_webapp=1&sender_device=pc"
       },
-      "keywords": ["makéda muse", "jour de pluie", "mpbp440", "single", "disponible"]
+      "keywords": [
+        "makéda muse",
+        "jour de pluie",
+        "mpbp440",
+        "single",
+        "disponible"
+      ]
     },
     {
       "id": "le-systeme",
@@ -1161,52 +1192,83 @@
         "tiktok": "https://www.tiktok.com/@simonsparet",
         "facebook": "https://www.facebook.com/Sparetdee.simon"
       },
-      "keywords": ["sparetdee simon", "que restera-t-il de moi", "mpbp440", "disponible", "spotify", "deezer"]
+      "keywords": [
+        "sparetdee simon",
+        "que restera-t-il de moi",
+        "mpbp440",
+        "disponible",
+        "spotify",
+        "deezer"
+      ]
     },
     {
       "id": "sparetdee-makeda-mon-influence-2026-08-11",
       "title": "Mon Influence",
       "artist": "Sparetdee Simon feat. Makéda Muse",
-      "artists": ["Sparetdee Simon", "Makéda Muse"],
+      "artists": [
+        "Sparetdee Simon",
+        "Makéda Muse"
+      ],
       "date": "2026-08-11T00:00:00+02:00",
       "label": "Sortie officielle · Featuring",
       "status": "Disponible",
       "type": "Single",
       "description": "« Mon Influence » de Sparetdee Simon feat. Makéda Muse est disponible dès maintenant sur les plateformes officielles.",
       "cover": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-cover-officielle.png",
-      "links": {"apple":"https://music.apple.com/fr/album/mon-influence-feat-mak%C3%A9da-muse/6798229601?i=6798229904","spotify":"https://open.spotify.com/intl-fr/album/1eki915TBkT0Q7TOeBUtrD?si=9CUdxoQhTi2i15_cnPAk8g","deezer":"https://link.deezer.com/s/345073fpGuytPFjfuBDXt","youtube":"https://music.youtube.com/playlist?list=OLAK5uy_lAziOX53l6bMiz60YyUGVAJ_0pDrUzppA&si=J9VjhGmHNuET0clP"}
+      "links": {
+        "apple": "https://music.apple.com/fr/album/mon-influence-feat-mak%C3%A9da-muse/6798229601?i=6798229904",
+        "spotify": "https://open.spotify.com/intl-fr/album/1eki915TBkT0Q7TOeBUtrD?si=9CUdxoQhTi2i15_cnPAk8g",
+        "deezer": "https://link.deezer.com/s/345073fpGuytPFjfuBDXt",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_lAziOX53l6bMiz60YyUGVAJ_0pDrUzppA&si=J9VjhGmHNuET0clP"
+      }
     }
   ],
   "videos": [
     {
+      "title": "Karma version long",
+      "artist": "Makéda Muse",
+      "category": "clip officiel",
+      "description": "\" Makéda Muse \" avec le clip de sa nouvel sortie \" Karma \"  disponible !!!!!",
+      "url": "https://youtu.be/Q70terN0jGI",
+      "youtubeId": "Q70terN0jGI",
+      "poster": "",
+      "id": "karma-version-long"
+    },
+    {
       "title": "Le Réseau Fantôme",
       "youtubeId": "HKzweo2V-iw",
-      "url": "https://youtu.be/HKzweo2V-iw?si=OIKPZkUUF7Xar8Gf"
+      "url": "https://youtu.be/HKzweo2V-iw",
+      "id": "le-reseau-fantome"
     },
     {
       "title": "Climat sous contrôle Remix",
       "youtubeId": "GiGwGXqL1DY",
-      "url": "https://youtu.be/GiGwGXqL1DY?si=CJ1MV4Z35Q3rqJTZ"
+      "url": "https://youtu.be/GiGwGXqL1DY",
+      "id": "climat-sous-controle-remix"
     },
     {
       "title": "Prince Des étoiles",
       "youtubeId": "EzsriXQY-04",
-      "url": "https://youtu.be/EzsriXQY-04?si=6Fxs_oRwtjjY5gI4"
+      "url": "https://youtu.be/EzsriXQY-04",
+      "id": "prince-des-etoiles"
     },
     {
       "title": "Fiainana Tsotra",
       "youtubeId": "RV87WDHFjKE",
-      "url": "https://www.youtube.com/shorts/RV87WDHFjKE"
+      "url": "https://youtu.be/RV87WDHFjKE",
+      "id": "fiainana-tsotra"
     },
     {
       "title": "Monde Alternatif",
       "youtubeId": "0YEqshdl7jI",
-      "url": "https://www.youtube.com/watch?v=0YEqshdl7jI"
+      "url": "https://youtu.be/0YEqshdl7jI",
+      "id": "monde-alternatif"
     },
     {
       "title": "BrainRot Society",
       "youtubeId": "zHx-OHSAKcs",
-      "url": "https://www.youtube.com/watch?v=zHx-OHSAKcs"
+      "url": "https://youtu.be/zHx-OHSAKcs",
+      "id": "brainrot-society"
     }
   ],
   "events": [

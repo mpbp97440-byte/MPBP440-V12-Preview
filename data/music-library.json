@@ -1,5 +1,22 @@
 [
   {
+    "id": "makeda-karma",
+    "title": "Karma",
+    "artist": "Makéda Muse",
+    "date": "2026-08-13",
+    "status": "Disponible",
+    "cover": "assets/releases/makeda-muse/makeda-muse-karma-cover-officielle.png",
+    "type": "Single",
+    "description": "Karma, le nouveau titre de Makéda Muse, est disponible dès maintenant sur les plateformes officielles.",
+    "links": {
+      "spotify": "https://open.spotify.com/intl-fr/track/4jnKorhHhznK4SkX926LWR?si=8be163eee1eb44da",
+      "deezer": "https://link.deezer.com/s/346rTqxHPsaYiEesQ8K9O",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mNt-Mg0uyan1cvVRpnD357RVB1HaFKlKA&si=eunqH2F63a_-I70y",
+      "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
+    },
+    "keywords": ["makéda muse", "karma", "mpbp440", "single", "disponible"]
+  },
+  {
     "id": "brainrot-society-2-0",
     "title": "BrainRot Society 2.0",
     "artist": "Sparetdee Simon",

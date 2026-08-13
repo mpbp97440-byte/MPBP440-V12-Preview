@@ -15,42 +15,40 @@
     "Apple Music": "https://music.apple.com/fr/artist/sparetdee-simon/1893053126"
   },
   "featured": {
-    "title": "J’existe",
+    "title": "Karma",
     "artist": "Makéda Muse",
     "date": "Disponible maintenant",
-    "description": "Le nouveau titre de Makéda Muse est désormais disponible sur toutes les plateformes officielles.",
-    "cover": "assets/releases/makeda-muse/makeda-muse-j-existe.png",
+    "description": "Karma, le nouveau titre de Makéda Muse, est disponible dès maintenant sur les plateformes officielles.",
+    "cover": "assets/releases/makeda-muse/makeda-muse-karma-cover-officielle.png",
     "status": "Disponible",
     "links": {
-      "spotify": "https://open.spotify.com/intl-fr/track/51syVlvoFtsVIALArlir1K?si=cc8ffc9e560c4f7a",
-      "deezer": "https://link.deezer.com/s/33VlMzF4CVy002y9zZ8EX",
-      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kWwYFt4CPeD09g59vuQOmbOUQMmXgB9Kc&si=569p-0_6UogbHi1r",
-      "apple": "https://music.apple.com/fr/album/jexiste-single/6791558143",
-      "tiktok": "https://www.tiktok.com/@makeda_77"
+      "spotify": "https://open.spotify.com/intl-fr/track/4jnKorhHhznK4SkX926LWR?si=8be163eee1eb44da",
+      "deezer": "https://link.deezer.com/s/346rTqxHPsaYiEesQ8K9O",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mNt-Mg0uyan1cvVRpnD357RVB1HaFKlKA&si=eunqH2F63a_-I70y",
+      "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
     }
   },
-  "upcoming": [
+  "upcoming": [],
+  "tracks": [
     {
-      "id": "makeda-muse-karma-2026-08-13",
+      "id": "makeda-karma",
       "title": "Karma",
       "artist": "Makéda Muse",
-      "date": "2026-08-13T00:00:00+02:00",
-      "label": "Prochaine sortie officielle",
-      "status": "Bientôt disponible",
+      "year": "2026",
+      "date": "2026-08-13",
+      "status": "Disponible",
       "type": "Single",
-      "description": "La prochaine sortie de Makéda Muse arrive le 13 août 2026.",
-      "cover": "assets/releases/makeda-muse/makeda-muse-karma-presortie-2026-08-13.png",
-      "links": {},
-      "keywords": [
-        "makéda muse",
-        "karma",
-        "prochaine sortie",
-        "13 août 2026",
-        "mpbp440"
-      ]
-    }
-  ],
-  "tracks": [
+      "description": "Karma, le nouveau titre de Makéda Muse, est disponible dès maintenant sur les plateformes officielles.",
+      "cover": "assets/releases/makeda-muse/makeda-muse-karma-cover-officielle.png",
+      "promoCover": "assets/releases/makeda-muse/makeda-muse-karma-cover-officielle.png",
+      "links": {
+        "spotify": "https://open.spotify.com/intl-fr/track/4jnKorhHhznK4SkX926LWR?si=8be163eee1eb44da",
+        "deezer": "https://link.deezer.com/s/346rTqxHPsaYiEesQ8K9O",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mNt-Mg0uyan1cvVRpnD357RVB1HaFKlKA&si=eunqH2F63a_-I70y",
+        "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
+      },
+      "keywords": ["makéda muse", "karma", "mpbp440", "single", "disponible"]
+    },
     {
       "id": "makeda-jexiste",
       "title": "J’existe",
@@ -1224,6 +1222,13 @@
     }
   ],
   "videos": [
+    {
+      "id": "mon-influence-version-long-2026",
+      "title": "Mon Influence Version Long 2026",
+      "artist": "Sparetdee Simon feat. Makéda Muse",
+      "youtubeId": "qWhe7fzbx_g",
+      "url": "https://youtu.be/qWhe7fzbx_g"
+    },
     {
       "title": "Karma version long",
       "artist": "Makéda Muse",

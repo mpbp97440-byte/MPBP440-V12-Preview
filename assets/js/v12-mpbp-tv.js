@@ -2,7 +2,7 @@
   'use strict';
 
   const clips = {
-    'clip-karma': { title: 'Karma', artist: 'Makéda Muse', description: 'Clip exclusif web disponible dès maintenant, avant la sortie officielle du morceau le 13 août 2026.', src: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif-web.mp4', poster: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png', artistUrl: '/artistes/makeda-muse.html' },
+    'clip-karma': { title: 'Karma', artist: 'Makéda Muse', description: 'Clip exclusif web de Makéda Muse, disponible dès maintenant sur MPBP TV.', src: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif-web.mp4', poster: '../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png', artistUrl: '/artistes/makeda-muse.html' },
     'clip-mon-influence': { title: 'Mon Influence', artist: 'Sparetdee Simon feat. Makéda Muse', description: 'Clip exclusif web disponible dès maintenant, avant la sortie officielle du morceau le 11 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'clip-que-restera-t-il-de-moi': { title: 'Que restera-t-il de moi ?', artist: 'Sparetdee Simon', description: 'Clip exclusif web disponible dès maintenant, en attendant la sortie officielle du morceau le 8 août 2026.', src: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif-web.mp4', poster: '../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png', artistUrl: '/artistes/sparetdee-simon.html' },
     'l-argent': { title: 'L’Argent', artist: 'Sparetdee Simon', description: 'Clip exclusif disponible uniquement sur le site officiel et l’application MPBP440.', src: '../assets/videos/l-argent.mp4', poster: '../assets/covers/largent-officiel.webp', artistUrl: '/artistes/sparetdee-simon.html' },
@@ -10,7 +10,10 @@
     'clip-j-existe': { title: 'J’existe', artist: 'Makéda Muse', description: 'Une immersion visuelle sensible et intense dans l’univers de Makéda Muse.', src: '../assets/clips/makeda-muse/j-existe-clip-exclusif-2026.mp4', poster: '../assets/clips/makeda-muse/j-existe-cover.png', artistUrl: '/artistes/makeda-muse.html' },
     'clip-dois-je-me-taire': { title: 'Dois-je me taire ?', artist: 'Sparetdee Simon', description: 'Clip officiel exclusif de Sparetdee Simon, disponible sur MPBP440.com.', src: '../assets/clips/sparetdee-simon/dois-je-me-taire-clip-exclusif.mp4', poster: '../assets/clips/sparetdee-simon/dois-je-me-taire-cover.png', artistUrl: '/artistes/sparetdee-simon.html' }
   };
-  const youtube = [['Mon Influence Version Long 2026 — Sparetdee Simon feat. Makéda Muse', 'qWhe7fzbx_g'], ['Le Réseau Fantôme', 'HKzweo2V-iw'], ['Climat sous contrôle Remix', 'GiGwGXqL1DY'], ['Prince Des étoiles', 'EzsriXQY-04'], ['Fiainana Tsotra', 'RV87WDHFjKE'], ['Monde Alternatif', '0YEqshdl7I'], ['BrainRot Society', 'zHx-OHSAKcs']];
+  // The public archive has one canonical source: data.json.  Keeping this list
+  // empty prevents the same YouTube ID from being rendered twice after loading.
+  const youtube = [];
+  const youtubeIds = new Set();
   const canonical = (key) => `${location.origin}/mpbp-tv/index.html#${key}`;
 
   document.addEventListener('DOMContentLoaded', async () => {
@@ -62,8 +65,16 @@
       const data = await fetch(new URL('../data.json', document.baseURI), { cache: 'no-store' }).then((response) => response.ok ? response.json() : Promise.reject(response));
       (Array.isArray(data.videos) ? data.videos : []).forEach((item) => {
         const key = String(item.id || '').trim();
-        if (!key || clips[key] || item.hidden) return;
-        if (item.youtubeId) { youtube.unshift([item.title || key, item.youtubeId]); return; }
+        if (item.hidden) return;
+        if (item.youtubeId) {
+          const youtubeId = String(item.youtubeId).trim();
+          if (youtubeId && !youtubeIds.has(youtubeId)) {
+            youtubeIds.add(youtubeId);
+            youtube.push({ title: item.title || key, artist: item.artist || 'MPBP440', id: youtubeId });
+          }
+          return;
+        }
+        if (!key || clips[key]) return;
         if (!item.src || !/^https:\/\//.test(item.src)) return;
         clips[key] = { title: item.title || key, artist: item.artist || 'MPBP440', description: item.description || '', src: item.src, poster: item.poster || '', artistUrl: item.artistUrl || '/artistes/' };
         if (!playlist) return;
@@ -159,6 +170,6 @@
     const fromHash = () => { const key = location.hash.slice(1); if (clips[key]) select(key, { scroll: true }); };
     window.addEventListener('hashchange', fromHash); if (clips[location.hash.slice(1)]) fromHash(); else select(selected); refreshCardStats();
     const grid = document.getElementById('v12YoutubeGrid');
-    if (grid) grid.innerHTML = youtube.map(([name, id]) => `<article class="v12-tv-youtube__card"><div class="v12-tv-youtube__frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${name} — MPBP440" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="btn ghost" href="https://youtu.be/${id}" target="_blank" rel="noopener noreferrer">${name} sur YouTube</a></article>`).join('');
+    if (grid) grid.innerHTML = youtube.map(({ title: name, artist: performer, id }) => `<article class="v12-tv-youtube__card"><div class="v12-tv-youtube__frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${name} — MPBP440" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="v12-tv-youtube__meta"><strong>${name}</strong><span>${performer}</span></div><a class="btn ghost" href="https://youtu.be/${id}" target="_blank" rel="noopener noreferrer">Voir sur YouTube</a></article>`).join('');
   });
 })();

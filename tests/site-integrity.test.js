@@ -13,7 +13,10 @@ const failures = [];
 const idsByFile = new Map();
 for (const file of htmlFiles) {
   const source = fs.readFileSync(file, 'utf8');
-  const ids = new Set([...source.matchAll(/\sid=["']([^"']+)["']/g)].map(match => match[1]));
+  const rawIds = [...source.matchAll(/\sid=["']([^"']+)["']/g)].map(match => match[1]);
+  const duplicateIds = [...new Set(rawIds.filter((id, index) => rawIds.indexOf(id) !== index))];
+  if (duplicateIds.length) failures.push(`${path.relative(root,file)} -> id duplique: ${duplicateIds.join(', ')}`);
+  const ids = new Set(rawIds);
   if (path.relative(root, file).replace(/\\/g,'/') === 'mpbp-tv/index.html') {
     for (const match of source.matchAll(/data-v12-clip=["']([^"']+)["']/g)) ids.add(match[1]);
     const tvJs = fs.readFileSync(path.join(root, 'assets/js/v12-mpbp-tv.js'), 'utf8');

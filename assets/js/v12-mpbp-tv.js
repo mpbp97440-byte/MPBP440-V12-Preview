@@ -40,21 +40,21 @@
     const playlist = document.querySelector('.v12-tv-playlist');
     if (playlist && !playlist.querySelector('[data-v12-clip="clip-que-restera-t-il-de-moi"]')) {
       const card = document.createElement('button');
-      card.type = 'button'; card.dataset.v12Clip = 'clip-que-restera-t-il-de-moi'; card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-que-restera-t-il-de-moi'; if (!document.getElementById(card.dataset.v12Clip)) card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
       card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Que restera-t-il de moi ?</strong><span>Sparetdee Simon · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
 
     if (playlist && !playlist.querySelector('[data-v12-clip="clip-mon-influence"]')) {
       const card = document.createElement('button');
-      card.type = 'button'; card.dataset.v12Clip = 'clip-mon-influence'; card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-mon-influence'; if (!document.getElementById(card.dataset.v12Clip)) card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
       card.innerHTML = '<img src="../assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Mon Influence</strong><span>Sparetdee Simon feat. Makéda Muse · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
 
     if (playlist && !playlist.querySelector('[data-v12-clip="clip-karma"]')) {
       const card = document.createElement('button');
-      card.type = 'button'; card.dataset.v12Clip = 'clip-karma'; card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
+      card.type = 'button'; card.dataset.v12Clip = 'clip-karma'; if (!document.getElementById(card.dataset.v12Clip)) card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
       card.innerHTML = '<img src="../assets/clips/makeda-muse/makeda-muse-karma-clip-exclusif.png" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>Karma</strong><span>Makéda Muse · Clip exclusif web</span></span>';
       playlist.prepend(card); buttons = [...document.querySelectorAll('[data-v12-clip]')];
     }
@@ -79,7 +79,7 @@
         clips[key] = { title: item.title || key, artist: item.artist || 'MPBP440', description: item.description || '', src: item.src, poster: item.poster || '', artistUrl: item.artistUrl || '/artistes/' };
         if (!playlist) return;
         const card = document.createElement('button');
-        card.type = 'button'; card.dataset.v12Clip = key; card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
+        card.type = 'button'; card.dataset.v12Clip = key; if (!document.getElementById(card.dataset.v12Clip)) card.id = card.dataset.v12Clip; card.setAttribute('aria-pressed', 'false');
         card.innerHTML = `<img src="${item.poster || '../assets/brand/mpbp440-corp-official.png'}" alt="" loading="lazy" decoding="async"><span class="v12-tv-playlist__copy"><strong>${item.title || key}</strong><span>${item.artist || 'MPBP440'} · ${item.category || 'Clip officiel'}</span></span>`;
         playlist.prepend(card);
       });

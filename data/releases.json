@@ -15,7 +15,13 @@
       "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mNt-Mg0uyan1cvVRpnD357RVB1HaFKlKA&si=eunqH2F63a_-I70y",
       "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
     },
-    "keywords": ["makéda muse", "karma", "mpbp440", "single", "disponible"]
+    "keywords": [
+      "makéda muse",
+      "karma",
+      "mpbp440",
+      "single",
+      "disponible"
+    ]
   },
   {
     "id": "le-systeme",
@@ -976,10 +982,10 @@
     "title": "Je laisse la porte ouverte / J'existe",
     "artist": "Makéda Muse",
     "date": "2026-07-25T00:00:00+02:00",
-    "label": "Double pré-sortie officielle",
-    "status": "Pré-sortie / Bientôt disponible",
-    "type": "Double pré-sortie",
-    "description": "Double pré-sortie officielle de Makéda Muse : Je laisse la porte ouverte et J'existe, disponible le 25 juillet 2026 sur toutes les plateformes.",
+    "label": "Archive · double pré-sortie officielle",
+    "status": "Archivé",
+    "type": "Archive promotionnelle",
+    "description": "Archive de l’annonce du 25 juillet 2026 pour « Je laisse la porte ouverte » et « J’existe », désormais disponibles dans le catalogue.",
     "cover": "assets/releases/makeda-muse/double-pre-sortie-makeda-muse-2026-07-25.png",
     "links": {},
     "keywords": [
@@ -1042,6 +1048,47 @@
       "tiktok": "https://www.tiktok.com/@simonsparet",
       "facebook": "https://www.facebook.com/Sparetdee.simon"
     },
-    "keywords": ["sparetdee simon", "que restera-t-il de moi", "mpbp440", "disponible", "spotify", "deezer"]
+    "keywords": [
+      "sparetdee simon",
+      "que restera-t-il de moi",
+      "mpbp440",
+      "disponible",
+      "spotify",
+      "deezer"
+    ]
+  },
+  {
+    "id": "legalize-la-kalite-remix",
+    "title": "Légalize La Kalité Remix",
+    "artist": "Sparetdee Simon",
+    "date": "2026-09-26T00:00:00+02:00",
+    "label": "M.P.B.P 440 Corp.2026",
+    "status": "À venir",
+    "type": "Single",
+    "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+    "links": {},
+    "keywords": [
+      "sparetdee simon",
+      "légalize la kalité remix",
+      "mpbp440",
+      "à venir"
+    ]
+  },
+  {
+    "id": "brainrot-society-remix",
+    "title": "BrainRot Society Remix",
+    "artist": "Sparetdee Simon",
+    "date": "2026-09-26T00:00:00+02:00",
+    "label": "M.P.B.P 440 Corp.2026",
+    "status": "À venir",
+    "type": "Single",
+    "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+    "links": {},
+    "keywords": [
+      "sparetdee simon",
+      "brainrot society remix",
+      "mpbp440",
+      "à venir"
+    ]
   }
 ]

@@ -23,7 +23,7 @@
     "id": "sparetdee-makeda-mon-influence-clip-exclusif-web-20260728",
     "date": "2026-07-28",
     "title": "Le clip exclusif web de « Mon Influence » est disponible",
-    "text": "Le clip exclusif web de « Mon Influence », de Sparetdee Simon feat. Makéda Muse, est disponible dès maintenant sur MPBP TV, avant la sortie officielle du morceau prévue le 11/08/2026.",
+    "text": "Le clip exclusif web de « Mon Influence », de Sparetdee Simon feat. Makéda Muse, est disponible dès maintenant sur MPBP TV.",
     "type": "clip",
     "image": "assets/clips/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-clip-exclusif.png",
     "url": "/mpbp-tv/index.html#clip-mon-influence",
@@ -32,18 +32,19 @@
   {
     "id": "sparetdee-makeda-mon-influence-sortie-20260811",
     "date": "2026-07-28",
-    "title": "« Mon Influence » arrive le 11 août 2026",
-    "text": "Sparetdee Simon feat. Makéda Muse annoncent la sortie officielle de « Mon Influence » le 11 août 2026. Le compte à rebours est disponible sur MPBP440.",
+    "title": "Archive · « Mon Influence » annoncé pour le 11 août 2026",
+    "text": "Annonce publiée avant la sortie de « Mon Influence », désormais disponible dans le catalogue officiel.",
     "type": "sortie",
     "image": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-presortie.png",
-    "url": "/#avenir",
-    "buttonText": "Voir la prochaine sortie"
+    "url": "/music/index.html#morceaux",
+    "buttonText": "Écouter le titre",
+    "archive": true
   },
   {
     "id": "sparetdee-que-restera-t-il-de-moi-clip-exclusif-web-20260725",
     "date": "2026-07-25",
     "title": "Le clip exclusif web de « Que restera-t-il de moi ? » est disponible",
-    "text": "Le clip exclusif web de « Que restera-t-il de moi ? » de Sparetdee Simon est disponible dès maintenant, en attendant la sortie officielle du morceau le 08/08/2026.",
+    "text": "Le clip exclusif web de « Que restera-t-il de moi ? » de Sparetdee Simon est disponible dès maintenant sur MPBP TV.",
     "type": "clip",
     "image": "assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png",
     "url": "/mpbp-tv/index.html#clip-que-restera-t-il-de-moi",
@@ -115,15 +116,15 @@
   {
     "date": "2026-07-11",
     "title": "Live TikTok MPBP440 à 21h00",
-    "text": "Live spécial autour de BrainRot Society 2.0, Makeda Muse, Jour de pluie, Sixieme Sens et du clip Je sais que tu sais.",
+    "text": "Live spécial autour de BrainRot Society 2.0, Makéda Muse, Jour de pluie, Sixieme Sens et du clip Je sais que tu sais.",
     "type": "event",
     "url": "#journal",
     "buttonText": "Voir le journal"
   },
   {
     "date": "2026-07-09",
-    "title": "Makeda Muse rejoint officiellement MPBP440",
-    "text": "Makeda Muse apporte au label une nouvelle couleur artistique et prépare Jour de pluie puis Sixieme Sens.",
+    "title": "Makéda Muse rejoint officiellement MPBP440",
+    "text": "Makéda Muse apporte au label une nouvelle couleur artistique et prépare Jour de pluie puis Sixieme Sens.",
     "type": "artiste",
     "url": "/artistes/makeda-muse.html",
     "buttonText": "Voir la page artiste"

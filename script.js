@@ -272,10 +272,16 @@ function parseEventDate(item={}){
 }
 
 function isCurrentEvent(item={}){
-  if(cleanKey(item.id).includes("live-tiktok-makeda-muse-2026-07-11")) return true;
+  if(item.archive || /^(pass[ée]|archiv[ée]|annul[ée])$/i.test(safeText(item.status).trim())) return false;
   const date = parseEventDate(item);
   if(!date) return true;
   return date.getTime() >= Date.now();
+}
+
+function isUpcomingRelease(item={}){
+  if(!isPublicItem(item) || /^(disponible|annul[ée]|retir[ée]|archiv[ée])$/i.test(safeText(item.status).trim())) return false;
+  const date = parseReleaseDate(item.date);
+  return Boolean(date && date.getTime() > Date.now());
 }
 
 function renderNextRelease(data={}){
@@ -360,7 +366,7 @@ async function loadData(){
 
     const upcomingGrid = document.getElementById("upcomingGrid");
     if(upcomingGrid){
-      const upcoming = (data.upcoming || []).filter(isPublicItem).sort((a,b)=>parseReleaseDate(a.date) - parseReleaseDate(b.date));
+      const upcoming = (data.upcoming || []).filter(isUpcomingRelease).sort((a,b)=>parseReleaseDate(a.date) - parseReleaseDate(b.date));
       upcomingGrid.innerHTML = upcoming.length ? upcoming.map((x,i)=>{
         const target = parseReleaseDate(x.date);
         const timer = target ? `<div class="miniCountdown" data-date="${target.toISOString()}" aria-label="Compte a rebours ${safeText(x.title)}">
@@ -371,7 +377,7 @@ async function loadData(){
         </div>` : "";
         return `
         <article class="time-card">
-          <img src="${mediaSrc(x.cover)}" alt="${x.title}" loading="lazy" decoding="async">
+          ${x.cover ? `<img src="${mediaSrc(x.cover)}" alt="${x.title}" loading="lazy" decoding="async">` : `<div class="coverFallback" role="img" aria-label="Visuel officiel indisponible">MPBP440</div>`}
           <div class="time-body">
             <p class="sup">${x.artist || "MPBP 440"} &bull; Etape ${i+1}</p>
             <h3>${x.title}</h3>
@@ -1501,7 +1507,7 @@ async function loadLiveStatus(){
       card.classList.remove("is-live");
       badge.textContent = "🔴 LIVE / ÉVÈNEMENT";
       title.textContent = live.title || "Événement exclusif MPBP440 - Live TikTok";
-      text.innerHTML = "<strong>11/07/2026 • 21h00</strong><br>BrainRot Society 2.0, Makeda Muse, Jour de pluie, Sixieme Sens et Je sais que tu sais.";
+      text.innerHTML = "<strong>11/07/2026 • 21h00</strong><br>BrainRot Society 2.0, Makéda Muse, Jour de pluie, Sixieme Sens et Je sais que tu sais.";
       button.textContent = "Voir le TikTok officiel";
       button.href = live.fallback_url || live.url || "https://www.tiktok.com/@simonsparet";
     }

@@ -9,7 +9,9 @@
     "place": "Profil officiel de Makéda Muse sur TikTok",
     "description": "Live interactif spécial autour des sorties de Makéda Muse, avec présentation des nouveaux titres, exclusivités, échanges, participation, partage et surprises.",
     "cover": "assets/events/roots-live-25-07-2026.png",
-    "buttonText": "Suivre Makéda Muse sur TikTok",
-    "url": "https://www.tiktok.com/@makeda_77"
+    "buttonText": "Voir le profil de Makéda Muse",
+    "url": "https://www.tiktok.com/@makeda_77",
+    "status": "Passé",
+    "archive": true
   }
 ]

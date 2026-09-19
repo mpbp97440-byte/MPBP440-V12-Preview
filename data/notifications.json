@@ -33,18 +33,19 @@
     "id": "sparetdee-makeda-mon-influence-20260811",
     "date": "2026-07-28",
     "type": "sortie",
-    "title": "« Mon Influence » arrive le 11 août",
-    "message": "Prochaine sortie officielle : Sparetdee Simon feat. Makéda Muse — « Mon Influence », le 11 août 2026.",
-    "url": "/#avenir",
+    "title": "« Mon Influence » est disponible",
+    "message": "« Mon Influence » de Sparetdee Simon feat. Makéda Muse est disponible dans le catalogue officiel.",
+    "url": "/music/index.html#morceaux",
     "image": "assets/releases/sparetdee-simon/sparetdee-simon-feat-makeda-muse-mon-influence-presortie.png",
-    "priority": "high"
+    "priority": "high",
+    "archive": true
   },
   {
     "id": "sparetdee-que-restera-t-il-de-moi-clip-exclusif-web-20260725",
     "date": "2026-07-25",
     "type": "clip",
     "title": "Nouveau clip exclusif web : « Que restera-t-il de moi ? »",
-    "message": "Le clip exclusif web de « Que restera-t-il de moi ? » de Sparetdee Simon est disponible maintenant, avant la sortie officielle du morceau le 8 août 2026.",
+    "message": "Le clip exclusif web de « Que restera-t-il de moi ? » de Sparetdee Simon est disponible maintenant sur MPBP TV.",
     "url": "/mpbp-tv/index.html#clip-que-restera-t-il-de-moi",
     "image": "assets/clips/sparetdee-simon/sparetdee-simon-que-restera-t-il-de-moi-clip-exclusif.png",
     "priority": "high"

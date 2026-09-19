@@ -375,6 +375,20 @@ footer{text-align:center; color:var(--muted); padding:44px 18px}
 .staticEvent:first-of-type{border-color:rgba(212,175,55,.55);background:radial-gradient(circle at 20% 20%,rgba(226,27,27,.12),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));}
 .countdownArtist h3{word-break:normal;overflow-wrap:anywhere;}
 
+.coverFallback{
+  display:grid;
+  place-items:center;
+  min-height:220px;
+  aspect-ratio:1/1;
+  border:1px solid rgba(244,211,94,.25);
+  border-radius:18px;
+  background:radial-gradient(circle at 50% 20%,rgba(244,211,94,.15),transparent 45%),#050505;
+  color:#fff1bd;
+  font-family:Orbitron,sans-serif;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
 
 /* V3.2.7 — ÉVÈNEMENT AFFICHÉ ENTIER + POCHETTES OFFICIELLES */
 .event-card.staticEvent:first-of-type{

@@ -28,7 +28,42 @@
       "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
     }
   },
-  "upcoming": [],
+  "upcoming": [
+    {
+      "id": "legalize-la-kalite-remix",
+      "title": "Légalize La Kalité Remix",
+      "artist": "Sparetdee Simon",
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "status": "À venir",
+      "type": "Single",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+      "links": {},
+      "keywords": [
+        "sparetdee simon",
+        "légalize la kalité remix",
+        "mpbp440",
+        "à venir"
+      ]
+    },
+    {
+      "id": "brainrot-society-remix",
+      "title": "BrainRot Society Remix",
+      "artist": "Sparetdee Simon",
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "status": "À venir",
+      "type": "Single",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+      "links": {},
+      "keywords": [
+        "sparetdee simon",
+        "brainrot society remix",
+        "mpbp440",
+        "à venir"
+      ]
+    }
+  ],
   "tracks": [
     {
       "id": "makeda-karma",
@@ -47,7 +82,13 @@
         "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mNt-Mg0uyan1cvVRpnD357RVB1HaFKlKA&si=eunqH2F63a_-I70y",
         "apple": "https://music.apple.com/fr/album/karma/6798658028?i=6798658029"
       },
-      "keywords": ["makéda muse", "karma", "mpbp440", "single", "disponible"]
+      "keywords": [
+        "makéda muse",
+        "karma",
+        "mpbp440",
+        "single",
+        "disponible"
+      ]
     },
     {
       "id": "makeda-jexiste",
@@ -1219,6 +1260,40 @@
         "deezer": "https://link.deezer.com/s/345073fpGuytPFjfuBDXt",
         "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_lAziOX53l6bMiz60YyUGVAJ_0pDrUzppA&si=J9VjhGmHNuET0clP"
       }
+    },
+    {
+      "id": "legalize-la-kalite-remix",
+      "title": "Légalize La Kalité Remix",
+      "artist": "Sparetdee Simon",
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "status": "À venir",
+      "type": "Single",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+      "links": {},
+      "keywords": [
+        "sparetdee simon",
+        "légalize la kalité remix",
+        "mpbp440",
+        "à venir"
+      ]
+    },
+    {
+      "id": "brainrot-society-remix",
+      "title": "BrainRot Society Remix",
+      "artist": "Sparetdee Simon",
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "status": "À venir",
+      "type": "Single",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026.",
+      "links": {},
+      "keywords": [
+        "sparetdee simon",
+        "brainrot society remix",
+        "mpbp440",
+        "à venir"
+      ]
     }
   ],
   "videos": [
@@ -1287,8 +1362,10 @@
       "place": "Profil officiel de Makéda Muse sur TikTok",
       "description": "Live interactif spécial autour des sorties de Makéda Muse, avec présentation des nouveaux titres, exclusivités, échanges, participation, partage et surprises.",
       "cover": "assets/events/roots-live-25-07-2026.png",
-      "buttonText": "Suivre Makéda Muse sur TikTok",
-      "url": "https://www.tiktok.com/@makeda_77"
+      "buttonText": "Voir le profil de Makéda Muse",
+      "url": "https://www.tiktok.com/@makeda_77",
+      "status": "Passé",
+      "archive": true
     }
   ],
   "site": {
@@ -1298,11 +1375,6 @@
     "claim": "Music • Passion • But • Progress",
     "email": "mpbp97440@gmail.com",
     "heroGallery": "assets/gallery/neuvieme-merveille.webp"
-  },
-  "countdown": {
-    "title": "Double sortie — Sparetdee Simon",
-    "date": "2026-06-20T00:00:00+02:00",
-    "label": "Compte à rebours double sortie officielle"
   },
   "gallery": [
     {
@@ -1321,11 +1393,11 @@
       "description": "Visuel officiel de l’univers Sparetdee Simon / M.P.B.P 440."
     },
     {
-      "title": "Makeda Muse — artiste officielle",
+      "title": "Makéda Muse — artiste officielle",
       "image": "assets/makeda-muse/makeda-muse-profile.png",
-      "description": "Portrait officiel de Makeda Muse, nouvelle artiste MPBP440.",
+      "description": "Portrait officiel de Makéda Muse, nouvelle artiste MPBP440.",
       "category": "artistes",
-      "artist": "Makeda Muse"
+      "artist": "Makéda Muse"
     },
     {
       "title": "Live TikTok MPBP440 — 11 juillet 2026",
@@ -1341,13 +1413,19 @@
       "role": "Artiste principal • Fondateur MPBP 440",
       "bio": "Rap conscient, groove solaire, plume de quartier, vision cosmique et esthétique noir-or futuriste. Sparetdee Simon porte la direction artistique du label M.P.B.P 440 Corp.2026.",
       "photo": "assets/artist/sparetdee-avatar.webp",
-      "status": "Double sortie : L’Argent / Je Vous Pousse Tous — 20/06/2026",
+      "status": "Catalogue disponible et prochaines sorties annoncées pour le 26/09/2026",
       "upcoming": [
         {
-          "title": "L’Argent / Je Vous Pousse Tous",
-          "date": "20/06/2026",
-          "description": "Double sortie officielle de Sparetdee Simon.",
-          "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp"
+          "id": "legalize-la-kalite-remix",
+          "title": "Légalize La Kalité Remix",
+          "date": "2026-09-26T00:00:00+02:00",
+          "description": "Sortie officielle annoncée pour le 26 septembre 2026."
+        },
+        {
+          "id": "brainrot-society-remix",
+          "title": "BrainRot Society Remix",
+          "date": "2026-09-26T00:00:00+02:00",
+          "description": "Sortie officielle annoncée pour le 26 septembre 2026."
         }
       ]
     },
@@ -1356,20 +1434,13 @@
       "role": "Nouvelle artiste MPBP 440",
       "bio": "Juste Une Plume est une artiste portée par l’espoir, la sensibilité humaine et la bienveillance. À travers ses textes, elle pose un regard sincère sur notre société actuelle, entre mélancolie, résilience et gouttes de lumière. Sa musique s’appuie sur son vécu personnel et sa vision de la vie pour transmettre un message d’amour, de solidarité et d’humanité. Chaque morceau devient une invitation à croire en un avenir meilleur, à préserver ce qui nous rassemble et à laisser parler la plume quand les mots peuvent encore réparer.",
       "photo": "assets/artist/juste-une-plume-profile.jpg",
-      "status": "Premier single : Je sais que tu sais — 16/06/2026",
-      "upcoming": [
-        {
-          "title": "Je sais que tu sais",
-          "date": "16/06/2026",
-          "description": "Premier titre officiel de Juste Une Plume, disponible sur toutes les plateformes.",
-          "cover": "assets/covers/je-sais-juste-une-plume.webp"
-        }
-      ]
+      "status": "« Je sais que tu sais » est disponible dans le catalogue officiel",
+      "upcoming": []
     },
     {
       "name": "Makéda Muse",
       "role": "Artiste MPBP440",
-      "bio": "Makeda Muse rejoint officiellement MPBP440 avec un univers inspiré, sensible et profond. Sa symbolique est la clé de sol : signe de musique, d'ouverture et d'inspiration.",
+      "bio": "Makéda Muse rejoint officiellement MPBP440 avec un univers inspiré, sensible et profond. Sa symbolique est la clé de sol : signe de musique, d'ouverture et d'inspiration.",
       "photo": "assets/makeda-muse/makeda-muse-profile.png",
       "status": "Disponibles : J'existe, Je laisse la porte ouverte, Sixième Sens et Jour de pluie",
       "upcoming": []
@@ -1377,30 +1448,20 @@
   ],
   "countdowns": [
     {
-      "title": "Le Système",
+      "id": "legalize-la-kalite-remix",
+      "title": "Légalize La Kalité Remix",
       "artist": "Sparetdee Simon",
-      "date": "2026-06-27T00:00:00+02:00",
-      "label": "Prochaine sortie Sparetdee Simon",
-      "description": "Sortie officielle le 27/06/2026 sur toutes les plateformes.",
-      "cover": "assets/covers/le-systeme-pre-sortie-27-06-2026.webp"
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026."
     },
     {
-      "title": "Double sortie — L’Argent / Je Vous Pousse Tous",
-      "date": "2026-06-20T00:00:00+02:00",
-      "label": "Prochaine sortie Sparetdee Simon",
-      "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp"
-    },
-    {
-      "title": "Aujourd’hui — Sparetdee Simon",
-      "date": "2026-06-23T00:00:00+02:00",
-      "label": "Prochaine sortie Sparetdee Simon",
-      "cover": "assets/covers/aujourdhui.webp"
-    },
-    {
-      "title": "Rêves et Cauchemards — Sparetdee Simon",
-      "date": "2026-06-24T00:00:00+02:00",
-      "label": "Prochaine sortie Sparetdee Simon",
-      "cover": "assets/covers/reves-et-cauchemards.webp"
+      "id": "brainrot-society-remix",
+      "title": "BrainRot Society Remix",
+      "artist": "Sparetdee Simon",
+      "date": "2026-09-26T00:00:00+02:00",
+      "label": "M.P.B.P 440 Corp.2026",
+      "description": "Sortie officielle annoncée pour le 26 septembre 2026."
     }
   ],
   "mpbp_tv": {
@@ -1413,7 +1474,9 @@
       "datetime": "2026-07-25T20:00:00+02:00",
       "url": "https://www.tiktok.com/@makeda_77",
       "cover": "assets/events/roots-live-25-07-2026.png",
-      "description": "Live interactif spécial autour des sorties de Makéda Muse, avec présentation des nouveaux titres, exclusivités, échanges, participation, partage et surprises."
+      "description": "Live interactif spécial autour des sorties de Makéda Muse, avec présentation des nouveaux titres, exclusivités, échanges, participation, partage et surprises.",
+      "status": "Passé",
+      "archive": true
     },
     "featured_videos": [
       "0YEqshdl7jI",
@@ -1427,38 +1490,6 @@
       "status": "Sélection officielle MPBP440",
       "note": "Écoute la sélection du label et retrouve les titres sur les plateformes officielles."
     }
-  },
-  "focus": {
-    "title": "Double sortie",
-    "artist": "Sparetdee Simon",
-    "date": "20/06/2026",
-    "description": "L’Argent + Je Vous Pousse Tous — sortie officielle le 20/06/2026 sur toutes les plateformes.",
-    "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp",
-    "status": "Sortie du moment"
-  },
-  "officialFocus": {
-    "title": "Double sortie",
-    "artist": "Sparetdee Simon",
-    "date": "20/06/2026",
-    "description": "L’Argent + Je Vous Pousse Tous — sortie officielle le 20/06/2026 sur toutes les plateformes.",
-    "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp",
-    "status": "Sortie du moment"
-  },
-  "highlight": {
-    "title": "Double sortie",
-    "artist": "Sparetdee Simon",
-    "date": "20/06/2026",
-    "description": "L’Argent + Je Vous Pousse Tous — sortie officielle le 20/06/2026 sur toutes les plateformes.",
-    "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp",
-    "status": "Sortie du moment"
-  },
-  "moment": {
-    "title": "Double sortie",
-    "artist": "Sparetdee Simon",
-    "date": "20/06/2026",
-    "description": "L’Argent + Je Vous Pousse Tous — sortie officielle le 20/06/2026 sur toutes les plateformes.",
-    "cover": "assets/covers/double-sortie-largent-je-vous-pousse-tous.webp",
-    "status": "Sortie du moment"
   },
   "radio": {
     "title": "Playlist MPBP440 sur Spotify",
